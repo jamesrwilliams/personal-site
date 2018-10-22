@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+
+{{ partial "sidebar.html" . }}
+
+<main>
+
+<article id="content">
+	<div class="content-header">
+		<p id="tags-list">
+			{{ range .Params.tags }}
+			<a class="tag" href="tags/{{ . | urlize }}">#{{ . }}</a>
+			{{ end }}
+		</p>
+		<h1>{{ .Title }}</h1>
+		<p>Posted <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006" }}</time></p>
+	</div>
+	<div class="content-body">
+		{{ .Content }}
+	</div>
+</article>
+
+</main>
+
+

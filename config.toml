@@ -1,0 +1,14 @@
+baseURL = "https://jamesrwilliams.co.uk"
+languageCode = "en-GB"
+title = "James R. Williams"
+theme = "jamesrwilliams"
+pygmentsCodeFences = true
+
+[permalinks]
+    posts = "/:year/:month/:day/:slug/"
+
+[taxonomies]
+    category = "categories"
+    tag = "tags"
+
+
