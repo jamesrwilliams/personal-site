@@ -4,19 +4,25 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>{{ .Title }}</title>
 
-	<meta name="description" content="{{ .Description }}">
-
-	<meta name="og:title" content="{{ .Title }}">
-	<meta name="og:description" content="{{ .Description }}">
+	<title>{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}</title>
+	<!-- Search Engine -->
+	<meta name="description" content="{{ $.Param "description" }}">
+	<meta name="image" content="{{ $.Param "image" }}">
+	<!-- Schema.org for Google -->
+	<meta itemprop="name" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
+	<meta itemprop="description" content="{{ $.Param "description" }}">
+	<meta itemprop="image" content="{{ $.Param "image" }}">
+	<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+	<meta name="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
+	<meta name="og:description" content="{{ $.Param "description" }}">
 
 	{{ $sass := resources.Get "scss/site.scss" }}
 	{{ $style := $sass | resources.ToCSS }}
 	<link rel="manifest" href="/manifest.json">
 	<!--<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">-->
 	<link rel="stylesheet" href="{{ $style.Permalink }}" media="screen">
-	<script src="{{"javascript/particles.js" | relURL}}"></script>
+	<script src='{{"javascript/particles.js" | relURL}}'></script>
 	<script>
         particlesJS.load('particles-js', 'javascript/particles.json', function() {
             console.log('callback - particles.js config loaded');
