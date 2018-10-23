@@ -29,11 +29,6 @@ main {
 	box-shadow: 0 0 1em rgba(0,0,0,.7);
 }
 
-article {
-
-
-}
-
 .brand {
 	display: block;
 	padding: 40px 15px 20px;
@@ -58,9 +53,23 @@ article {
 }
 
 .hero {
-	background: white;
+	background: #000;
+	position: relative;
+	color: white;
+	background: linear-gradient(to bottom right, #000428, #004e92);
 	padding: 40px;
-	height: 50vh;
+	height: 250px;
+	z-index: 50;
+
+	canvas.particles-js-canvas-el {
+		position: absolute;
+		z-index: 10;
+		pointer-events: none;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
 }
 
 .bio {
@@ -86,9 +95,15 @@ section.sidebar {
 	background: #2E3641;
 	color: #fff;
 	font-size: 14px;
-	min-width: 280px;
+	min-width: 200px;
 	flex: 0 0 230px;
 	position: relative;
+	height: 100vh;
+	overflow-y: scroll;
+
+	@media only screen and (min-width:960px) {
+		min-width: 280px;
+	}
 
 	a { color: #fff; }
 
