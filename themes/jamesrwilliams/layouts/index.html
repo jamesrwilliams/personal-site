@@ -4,7 +4,7 @@
 <main>
 
 	<header class="hero">
-		<h1>I'm james. A front end developer focusing on WordPress themes and Ionic applications.</h1>
+		<h1>I'm James. A front end developer focusing on WordPress themes and Ionic applications.</h1>
 		<p>I am a web developer in the UK. I primarily work in Wordpress, building bespoke websites for the folks at silver.agency. In my free time I'm getting into building Angular applications with Ionic 2. Powered by mediocre coffee and questionable Spotify playlists. Work like a captain, play like a pirate!</p>
 	</header>
 
@@ -16,32 +16,5 @@
 			{{ end }}
 		</ul>
 	</section>
-
-	<section class="recent-projects">
-		<h3>Current Projects</h3>
-		<ul class="recent-projects">
-			{{ range first 10 (where .Site.Pages ".Section" "projects") }}
-			<li><a href="{{.Permalink}}">{{.Title}}</a></li>
-			{{ end }}
-		</ul>
-	</section>
-
-	<table style="padding: 20px; font-family: monospace;">
-		<thead>
-			<tr>
-				<th>Post Date</th>
-				<th>Title</th>
-				<th>Tags</th>
-			</tr>
-		</thead>
-		<tbody>
-		{{ range first 10 .Pages }}
-			<tr>
-				<td>{{ .PublishDate.Format "02 Jan, 2006" }}</td>
-				<td><a href="{{.Permalink}}">{{.Title}}</a></td>
-			</tr>
-		{{ end }}
-		</tbody>
-	</table>
 
 </main>

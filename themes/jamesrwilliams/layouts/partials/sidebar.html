@@ -25,11 +25,9 @@
 
 	<ul id="topics">
 		<li><h6>Blog topics</h6></li>
-		<li><a href="#">#wordpress</a></li>
-		<li><a href="#">#javascript</a></li>
-		<li><a href="#">#aws</a></li>
-		<li><a href="#">#docker</a></li>
-		<li><a href="#">#bash</a></li>
+		{{ range first 10 (where .Site.Pages ".Section" "topics") }}
+		<li><a href="{{.Permalink}}">#{{.Title}}</a></li>
+		{{ end }}
 	</ul>
 
 	<footer>

@@ -5,10 +5,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>{{ .Title }}</title>
+
+	<meta name="description" content="{{ .Description }}">
+	<meta name="image" content="{{ $.Param "image" }}">
+
+	<meta name="og:title" content="{{ .Title }}">
+	<meta name="og:description" content="{{ .Description }}">
+
 	{{ $sass := resources.Get "scss/site.scss" }}
 	{{ $style := $sass | resources.ToCSS }}
+	<link rel="manifest" href="/manifest.json">
 	<!--<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">-->
 	<link rel="stylesheet" href="{{ $style.Permalink }}" media="screen">
 	<meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+	<script>
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js', { scope: '/' })
+                .then(function(registration) {
+                    console.log('Service Worker Registered');
+                });
+
+            navigator.serviceWorker
+                .ready
+                .then(function(registration) {
+                    console.log('Service Worker Ready');
+                });
+        }
+	</script>
 </head>
 <body>

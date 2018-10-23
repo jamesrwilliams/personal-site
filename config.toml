@@ -4,11 +4,15 @@ title = "James R. Williams"
 theme = "jamesrwilliams"
 pygmentsCodeFences = true
 
+[params]
+  author = "James R. Williams"
+  description = "Web developer and a wannabe software engineer."
+
 [permalinks]
     posts = "/:year/:month/:day/:slug/"
 
 [taxonomies]
-    category = "categories"
+    topics = "topics"
     tag = "tags"
 
 

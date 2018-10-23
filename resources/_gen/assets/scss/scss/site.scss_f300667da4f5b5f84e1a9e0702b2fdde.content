@@ -449,11 +449,10 @@ code {
 
 pre {
   margin-left: -40px;
+  margin-right: -40px;
   padding: 40px;
   color: white;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-right: 30px solid #272822; }
+  overflow: scroll; }
   pre code {
     background: none; }
 
