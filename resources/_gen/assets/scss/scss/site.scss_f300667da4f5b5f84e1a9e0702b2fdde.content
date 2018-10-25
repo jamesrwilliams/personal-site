@@ -362,20 +362,25 @@ section.sidebar {
         height: 15px;
         fill: white; }
 
-.brand {
-  display: block;
-  padding: 40px 15px 20px; }
-  .brand img {
-    max-width: 150px;
-    height: auto;
-    border-radius: 100%;
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7); }
+.about-me {
+  padding: 15px; }
+
+.profile {
+  max-width: 150px;
+  height: auto;
+  border-radius: 100%;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7); }
+
+.bio {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5em; }
 
 .name {
   font-size: 28px;
-  padding: 0 15px 15px;
   margin: 0;
-  font-weight: 300; }
+  font-weight: 300;
+  padding-top: 20px; }
   .name a {
     text-decoration: none; }
 
@@ -395,12 +400,6 @@ section.sidebar {
     left: 0;
     bottom: 0;
     right: 0; }
-
-.bio {
-  padding: 0 15px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.5em; }
 
 .content-header {
   background: #fff;

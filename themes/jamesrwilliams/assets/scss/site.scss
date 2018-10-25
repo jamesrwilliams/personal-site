@@ -2,6 +2,12 @@
 
 $accent: #001DE8;
 
+@mixin media-query($breakpoint) {
+	@media screen and (min-width: $breakpoint) {
+		@content;
+	}
+}
+
 * {
 	box-sizing: border-box;
 }
