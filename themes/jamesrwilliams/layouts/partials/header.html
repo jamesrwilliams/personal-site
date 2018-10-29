@@ -7,14 +7,14 @@
 	<meta name="theme-color" content="##2E3641"/>
 
 	<title>{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}</title>
-	<!-- Search Engine -->
+
 	<meta name="description" content="{{ $.Param "description" }}">
 	<meta name="image" content="{{ $.Param "image" }}">
-	<!-- Schema.org for Google -->
+
 	<meta itemprop="name" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
 	<meta itemprop="description" content="{{ $.Param "description" }}">
 	<meta itemprop="image" content="{{ $.Param "image" }}">
-	<!-- Open Graph general (Facebook, Pinterest & Google+) -->
+
 	<meta name="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
 	<meta name="og:description" content="{{ $.Param "description" }}">
 
