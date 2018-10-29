@@ -22,26 +22,40 @@
 	<link rel="manifest" href="/manifest.json">
 	<!--<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">-->
 	<link rel="stylesheet" href="{{ $style.Permalink }}" media="screen">
-	<script src='{{"javascript/particles.js" | relURL}}'></script>
 
 	<meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
-	<script>
+	<script defer>
 
-        particlesJS.load('particles-js', 'javascript/particles.json');
+        window.addEventListener('DOMContentLoaded', function() {
 
-        if('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                .register('/sw.js', { scope: '/' })
-                .then(function(registration) {
-                    console.log('Service Worker Registered');
-                });
+	        /* START MENU STUFF */
+	        var $toggle_nav = document.getElementById('menu-release');
+	        var $site_wrapper = document.getElementById('page-container');
 
-            navigator.serviceWorker
-                .ready
-                .then(function(registration) {
-                    console.log('Service Worker Ready');
-                });
-        }
+	        $toggle_nav.addEventListener('click', function () {
+	            $site_wrapper.classList.toggle('nav-open');
+	        });
+	        /* END MENU STUFF  */
+
+	        /* START SW STUFF */
+	        if('serviceWorker' in navigator) {
+	            navigator.serviceWorker
+	                .register('/sw.js', { scope: '/' })
+	                .then(function(registration) {
+	                    console.log('Service Worker Registered');
+                        console.log("SW scope:", registration.scope);
+	                });
+
+	            navigator.serviceWorker
+	                .ready
+	                .then(function(registration) {
+	                    console.log('Service Worker Ready');
+	                });
+	        }
+	        /* END SW STUFF */
+        });
 	</script>
 </head>
 <body>
+<div class="page-container" id="page-container">
+	<a href="#" id="menu-release">menu release</a>
