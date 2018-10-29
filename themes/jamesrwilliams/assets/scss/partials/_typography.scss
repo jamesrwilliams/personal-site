@@ -12,11 +12,10 @@ code {
 }
 
 pre {
-	margin-left: -40px;
-	margin-right: -40px;
-	padding: 40px;
 	color: white;
 	overflow: scroll;
+	margin-left: calc( $post_margin * -1);
+	padding: 15px 0 15px 40px;
 
 	code {
 		background: none;

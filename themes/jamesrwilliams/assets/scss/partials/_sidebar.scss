@@ -1,15 +1,29 @@
-section.sidebar {
-	background: #2E3641;
+.sidebar {
+	background: $secondary;
 	color: #fff;
 	font-size: 14px;
 	min-width: 200px;
+	padding-bottom: 60px;
 	flex: 0 0 230px;
-	position: relative;
-	height: 100vh;
 	overflow-y: scroll;
+	transition: all 1s ease;
+	transform: translateX(0);
+	position: absolute;
+	left: -80vw;
+	width: 80vw;
+	bottom: 0;
+	top: 45px;
+	z-index: 5000;
+	box-shadow: 0;
 
-	@media only screen and (min-width:960px) {
+	@media only screen and (min-width: 960px) {
 		min-width: 280px;
+		left: 0;
+		top: 0;
+		position: relative;
+		width: 350px;
+		transform: translateX(0);
+		box-shadow: none;
 	}
 
 	a { color: #fff; }
@@ -56,6 +70,19 @@ section.sidebar {
 			}
 		}
 	}
+
+	&-footer {
+		font-size: 12px;
+		padding: 15px 15px 0.0px;
+		position: absolute;
+		line-height: 1.4em;
+		text-align: left;
+		bottom: 0;
+		left: 0;
+		font-weight: 500;
+		color: #fff;
+		right: 0;
+	}
 }
 
 .about-me {
@@ -84,26 +111,6 @@ section.sidebar {
 
 	a {
 		text-decoration: none;
-	}
-}
-
-.hero {
-	background: #000;
-	position: relative;
-	color: white;
-	background: linear-gradient(to bottom right, #000428, #004e92);
-	padding: 40px;
-	height: 250px;
-	z-index: 50;
-
-	canvas.particles-js-canvas-el {
-		position: absolute;
-		z-index: 10;
-		pointer-events: none;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
 	}
 }
 

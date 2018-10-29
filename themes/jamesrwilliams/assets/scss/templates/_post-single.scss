@@ -1,4 +1,8 @@
-.content {
+.post body {
+
+}
+
+.post {
 
 	&-header {
 		background: #fff;
@@ -14,7 +18,7 @@
 		}
 	}
 
-	&-body {
+	&-content {
 		max-width: 800px;
 		line-height: 1.5em;
 		margin-left: 40px;
@@ -25,10 +29,48 @@
 			color: $accent;
 		}
 	}
+
+	&-footer {
+
+	}
+
 }
 
 .tag {
 	font-size: 14px;
 	text-decoration: none;
 	color: #444;
+}
+
+.post-footer {
+
+}
+
+.post-links {
+	display: flex;
+	border-top: 1px solid #ccc;
+}
+
+.post-link {
+	display: block;
+	text-decoration: none;
+	flex-grow: 1;
+	font-size: 14px;
+	padding: 20px 0;
+	color: inherit;
+
+	&:hover {
+		background: rgba($accent, 0.3);
+		color: white;
+	}
+
+	&-prev {
+		padding-left: $post_margin;
+		border-right: 1px solid #ccc;
+	}
+
+	&-next {
+		text-align: right;
+		padding-right: $post_margin;
+	}
 }
