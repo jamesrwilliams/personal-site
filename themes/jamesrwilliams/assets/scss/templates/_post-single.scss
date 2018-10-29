@@ -21,9 +21,17 @@
 	&-content {
 		max-width: 800px;
 		line-height: 1.5em;
-		margin-left: 40px;
-		padding-bottom: 40px;
-		padding-right: 40px;
+		margin-left: 15px;
+
+		// Give the absolute footer plenty of room.
+		padding-bottom: 150px;
+		padding-right: 15px;
+
+		@include media-query($breakpoint_md) {
+			padding-right: 40px;
+			margin-left: 40px;
+			min-height: calc(100vh - 300px);
+		}
 
 		a {
 			color: $accent;
@@ -31,7 +39,9 @@
 	}
 
 	&-footer {
-
+		position: absolute;
+		bottom: 0;
+		width: 100%;
 	}
 
 }
@@ -49,28 +59,55 @@
 .post-links {
 	display: flex;
 	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
 
 .post-link {
 	display: block;
 	text-decoration: none;
 	flex-grow: 1;
+	flex-basis: 0;
 	font-size: 14px;
+	font-weight: bold;
 	padding: 20px 0;
 	color: inherit;
 
-	&:hover {
-		background: rgba($accent, 0.3);
-		color: white;
+	&:last-child {
+		border-right: 0;
+	}
+
+	&:before {
+		display: block;
+		font-size: 12px;
+		color: #999;
+		padding-bottom: 10px;
+		text-transform: uppercase;
 	}
 
 	&-prev {
-		padding-left: $post_margin;
+		padding: 15px;
 		border-right: 1px solid #ccc;
+
+		@include media-query($breakpoint_md) {
+			padding-left: 40px;
+		}
+
+		&:before {
+			content: 'Previous post';
+		}
+
 	}
 
 	&-next {
 		text-align: right;
-		padding-right: $post_margin;
+		padding: 15px;
+
+		@include media-query($breakpoint_md) {
+			padding-right: 40px;
+		}
+
+		&:before {
+			content: 'Next post';
+		}
 	}
 }

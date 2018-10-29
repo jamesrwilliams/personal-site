@@ -5,6 +5,8 @@ $secondary: #2E3641;
 
 $post_margin: 40px;
 
+$breakpoint_md: 960px;
+
 @mixin media-query($breakpoint) {
 	@media screen and (min-width: $breakpoint) {
 		@content;
