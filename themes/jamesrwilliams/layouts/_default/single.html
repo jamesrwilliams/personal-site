@@ -10,7 +10,8 @@
 				{{ end }}
 			</p>
 			<h1>{{ .Title }}</h1>
-			<p>Posted <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006" }}</time></p>
+			<p>Posted: <time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006" }}</time></p>
+			<p>~{{ .ReadingTime }} minute read</p>
 		</header>
 		<div class="post-content">
 			{{ .Content }}

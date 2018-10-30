@@ -4,8 +4,7 @@ author: James W.
 type: post
 date: 2018-10-12T16:07:16+00:00
 url: /2018/10/12/drupal-8-introduction/
-categories:
-  - Resources
+topics: ['php']
 tags:
   - drupal
   - php

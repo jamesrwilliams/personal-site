@@ -6,8 +6,14 @@
 
 	&-header {
 		background: #fff;
-		padding: 40px;
+		padding: 20px 15px;
+		margin-bottom: 20px;
 		box-shadow: 0 0 0.5em rgba(0,0,0,.1);
+
+		@include media-query($breakpoint_md) {
+			padding: 40px;
+			margin-bottom: 0;
+		}
 
 		p {
 			margin: 0;
@@ -27,8 +33,17 @@
 		padding-bottom: 150px;
 		padding-right: 15px;
 
+		& > :first-child {
+			margin-top: 0;
+		}
+
+		& > :last-child {
+			margin-bottom: 0;
+		}
+
 		@include media-query($breakpoint_md) {
 			padding-right: 40px;
+			padding-top: 30px;
 			margin-left: 40px;
 			min-height: calc(100vh - 300px);
 		}
