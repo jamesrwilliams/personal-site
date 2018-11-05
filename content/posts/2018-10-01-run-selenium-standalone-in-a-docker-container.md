@@ -1,5 +1,5 @@
 ---
-title: Run Selenium Standalone in a docker container
+title: Run Selenium Standalone in a Docker container
 author: James W.
 type: post
 date: 2018-10-01T15:34:20+00:00
@@ -13,8 +13,8 @@ tags:
   - webdriver
 
 ---
-Why run selenium normally when you can run it inside a docker container!
-```$xslt
+Why run selenium normally when you can run it inside a Docker container!
+```bash
 docker run -it -p 4444:4444 vvoyer/selenium-standalone
 ```
 

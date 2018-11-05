@@ -1,8 +1,10 @@
 baseURL = "https://jamesrwilliams.co.uk"
 languageCode = "en-GB"
 title = "James R. Williams"
+paginate =  25
 theme = "jamesrwilliams"
 pygmentsCodeFences = true
+googleAnalytics = ""
 
 [params]
   author = "James R. Williams"

@@ -1,17 +1,6 @@
-@import "vendor/_normalize.scss";
-
-$accent: #000428;
-$secondary: #2E3641;
-
-$post_margin: 40px;
-
-$breakpoint_md: 960px;
-
-@mixin media-query($breakpoint) {
-	@media screen and (min-width: $breakpoint) {
-		@content;
-	}
-}
+@import "vendor/_normalize";
+@import "_variables";
+@import "_mixins";
 
 * {
 	box-sizing: border-box;
@@ -34,7 +23,6 @@ body {
 	width: 100%;
 	position: relative;
 	display: flex;
-	padding-top: 45px;
 
 	@media only screen and (min-width: 960px) {
 		padding-top: 0;

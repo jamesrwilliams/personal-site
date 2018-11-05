@@ -15,7 +15,11 @@ pre {
 	color: white;
 	overflow: scroll;
 	margin-left: calc( $post_margin * -1);
-	padding: 15px 0 15px 40px;
+	padding: 15px;
+
+	@include media-query($breakpoint_md) {
+		padding: 15px 0 15px 40px;
+	}
 
 	code {
 		background: none;

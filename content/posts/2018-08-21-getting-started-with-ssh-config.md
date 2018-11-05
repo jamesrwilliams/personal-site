@@ -18,7 +18,9 @@ tags:
 
 ### Edit the user-specific SSH config {#edit-the-user-specific-ssh-config}
 
-`nano ~/.ssh/config`
+```
+nano ~/.ssh/config
+```
 
 So here is an example from my ssh config file. Here I&#8217;ve set up a personal key for my GitHub account.
 

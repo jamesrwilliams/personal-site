@@ -21,35 +21,45 @@ Sometimes you need to fetch domain information on a domain to debug hosting/SSL 
 
 The `dig` command is a tool for querying DNS nameservers for information about host addresses, mail exchanges, nameservers, and related information.
 
-    dig google.com any
-
-[<img class="size-large wp-image-272 alignnone" src="https://jamesrwilliams.co.uk/blog/wp-content/uploads/2018/07/carbon-1-900x1024.png" alt="Example output from the dig command for google.com" width="900" height="1024" />][2]
+```bash
+dig google.com any
+```
 
 ## [host][3]
 
-`host` is a simple utility for performing DNS lookups. It is normally used to convert names to IP addresses and vice versa. The -t option is used below select the query type, for example, \`mx\` for MX records and A records for, you guessed it, A records.
+`host` is a simple utility for performing DNS look ups. It is normally used to convert names to IP addresses and vice versa. The -t option is used below select the query type, for example, \`mx\` for MX records and A records for, you guessed it, A records.
 
 Get the a records for a domain:
 
-    host –t a google.com
+```bash
+host -t a google.com
+```
 
 Get the a records for a domain:
 
-    host –t mx google.com
+```bash
+host -t mx google.com
+```
 
-Get the nameserver records for a domain:
+Get the name server records for a domain:
 
-    host –t ns google.com
+```bash
+host -t ns google.com
+```
 
 Replace the `-t` flag with `-a` to get all of it in one go:
 
-    host –a google.com
+```bash
+host -a google.com
+``` 
 
 ## [whois][4]
 
 `whois` searches for an object in a WHOIS database. WHOIS is a query and response protocol that is widely used for querying databases that store the registered users of an Internet resource. For example, a domain name or an IP address block but is also used for a wider range of other information.
 
-    whois -H google.com
+```bash
+whois -H google.com
+```
 
 The `-H` flag here hides the legal disclaimers some registries like to show you
 

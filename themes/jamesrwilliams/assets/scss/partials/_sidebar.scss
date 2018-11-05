@@ -14,7 +14,7 @@
 	bottom: 0;
 	top: 45px;
 	z-index: 5000;
-	box-shadow: 0;
+	box-shadow: none;
 
 	@media only screen and (min-width: 960px) {
 		min-width: 280px;
@@ -90,7 +90,7 @@
 }
 
 .profile {
-	max-width: 150px;
+	max-width: 100px;
 	height: auto;
 	border-radius: 100%;
 	box-shadow: 0 0 0.5em rgba(0,0,0,.7);

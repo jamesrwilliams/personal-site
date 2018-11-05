@@ -297,6 +297,9 @@ template {
 [hidden] {
   display: none; }
 
+/* Colours */
+/* Site Config */
+/* Breakpoint controls (see _mixins.scss) */
 * {
   box-sizing: border-box; }
 
@@ -314,8 +317,7 @@ body {
 .page-container {
   width: 100%;
   position: relative;
-  display: flex;
-  padding-top: 45px; }
+  display: flex; }
   @media only screen and (min-width: 960px) {
     .page-container {
       padding-top: 0; } }
@@ -369,7 +371,7 @@ main {
   bottom: 0;
   top: 45px;
   z-index: 5000;
-  box-shadow: 0; }
+  box-shadow: none; }
   @media only screen and (min-width: 960px) {
     .sidebar {
       min-width: 280px;
@@ -424,7 +426,7 @@ main {
   padding: 15px; }
 
 .profile {
-  max-width: 150px;
+  max-width: 100px;
   height: auto;
   border-radius: 100%;
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7); }
@@ -543,7 +545,10 @@ pre {
   color: white;
   overflow: scroll;
   margin-left: calc( $post_margin * -1);
-  padding: 15px 0 15px 40px; }
+  padding: 15px; }
+  @media screen and (min-width: 960px) {
+    pre {
+      padding: 15px 0 15px 40px; } }
   pre code {
     background: none; }
 
