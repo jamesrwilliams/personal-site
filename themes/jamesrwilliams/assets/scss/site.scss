@@ -9,10 +9,14 @@
 html,
 body {
 	margin: 0;
+	height: 100%;
 	-webkit-font-smoothing: antialiased;
 }
 
 body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
 	background: #eee;
 	color: #333;
 	font-size: 16px;
@@ -22,50 +26,25 @@ body {
 .page-container {
 	width: 100%;
 	position: relative;
+	flex-direction: column;
 	display: flex;
+	flex-grow: 1;
+	height: 100%;
 
 	@media only screen and (min-width: 960px) {
 		padding-top: 0;
-	}
-
-	&.nav-open {
-		.sidebar {
-			transform: translateX(80vw);
-			box-shadow: 0 0 1em rgba(0,0,0,.7);
-			@media only screen and (min-width: 960px) {
-				transform: translateX(0);
-			}
-		}
-	}
-}
-
-#menu-release {
-	background: darken($secondary, 3);
-	position: absolute;
-	color: #fff;
-	top: 0;
-	right: 0;
-	width: 100%;
-	text-decoration: none;
-	height: 45px;
-	line-height: 45px;
-	font-weight: bold;
-	padding: 0 40px;
-	display: block;
-	border-bottom: 1px solid rgba(0,0,0,0.1);
-	z-index: 9999;
-	@media only screen and (min-width: 960px) {
-		display: none;
+		flex-direction: row;
 	}
 }
 
 main {
 	flex-grow: 1;
-	min-height: 100vh;
+	min-height: calc(100vh - 60px);
 	overflow-y: scroll;
 	position: relative;
 	z-index: 1000;
 	box-shadow: 0 0 1em rgba(0,0,0,.7);
+
 }
 
 @import 'partials/sidebar';
@@ -78,23 +57,72 @@ img {
 }
 
 .hero {
-	background: #000;
-	position: relative;
-	color: white;
-	background: linear-gradient(to bottom right, #000428, #004e92);
 	padding: 40px;
 	height: 250px;
-	z-index: 50;
+}
 
-	canvas.particles-js-canvas-el {
-		position: absolute;
-		z-index: 10;
-		pointer-events: none;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
+.sidebar,
+main {
+	flex-grow: 1;
+	margin: 0;
+	height: 100%;
+}
+
+main {
+	flex-basis: auto;
+}
+
+.inner {
+	overflow: scroll;
+	overflow-x: hidden;
+	height: 100%
+}
+
+.about-me {
+	padding: 15px;
+}
+
+.profile {
+	max-width: 75px;
+	height: auto;
+	border-radius: 100%;
+	box-shadow: 0 0 0.5em rgba(0,0,0,.7);
+
+	@media only screen and (min-width: 960px) {
+		max-width: 100px;
 	}
 }
 
+.bio {
+	margin: 0;
+	line-height: 1.5em;
 
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.name {
+	font-size: 28px;
+	margin: 0;
+	font-weight: 300;
+	display: inline-block;
+	line-height: 75px;
+	vertical-align: top;
+
+	@media only screen and (min-width: 960px) {
+		display: block;
+		padding-top: 20px;
+		line-height: inherit;
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+ul#topics {
+	li a {
+		text-transform: lowercase;
+	}
+}

@@ -2,26 +2,28 @@
 	background: $secondary;
 	color: #fff;
 	font-size: 14px;
-	min-width: 200px;
-	padding-bottom: 60px;
-	flex: 0 0 230px;
+	padding-right: 2px;
+	flex: 0 0;
 	overflow-y: scroll;
-	transition: all 1s ease;
 	transform: translateX(0);
-	position: absolute;
-	left: -80vw;
-	width: 80vw;
-	bottom: 0;
-	top: 45px;
 	z-index: 5000;
+	flex-grow: 1;
+	margin: 0;
+	height: 100%;
 	box-shadow: none;
 
+	.inner {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+	}
+
 	@media only screen and (min-width: 960px) {
-		min-width: 280px;
+		width: 50px;
+		max-width: 50px;
 		left: 0;
 		top: 0;
 		position: relative;
-		width: 350px;
 		transform: translateX(0);
 		box-shadow: none;
 	}
@@ -30,7 +32,7 @@
 
 	ul {
 		font-size: 14px;
-		margin: 25px 0 0;
+		margin: 0;
 		padding: 0;
 		list-style: none;
 
@@ -43,79 +45,24 @@
 
 		li {
 			position: relative;
+			text-align: center;
 
 			a {
 				display: block;
 				text-decoration: none;
-				padding: 10px 15px 10px 15px;
+				padding: 15px 0;
 
 				&:hover {
 					background: rgba(0, 0, 0, 0.3);
 				}
 			}
 
-			&.has-icon {
-				svg {
-					display: inline-block;
-				}
-			}
-
 			svg {
-				display: none;
-				margin-right: 15px;
-				width: 15px;
+				width: 20px;
+				height: 20px;
 				transform: translateY(2px);
-				height: 15px;
 				fill: white;
 			}
 		}
-	}
-
-	&-footer {
-		font-size: 12px;
-		padding: 15px 15px 0.0px;
-		position: absolute;
-		line-height: 1.4em;
-		text-align: left;
-		bottom: 0;
-		left: 0;
-		font-weight: 500;
-		color: #fff;
-		right: 0;
-	}
-}
-
-.about-me {
-	padding: 15px;
-}
-
-.profile {
-	max-width: 100px;
-	height: auto;
-	border-radius: 100%;
-	box-shadow: 0 0 0.5em rgba(0,0,0,.7);
-
-}
-
-.bio {
-	margin: 0;
-	color: rgba(#fff, 0.8);
-	line-height: 1.5em;
-}
-
-.name {
-	font-size: 28px;
-	margin: 0;
-	font-weight: 300;
-	padding-top: 20px;
-
-	a {
-		text-decoration: none;
-	}
-}
-
-ul#topics {
-	li a {
-		text-transform: lowercase;
 	}
 }
