@@ -14,11 +14,11 @@ tags:
 
 ---
 ZIP the contents of the current folder into a zip with it&#8217;s parent directory as it&#8217;s name. Useful for zipping just the contents without the folder parent folder.
-
-<pre><code class='sh'>zip -r "${PWD##*/}".zip .</code></pre>
-
+```bash
+zip -r "${PWD##*/}".zip .
+```
 Zip the current directory into a folder called `app.zip`:
-
-<pre><code class='sh'>zip -r app.zip .</code></pre>
-
-Especially useful for proprietary email clients, I&#8217;m looking at you Dell EMC, and certain manifest files.
+```bash
+zip -r app.zip .
+```
+Especially useful for proprietary email clients, I'm looking at you Dell EMC, and certain manifest files.

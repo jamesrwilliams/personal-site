@@ -1,8 +1,9 @@
 ---
 title: "WordPress Feature Flags"
-draft: true
+draft: false
 description: A WordPress plugin aimed at developers, helping to easily configure, and work with, feature flags in your WordPress theme.
 github: https://github.com/jamesrwilliams/feature-flags
+type: project
 date: 2018-07-23
 ---
 

@@ -1,10 +1,13 @@
 {{ partial "header.html" . }}
 
+
 <main class="posts">
 
-	<h1>James' Blog</h1>
+	{{ partial "sub-nav.html" . }}
 
-	{{ $paginator := .Paginate (where .Pages "Type" "post") }}
+	<h1>Projects</h1>
+
+	{{ $paginator := .Paginate (where .Pages "Type" "project") }}
 	{{ range $paginator.Pages }}
 
 	<div>
@@ -19,7 +22,7 @@
 			{{ end }}
 		</div>
 	</div>
-{{ end }}
+	{{ end }}
 	{{ partial "pagination.html" . }}
 </main>
 

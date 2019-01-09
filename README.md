@@ -1,6 +1,6 @@
 # Personal Hugo Website
 
-This is the source code for my personal website [https://jamesrwilliams.co.uk](https://jamesrwilliams.co.uk), and eventually it's .ca TLD replacement!
+This is the source code for my personal website [https://jamesrwilliams.co.uk](https://jamesrwilliams.co.uk), and eventually it's `.ca` TLD replacement!
 
 ## Built with
 

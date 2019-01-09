@@ -1,5 +1,6 @@
 code {
 	background: #fff;
+	color: #fff;
 	padding: 0 5px 2px;
 	border-radius: 4px;
 	position: relative;
@@ -11,14 +12,12 @@ code {
 	word-wrap: break-word;
 }
 
+p > code {color: black; }
+
 pre {
 	color: white;
 	overflow: scroll;
 	padding: 15px;
-
-	@include media-query($breakpoint_md) {
-		padding: 15px 0 15px 40px;
-	}
 
 	code {
 		background: none;

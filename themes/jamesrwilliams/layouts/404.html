@@ -1,9 +1,5 @@
-<html>
-<head>
-	<title>{{ .Title }}</title>
-</head>
-<body>
-<h1>{{ .Title }}</h1>
-{{ .Content }}
-</body>
-</html>
+{{ partial "header.html" . }}
+
+	<h1 id="title"><a href="{{ "/" | relURL }}">Go Home</a></h1>
+
+{{ partial "footer.html" . }}
