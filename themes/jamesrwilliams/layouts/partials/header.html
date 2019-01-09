@@ -22,7 +22,7 @@
 	{{ $style := $sass | resources.ToCSS }}
 	<link rel="manifest" href="/manifest.json">
 	<!--<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">-->
-	<link rel="stylesheet" href="{{ $style.Permalink }}" media="screen">
+	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" media="screen">
 
 	<meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
 	<script defer>
