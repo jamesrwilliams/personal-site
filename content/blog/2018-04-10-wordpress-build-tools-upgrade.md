@@ -4,10 +4,6 @@ author: James W.
 type: post
 date: 2018-04-10T10:10:47+00:00
 draft: true
-url: /?p=118
-categories:
-  - Project Management
-
 ---
 To try and be more mobile and to support more remote testing/building tools we are aiming to move away from codeKit to more command line based tools. At silver we use codekit religiously.
 

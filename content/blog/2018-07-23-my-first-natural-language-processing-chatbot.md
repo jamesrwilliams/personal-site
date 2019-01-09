@@ -1,20 +1,8 @@
 ---
 title: Natural language processing with MS BotBuilder
-author: James W.
 type: post
 date: 2018-07-23T13:03:50+00:00
 draft: true
-url: /?p=206
-categories:
-  - Commercial Projects
-tags:
-  - ai
-  - chatbot
-  - heroku
-  - javascript
-  - nlp
-  - nodejs
-
 ---
 Back during December of 2017, I started working on a new project at Silver, fully departed from anything I had done before. A node.js based Chatbot, the application that was going to be integrated into a new Microsoft Office applications: Microsoft Teams as part of an internal campaign for Microsoft&#8217;s UK marketing team.
 

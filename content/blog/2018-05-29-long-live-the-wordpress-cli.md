@@ -1,15 +1,7 @@
 ---
 title: Long live the WordPress CLI
-author: James W.
 type: post
 date: 2018-05-29T16:31:06+00:00
-url: /2018/05/29/long-live-the-wordpress-cli/
-categories:
-  - Resources
-tags:
-  - cli
-  - wordpress
-
 ---
 My previous method of choice for migrating a site from a development URL to a production one was to open an SQL dump in my editor, find-and-replace all the instances of the URL (sans-protocol) and then upload the new SQL file to the server.
 

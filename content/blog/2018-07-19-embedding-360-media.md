@@ -1,17 +1,8 @@
 ---
 title: Embedding 360 media
-author: James W.
 type: post
 date: 2018-07-19T16:31:35+00:00
 draft: true
-url: /?p=217
-categories:
-  - Commercial Projects
-tags:
-  - javascript
-  - vr
-  - VR-View
-
 ---
 ## YouTube {#youtube}
 

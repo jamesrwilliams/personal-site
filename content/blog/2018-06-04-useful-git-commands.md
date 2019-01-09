@@ -1,21 +1,7 @@
 ---
 title: Useful git commands
-author: James W.
 type: post
 date: 2018-06-04T14:02:18+00:00
-url: /2018/06/04/useful-git-commands/
-categories:
-  - Resources
-tags:
-  - bash
-  - bitbucket
-  - deployment
-  - dvcs
-  - git
-  - github
-  - ssh
-  - terminal
-
 ---
 This is a quick and dirty git Cheat Sheet if you will, of all the commands I frequently forget/need to use most often.
 

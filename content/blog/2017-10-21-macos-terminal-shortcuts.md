@@ -1,13 +1,8 @@
 ---
 title: MacOS Terminal Shortcuts
-author: James W.
 type: post
 date: 2017-10-21T14:09:46+00:00
 draft: true
-url: /?p=7
-categories:
-  - Terminal
-
 ---
 My iMac at home is configured with two harddirves, one SSD with the OS and some core applications the other, much larger 2TB drive has all my files, music and alike on it.
 

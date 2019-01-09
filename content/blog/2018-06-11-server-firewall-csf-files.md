@@ -1,17 +1,7 @@
 ---
 title: A brief look at server firewalls with CSF files
-author: James W.
 type: post
 date: 2018-06-11T10:00:24+00:00
-url: /2018/06/11/server-firewall-csf-files/
-categories:
-  - Resources
-tags:
-  - csf
-  - firewall
-  - infrastructure
-  - security
-
 ---
 In a sidestep from my usual day of producing WordPress themes and HTML emails, I had to do some, of what I&#8217;m calling, server management and exploring the new world of CSF files.
 

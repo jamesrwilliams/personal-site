@@ -1,12 +1,7 @@
 ---
 title: Postcardware
-author: James W.
 type: post
 date: 2018-03-19T17:07:35+00:00
-url: /2018/03/19/postcardware/
-categories:
-  - Resources
-
 ---
 The very talented people over at [Spatie][1] have a cool way to pay them back for their open source work. Postcards.
 

@@ -1,7 +1,6 @@
 ---
 title: "From WordPress to Hugo"
 date: 2018-10-22T15:31:05+01:00
-topics: ['wordpress', 'php']
 draft: true
 ---
 

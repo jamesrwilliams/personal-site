@@ -4,12 +4,6 @@ author: James W.
 type: post
 date: 2018-03-13T14:10:45+00:00
 draft: true
-url: /?p=50
-categories:
-  - Javascript
-tags:
-  - ai
-
 ---
 As part of a recent project with <a href="https://silver.agnecy" target="_blank" rel="noopener">Silver</a> I have had some time to experiment with Natural Language processing. The project entered around a chatbot integration that allowed users to interact with our campaign.
 

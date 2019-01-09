@@ -1,17 +1,8 @@
 ---
 title: Getting started with ssh config
-author: James W.
 type: post
 date: 2018-08-21T10:42:37+00:00
 draft: true
-url: /?p=256
-categories:
-  - Resources
-tags:
-  - ssh
-  - ssh-config
-  - terminal
-
 ---
   * **System-wide OpenSSH config file client configuration** &#8211; `/etc/ssh/ssh_config` &#8211; This files set the default configuration for all users of OpenSSH clients on that desktop/laptop and it must be readable by all users on the system.
   * **User-specific OpenSSH file client configuration** &#8211; `~/.ssh/config` or `$HOME/.ssh/config` &#8211; This is user’s own configuration file which, overrides the settings in the global client configuration file, /etc/ssh/ssh_config.

@@ -1,13 +1,8 @@
 ---
 title: Correct file permissions for WordPress
-author: James W.
 type: post
 date: 2018-03-19T09:38:47+00:00
 draft: true
-url: /?p=69
-categories:
-  - Terminal
-
 ---
 When you setup WP you (the webserver) may need write access to the files. So the access rights may need to be loose.
 

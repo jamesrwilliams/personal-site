@@ -1,13 +1,8 @@
 ---
 title: Github Pages
-author: James W.
 type: post
 date: 2018-04-06T14:15:32+00:00
 draft: true
-url: /?p=116
-categories:
-  - Personal Projects
-
 ---
 I&#8217;ve recently been looking into updating my Github pages to make them into more of a timeless portfolio. Using the GitHub API I can pull a list of my pinned repositories to this site showcasing my most recent side project / public work.
 

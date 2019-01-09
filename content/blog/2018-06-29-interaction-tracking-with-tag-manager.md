@@ -1,18 +1,8 @@
 ---
 title: Interaction tracking with Google Tag manager
-author: James W.
 type: post
 date: 2018-06-29T12:58:07+00:00
 draft: true
-url: /?p=187
-categories:
-  - SEO
-tags:
-  - google-analytics
-  - google-tag-manager
-  - seo
-  - user-tracking
-
 ---
 ## Scenario {#scenario}
 

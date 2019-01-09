@@ -1,15 +1,7 @@
 ---
 title: Quick Save (QS) – Side project
-author: James W.
 type: post
 date: 2018-03-13T08:40:40+00:00
-url: /2018/03/13/quick-save-qs-side-project/
-categories:
-  - Javascript
-  - Personal
-tags:
-  - localstorage
-
 ---
 During a recent project exploring Javascript encryption, I added an auto-save feature for the form fields so I didn&#8217;t need to constantly repast RSA keys and other configs into the page. I have expanded this into its own library (my first). I used [Krasimir&#8217;s boilerplate][1] for the web pack config.
 

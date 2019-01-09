@@ -1,17 +1,8 @@
 ---
 title: Office Bingo
-author: James W.
 type: post
 date: 2018-04-28T16:39:50+00:00
 draft: true
-url: /?p=120
-categories:
-  - Personal Projects
-tags:
-  - angular
-  - firebase
-  - ionic
-
 ---
 During a particularly buzzword saturated meeting I had an idea. We all know the game, bingo. Random numbers, whoever stamps them all or another winning pattern wins, right? So put them together and you have buzzword bingo.
 

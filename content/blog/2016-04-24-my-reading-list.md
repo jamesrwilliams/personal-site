@@ -1,13 +1,7 @@
 ---
 title: My Reading List
-author: James W.
 type: post
 date: 2016-04-24T18:13:11+00:00
-url: /2016/04/24/my-reading-list/
-categories:
-  - Personal
-  - Uncategorised
-
 ---
 Thought I would educate my ass by widen my reading with a revised reading list. I have compiled this list from many of those “must read” lists online along with other books that I have on my shelf and need to show some love. Will mark these off as I get through them:
 

@@ -1,14 +1,7 @@
 ---
 title: htaccess redirects scratchpad
-author: James W.
 type: post
 date: 2018-05-03T10:39:52+00:00
-url: /2018/05/03/htaccess-redirects/
-categories:
-  - Snippet
-tags:
-  - htaccess
-
 ---
 Redirects are a frequent request for me during my working day. Clients moving their sites around, sandbox projects changing domains and other such reasons often call for legacy URLs to be handled with care. While using `.htaccess` files slows down your Apache http server, I personally don&#8217;t know enough (yet) about `httpd` config to use that instead. So enter my .htaccess redirect scratchpad:
 

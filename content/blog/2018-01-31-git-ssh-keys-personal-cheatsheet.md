@@ -1,6 +1,5 @@
 ---
 title: Git/SSH Keys Personal Cheatsheet
-author: James W.
 type: post
 date: 2018-01-31T20:33:56+00:00
 draft: true

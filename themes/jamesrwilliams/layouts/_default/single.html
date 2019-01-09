@@ -3,14 +3,8 @@
 <main>
 	<article class="post" id="content">
 		<header class="post-header">
-			<time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "January 2, 2006" }}</time>
 			<h1>{{ .Title }}</h1>
-			<p id="tags-list">
-				{{ range .Params.tags }}
-				<a class="tag" href="tags/{{ . | urlize }}">#{{ . }}</a>
-				{{ end }}
-			</p>
-			<p>~{{ .ReadingTime }} minute read</p>
+			<p><time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Monday, January 2, 2006" }}</time> ~{{ .ReadingTime }} minute read</p>
 		</header>
 		<div class="post-content">
 			{{ .Content }}
