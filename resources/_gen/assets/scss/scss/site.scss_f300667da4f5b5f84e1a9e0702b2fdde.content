@@ -306,90 +306,15 @@ template {
 html,
 body {
   margin: 0;
-  height: 100%;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  background: #141E27;
+  color: white; }
 
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background: #eee;
-  color: #333;
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
-
-.page-container {
-  width: 100%;
-  position: relative;
-  flex-direction: column;
-  display: flex;
-  flex-grow: 1;
-  height: 100%; }
-  @media only screen and (min-width: 960px) {
-    .page-container {
-      padding-top: 0;
-      flex-direction: row; } }
-
-main {
-  flex-grow: 1;
-  min-height: calc(100vh - 60px);
-  overflow-y: scroll;
-  position: relative;
-  z-index: 1000;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.7); }
-
-.sidebar {
-  background: #2E3641;
-  color: #fff;
-  font-size: 14px;
-  padding-right: 2px;
-  flex: 0 0;
-  overflow-y: scroll;
-  transform: translateX(0);
-  z-index: 5000;
-  flex-grow: 1;
-  margin: 0;
-  height: 100%;
-  box-shadow: none; }
-  .sidebar .inner {
-    display: flex;
-    justify-content: center;
-    flex-direction: column; }
-  @media only screen and (min-width: 960px) {
-    .sidebar {
-      width: 50px;
-      max-width: 50px;
-      left: 0;
-      top: 0;
-      position: relative;
-      transform: translateX(0);
-      box-shadow: none; } }
-  .sidebar a {
-    color: #fff; }
-  .sidebar ul {
-    font-size: 14px;
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-    .sidebar ul h6 {
-      padding: 10px 0 10px 15px;
-      margin: 0;
-      font-size: 14px;
-      background: rgba(0, 0, 0, 0.1); }
-    .sidebar ul li {
-      position: relative;
-      text-align: center; }
-      .sidebar ul li a {
-        display: block;
-        text-decoration: none;
-        padding: 15px 0; }
-        .sidebar ul li a:hover {
-          background: rgba(0, 0, 0, 0.3); }
-      .sidebar ul li svg {
-        width: 20px;
-        height: 20px;
-        transform: translateY(2px);
-        fill: white; }
 
 .post {
   position: relative; }
@@ -423,7 +348,7 @@ main {
         margin-left: 40px;
         min-height: calc(100vh - 300px); } }
     .post-content a {
-      color: #000428; }
+      color: #061FE0; }
   .post-footer {
     position: absolute;
     bottom: 0;
@@ -488,7 +413,6 @@ code {
 pre {
   color: white;
   overflow: scroll;
-  margin-left: calc( $post_margin * -1);
   padding: 15px; }
   @media screen and (min-width: 960px) {
     pre {
@@ -496,60 +420,36 @@ pre {
   pre code {
     background: none; }
 
+/* Homepage */
+main {
+  max-width: 940px;
+  margin: 0 auto; }
+
+section.hero {
+  max-width: 620px;
+  margin-bottom: 100px; }
+  section.hero h1 {
+    margin-top: 20vh;
+    font-size: 28px; }
+  section.hero p {
+    font-size: 16px;
+    line-height: 1.4em; }
+  section.hero a {
+    color: #061FE0;
+    text-decoration: none; }
+
 img {
   max-width: 100%;
   height: auto; }
 
-.hero {
-  padding: 40px;
-  height: 250px; }
-
-.sidebar,
-main {
-  flex-grow: 1;
+ul.social {
+  list-style: none;
   margin: 0;
-  height: 100%; }
-
-main {
-  flex-basis: auto; }
-
-.inner {
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 100%; }
-
-.about-me {
-  padding: 15px; }
-
-.profile {
-  max-width: 75px;
-  height: auto;
-  border-radius: 100%;
-  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.7); }
-  @media only screen and (min-width: 960px) {
-    .profile {
-      max-width: 100px; } }
-
-.bio {
-  margin: 0;
-  line-height: 1.5em; }
-  .bio p {
-    margin-bottom: 0; }
-
-.name {
-  font-size: 28px;
-  margin: 0;
-  font-weight: 300;
-  display: inline-block;
-  line-height: 75px;
-  vertical-align: top; }
-  @media only screen and (min-width: 960px) {
-    .name {
-      display: block;
-      padding-top: 20px;
-      line-height: inherit; } }
-  .name a {
-    text-decoration: none; }
-
-ul#topics li a {
-  text-transform: lowercase; }
+  padding: 0; }
+  ul.social li {
+    display: inline-block; }
+  ul.social svg {
+    width: 24px;
+    fill: white; }
+  ul.social a {
+    display: block; }

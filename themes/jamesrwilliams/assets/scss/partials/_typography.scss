@@ -14,7 +14,6 @@ code {
 pre {
 	color: white;
 	overflow: scroll;
-	margin-left: calc( $post_margin * -1);
 	padding: 15px;
 
 	@include media-query($breakpoint_md) {

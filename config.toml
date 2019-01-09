@@ -13,8 +13,4 @@ googleAnalytics = ""
 [permalinks]
     posts = "/:year/:month/:day/:slug/"
 
-[taxonomies]
-    topics = "topics"
-    tag = "tags"
-
 
