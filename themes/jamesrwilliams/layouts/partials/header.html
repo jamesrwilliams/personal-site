@@ -29,15 +29,6 @@
 
         window.addEventListener('DOMContentLoaded', function() {
 
-	        /* START MENU STUFF */
-	        var $toggle_nav = document.getElementById('menu-release');
-	        var $site_wrapper = document.getElementById('page-container');
-
-	        $toggle_nav.addEventListener('click', function () {
-	            $site_wrapper.classList.toggle('nav-open');
-	        });
-	        /* END MENU STUFF  */
-
 	        /* START SW STUFF */
 	        if('serviceWorker' in navigator) {
 	            navigator.serviceWorker
