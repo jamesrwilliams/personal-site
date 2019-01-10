@@ -35,10 +35,11 @@ main {
 
 section.hero {
 	max-width: 620px;
-	margin-bottom: 80px;
+	margin-bottom: 40px;
 
 	@include media-query($breakpoint_md) {
 		margin-top: 25vh;
+		margin-bottom: 80px;
 	}
 
 	h1 {

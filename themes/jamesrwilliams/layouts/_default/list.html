@@ -7,8 +7,9 @@
 	{{ $paginator := .Paginate (where .Pages "Type" "post") }}
 	{{ range $paginator.Pages }}
 
-	<div>
+	<article>
 		<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+		<time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Monday, January 2, 2006" }}</time>
 		<div class="article-style">
 			{{ if .Params.summary }}
 			{{ .Params.summary | plainify | emojify }}
@@ -18,7 +19,7 @@
 			{{ .Summary | plainify | emojify }}
 			{{ end }}
 		</div>
-	</div>
+	</article>
 {{ end }}
 	{{ partial "pagination.html" . }}
 </main>

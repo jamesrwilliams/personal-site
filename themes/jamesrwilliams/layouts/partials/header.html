@@ -18,6 +18,11 @@
 	<meta name="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
 	<meta name="og:description" content="{{ $.Param "description" }}">
 
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:description" content="{{ $.Param "description" }}" />
+	<meta name="twitter:title" content="James R. Williams - Web Developer" />
+	<meta name="twitter:site" content="@James_RWilliams" />
+
 	{{ $sass := resources.Get "scss/site.scss" }}
 	{{ $style := $sass | resources.ToCSS }}
 	<link rel="manifest" href="/manifest.json">

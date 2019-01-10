@@ -426,10 +426,11 @@ main {
 
 section.hero {
   max-width: 620px;
-  margin-bottom: 80px; }
+  margin-bottom: 40px; }
   @media screen and (min-width: 960px) {
     section.hero {
-      margin-top: 25vh; } }
+      margin-top: 25vh;
+      margin-bottom: 80px; } }
   section.hero h1 {
     margin-bottom: 0;
     font-size: 50px; }
