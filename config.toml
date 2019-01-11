@@ -12,6 +12,6 @@ googleAnalytics = ""
   description = "Web developer and a wannabe software engineer."
 
 [permalinks]
-    posts = "/:year/:month/:day/:slug/"
+    post = "/:year/:month/:day/:slug/"
 
 

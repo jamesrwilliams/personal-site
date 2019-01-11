@@ -40,9 +40,9 @@ The output of which would look something like this (example taken from the Hugo 
 ## Stop git tracking file permissions (chmod) {#stop-git-tracking-file-permissions-chmod}
 
 Occasionally repositories bring with them their permissions that need to be updated on the remote. A nightmare when working with deploy keys as they're one way. So set the following config rule to false to stop git from tracking file permissions / chmod changes.
-
-    git config core.fileMode false
-
+```bash
+git config core.fileMode false
+```
 ## Debug ssh/git authentication {#debug-ssh-git-authentication}
 
 The following command runs an ssh test connection with the `-T` flag that tests an SSH connection to a remote. In this case, it tests the current account has the correct credentials to access BitBucket.

@@ -317,6 +317,16 @@ body {
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
+.post-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+  .post-header h1 {
+    font-weight: bold;
+    margin-bottom: .5em; }
+  .post-header p {
+    margin: 0;
+    font-size: 16px;
+    font-style: italic; }
+
 .post {
   position: relative; }
   .post-header {
@@ -326,10 +336,6 @@ body {
       .post-header {
         padding: 40px;
         margin-bottom: 0; } }
-    .post-header p {
-      margin: 0; }
-    .post-header h1 {
-      font-weight: 400; }
   .post-content {
     max-width: 940px;
     line-height: 1.5em;
@@ -398,7 +404,6 @@ body {
 code {
   background: #fff;
   color: #fff;
-  padding: 0 5px 2px;
   border-radius: 4px;
   position: relative;
   top: -1px;
@@ -408,7 +413,8 @@ code {
   overflow-wrap: break-word;
   word-wrap: break-word; }
 
-p > code {
+p > code,
+li > code {
   color: black; }
 
 pre {
@@ -433,7 +439,10 @@ section.hero {
       margin-bottom: 80px; } }
   section.hero h1 {
     margin-bottom: 0;
-    font-size: 50px; }
+    font-size: 40px; }
+    @media screen and (min-width: 960px) {
+      section.hero h1 {
+        font-size: 50px; } }
   section.hero h2 {
     margin-bottom: 30px; }
   section.hero p {
@@ -463,3 +472,6 @@ ul.social {
     fill: white; }
   ul.social a {
     display: block; }
+
+article.post {
+  font-size: 18px; }

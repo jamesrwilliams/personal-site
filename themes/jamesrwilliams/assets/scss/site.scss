@@ -44,8 +44,11 @@ section.hero {
 
 	h1 {
 		margin-bottom: 0;
-		font-size: 50px;
+		font-size: 40px;
 
+		@include media-query($breakpoint_md) {
+			font-size: 50px;
+		}
 
 	}
 
@@ -95,4 +98,8 @@ ul.social {
 	a {
 		display: block;
 	}
+}
+
+article.post {
+	font-size: 18px;
 }

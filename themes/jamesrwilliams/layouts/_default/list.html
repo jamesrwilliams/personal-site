@@ -2,7 +2,7 @@
 
 <main class="posts">
 
-	<h1>James' Blog</h1>
+	{{ partial "sub-nav.html" . }}
 
 	{{ $paginator := .Paginate (where .Pages "Type" "post") }}
 	{{ range $paginator.Pages }}

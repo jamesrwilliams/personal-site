@@ -2,6 +2,21 @@
 
 }
 
+.post-header {
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+
+	h1 {
+		font-weight: bold;
+		margin-bottom: .5em;
+	}
+
+	p {
+		margin: 0;
+		font-size: 16px;
+		font-style: italic;
+	}
+}
+
 .post {
 	position: relative;
 
@@ -14,13 +29,6 @@
 			margin-bottom: 0;
 		}
 
-		p {
-			margin: 0;
-		}
-
-		h1 {
-			font-weight: 400;
-		}
 	}
 
 	&-content {

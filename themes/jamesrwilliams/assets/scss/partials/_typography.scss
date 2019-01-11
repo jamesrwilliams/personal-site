@@ -1,7 +1,6 @@
 code {
 	background: #fff;
 	color: #fff;
-	padding: 0 5px 2px;
 	border-radius: 4px;
 	position: relative;
 	top: -1px;
@@ -12,7 +11,8 @@ code {
 	word-wrap: break-word;
 }
 
-p > code {color: black; }
+p > code,
+li > code {color: black; }
 
 pre {
 	color: white;
