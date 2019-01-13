@@ -1,6 +1,5 @@
 ---
 title: Finding files by size with the command line
-author: James W.
 type: post
 date: 2018-06-29T12:57:32+00:00
 ---

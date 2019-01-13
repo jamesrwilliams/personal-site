@@ -1,7 +1,7 @@
 ---
 title: Three months of learning
 type: post
-date: -001-11-30T00:00:00+00:00
+date: 2001-11-30T00:00:00+00:00
 draft: true
 ---
 It&#8217;s been a busy few months at my current job with [Silver Agency][1]. We&#8217;ve brought onboard a new senior developer who has started injecting knowledge and experience into our processes and stack.

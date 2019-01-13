@@ -1,8 +1,7 @@
 ---
 title: Debugging outgoing email with WordPress
-author: James W.
 type: post
-date: 2018-08-20T15:40:27+00:00
+date: 2018-08-20
 draft: true
 ---
 MailGun is my transactional email service provider of choice. However, in some instances, you want to catch emails that are being sent to debug/test a bug or feature.

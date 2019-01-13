@@ -2,10 +2,6 @@
 title: Git/SSH Keys Personal Cheatsheet
 type: post
 date: 2018-01-31T20:33:56+00:00
-draft: true
-url: /?p=6
-categories:
-  - Terminal
 
 ---
 ## GitHub Deploy Keys {#github-deploy-keys}

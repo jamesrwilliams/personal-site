@@ -1,6 +1,5 @@
 ---
 title: Natural-language processing with LUIS
-author: James W.
 type: post
 date: 2018-03-13T14:10:45+00:00
 draft: true
