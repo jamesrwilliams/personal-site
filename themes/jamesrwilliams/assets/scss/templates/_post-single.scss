@@ -1,32 +1,25 @@
-.post body {
-
-}
-
-.post-header {
-	border-bottom: 1px solid rgba(0,0,0,0.5);
-
-	h1 {
-		font-weight: bold;
-		margin-bottom: .5em;
-	}
-
-	p {
-		margin: 0;
-		font-size: 16px;
-		font-style: italic;
-	}
-}
-
 .post {
 	position: relative;
 
 	&-header {
 		padding: 20px 15px;
 		margin-bottom: 20px;
+		border-bottom: 1px solid rgba(0,0,0,0.5);
 
 		@include media-query($breakpoint_md) {
 			padding: 40px;
 			margin-bottom: 0;
+		}
+
+		h1 {
+			font-weight: bold;
+			margin-bottom: .5em;
+		}
+
+		p {
+			margin: 0;
+			font-size: 16px;
+			font-style: italic;
 		}
 
 	}
@@ -60,22 +53,12 @@
 		}
 	}
 
-	&-footer {
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-	}
-
 }
 
 .tag {
 	font-size: 14px;
 	text-decoration: none;
 	color: #444;
-}
-
-.post-footer {
-
 }
 
 .post-links {
