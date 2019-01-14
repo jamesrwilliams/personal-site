@@ -9,7 +9,7 @@
 
 	<article>
 		<time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Monday, January 2, 2006" }}</time>
-		<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+		<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 	</article>
 {{ end }}
 	{{ partial "pagination.html" . }}
