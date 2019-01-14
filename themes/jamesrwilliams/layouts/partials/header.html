@@ -4,16 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="theme-color" content="##2E3641"/>
+	<meta name="theme-color" content="#2E3641"/>
 
 	<title>{{ if .IsHome }}{{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}</title>
 
-	<meta name="description" content="{{ $.Param "description" }}">
+	<meta name="name" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
+	<meta name="description" content="{{if .IsHome}}{{ $.Params.description }}{{else}}{{.Description}}{{end}}" />
 	<meta name="image" content="{{ $.Param "image" }}">
-
-	<meta itemprop="name" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
-	<meta itemprop="description" content="{{ $.Param "description" }}">
-	<meta itemprop="image" content="{{ $.Param "image" }}">
 
 	<meta name="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
 	<meta name="og:description" content="{{ $.Param "description" }}">
@@ -29,8 +26,8 @@
 	<!--<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">-->
 	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" media="screen">
 
-	<meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
-	<script defer>
+
+	<script>
 
         window.addEventListener('DOMContentLoaded', function() {
 

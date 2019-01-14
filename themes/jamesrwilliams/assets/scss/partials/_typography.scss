@@ -1,5 +1,4 @@
 code {
-	background: #fff;
 	color: #fff;
 	border-radius: 4px;
 	position: relative;
@@ -11,8 +10,14 @@ code {
 	word-wrap: break-word;
 }
 
-p > code,
-li > code {color: black; }
+blockquote {
+	font-style: italic;
+	color: lighten($accent, 10%);
+	margin-left: 10%;
+	font-size: 1.4em;
+	line-height: 1.4em;
+	max-width: 80%;
+}
 
 pre {
 	color: white;
@@ -22,4 +27,8 @@ pre {
 	code {
 		background: none;
 	}
+}
+
+.highlight {
+	color: $accent;
 }

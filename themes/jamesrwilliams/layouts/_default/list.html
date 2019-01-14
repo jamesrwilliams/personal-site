@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<main class="posts">
+<main class="post-list page-container">
 
 	{{ partial "sub-nav.html" . }}
 
@@ -8,17 +8,8 @@
 	{{ range $paginator.Pages }}
 
 	<article>
-		<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 		<time datetime="{{ .PublishDate }}">{{ .PublishDate.Format "Monday, January 2, 2006" }}</time>
-		<div class="article-style">
-			{{ if .Params.summary }}
-			{{ .Params.summary | plainify | emojify }}
-			{{ else if .Params.abstract }}
-			{{ .Params.abstract | plainify | emojify | truncate 250 }}
-			{{ else if .Summary }}
-			{{ .Summary | plainify | emojify }}
-			{{ end }}
-		</div>
+		<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
 	</article>
 {{ end }}
 	{{ partial "pagination.html" . }}
