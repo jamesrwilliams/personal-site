@@ -3,6 +3,8 @@
 <main>
 	<article class="post" id="content">
 		{{ partial "post-header.html" . }}
+
+		{{ partial "json-ld/blog-post" . }}
 		<div class="post-content container">
 			{{ .Content }}
 		</div>

@@ -1,0 +1,14 @@
+<script type="application/ld+json">
+	{ "@context": "http://schema.org",
+		"@type": "Article",
+		"headline": "{{ .Title }}",
+		"image": [
+			"/profile.jpg"
+		],
+		"wordcount": "{{ .Content | countwords }}",
+		"url": "{{ .Permalink }}",
+		"datePublished": "{{ .PublishDate }}",
+		"dateModified": "{{ .Lastmod }}",
+		"description": "{{ .Description }}"
+	}
+</script>
