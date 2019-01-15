@@ -410,16 +410,18 @@ article.post {
     .post-link-next:before {
       content: 'Next post'; }
 
-.post-list h2 {
-  margin-top: 5px;
-  margin-bottom: 50px; }
-
-.post-list time {
-  font-size: 16px; }
-
-.post-list a {
-  color: #04AA75;
-  text-decoration: none; }
+.post-list {
+  padding-top: 50px; }
+  .post-list article:first-child {
+    padding-top: 100px; }
+  .post-list h2 {
+    margin-top: 5px;
+    margin-bottom: 50px; }
+  .post-list time {
+    font-size: 16px; }
+  .post-list a {
+    color: #04AA75;
+    text-decoration: none; }
 
 .post-header {
   background: white;
@@ -446,6 +448,21 @@ article.post {
 
 nav.site-header {
   padding: 15px; }
+  nav.site-header ul.social {
+    display: inline-block;
+    float: right;
+    margin-top: 0; }
+    nav.site-header ul.social svg {
+      width: 20px; }
+  nav.site-header .links {
+    float: right;
+    width: 50%; }
+  nav.site-header .about {
+    display: inline-block;
+    width: 50%; }
+    nav.site-header .about a {
+      color: #04AA75;
+      text-decoration: none; }
 
 code {
   border-radius: 4px;

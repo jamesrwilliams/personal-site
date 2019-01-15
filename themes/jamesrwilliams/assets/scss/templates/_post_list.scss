@@ -1,4 +1,11 @@
 .post-list {
+
+	padding-top: 50px;
+
+	article:first-child {
+		padding-top: 100px;
+	}
+
 	h2 {
 		margin-top: 5px;
 		margin-bottom: 50px;

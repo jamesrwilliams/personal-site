@@ -5,7 +5,7 @@
 		{{ partial "post-header.html" . }}
 
 		{{ partial "json-ld/blog-post" . }}
-		<div class="post-content container">
+		<div class="post-content container" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
 			{{ .Content }}
 		</div>
 		<footer class="post-footer">

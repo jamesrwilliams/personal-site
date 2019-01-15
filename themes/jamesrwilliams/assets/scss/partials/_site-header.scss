@@ -1,3 +1,29 @@
 nav.site-header {
 	padding: 15px;
+
+	ul.social {
+		display: inline-block;
+		float: right;
+		margin-top: 0;
+
+		svg {
+			width: 20px;
+		}
+	}
+
+	.links {
+		float: right;
+		width: 50%;
+	}
+
+	.about {
+		display: inline-block;
+		width: 50%;
+
+
+		a {
+			color: $accent;
+			text-decoration: none;
+		}
+	}
 }
