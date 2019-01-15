@@ -29,11 +29,13 @@
 
 	<meta name="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
 	<meta name="og:description" content="{{ $description }}">
+	<meta name="og:image" content="{{ $.Param "image" }}">
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="{{ $description }}" />
 	<meta name="twitter:title" content="James R. Williams - Web Developer" />
 	<meta name="twitter:site" content="@James_RWilliams" />
+	<meta name="twitter:image" content="{{ $.Param "image" }}">
 
 	{{ $sass := resources.Get "scss/site.scss" }}
 	{{ $style := $sass | resources.ToCSS }}
@@ -41,6 +43,22 @@
 	<!--<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">-->
 	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" media="screen">
 
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"@id": "#person",
+			"name": "James R. Williams",
+			"url": "https://jamesrwilliams.co.uk/",
+			"sameAs": [
+				"https://www.instagram.com/thejamesrwilliams\/",
+				"https://uk.linkedin.com/in/thejamesrwilliams",
+				"https://www.youtube.com/channel/UCEcQrBPkNiRV295wdTbopoA",
+				"https://twitter.com/James_RWilliams",
+				"https://github.com/jamesrwilliams"
+			]
+		}
+	</script>
 
 	<script>
 
