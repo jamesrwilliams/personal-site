@@ -1,14 +1,9 @@
 {{ partial "header.html" . }}
-<main class="post-container">
 
-	{{ partial "sub-nav.html" . }}
-
+<main>
 	<article class="post" id="content">
-		<header class="post-header page-container">
-			<h1>{{ .Title }}</h1>
-			<p>Posted on <time datetime='{{ .PublishDate.Format "2017-03-03" }}'>{{ .PublishDate.Format "2 January, 2006" }}</time> - About a {{ .ReadingTime }} minute read.</p>
-		</header>
-		<div class="post-content page-container">
+		{{ partial "post-header.html" . }}
+		<div class="post-content container">
 			{{ .Content }}
 		</div>
 		<footer class="post-footer">
@@ -22,7 +17,6 @@
 			</div>
 		</footer>
 	</article>
-
 </main>
 
 {{ partial "footer.html" . }}

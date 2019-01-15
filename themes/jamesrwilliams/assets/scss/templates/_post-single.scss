@@ -3,38 +3,9 @@ article.post {
 }
 
 .post {
-	position: relative;
-
-	&-header {
-		padding: 20px 15px;
-		margin-bottom: 20px;
-		border-bottom: 1px solid rgba(0,0,0,0.5);
-
-		@include media-query($breakpoint_md) {
-			padding: 40px;
-			margin-bottom: 0;
-		}
-
-		h1 {
-			font-weight: bold;
-			margin-bottom: .5em;
-		}
-
-		p {
-			margin: 0;
-			font-size: 16px;
-			font-style: italic;
-		}
-
-	}
 
 	&-content {
-		max-width: 940px;
-		line-height: 1.5em;
-		margin-left: 15px;
-
-		// Give the absolute footer plenty of room.
-		padding-bottom: 150px;
+		line-height: 1.7em;
 		padding-right: 15px;
 
 		& > :first-child {
@@ -48,12 +19,11 @@ article.post {
 		@include media-query($breakpoint_md) {
 			padding-right: 40px;
 			padding-top: 30px;
-			margin-left: 40px;
-			min-height: calc(100vh - 300px);
+			min-height: calc(100vh - 500px);
 		}
 
 		a {
-			color: $accent;
+			color: darken($accent, 10%);
 		}
 	}
 

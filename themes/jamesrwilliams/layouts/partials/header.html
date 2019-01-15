@@ -49,4 +49,7 @@
         });
 	</script>
 </head>
-<body>
+<body class="{{ if .IsHome }}background{{ end }}">
+{{ if .IsHome }}{{ else }}
+{{ partial "site-header.html" }}
+{{ end }}
