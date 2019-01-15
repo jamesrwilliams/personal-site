@@ -9,7 +9,8 @@ googleAnalytics = ""
 
 [params]
   author = "James R. Williams"
-  description = "Web developer and a wannabe software engineer."
+  description = "A British web developer living in Canada."
+  image = "/profile.jpg"
 
 [permalinks]
     blog = "/blog/:slug/"

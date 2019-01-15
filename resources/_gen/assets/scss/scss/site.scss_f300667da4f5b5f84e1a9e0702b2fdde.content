@@ -360,6 +360,13 @@ article.post {
       min-height: calc(100vh - 500px); } }
   .post-content a {
     color: #037853; }
+  .post-content h1:target,
+  .post-content h2:target,
+  .post-content h3:target,
+  .post-content h4:target,
+  .post-content h5:target,
+  .post-content h6:target {
+    color: #04AA75; }
 
 .tag {
   font-size: 14px;
@@ -411,7 +418,7 @@ article.post {
   font-size: 16px; }
 
 .post-list a {
-  color: white;
+  color: #04AA75;
   text-decoration: none; }
 
 .post-header {
@@ -441,7 +448,6 @@ nav.site-header {
   padding: 15px; }
 
 code {
-  color: #fff;
   border-radius: 4px;
   position: relative;
   top: -1px;
@@ -460,7 +466,6 @@ blockquote {
   max-width: 80%; }
 
 pre {
-  color: white;
   overflow: scroll;
   padding: 15px; }
   pre code {
