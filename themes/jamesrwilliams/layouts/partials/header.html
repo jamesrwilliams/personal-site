@@ -60,27 +60,6 @@
 		}
 	</script>
 
-	<script>
-
-        window.addEventListener('DOMContentLoaded', function() {
-
-	        /* START SW STUFF */
-	        if('serviceWorker' in navigator) {
-	            navigator.serviceWorker
-	                .register('/sw.js', { scope: '/' })
-	                .then(function(registration) {
-	                    console.log('Service Worker Registered');
-	                });
-
-	            navigator.serviceWorker
-	                .ready
-	                .then(function(registration) {
-	                    console.log('Service Worker Ready');
-	                });
-	        }
-	        /* END SW STUFF */
-        });
-	</script>
 </head>
 <body class="{{ if .IsHome }}background{{ end }}">
 
