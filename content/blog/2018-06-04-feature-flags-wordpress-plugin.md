@@ -2,6 +2,7 @@
 title: Feature Flags WordPress Plugin
 type: post
 date: 2018-06-04T09:08:01+00:00
+aliases: [/2018/06/04/feature-flags-wordpress-plugin/]
 ---
 I recently came across a new technique release technique while watching a YouTube video on [Netflix&#8217;s DevOps][1]. This new thing: Feature flags.
 

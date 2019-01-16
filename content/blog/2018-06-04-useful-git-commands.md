@@ -2,6 +2,7 @@
 title: Useful git commands
 type: post
 date: 2018-06-04T14:02:18+00:00
+aliases: [/2018/06/04/useful-git-commands/]
 ---
 This is a quick and dirty git Cheat Sheet if you will, of all the commands I frequently forget/need to use most often.
 

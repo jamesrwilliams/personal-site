@@ -8,7 +8,7 @@ As part of a recent project with <a href="https://silver.agnecy" target="_blank"
 
 We quickly noticed that there was a multitude of ways people can ask to be &#8220;registered&#8221; onto an event or event just ask basic event details.
 
-\## Useful links
+## Useful links
 
 &#8211; <a href="https://www.luis.ai/" target="_blank" rel="noopener">Language Understanding from Microsoft Cognitive Services</a>
   

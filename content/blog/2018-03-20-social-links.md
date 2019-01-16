@@ -2,6 +2,7 @@
 title: Social Links
 type: post
 date: 2018-03-20T10:25:21+00:00
+aliases: [/2018/03/20/social-links/]
 ---
 Let&#8217;s do away with large and ugly script includes for share buttons. URL share intents are much better:<!--more-->
 

@@ -1,5 +1,5 @@
 nav.site-header {
-	padding: 15px;
+	padding: 15px 0;
 
 	ul.social {
 		display: inline-block;
@@ -8,7 +8,11 @@ nav.site-header {
 
 		li {
 			margin-right: 0;
-			margin-left: 25px;
+			margin-left: 15px;
+
+			@include media-query($breakpoint_md) {
+				margin-left: 25px;
+			}
 		}
 
 		svg {

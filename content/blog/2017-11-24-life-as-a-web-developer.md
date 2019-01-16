@@ -2,6 +2,7 @@
 title: Article – Life as a Web Developer
 type: post
 date: 2017-11-24T08:30:49+00:00
+aliases: [/2017/11/24/life-as-a-web-developer/]
 ---
 Towards the end of 2017 I was asked by the recruitment agency [Adlib][1] (who helped me land my job at Silver) to write an article as part of their &#8220;live as a&#8221; series. Every few weeks they publish a new article about positions they&#8217;ve been involved with placing, detailing what their day to day work entails. Heres a little preview of what we talk about:
 

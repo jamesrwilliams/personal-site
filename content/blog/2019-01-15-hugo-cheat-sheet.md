@@ -1,5 +1,5 @@
 ---
-title: "2019 01 15 Hugo Cheat Sheet"
+title: "Hugo Cheat Sheet"
 date: 2019-01-15T21:49:41-05:00
 type: post
 draft: true
@@ -9,7 +9,7 @@ draft: true
 
 This is my go to demo server command for the Hugo CLI with two main arguments.
 
-```bash
+```terminal
 hugo server -D --disableFastRender
 ```
 
@@ -17,7 +17,7 @@ The `-D` here renders draft posts so I can see how my drafts are doing (the shor
 
 ## List your works in progress
 
-```bash
+```terminal
 hugo list drafts
 ```
 

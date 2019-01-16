@@ -13,7 +13,4 @@ Why not. In all honestly I was (still am IMO) having a nightmare getting Ruby wo
 
 ## Redirects
 
-I've updated my URL structure to remove the year-month-date permalink structure to just `blog` then slug. There isn't really core feature of Hugo to handle redirects unless you do away with setting a 301 and use their [alias](https://gohugo.io/content-management/urls/#aliases) feature. 
-
-As I'm going to be hosting with Netlify, I have done this using their `_redirects` file. This takes the place of a `.htaccess` file ([read more about Netlify's redirects](https://www.netlify.com/docs/redirects/)) 
-
+I've updated my URL structure to remove the year-month-date permalink structure to just `blog` then slug. I've done this using their [alias](https://gohugo.io/content-management/urls/#aliases) feature. Simply setting an alias for a post tells Hugo to gandle the previous url that then sets a redirect and `noindex` header for the old post and redirects to the new post.

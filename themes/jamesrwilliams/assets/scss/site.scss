@@ -22,7 +22,11 @@ body {
 .container {
 	max-width: 940px;
 	margin: 0 auto;
-	padding: 0 30px;
+	padding: 0 15px;
+
+	@include media-query($breakpoint_md){
+		padding: 0 30px;
+	}
 }
 
 @import 'templates/homepage';

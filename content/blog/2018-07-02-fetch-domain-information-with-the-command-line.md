@@ -2,6 +2,7 @@
 title: Fetch domain information in the command line
 type: post
 date: 2018-07-02T12:07:51+00:00
+aliases: [/2018/07/02/fetch-domain-information-with-the-command-line/]
 ---
 Sometimes you need to fetch domain information on a domain to debug hosting/SSL etc. You can always use services such as MXToolbox to do this, however, there are a number of ways you can fetch domain information via the command-line. Here are a few commands you can use to do that.
 

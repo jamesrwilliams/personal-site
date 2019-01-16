@@ -2,6 +2,7 @@
 title: zxcvbn – A sensible password strength estimator
 type: post
 date: 2018-05-30T18:41:38+00:00
+aliases: [/2018/05/30/zxcvbn-a-sensible-password-strength-estimator/]
 ---
 Password requirements should get out of the user&#8217;s way. The often restrictive password requirements limiting users to a password of just 8 characters and forcing symbol use ignores one of the main parts of password security. Length. [Bonus XKCD comic][1].
 

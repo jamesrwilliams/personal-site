@@ -3,7 +3,10 @@
 	padding-top: 50px;
 
 	article:first-child {
-		padding-top: 100px;
+
+		@include media-query($breakpoint_md) {
+			padding-top: 50px;
+		}
 	}
 
 	h2 {

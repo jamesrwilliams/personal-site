@@ -2,6 +2,7 @@
 title: Run Selenium Standalone in a Docker container
 type: post
 date: 2018-10-01T15:34:20+00:00
+aliases: [/2018/10/01/run-selenium-standalone-in-a-docker-container/]
 ---
 Why run selenium normally when you can run it inside a Docker container!
 ```bash

@@ -317,7 +317,10 @@ body {
 .container {
   max-width: 940px;
   margin: 0 auto;
-  padding: 0 30px; }
+  padding: 0 15px; }
+  @media screen and (min-width: 960px) {
+    .container {
+      padding: 0 30px; } }
 
 section.hero {
   max-width: 620px;
@@ -347,8 +350,7 @@ article.post {
   font-size: 18px; }
 
 .post-content {
-  line-height: 1.7em;
-  padding-right: 15px; }
+  line-height: 1.7em; }
   .post-content > :first-child {
     margin-top: 0; }
   .post-content > :last-child {
@@ -409,8 +411,9 @@ article.post {
 
 .post-list {
   padding-top: 50px; }
-  .post-list article:first-child {
-    padding-top: 100px; }
+  @media screen and (min-width: 960px) {
+    .post-list article:first-child {
+      padding-top: 50px; } }
   .post-list h2 {
     margin-top: 5px;
     margin-bottom: 50px; }
@@ -433,7 +436,7 @@ article.post {
 
 .post-header {
   background: white;
-  padding: 10px 15px;
+  padding: 10px 0;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   @media screen and (min-width: 960px) {
@@ -455,14 +458,17 @@ article.post {
     text-decoration: none; }
 
 nav.site-header {
-  padding: 15px; }
+  padding: 15px 0; }
   nav.site-header ul.social {
     display: inline-block;
     float: right;
     margin-top: 0; }
     nav.site-header ul.social li {
       margin-right: 0;
-      margin-left: 25px; }
+      margin-left: 15px; }
+      @media screen and (min-width: 960px) {
+        nav.site-header ul.social li {
+          margin-left: 25px; } }
     nav.site-header ul.social svg {
       width: 20px; }
   nav.site-header .links {

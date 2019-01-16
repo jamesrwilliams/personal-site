@@ -2,6 +2,7 @@
 title: Sending a variable as an attachment with PHP Mailer
 type: post
 date: 2018-03-13T07:39:56+00:00
+aliases: [/2018/03/13/sending-a-variable-as-an-attachment-with-php-mailer/]
 ---
 Recently I've been working on a on-boarding application for an agency client that involved some fallback processes if their CRM write failed. The client requested we send them an email with the form data attached as JSON, so they could manually process if required.
 

@@ -2,6 +2,7 @@
 title: Postcardware
 type: post
 date: 2018-03-19T17:07:35+00:00
+aliases: [/2018/03/19/postcardware/]
 ---
 The very talented people over at [Spatie][1] have a cool way to pay them back for their open source work. Postcards.
 
