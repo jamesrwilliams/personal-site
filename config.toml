@@ -5,7 +5,8 @@ paginate = 10
 summaryLength = 40
 theme = "jamesrwilliams"
 pygmentsCodeFences = true
-googleAnalytics = ""
+googleAnalytics = "UA-26549429-1"
+enableGitInfo = true
 
 [params]
   author = "James R. Williams"
