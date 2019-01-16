@@ -1,7 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+type: post
 date: {{ .Date }}
-topics: ['']
 draft: true
 ---
 

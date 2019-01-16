@@ -17,4 +17,3 @@ I've updated my URL structure to remove the year-month-date permalink structure 
 
 As I'm going to be hosting with Netlify, I have done this using their `_redirects` file. This takes the place of a `.htaccess` file ([read more about Netlify's redirects](https://www.netlify.com/docs/redirects/)) 
 
-
