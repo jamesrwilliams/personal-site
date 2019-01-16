@@ -376,6 +376,9 @@ article.post {
 .post-links {
   display: flex; }
 
+.post-footer {
+  margin-top: 100px; }
+
 .post-link {
   display: block;
   text-decoration: none;
@@ -394,19 +397,13 @@ article.post {
     padding-bottom: 10px;
     text-transform: uppercase; }
   .post-link-prev {
-    padding: 15px;
+    padding: 15px 0;
     border-right: 1px solid #ccc; }
-    @media screen and (min-width: 960px) {
-      .post-link-prev {
-        padding-left: 40px; } }
     .post-link-prev:before {
       content: 'Previous post'; }
   .post-link-next {
     text-align: right;
-    padding: 15px; }
-    @media screen and (min-width: 960px) {
-      .post-link-next {
-        padding-right: 40px; } }
+    padding: 15px 0; }
     .post-link-next:before {
       content: 'Next post'; }
 
@@ -418,10 +415,21 @@ article.post {
     margin-top: 5px;
     margin-bottom: 50px; }
   .post-list time {
-    font-size: 16px; }
+    font-size: 16px;
+    color: #444444; }
   .post-list a {
     color: #04AA75;
     text-decoration: none; }
+  .post-list .post-link-prev {
+    padding: 15px 0;
+    border-right: 1px solid #ccc; }
+    .post-list .post-link-prev:before {
+      content: 'Newer posts'; }
+  .post-list .post-link-next {
+    text-align: right;
+    padding: 15px 0; }
+    .post-list .post-link-next:before {
+      content: 'Older posts'; }
 
 .post-header {
   background: white;
@@ -452,6 +460,9 @@ nav.site-header {
     display: inline-block;
     float: right;
     margin-top: 0; }
+    nav.site-header ul.social li {
+      margin-right: 0;
+      margin-left: 25px; }
     nav.site-header ul.social svg {
       width: 20px; }
   nav.site-header .links {
@@ -474,13 +485,16 @@ code {
   overflow-wrap: break-word;
   word-wrap: break-word; }
 
+.highlight {
+  margin-left: -5%; }
+
 blockquote {
   font-style: italic;
-  color: #05dc97;
-  margin-left: 10%;
+  color: #037853;
+  margin-left: -5%;
   font-size: 1.4em;
   line-height: 1.4em;
-  max-width: 80%; }
+  max-width: 90%; }
 
 pre {
   overflow: scroll;
@@ -488,7 +502,7 @@ pre {
   pre code {
     background: none; }
 
-.highlight {
+.accent {
   color: #04AA75; }
 
 .background {

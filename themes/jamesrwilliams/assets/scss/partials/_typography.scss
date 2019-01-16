@@ -9,13 +9,17 @@ code {
 	word-wrap: break-word;
 }
 
+.highlight {
+	margin-left: -5%;
+}
+
 blockquote {
 	font-style: italic;
-	color: lighten($accent, 10%);
-	margin-left: 10%;
+	color: darken($accent, 10%);
+	margin-left: -5%;
 	font-size: 1.4em;
 	line-height: 1.4em;
-	max-width: 80%;
+	max-width: 90%;
 }
 
 pre {
@@ -27,6 +31,6 @@ pre {
 	}
 }
 
-.highlight {
+.accent {
 	color: $accent;
 }

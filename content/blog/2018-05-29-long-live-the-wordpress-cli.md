@@ -16,9 +16,9 @@ After doing some digging looking into the what and why behind this. I discovered
 > Search/replace intelligently handles PHP serialized data, and does not change primary key values.
 
 In one simple command you can find and replace the current database for URLs and other strings. It also has a handy output flag allowing a database file to be exported to the file system rather than preforming the action directly on the current database. For example:
-
+```bash
     wp search-replace foo bar --export=database.sql
-
+```
 The `--dry-run` flag is also a personal favourite for avoiding nasty surprises while running these commands.
 
   * Read more about the CLI here: <https://wp-cli.org/>

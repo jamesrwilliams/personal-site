@@ -1,6 +1,6 @@
 <header class="post-header">
 	<div class="container">
-		<a href="{{ "/blog/" | relURL }}">back to posts</a>
+		<a href="{{ "/blog/" | relURL }}">&larr; All Posts</a>
 		<h1>{{ .Title }}</h1>
 		<p>Posted on <time datetime='{{ .PublishDate.Format "2006-01-02" }}'>{{ .PublishDate.Format "2 January, 2006" }}</time> - About a {{ .ReadingTime }} minute read.</p>
 	</div>

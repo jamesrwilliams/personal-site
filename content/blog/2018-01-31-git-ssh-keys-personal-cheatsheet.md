@@ -1,23 +1,32 @@
 ---
-title: Git/SSH Keys Personal Cheatsheet
+title: Git/SSH Keys Personal Cheat sheet
 type: post
 date: 2018-01-31T20:33:56+00:00
 
 ---
-## GitHub Deploy Keys {#github-deploy-keys}
+## GitHub Deploy Keys
 
 Create SSH Key:
 
-<pre>ssh-keygen -t rsa -b 4096 -C "{email}"</pre>
+```bash
+ssh-keygen -t rsa -b 4096 -C "{email}"
+```
 
 Set the git remote:
 
-<pre>git remote set-url origin git@github.com:{username}/{repo}</pre>
+```bash
+git remote set-url origin git@github.com:{username}/{repo}
+```
 
 Check Auth with username against GitHub:
 
-<pre>ssh -T {username}@github.com</pre>
+```bash
+ssh -T {username}@github.com
+```
 
 Echo out easy to copy-paste version of the public key:
 
-<pre>cat ~/.ssh/id_rsa.pub</pre>
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+

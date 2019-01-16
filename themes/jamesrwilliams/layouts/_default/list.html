@@ -1,21 +1,25 @@
 {{ partial "header.html" . }}
 
-<main class="post-list page-container">
+<main class="post-list">
 
-	{{ $paginator := .Paginate (where .Pages "Type" "post") }}
-	{{ range $paginator.Pages }}
+	<div class="container">
 
-	<article>
-		{{ partial "json-ld/blog-post" . }}
-		<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Monday, January 2, 2006" }}</time>
-		<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-	</article>
+		{{ $paginator := .Paginate (where .Pages "Type" "post") }}
+		{{ range $paginator.Pages }}
 
-	{{ end }}
+			<article>
+				{{ partial "json-ld/blog-post" . }}
+				<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Monday, January 2, 2006" }}</time>
+				<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+			</article>
+
+		{{ end }}
+
+	</div>
 
 	{{ partial "list-pagination.html" . }}
-</main>
 
+</main>
 
 {{ partial "footer.html" }}
 

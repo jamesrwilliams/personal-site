@@ -32,6 +32,7 @@ article.post {
 		h4,
 		h5,
 		h6 {
+
 			&:target {
 				color: $accent;
 			}
@@ -47,6 +48,10 @@ article.post {
 
 .post-links {
 	display: flex;
+}
+
+.post-footer {
+	margin-top: 100px;
 }
 
 .post-link {
@@ -72,12 +77,8 @@ article.post {
 	}
 
 	&-prev {
-		padding: 15px;
+		padding: 15px 0;
 		border-right: 1px solid #ccc;
-
-		@include media-query($breakpoint_md) {
-			padding-left: 40px;
-		}
 
 		&:before {
 			content: 'Previous post';
@@ -87,11 +88,7 @@ article.post {
 
 	&-next {
 		text-align: right;
-		padding: 15px;
-
-		@include media-query($breakpoint_md) {
-			padding-right: 40px;
-		}
+		padding: 15px 0;
 
 		&:before {
 			content: 'Next post';
