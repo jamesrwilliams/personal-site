@@ -2,6 +2,7 @@
 title: Aside from work, what do you do?
 type: post
 date: 2016-02-11T18:05:26+00:00
+slug: 'aside-from-work-what-do-you-do'
 aliases: [/2016/02/11/aside-from-work-what-do-you-do/]
 ---
 Whenever I hear someone asked &#8220;So aside from work, what do you do?&#8221; I cower. This question fills me with dread. Not that I get asked it that often. It is just that momentary panic. Trying to come up with two or three things I have done recently that could be interesting. In short, I spend far too much time working. Working at work, working at home, early, late and the bits between.

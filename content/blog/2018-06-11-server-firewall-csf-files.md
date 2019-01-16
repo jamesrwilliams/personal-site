@@ -3,6 +3,7 @@ title: A brief look at server firewalls with CSF files
 type: post
 date: 2018-06-11T10:00:24+00:00
 aliases: [/2018/06/11/server-firewall-csf-files/]
+slug: 'a-brief-look-at-server-firewalls-with-csf-files'
 ---
 In a sidestep from my usual day of producing WordPress themes and HTML emails, I had to do some, of what I&#8217;m calling, server management and exploring the new world of CSF files.
 

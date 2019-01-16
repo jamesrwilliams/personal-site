@@ -1,6 +1,7 @@
 ---
 title: "As long as human beings have the element of choice and exercise that element of choice, technology will stay the slave and man its master."
 date: 2015-01-15
+slug: 'essay-technology-and-control'
 ---
 
 _The following is an essay I wrote during my University degree:_
