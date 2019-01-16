@@ -15,6 +15,12 @@ hugo server -D --disableFastRender
 
 The `-D` here renders draft posts so I can see how my drafts are doing (the short hand makes it easy to remove if required).r
 
+## List your works in progress
+
+```bash
+hugo list drafts
+```
+
 ## Documentation
 
 Very useful documentation links for when you're building your own theme:
