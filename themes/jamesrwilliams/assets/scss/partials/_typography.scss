@@ -1,12 +1,11 @@
 code {
-	border-radius: 4px;
 	position: relative;
 	top: -1px;
-	font-weight: bold;
-	margin: 0 3px 0 1px;
+	margin: 0 5px 0 1px;
 	font-size: 90%;
-	overflow-wrap: break-word;
-	word-wrap: break-word;
+	background: white;
+	padding: .2rem .3rem .1rem .3rem;
+	border-radius: .2rem;
 }
 
 .highlight {

@@ -1,6 +1,6 @@
 .post-header {
 	background: white;
-	padding: 10px 0;
+	padding: 30px 0;
 	margin-bottom: 20px;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 
@@ -23,7 +23,7 @@
 	a {
 		font-size: 14px;
 		font-weight: bold;
-		color: $accent;
+		color: darken( $accent, 10% );
 		text-transform: uppercase;
 		text-decoration: none;
 	}

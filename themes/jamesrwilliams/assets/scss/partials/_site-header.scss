@@ -16,7 +16,10 @@ nav.site-header {
 		}
 
 		svg {
-			width: 20px;
+			width: 16px;
+			@include media-query($breakpoint_md) {
+				width: 20px;
+			}
 		}
 	}
 

@@ -311,8 +311,11 @@ body {
 body {
   background: #eeeeee;
   padding: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+  @media screen and (min-width: 960px) {
+    body {
+      font-size: 18px; } }
 
 .container {
   max-width: 940px;
@@ -346,15 +349,15 @@ section.hero {
     section.hero a:hover {
       color: white; }
 
-article.post {
-  font-size: 18px; }
-
 .post-content {
   line-height: 1.7em; }
   .post-content > :first-child {
     margin-top: 0; }
   .post-content > :last-child {
     margin-bottom: 0; }
+  .post-content ol,
+  .post-content ul {
+    padding-left: 20px; }
   @media screen and (min-width: 960px) {
     .post-content {
       padding-right: 40px;
@@ -421,7 +424,7 @@ article.post {
     font-size: 16px;
     color: #444444; }
   .post-list a {
-    color: #04AA75;
+    color: #037853;
     text-decoration: none; }
   .post-list .post-link-prev {
     padding: 15px 0;
@@ -436,7 +439,7 @@ article.post {
 
 .post-header {
   background: white;
-  padding: 10px 0;
+  padding: 30px 0;
   margin-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   @media screen and (min-width: 960px) {
@@ -453,7 +456,7 @@ article.post {
   .post-header a {
     font-size: 14px;
     font-weight: bold;
-    color: #04AA75;
+    color: #037853;
     text-transform: uppercase;
     text-decoration: none; }
 
@@ -470,7 +473,10 @@ nav.site-header {
         nav.site-header ul.social li {
           margin-left: 25px; } }
     nav.site-header ul.social svg {
-      width: 20px; }
+      width: 16px; }
+      @media screen and (min-width: 960px) {
+        nav.site-header ul.social svg {
+          width: 20px; } }
   nav.site-header .links {
     float: right;
     width: 50%; }
@@ -482,14 +488,13 @@ nav.site-header {
       text-decoration: none; }
 
 code {
-  border-radius: 4px;
   position: relative;
   top: -1px;
-  font-weight: bold;
-  margin: 0 3px 0 1px;
+  margin: 0 5px 0 1px;
   font-size: 90%;
-  overflow-wrap: break-word;
-  word-wrap: break-word; }
+  background: white;
+  padding: .2rem .3rem .1rem .3rem;
+  border-radius: .2rem; }
 
 .highlight {
   margin-left: -5%; }
