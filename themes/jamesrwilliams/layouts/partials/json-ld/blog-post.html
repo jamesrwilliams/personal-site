@@ -1,14 +1,19 @@
 <script type="application/ld+json">
 	{ "@context": "http://schema.org",
-		"@type": "Article",
+		"@type": "BlogPosting",
 		"headline": "{{ .Title }}",
 		"image": [
-			"/profile.jpg"
+			"{{ .Site.Params.Image | absURL }}"
 		],
+		"mainEntityOfPage": "{{ .Permalink }}",
 		"wordcount": "{{ .Content | countwords }}",
 		"url": "{{ .Permalink }}",
 		"datePublished": "{{ .PublishDate }}",
 		"dateModified": "{{ .Lastmod }}",
-		"description": "{{ .Description }}"
+		"description": "{{ .Description }}",
+		"author": {
+			"@type": "Person",
+			"name": "{{ .Site.Params.Author }}"
+		}
 	}
 </script>
