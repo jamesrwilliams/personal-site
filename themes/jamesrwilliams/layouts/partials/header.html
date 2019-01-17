@@ -7,35 +7,29 @@
 	<meta name="theme-color" content="#2E3641"/>
 
 	<title>{{ if .IsHome }}{{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}</title>
+	{{ $description := .Site.Params.siteDescription }}
+	{{ if .Description }}
+	{{ $description = .Description }}
+	{{ else if .IsPage }}
+	{{ $description = .Summary }}
+	{{ else if eq .URL "/blog/" }}
+	{{ $description = .Site.Params.blogDescription }}
+	{{ end }}
 
 	<meta name="name" content="{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
 
-	{{ $description := "" }}
-
-	{{ if (not (isset .Params "description")) | or (eq .Params.description "") }}
-		{{ if(eq .Summary "" ) }}
-			{{ $description = $.Params.description }}
-		{{ else }}
-			{{ $description = .Summary }}
-		{{ end }}
-	{{ else }}
-		{{ $description = .Params.description }}
-	{{ end }}
-
-	{{ $description = ( $description | truncate 120 ) }}
-
-	<meta name="image" content="{{ $.Param "image" }}">
+	<meta name="image" content="{{ .Site.BaseURL }}{{ $.Param "image" }}">
 	<meta name="description" content="{{ $description }}">
 
 	<meta name="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
 	<meta name="og:description" content="{{ $description }}">
-	<meta name="og:image" content="{{ $.Param "image" }}">
+	<meta name="og:image" content="{{ .Site.BaseURL }}{{ $.Param "image" }}">
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="{{ $description }}" />
 	<meta name="twitter:title" content="James R. Williams - Web Developer" />
 	<meta name="twitter:site" content="@James_RWilliams" />
-	<meta name="twitter:image" content="{{ $.Param "image" }}">
+	<meta name="twitter:image" content="{{ .Site.BaseURL }}{{ $.Param "image" }}">
 
 	{{ $sass := resources.Get "scss/site.scss" }}
 	{{ $style := $sass | resources.ToCSS }}
@@ -49,7 +43,7 @@
 			"@type": "Person",
 			"@id": "#person",
 			"name": "James R. Williams",
-			"url": "https://jamesrwilliams.co.uk/",
+			"url": "{{ .Site.BaseURL }}",
 			"sameAs": [
 				"https://www.instagram.com/thejamesrwilliams\/",
 				"https://uk.linkedin.com/in/thejamesrwilliams",

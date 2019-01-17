@@ -10,8 +10,9 @@ enableGitInfo = true
 
 [params]
   author = "James R. Williams"
-  description = "A British web developer living in Canada."
-  image = "/profile.jpg"
+  siteDescription = "A British web developer living in Canada."
+  blogDescription = "Home of my occasional write ups of interesting tech and things I'm working on."
+  image = "profile.jpg"
 
 [permalinks]
     blog = "/blog/:slug/"
