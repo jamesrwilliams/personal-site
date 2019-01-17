@@ -19,6 +19,8 @@
 		{{ $description = .Site.Params.blogDescription }}
 	{{ end }}
 
+	{{ $description = $description | truncate 160 }}
+
 	{{/* End description generation */}}
 
 	{{/* Begin post image generation */}}
