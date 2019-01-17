@@ -23,7 +23,7 @@
 
 	{{/* Begin post image generation */}}
 
-	{{ $image := .Site.Params.Image | relURL }}
+	{{ $image := .Site.Params.Image | absURL }}
 
 	{{/* End post image generation */}}
 
