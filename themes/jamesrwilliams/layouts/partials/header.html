@@ -23,7 +23,7 @@
 
 	{{/* Begin post image generation */}}
 
-	{{ $image := printf "%s%s" .Site.BaseURL .Site.Params.Image }}
+	{{ $image := .Site.Params.Image | relURL }}
 
 	{{/* End post image generation */}}
 
