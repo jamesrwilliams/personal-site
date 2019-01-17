@@ -7,29 +7,40 @@
 	<meta name="theme-color" content="#2E3641"/>
 
 	<title>{{ if .IsHome }}{{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}</title>
+
+	{{/* Begin description generation */}}
+
 	{{ $description := .Site.Params.siteDescription }}
 	{{ if .Description }}
-	{{ $description = .Description }}
+		{{ $description = .Description }}
 	{{ else if .IsPage }}
-	{{ $description = .Summary }}
+		{{ $description = .Summary }}
 	{{ else if eq .URL "/blog/" }}
-	{{ $description = .Site.Params.blogDescription }}
+		{{ $description = .Site.Params.blogDescription }}
 	{{ end }}
+
+	{{/* End description generation */}}
+
+	{{/* Begin post image generation */}}
+
+	{{ $image := printf "%s%s" .Site.BaseURL .Site.Params.Image }}
+
+	{{/* End post image generation */}}
 
 	<meta name="name" content="{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
 
-	<meta name="image" content="{{ .Site.BaseURL }}{{ $.Param "image" }}">
+	<meta name="image" content="{{ $image }}">
 	<meta name="description" content="{{ $description }}">
 
 	<meta name="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
 	<meta name="og:description" content="{{ $description }}">
-	<meta name="og:image" content="{{ .Site.BaseURL }}{{ $.Param "image" }}">
+	<meta name="og:image" content="{{ $image }}">
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="{{ $description }}" />
 	<meta name="twitter:title" content="James R. Williams - Web Developer" />
 	<meta name="twitter:site" content="@James_RWilliams" />
-	<meta name="twitter:image" content="{{ .Site.BaseURL }}{{ $.Param "image" }}">
+	<meta name="twitter:image" content="{{ $image }}">
 
 	{{ $sass := resources.Get "scss/site.scss" }}
 	{{ $style := $sass | resources.ToCSS }}
