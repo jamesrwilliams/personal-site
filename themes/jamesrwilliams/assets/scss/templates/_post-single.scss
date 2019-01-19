@@ -1,4 +1,5 @@
 .post {
+	background: #eeeeee;
 
 	&-content {
 		line-height: 1.7em;
@@ -93,7 +94,6 @@
 		&:before {
 			content: 'Previous post';
 		}
-
 	}
 
 	&-next {

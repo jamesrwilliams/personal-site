@@ -1,9 +1,9 @@
 main.error404 {
+	background: transparent;
 
 	header {
 		padding: 20px 0;
-		background: $accent;
-		margin-bottom: 20px;
+		color: #ffffff;
 
 		p {
 			font-size: 18px;
@@ -14,7 +14,7 @@ main.error404 {
 			}
 
 			a {
-				color: $primary;
+				color: $accent;
 				text-decoration: none;
 			}
 		}
@@ -24,9 +24,12 @@ main.error404 {
 		}
 	}
 
+	article.post-inline time {
+		color: #ffffff;
+	}
+
 	h1 {
 		font-size: 35px;
-		color: $primary;
 		text-align: center;
 
 		@include media-query($breakpoint_md) {

@@ -21,27 +21,26 @@
 		color: darken($accent, 10%);
 		text-decoration: none;
 	}
+}
 
-	.post-link {
+.post-link {
+	margin-bottom: 50px;
 
-		&-prev {
-			padding: 15px 0;
-			border-right: 1px solid #ccc;
+	&-prev {
+		padding: 15px 0;
+		border-right: 1px solid #ccc;
 
-			&:before {
-				content: 'Newer posts';
-			}
-
+		&:before {
+			content: 'Newer posts';
 		}
+	}
 
-		&-next {
-			text-align: right;
-			padding: 15px 0;
+	&-next {
+		text-align: right;
+		padding: 15px 0;
 
-			&:before {
-				content: 'Older posts';
-			}
+		&:before {
+			content: 'Older posts';
 		}
-
 	}
 }
