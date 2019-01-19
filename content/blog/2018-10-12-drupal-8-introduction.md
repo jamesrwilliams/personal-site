@@ -24,7 +24,7 @@ A very useful feature of working out what templates Drupal is looking for when r
 
 First we're going to need a `*.services.yml` file located in `web/sites` containing the following file:
 
-```md
+```yml
 # Local development services.
 #
 # To activate this feature, follow the instructions at the top of the
