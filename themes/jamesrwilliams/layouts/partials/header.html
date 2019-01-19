@@ -70,6 +70,11 @@
 </head>
 <body class="{{ if .IsHome |  }}background{{ end }}">
 
+<!--
+<span id="name">{{ .Kind }}</span>
+<span id="type">{{ .Type }}</span>
+-->
+
 {{ if .IsHome }}{{ else }}
 {{ partial "site-header.html" }}
 {{ end }}
