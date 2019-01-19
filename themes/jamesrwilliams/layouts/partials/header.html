@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="theme-color" content="#2E3641"/>
 
-	<title>{{if eq .URL "404.html" }} 404 Page Not Found{{ else if .IsHome }}{{ .Title }} {{ else }} {{ .Title }} | {{ $.Site.Title }} {{ end }}</title>
+	<title>{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
 
 	{{/* Begin description generation */}}
 
@@ -69,9 +69,6 @@
 
 </head>
 <body class="{{ if .IsHome |  }}background{{ end }}">
-
-<span id="name">{{ .Kind }}</span>
-<span id="type">{{ .Type }}</span>
 
 {{ if .IsHome }}{{ else }}
 {{ partial "site-header.html" }}
