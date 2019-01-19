@@ -1,6 +1,6 @@
 baseURL = "https://jamesrwilliams.co.uk"
 languageCode = "en-GB"
-title = "James R. Williams - Web Developer"
+title = "James R. Williams · Web Developer"
 paginate = 10
 summaryLength = 40
 theme = "jamesrwilliams"
