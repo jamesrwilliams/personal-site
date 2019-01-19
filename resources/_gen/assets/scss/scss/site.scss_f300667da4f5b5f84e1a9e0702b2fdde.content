@@ -426,10 +426,6 @@ section.hero {
     .post-link-next:before {
       content: 'Next post'; }
 
-@media screen and (min-width: 960px) {
-  .post-list article:first-child {
-    padding-top: 50px; } }
-
 .post-list h2 {
   margin-top: 5px;
   margin-bottom: 50px; }
@@ -475,8 +471,7 @@ main.error404 {
   main.error404 article.post-inline time {
     color: #ffffff; }
   main.error404 h1 {
-    font-size: 35px;
-    text-align: center; }
+    font-size: 35px; }
     @media screen and (min-width: 960px) {
       main.error404 h1 {
         font-size: 80px;
@@ -504,6 +499,9 @@ main.error404 {
     color: #037853;
     text-transform: uppercase;
     text-decoration: none; }
+
+article.post-inline:first-child {
+  padding-top: 50px; }
 
 article.post-inline h2 {
   margin-top: 5px;

@@ -30,7 +30,6 @@ main.error404 {
 
 	h1 {
 		font-size: 35px;
-		text-align: center;
 
 		@include media-query($breakpoint_md) {
 			font-size: 80px;

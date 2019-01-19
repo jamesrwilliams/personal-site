@@ -1,12 +1,5 @@
 .post-list {
 
-	article:first-child {
-
-		@include media-query($breakpoint_md) {
-			padding-top: 50px;
-		}
-	}
-
 	h2 {
 		margin-top: 5px;
 		margin-bottom: 50px;
