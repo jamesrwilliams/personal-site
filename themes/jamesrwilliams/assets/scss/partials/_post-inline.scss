@@ -1,0 +1,24 @@
+article.post-inline {
+
+	h2 {
+		margin-top: 5px;
+		margin-bottom: 50px;
+	}
+
+	time {
+		font-size: 16px;
+		color: #444444;
+	}
+
+	a {
+		color: darken($accent, 10%);
+		text-decoration: none;
+	}
+
+	&:first-child {
+		@include media-query($breakpoint_md) {
+			padding-top: 50px;
+		}
+	}
+
+}

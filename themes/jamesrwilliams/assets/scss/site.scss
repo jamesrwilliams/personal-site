@@ -39,8 +39,9 @@ body {
 @import 'templates/post-single';
 @import 'templates/post_list';
 @import 'templates/404';
-@import 'partials/_post-header.scss';
 
+@import 'partials/_post-header.scss';
+@import 'partials/_post-inline.scss';
 @import 'partials/site-header';
 @import 'partials/typography';
 

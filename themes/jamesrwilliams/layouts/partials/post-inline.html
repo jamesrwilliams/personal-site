@@ -1,0 +1,5 @@
+<article class="post-inline">
+	{{ partial "json-ld/blog-post" . }}
+	<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Monday, January 2, 2006" }}</time>
+	<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+</article>

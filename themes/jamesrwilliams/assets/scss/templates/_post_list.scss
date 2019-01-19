@@ -1,7 +1,5 @@
 .post-list {
 
-	padding-top: 50px;
-
 	article:first-child {
 
 		@include media-query($breakpoint_md) {
