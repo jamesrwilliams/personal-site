@@ -306,6 +306,7 @@ template {
 html,
 body {
   margin: 0;
+  min-height: 100%;
   -webkit-font-smoothing: antialiased; }
 
 body {
@@ -445,6 +446,25 @@ section.hero {
     padding: 15px 0; }
     .post-list .post-link-next:before {
       content: 'Older posts'; }
+
+main.error404 header {
+  padding: 20px;
+  background: #04AA75; }
+  @media screen and (min-width: 960px) {
+    main.error404 header {
+      padding: 20px; } }
+
+main.error404 article {
+  font-size: 16px; }
+
+main.error404 h1 {
+  font-size: 35px;
+  color: #141E27;
+  text-align: center; }
+  @media screen and (min-width: 960px) {
+    main.error404 h1 {
+      font-size: 80px;
+      text-align: left; } }
 
 .post-header {
   background: white;

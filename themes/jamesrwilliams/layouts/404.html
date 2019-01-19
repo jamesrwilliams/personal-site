@@ -1,8 +1,24 @@
 {{ partial "header.html" }}
 
-<main class="404">
-	<p>404 Error</p>
-	<h1 id="title"><a href="{{ "/" | relURL }}">Go Home</a></h1>
+<main class="error404">
+
+	<header>
+		<div class="container">
+			<h1>Page Not Found</h1>
+		</div>
+	</header>
+
+	<article class="container">
+		<p>The page you are looking for doesn’t exists. Please check your URL address or vist my <a href="#">homepage</a> or try my <a href='{{ "/" | relURL }}'>blog.</a></p>
+
+		<ul>
+			<li><a href="#">Post 1</a></li>
+			<li><a href="#">Post 2</a></li>
+			<li><a href="#">Post 3</a></li>
+		</ul>
+
+	</article>
+
 </main>
 
 {{ partial "footer.html" . }}

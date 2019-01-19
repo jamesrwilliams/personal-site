@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="theme-color" content="#2E3641"/>
 
-	<title>{{ if .IsHome }}{{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}</title>
+	<title>{{if eq .URL "404.html" }} 404 Page Not Found{{ else if .IsHome }}{{ .Title }} {{ else }} {{ .Title }} | {{ $.Site.Title }} {{ end }}</title>
 
 	{{/* Begin description generation */}}
 
@@ -29,7 +29,7 @@
 
 	{{/* End post image generation */}}
 
-	<meta name="name" content="{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+	<meta name="name" content='{{if eq .URL "404.html"}} 404 Page Not Found{{else if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}'>
 
 	<meta name="image" content="{{ $image }}">
 	<meta name="description" content="{{ $description }}">
@@ -68,7 +68,7 @@
 	</script>
 
 </head>
-<body class="{{ if .IsHome }}background{{ end }}">
+<body class="{{ if .IsHome |  }}background{{ end }}">
 
 {{ if .IsHome }}{{ else }}
 {{ partial "site-header.html" }}
