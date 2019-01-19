@@ -1,25 +1,27 @@
 const CACHE_VERSION = 1;
 
-/* Define files that in this list which always needs to be cached from the beginning. */
 const BASE_CACHE_FILES = [
-    './scss/site.css',
-    './favicon.ico',
+    '/style.css',
+    '/script.js',
+    '/search.json',
+    '/manifest.json',
+    '/favicon.png',
 ];
 
-/* Define files necessary for your offline page. */
 const OFFLINE_CACHE_FILES = [
-    './scss/site.css',
-    './offline/index.html',
+    '/style.css',
+    '/script.js',
+    '/offline/index.html',
 ];
 
-/* Define files necessary for your 404 page. */
 const NOT_FOUND_CACHE_FILES = [
-    './scss/style.css',
-    './404.html',
+    '/style.css',
+    '/script.js',
+    '/404.html',
 ];
 
-const OFFLINE_PAGE = './offline/index.html';
-const NOT_FOUND_PAGE = './404.html';
+const OFFLINE_PAGE = '/offline/index.html';
+const NOT_FOUND_PAGE = '/404.html';
 
 const CACHE_VERSIONS = {
     assets: 'assets-v' + CACHE_VERSION,
