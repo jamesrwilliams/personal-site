@@ -70,22 +70,8 @@
 	</script>
 
 </head>
-<body class="{{ if .IsHome |  }}background{{ end }}">
-	<script>
-	    if('serviceWorker' in navigator) {
-	        navigator.serviceWorker
-	            .register('/pwabuilder-sw.js', { scope: '/' })
-	            .then(function(registration) {
-	                console.log('Service Worker Registered');
-	            });
+<body class="{{ if .IsHome }}background{{ end }}">
 
-	        navigator.serviceWorker
-	            .ready
-	            .then(function(registration) {
-	                console.log('Service Worker Ready');
-	            });
-	    }
-	</script>
 {{ if .IsHome }}{{ else }}
 {{ partial "site-header.html" }}
 {{ end }}
