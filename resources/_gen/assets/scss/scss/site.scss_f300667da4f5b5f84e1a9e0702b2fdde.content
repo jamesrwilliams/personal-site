@@ -477,6 +477,21 @@ main.error404 {
         font-size: 80px;
         text-align: left; } }
 
+.alert {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  border-top-right-radius: 0;
+  margin-top: -18px;
+  margin-left: -5%;
+  border-top-left-radius: 0;
+  color: #383d41;
+  background-color: #e2e3e5;
+  border-color: #d6d8db; }
+
 .post-header {
   background: white;
   padding: 30px 0;
