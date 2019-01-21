@@ -1,0 +1,3 @@
+## For some reason I can't disable these with Hugo.
+tags/
+categories/
