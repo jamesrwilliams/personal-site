@@ -21,8 +21,6 @@ hugo server --baseUrl=nexus.local --bind="0.0.0.0"
 
 For example using the above as an example, and assuming the server runs on port `1313` to access this on your iPhone you would visit: _http://nexus.local:1313_ to preview your site.
 
-
-
 ## Hugo CLI
 
 This is my go to demo server command for the Hugo CLI with two main arguments.
@@ -32,6 +30,12 @@ hugo server -D --disableFastRender
 ```
 
 The `-D` here renders draft posts so I can see how my drafts are doing (the short hand makes it easy to remove if required).r
+
+## Shortcodes
+
+```html
+{{< shortcode-name foo="bar">}}
+```
 
 ## List your works in progress
 

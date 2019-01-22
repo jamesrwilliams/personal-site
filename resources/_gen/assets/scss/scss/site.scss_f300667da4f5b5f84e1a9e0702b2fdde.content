@@ -590,6 +590,12 @@ pre {
 .accent {
   color: #04AA75; }
 
+img[src$='#floatleft'] {
+  float: left; }
+
+img[src$='#floatright'] {
+  float: right; }
+
 .background {
   color: #eeeeee; }
 
