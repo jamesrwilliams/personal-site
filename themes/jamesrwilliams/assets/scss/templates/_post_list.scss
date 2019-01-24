@@ -16,6 +16,12 @@
 	}
 }
 
+.post-draft {
+	border-left: 5px dashed red;
+	padding-left: 20px;
+	background: white;
+}
+
 .post-link {
 	margin-bottom: 50px;
 
@@ -24,7 +30,7 @@
 		border-right: 1px solid #ccc;
 
 		&:before {
-			content: 'Newer posts';
+			content: 'Older posts';
 		}
 	}
 
@@ -33,7 +39,7 @@
 		padding: 15px 0;
 
 		&:before {
-			content: 'Older posts';
+			content: 'Newer posts';
 		}
 	}
 }

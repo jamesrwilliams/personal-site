@@ -379,13 +379,20 @@ section.hero {
       -moz-hyphens: auto;
       -webkit-hyphens: auto;
       hyphens: auto; }
-    .post-content h1:target,
-    .post-content h2:target,
-    .post-content h3:target,
-    .post-content h4:target,
-    .post-content h5:target,
-    .post-content h6:target {
-      color: #04AA75; }
+    .post-content h1,
+    .post-content h2,
+    .post-content h3,
+    .post-content h4,
+    .post-content h5,
+    .post-content h6 {
+      padding-top: 15px; }
+      .post-content h1:target,
+      .post-content h2:target,
+      .post-content h3:target,
+      .post-content h4:target,
+      .post-content h5:target,
+      .post-content h6:target {
+        color: #04AA75; }
 
 .tag {
   font-size: 14px;
@@ -415,16 +422,6 @@ section.hero {
     color: #999;
     padding-bottom: 10px;
     text-transform: uppercase; }
-  .post-link-prev {
-    padding: 15px 0;
-    border-right: 1px solid #ccc; }
-    .post-link-prev:before {
-      content: 'Previous post'; }
-  .post-link-next {
-    text-align: right;
-    padding: 15px 0; }
-    .post-link-next:before {
-      content: 'Next post'; }
 
 .post-list h2 {
   margin-top: 5px;
@@ -438,18 +435,23 @@ section.hero {
   color: #037853;
   text-decoration: none; }
 
+.post-draft {
+  border-left: 5px dashed red;
+  padding-left: 20px;
+  background: white; }
+
 .post-link {
   margin-bottom: 50px; }
   .post-link-prev {
     padding: 15px 0;
     border-right: 1px solid #ccc; }
     .post-link-prev:before {
-      content: 'Newer posts'; }
+      content: 'Older posts'; }
   .post-link-next {
     text-align: right;
     padding: 15px 0; }
     .post-link-next:before {
-      content: 'Older posts'; }
+      content: 'Newer posts'; }
 
 main.error404 {
   background: transparent; }
@@ -590,11 +592,25 @@ pre {
 .accent {
   color: #04AA75; }
 
-img[src$='#floatleft'] {
-  float: left; }
+figure {
+  padding-top: 1em;
+  margin: 0; }
+  figure.float-right {
+    float: right;
+    margin-left: 5%; }
+  figure.float-left {
+    float: left;
+    margin-right: 5%; }
+  figure figcaption {
+    background: white; }
+    figure figcaption h4 {
+      margin: 0;
+      padding: 0; }
+    figure figcaption p {
+      margin-top: 0; }
 
-img[src$='#floatright'] {
-  float: right; }
+ul li {
+  padding-bottom: 1.1em; }
 
 .background {
   color: #eeeeee; }

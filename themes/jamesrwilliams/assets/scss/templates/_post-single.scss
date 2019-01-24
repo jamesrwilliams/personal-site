@@ -44,6 +44,8 @@
 		h5,
 		h6 {
 
+			padding-top: 15px;
+
 			&:target {
 				color: $accent;
 			}
@@ -85,23 +87,5 @@
 		color: #999;
 		padding-bottom: 10px;
 		text-transform: uppercase;
-	}
-
-	&-prev {
-		padding: 15px 0;
-		border-right: 1px solid #ccc;
-
-		&:before {
-			content: 'Previous post';
-		}
-	}
-
-	&-next {
-		text-align: right;
-		padding: 15px 0;
-
-		&:before {
-			content: 'Next post';
-		}
 	}
 }

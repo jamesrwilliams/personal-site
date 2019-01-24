@@ -1,4 +1,4 @@
-<article class="post-inline">
+<article class="post-inline {{ if .Draft }} post-draft {{ end }}">
 	{{ partial "json-ld/blog-post" . }}
 	<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Monday, January 2, 2006" }}</time>
 	<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
