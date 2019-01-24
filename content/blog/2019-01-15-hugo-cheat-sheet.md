@@ -34,7 +34,7 @@ The `-D` here renders draft posts so I can see how my drafts are doing (the shor
 ## Shortcodes
 
 ```html
-{{< shortcode-name foo="bar">}}
+
 ```
 
 ## List your works in progress
