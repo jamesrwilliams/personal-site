@@ -2,7 +2,6 @@
 title: "I emigrated to Canada!"
 type: post
 date: 2019-01-09T16:29:51-05:00
-draft: true
 ---
 
 {{< figure src="https://media.giphy.com/media/i0f2SCKCv7AsM/giphy-downsized.gif" alt="Canadian flag being waved" class="float-right" >}}
