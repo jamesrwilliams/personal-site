@@ -31,7 +31,7 @@ While it was not exactly a massive cultural shock between the great white north 
 
 ## From .co.uk to .ca
 
-I've taken this opportunity to redevelop my personal website in Hugo the Go powered static site generator after a few years being built in WordPress. This site is now deployed via Netlify and it's source is available on [GitHub](https://github.com/jamesrwilliams/personal-site). It's also been moved to a shiny new <code>.ca</code> domain for extra Canadian flare. You can read more about the redevelopment in my post "[Migrating from WordPress to hugo"](/blog/moving-my-website-from-wordpress-to-hugo/).
+I've taken this opportunity to redevelop my personal website in Hugo the Go powered static site generator after a few years being built in WordPress. This site is now deployed via Netlify and it's source is available on [GitHub](https://github.com/jamesrwilliams/personal-site). It's also been moved to a shiny new <code>.ca</code> domain for extra Canadian flare. You can read more about the redevelopment in my post "[Migrating from WordPress to hugo"](/blog/moving-from-wordpress-to-hugo/).
 
 
 
