@@ -2,6 +2,7 @@
 title: "Moving from WordPress to Hugo"
 type: post
 date: 2019-01-08T13:14:21-05:00
+aliases: [/blog/moving-my-website-from-wordpress-to-hugo/]
 ---
 
 I have taken a move to rebuild my personal site in [Hugo](https://gohugo.io) instead of WordPress! Why you ask? Why the heck not. I spend most of my professional life building WordPress sites for clients, why stop now. For me it was the danger of familiarity. When I started building this site, I knew very little about Hugo or how it works. If I'm honest, I still don't feel fully comfortable with it but it is a start.
