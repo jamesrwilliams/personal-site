@@ -569,11 +569,8 @@ code {
   margin: 0 5px 0 1px;
   font-size: 90%;
   background: white;
-  padding: .2rem .3rem .1rem .3rem;
+  padding: .2rem .4rem .1rem .3rem;
   border-radius: .2rem; }
-
-.highlight {
-  margin-left: -5%; }
 
 blockquote {
   font-style: italic;
@@ -585,7 +582,7 @@ blockquote {
 
 pre {
   overflow: scroll;
-  padding: 15px; }
+  padding: 15px 25px; }
   pre code {
     background: none; }
 
