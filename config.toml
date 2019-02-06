@@ -7,7 +7,7 @@ theme = "jamesrwilliams"
 pygmentsCodeFences = true
 googleAnalytics = "UA-26549429-1"
 enableGitInfo = true
-disableKinds = ["categories", "tags"]
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
   author = "James R. Williams"
