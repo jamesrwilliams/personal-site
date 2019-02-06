@@ -6,7 +6,7 @@ date: 2019-02-05T07:53:01+00:00
 
 ## Background
 
-A recent client project called for a bit of an exploration into client side encryption implementations. A first for me. A large (>`1mb) JSON file needs to sent from a client angular.js application to a server, from there needs to be processed and then sent on to an external Endpoint. Encryption on the first server would leave the data exposed on between the client so we needed to implement on the client side using JavaScript encryption.
+A recent client project called for a bit of an exploration into client side encryption implementations. A first for me. A large (>1mb) JSON file needs to sent from a client angular.js application to a server, from there needs to be processed and then sent on to an external Endpoint. Encryption on the first server would leave the data exposed on between the client so we needed to implement on the client side using JavaScript encryption.
 
 Looking for a [TL;DR](#in-summary)?
 
