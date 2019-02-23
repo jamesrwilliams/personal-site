@@ -479,6 +479,24 @@ main.error404 {
         font-size: 80px;
         text-align: left; } }
 
+.offline {
+  background: none;
+  padding: 50px 15px;
+  max-width: 500px;
+  margin: 0 auto; }
+  .offline h1 {
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-size: 36px; }
+  .offline article {
+    line-height: 1.4em;
+    color: white; }
+  .offline a {
+    color: #04AA75;
+    text-decoration: none;
+    font-weight: bold; }
+
 .alert {
   position: relative;
   padding: .75rem 1.25rem;

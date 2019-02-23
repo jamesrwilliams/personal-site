@@ -1,0 +1,24 @@
+{
+  "name": "jamesrwilliams.co.uk",
+  "version": "1.0.0",
+  "description": "This is the source code for my personal website [https://jamesrwilliams.co.uk](https://jamesrwilliams.co.uk), and eventually it's `.ca` TLD replacement! Built with the static site generator [Hugo](https://gohugo.io/) and using a custom made theme, that I might release sometime in the future as a stand alone project.",
+  "main": "workbox-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pwa": "workbox injectManifest workbox-config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesrwilliams/jamesrwilliams.co.uk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesrwilliams/jamesrwilliams.co.uk/issues"
+  },
+  "homepage": "https://github.com/jamesrwilliams/jamesrwilliams.co.uk#readme",
+  "devDependencies": {
+    "copyfiles": "^1.2.0",
+    "workbox-cli": "^3.5.0"
+  }
+}
