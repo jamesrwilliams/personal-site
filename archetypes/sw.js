@@ -2,7 +2,8 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox
 
 if (workbox) {
 
-    workbox.googleAnalytics.initialize();
+    // Does this reduce the cache size?
+    // workbox.googleAnalytics.initialize();
 
     workbox.precaching.precacheAndRoute([]);
 

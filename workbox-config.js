@@ -1,7 +1,8 @@
 module.exports = {
   "globDirectory": "public/",
   "globPatterns": [
-    "**/*.{png,ico,json,jpg,js,txt,css}",
+    "**/*.{ico,json,js,css}",
+    "post-images/*.{png,jpg,gif}",
     "index.html",
     "offline/index.html",
     "404.html"
