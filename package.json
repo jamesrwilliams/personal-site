@@ -5,7 +5,7 @@
   "main": "workbox-config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "workbox injectManifest workbox-config.js"
+    "pwa": "workbox injectManifest workbox-config.js"
   },
   "repository": {
     "type": "git",

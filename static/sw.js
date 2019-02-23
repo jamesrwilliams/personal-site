@@ -2,6 +2,8 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.5.0/workbox
 
 if (workbox) {
 
+    workbox.googleAnalytics.initialize();
+
     workbox.precaching.precacheAndRoute([
   {
     "url": "appicons/128x128.png",
@@ -66,7 +68,7 @@ if (workbox) {
 ]);
 
     const articleHandler = workbox.strategies.networkFirst({
-        cacheName: 'articles-cache',
+        cacheName: 'posts-cache',
         plugins: [
             new workbox.expiration.Plugin({
                 maxEntries: 50,
