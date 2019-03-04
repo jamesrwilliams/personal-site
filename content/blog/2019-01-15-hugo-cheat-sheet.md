@@ -13,7 +13,7 @@ Very useful little command to enable you to preview your Hugo site on your iPhon
 
 For this to work replace the `nexus.local` with the local address of your mac, found in System Preferences, and then Sharing. 
 
-This will then allow you to visit the lcoal address of your mac with the port your hugo server runs on, via the web browser on your phone to preview the site.
+This will then allow you to visit the local address of your mac with the port your hugo server runs on, via the web browser on your phone to preview the site.
 
 ```bash
 hugo server --baseUrl=nexus.local --bind="0.0.0.0"

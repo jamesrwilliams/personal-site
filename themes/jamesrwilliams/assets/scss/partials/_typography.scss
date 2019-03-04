@@ -1,20 +1,21 @@
 code {
 	position: relative;
 	top: -1px;
-	margin: 0 5px 0 1px;
+	margin: 0 0 0 1px;
 	font-size: 90%;
 	background: white;
-	padding: .2rem .4rem .1rem .3rem;
+	padding: .2rem .4rem .1rem .4rem;
 	border-radius: .2rem;
 }
 
 blockquote {
 	font-style: italic;
 	color: darken($accent, 10%);
-	margin-left: -5%;
+	margin-left: 0;
+	margin-right: 0;
 	font-size: 1.4em;
 	line-height: 1.4em;
-	max-width: 90%;
+	max-width: 100%;
 }
 
 pre {
@@ -23,6 +24,7 @@ pre {
 
 	code {
 		background: none;
+		padding: .2rem .4rem .1rem 0;
 	}
 }
 
@@ -34,6 +36,7 @@ figure {
 
 	padding-top: 1em;
 	margin: 0;
+	text-align: center;
 
 	&.float-right {
 		float: right;
@@ -47,7 +50,9 @@ figure {
 
 	figcaption {
 
-		background: white;
+		font-style: italic;
+		font-size: .9rem;
+		margin-left: 15px;
 
 		h4 {
 			margin: 0;
@@ -61,6 +66,6 @@ figure {
 
 ul {
 	li {
-		padding-bottom: 1.1em;
+		padding-bottom: 5px;
 	}
 }
