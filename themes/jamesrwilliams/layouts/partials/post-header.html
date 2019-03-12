@@ -2,6 +2,13 @@
 	<div class="container">
 		<a href="{{ "/blog/" | relURL }}">&larr; All Posts</a>
 		<h1>{{ .Title }}</h1>
-		<p>Posted on <time datetime='{{ .PublishDate.Format "2006-01-02" }}'>{{ .PublishDate.Format "2 January, 2006" }}</time> - About a {{ .ReadingTime }} minute read.</p>
+		<p>
+			{{ $publish_date := .PublishDate.Format "2 January, 2006" }}
+			{{ $updated_date := .Lastmod.Format "2 January, 2006" }}
+
+			This was posted on <time datetime='{{ .PublishDate.Format "2006-01-02" }}'>{{ $publish_date }}</time>{{ if not (eq $publish_date $updated_date) }},  and updated on <time datetime='{{ .Lastmod.Format "2006-01-02" }}'>{{ $updated_date }}</time>.
+			{{ end }}
+			A {{ .ReadingTime }} min read.
+		</p>
 	</div>
 </header>
