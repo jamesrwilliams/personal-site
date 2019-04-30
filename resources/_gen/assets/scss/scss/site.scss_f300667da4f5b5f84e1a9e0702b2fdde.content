@@ -376,6 +376,7 @@ section.hero {
         min-height: calc(100vh - 500px); } }
     .post-content a {
       color: #037853;
+      font-weight: 600;
       /* These are technically the same, but use both */
       overflow-wrap: break-word;
       word-wrap: break-word;
@@ -467,7 +468,9 @@ section.hero {
   @media screen and (min-width: 960px) {
     .post-link {
       margin-bottom: 50px;
-      padding: 20px 0; }
+      padding: 20px 0;
+      border-bottom: 0;
+      border-top: 0; }
       .post-link:last-child {
         border-right: 0; } }
   .post-link:before {
