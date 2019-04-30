@@ -360,9 +360,11 @@ section.hero {
   .post-content {
     line-height: 1.7em; }
     .post-content > :first-child {
-      margin-top: 0; }
+      margin-top: 0;
+      padding-top: 0; }
     .post-content > :last-child {
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      padding-bottom: 0; }
     .post-content ol,
     .post-content ul {
       padding-left: 20px; }
@@ -396,6 +398,8 @@ section.hero {
       .post-content h5:target,
       .post-content h6:target {
         color: #04AA75; }
+    .post-content figure {
+      float: none; }
 
 .tag {
   font-size: 14px;
@@ -613,15 +617,27 @@ pre {
   color: #04AA75; }
 
 figure {
-  padding-top: 1em;
+  padding: 0;
   margin: 0;
   text-align: center; }
+  @media screen and (min-width: 660px) {
+    figure {
+      padding: 1em 0; } }
   figure.float-right {
-    float: right;
-    margin-left: 5%; }
+    margin-left: 0; }
+    @media screen and (min-width: 660px) {
+      figure.float-right {
+        float: right;
+        margin-left: 5%; } }
   figure.float-left {
-    float: left;
-    margin-right: 5%; }
+    margin-right: 0; }
+    @media screen and (min-width: 660px) {
+      figure.float-left {
+        float: left;
+        margin-right: 5%; } }
+  figure img {
+    border-radius: 5px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3); }
   figure figcaption {
     font-style: italic;
     font-size: .9rem;

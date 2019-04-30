@@ -34,18 +34,35 @@ pre {
 
 figure {
 
-	padding-top: 1em;
+	padding: 0;
 	margin: 0;
 	text-align: center;
 
+	@include media-query($breakpoint_sm) {
+		padding: 1em 0;
+	}
+
 	&.float-right {
-		float: right;
-		margin-left: 5%;
+		margin-left: 0;
+
+		@include media-query($breakpoint_sm) {
+			float: right;
+			margin-left: 5%;
+		}
 	}
 
 	&.float-left {
-		float: left;
-		margin-right: 5%;
+		margin-right: 0;
+
+		@include media-query($breakpoint_sm) {
+			float: left;
+			margin-right: 5%;
+		}
+	}
+
+	img {
+		border-radius: 5px;
+		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 	}
 
 	figcaption {

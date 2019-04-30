@@ -8,9 +8,9 @@ The weeks are flying by for me here in Canada. It must be the cold weather and w
 
 ## I've joined the Points team!
 
-{{< figure src="https://media.giphy.com/media/7JQRVbQqCIv7aQzQ1P/giphy-downsized.gif" alt="Let's go Raptors!" class="float-right" >}}
-
 I'm really happy to say I've joined [Points](https://points.com) as a web developer on the promotion optimisation team! I will be working with the team to help build out their interactive promotion offering, expanding the teams capacity for web magic. Points also have the special distinction of also being *my first Canadian job*!
+
+{{< figure src="https://media.giphy.com/media/7JQRVbQqCIv7aQzQ1P/giphy-downsized.gif" alt="Let's go Raptors!" class="float-right" >}}
 
 Points is a leading loyalty point exchange platform based in their fantastic office in downtown Toronto. We have a range of services for loyalty point collectors around the world, working with some really exciting partners with some fun and interesting projects to boot. This is a shift away from agency background which I was hoping for and also a much larger company than any I have worked with before, so lots of opportunities for me to learn and grow as a developer. I'm very excited for what the future holds for me here.
 
