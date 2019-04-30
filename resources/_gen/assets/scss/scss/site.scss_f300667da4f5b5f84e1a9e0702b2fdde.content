@@ -319,6 +319,9 @@ body {
 
 main {
   background: #eeeeee; }
+  @media (prefers-color-scheme: dark) {
+    main {
+      background: #0e141a; } }
 
 .container {
   max-width: 940px;

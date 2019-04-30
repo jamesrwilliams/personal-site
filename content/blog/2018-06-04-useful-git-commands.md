@@ -88,3 +88,9 @@ git log --date=iso --pretty=format:'"%h","%an","%ad","%s"' > commits.excel.tsv.t
 # Another date form
 git log --pretty=format:%h,%an,%ad,%s > commits.txt
  ```
+
+### Change the default editor
+
+```bash
+git config --global core.editor "nano"
+```
