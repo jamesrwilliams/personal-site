@@ -57,8 +57,8 @@
 	{{ $sass := resources.Get "scss/site.scss" }}
 	{{ $style := $sass | resources.ToCSS }}
 	<link rel="manifest" href="/manifest.json">
-	<!--<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen">-->
-	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" media="screen">
+	<link rel="stylesheet" href="{{ $style.Permalink | relURL  }}" integrity="{{ $style.Data.Integrity }}" media="screen">
+<!--	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" media="screen">-->
 
 	<script type="application/ld+json">
 		{
