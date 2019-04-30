@@ -318,7 +318,8 @@ body {
       font-size: 18px; } }
 
 main {
-  background: #eeeeee; }
+  background: #eeeeee;
+  border-bottom: 8px solid #04AA75; }
   @media (prefers-color-scheme: dark) {
     main {
       background: #0e141a; } }
@@ -400,35 +401,22 @@ section.hero {
         color: #04AA75; }
     .post-content figure {
       float: none; }
+    .post-content .post-link-next:before {
+      content: 'Next Post'; }
+    .post-content .post-link-prev:before {
+      content: 'Previous post'; }
 
 .tag {
   font-size: 14px;
   text-decoration: none;
   color: #444; }
 
-.post-links {
-  display: flex; }
-
 .post-footer {
-  margin-top: 100px; }
-
-.post-link {
-  display: block;
-  text-decoration: none;
-  flex-grow: 1;
-  flex-basis: 0;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 20px 0;
-  color: inherit; }
-  .post-link:last-child {
-    border-right: 0; }
-  .post-link:before {
-    display: block;
-    font-size: 12px;
-    color: #999;
-    padding-bottom: 10px;
-    text-transform: uppercase; }
+  margin-top: 40px;
+  padding-bottom: 40px; }
+  @media screen and (min-width: 960px) {
+    .post-footer {
+      margin-top: 100px; } }
 
 .post-list h2 {
   margin-top: 5px;
@@ -442,23 +430,63 @@ section.hero {
   color: #037853;
   text-decoration: none; }
 
+.post-list .post-link-prev:before {
+  content: 'Older posts'; }
+
+.post-list .post-link-next:before {
+  content: 'Newer posts'; }
+
 .post-draft {
   border-left: 5px dashed red;
   padding-left: 20px;
   background: white; }
 
+.post-links {
+  display: flex;
+  flex-direction: column; }
+  @media screen and (min-width: 960px) {
+    .post-links {
+      flex-direction: row; } }
+
 .post-link {
-  margin-bottom: 50px; }
-  .post-link-prev {
-    padding: 15px 0;
-    border-right: 1px solid #ccc; }
-    .post-link-prev:before {
-      content: 'Older posts'; }
-  .post-link-next {
-    text-align: right;
-    padding: 15px 0; }
-    .post-link-next:before {
-      content: 'Newer posts'; }
+  display: block;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  flex-grow: 1;
+  flex-basis: 0;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 0;
+  color: inherit;
+  text-align: center;
+  margin-bottom: 10px; }
+  .post-link:last-child {
+    margin-bottom: 0; }
+  @media screen and (min-width: 960px) {
+    .post-link {
+      margin-bottom: 50px;
+      padding: 20px 0; }
+      .post-link:last-child {
+        border-right: 0; } }
+  .post-link:before {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    padding-bottom: 10px;
+    text-transform: uppercase; }
+  @media screen and (min-width: 960px) {
+    .post-link-prev {
+      text-align: left;
+      border-right: 1px solid #ccc; } }
+  .post-link-prev:before {
+    content: 'Older post'; }
+  @media screen and (min-width: 960px) {
+    .post-link-next {
+      text-align: right; } }
+  .post-link-next:before {
+    content: 'Newer post'; }
 
 main.error404 {
   background: transparent; }

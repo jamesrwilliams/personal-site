@@ -4,6 +4,8 @@ type: post
 date: 2019-03-25T18:09:35-04:00
 ---
 
+He says optimistically... 
+
 The weeks are flying by for me here in Canada. It must be the cold weather and wishing summer was here, or that spring refuses to stick around for longer than a few hours. I've almost been here six months now so I thought it would be a good idea to start documenting what I've been up to on the tech side, for me to look back on later for personal development or something like that. So here is a breakdown of what I have been up to over the last few months. I just hope it's enough to pass my Canadian probation...
 
 ## I've joined the Points team!
