@@ -4,6 +4,9 @@ $primary: #141E27;
 
 $radius: 5px;
 
+$animation-speed: 0.7s;
+
 /* Breakpoint controls (see _mixins.scss) */
-$breakpoint_sm: 660px;
-$breakpoint_md: 960px;
+$breakpoint_sm: 500px;
+$breakpoint_md: 660px;
+$breakpoint_lg: 960px;

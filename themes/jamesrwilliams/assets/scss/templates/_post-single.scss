@@ -19,7 +19,7 @@
 			padding-left: 20px;
 		}
 
-		@include media-query($breakpoint_md) {
+		@include media-query($breakpoint_lg) {
 			padding-right: 40px;
 			padding-top: 30px;
 			min-height: calc(100vh - 500px);
@@ -76,7 +76,7 @@
 	margin-top: 40px;
 	padding-bottom: 40px;
 
-	@include media-query($breakpoint_md) {
+	@include media-query($breakpoint_lg) {
 		margin-top: 100px;
 	}
 }

@@ -9,7 +9,7 @@ main.error404 {
 			font-size: 18px;
 			color: white;
 
-			@include media-query($breakpoint_md){
+			@include media-query($breakpoint_lg){
 				font-size: 24px;
 			}
 
@@ -19,7 +19,7 @@ main.error404 {
 			}
 		}
 
-		@include media-query($breakpoint_md) {
+		@include media-query($breakpoint_lg) {
 			padding: 20px;
 		}
 	}
@@ -31,7 +31,7 @@ main.error404 {
 	h1 {
 		font-size: 35px;
 
-		@include media-query($breakpoint_md) {
+		@include media-query($breakpoint_lg) {
 			font-size: 80px;
 			text-align: left;
 		}

@@ -20,7 +20,7 @@ article.post-inline {
 	}
 
 	&:first-child {
-		@include media-query($breakpoint_md) {
+		@include media-query($breakpoint_lg) {
 			padding-top: 50px;
 		}
 	}

@@ -332,16 +332,29 @@ main {
     .container {
       padding: 0 30px; } }
 
+.home-page-container {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 30px;
+  background: transparent;
+  border-bottom: 0; }
+
 section.hero {
   max-width: 620px;
-  margin-bottom: 40px; }
-  @media screen and (min-width: 960px) {
+  margin-bottom: 40px;
+  transition: margin 0.7s ease;
+  margin-top: 5vh; }
+  @media screen and (min-width: 500px) {
+    section.hero {
+      margin-top: 10vh; } }
+  @media screen and (min-width: 660px) {
     section.hero {
       margin-top: 25vh;
       margin-bottom: 80px; } }
   section.hero h1 {
     margin-bottom: 0;
-    font-size: 40px; }
+    font-size: 40px;
+    transition: font-size 0.7s ease; }
     @media screen and (min-width: 960px) {
       section.hero h1 {
         font-size: 50px; } }
@@ -419,23 +432,21 @@ section.hero {
     .post-footer {
       margin-top: 100px; } }
 
-.post-list h2 {
-  margin-top: 5px;
-  margin-bottom: 50px; }
-
-.post-list time {
-  font-size: 16px;
-  color: #444444; }
-
-.post-list a {
-  color: #037853;
-  text-decoration: none; }
-
-.post-list .post-link-prev:before {
-  content: 'Older posts'; }
-
-.post-list .post-link-next:before {
-  content: 'Newer posts'; }
+.post-list {
+  padding-bottom: 15px; }
+  .post-list h2 {
+    margin-top: 5px;
+    margin-bottom: 50px; }
+  .post-list time {
+    font-size: 16px;
+    color: #444444; }
+  .post-list a {
+    color: #037853;
+    text-decoration: none; }
+  .post-list .post-link-prev:before {
+    content: 'Older posts'; }
+  .post-list .post-link-next:before {
+    content: 'Newer posts'; }
 
 .post-draft {
   border-left: 5px dashed red;
@@ -692,12 +703,6 @@ ul li {
 .background {
   color: #eeeeee; }
 
-.page-container {
-  max-width: 940px;
-  margin: 0 auto;
-  padding: 0 30px;
-  background: transparent; }
-
 .post-container {
   max-width: 940px;
   margin: 0 auto; }
@@ -709,12 +714,21 @@ img {
 ul.social {
   list-style: none;
   margin: 50px 0 0 0;
-  padding: 0; }
+  padding: 0;
+  text-align: center;
+  transition: all 0.7s ease; }
+  @media screen and (min-width: 500px) {
+    ul.social {
+      text-align: left; } }
   ul.social li {
-    display: inline-block;
-    margin-right: 25px; }
+    display: inline-block; }
     ul.social li:hover svg {
       fill: #04AA75; }
+    ul.social li:not(:last-child) {
+      margin-right: 20px; }
+      @media screen and (min-width: 500px) {
+        ul.social li:not(:last-child) {
+          margin-right: 25px; } }
   ul.social svg {
     width: 24px;
     fill: white; }

@@ -10,14 +10,14 @@ nav.site-header {
 			margin-right: 0;
 			margin-left: 15px;
 
-			@include media-query($breakpoint_md) {
+			@include media-query($breakpoint_lg) {
 				margin-left: 25px;
 			}
 		}
 
 		svg {
 			width: 16px;
-			@include media-query($breakpoint_md) {
+			@include media-query($breakpoint_lg) {
 				width: 20px;
 			}
 		}

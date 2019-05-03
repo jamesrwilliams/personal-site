@@ -38,14 +38,14 @@ figure {
 	margin: 0;
 	text-align: center;
 
-	@include media-query($breakpoint_sm) {
+	@include media-query($breakpoint_md) {
 		padding: 1em 0;
 	}
 
 	&.float-right {
 		margin-left: 0;
 
-		@include media-query($breakpoint_sm) {
+		@include media-query($breakpoint_md) {
 			float: right;
 			margin-left: 5%;
 		}
@@ -54,7 +54,7 @@ figure {
 	&.float-left {
 		margin-right: 0;
 
-		@include media-query($breakpoint_sm) {
+		@include media-query($breakpoint_md) {
 			float: left;
 			margin-right: 5%;
 		}
