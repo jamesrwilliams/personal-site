@@ -599,12 +599,15 @@ article.post-inline h2 {
   margin-bottom: 50px; }
 
 article.post-inline time {
-  font-size: 16px;
-  color: #444444; }
+  font-size: 14px;
+  color: #444444;
+  font-weight: bold;
+  text-transform: uppercase; }
 
 article.post-inline a {
   color: #037853;
-  text-decoration: none; }
+  text-decoration: none;
+  font-weight: 300; }
 
 @media screen and (min-width: 960px) {
   article.post-inline:first-child {
