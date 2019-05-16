@@ -16,13 +16,9 @@ dig google.com any
 
 ## [host][3]
 
-`host` is a simple utility for performing DNS look ups. It is normally used to convert names to IP addresses and vice versa. The -t option is used below select the query type, for example, \`mx\` for MX records and A records for, you guessed it, A records.
+`host` is a simple utility for performing DNS look ups. It is normally used to convert names to IP addresses and vice versa. The -t option is used below select the query type, for example, `mx` for MX records and A records for, you guessed it, A records. 
 
-Get the a records for a domain:
-
-```bash
-host -t a google.com
-```
+Get the a records for a domain: `host -t a google.com`
 
 Get the a records for a domain:
 
@@ -47,7 +43,7 @@ host -a google.com
 `whois` searches for an object in a WHOIS database. WHOIS is a query and response protocol that is widely used for querying databases that store the registered users of an Internet resource. For example, a domain name or an IP address block but is also used for a wider range of other information.
 
 ```bash
-whois -H google.com
+whois google.com
 ```
 
 The `-H` flag here hides the legal disclaimers some registries like to show you
