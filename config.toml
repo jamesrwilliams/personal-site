@@ -11,7 +11,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
   author = "James R. Williams"
-  siteDescription = "A British web developer living in Canada."
+  siteDescription = "A British web developer living in Canada. Busy closing divs and mass producing angular errors."
   blogDescription = "Home of my occasional write ups of interesting tech and things I'm working on."
   image = "/profile.jpg"
 

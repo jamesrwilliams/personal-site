@@ -16,7 +16,7 @@ if (workbox) {
   },
   {
     "url": "scss/site.css",
-    "revision": "ea880cc5da619244fab8fbb0d56d7951"
+    "revision": "de78e096ac258b276d4beec9d6148d3f"
   },
   {
     "url": "post-images/console.stack-output.jpg",
@@ -32,7 +32,7 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "464902eca8d3d8598af8b3d8f471cf0f"
+    "revision": "87b7c03776a36d9b76da0efc8bdd2377"
   },
   {
     "url": "offline/index.html",
@@ -40,7 +40,7 @@ if (workbox) {
   },
   {
     "url": "404.html",
-    "revision": "962659f7d698e08512ec0c904f075af4"
+    "revision": "b8df8f18f5691a739cb9d51d80521d34"
   }
 ]);
 
