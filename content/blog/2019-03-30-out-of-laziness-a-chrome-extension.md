@@ -1,5 +1,5 @@
 ---
-title: "Out of laziness: a chrome extension"
+title: "A wild Chrome extension appears"
 type: post
 date: 2019-03-30T18:09:35-04:00
 draft: true
@@ -9,7 +9,7 @@ Laziness is one of the three great virtues of a programmer. The other two virtue
 
 > "The quality that makes you go to great effort to reduce overall energy expenditure. It makes you write labor-saving programs that other people will find useful and document what you wrote so you don't have to answer so many questions about it."
 
-So in an effort to reduce my (already) low level of energy expenditure I decided to automate this process. 
+And out of laziness, an effort to reduce my (already) low level of energy expenditure. I decided to automate a slightly repetitive task and this is how it went... 
 
 ## The ask
 
