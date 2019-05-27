@@ -5,7 +5,8 @@
   "main": "workbox-config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pwa": "workbox injectManifest workbox-config.js"
+    "pwa": "hugo && workbox injectManifest workbox-config.js",
+    "start": "hugo serve --disableFastRender -D"
   },
   "repository": {
     "type": "git",

@@ -8,19 +8,23 @@ if (workbox) {
     workbox.precaching.precacheAndRoute([
   {
     "url": "favicon.ico",
-    "revision": "01a00620dd7e67b73d0b5ce0616d9619"
+    "revision": "33a2f904061f26f4755244b7bc2237ec"
   },
   {
     "url": "manifest.json",
     "revision": "36e09fa1526e69746411334273796042"
   },
   {
-    "url": "pwabuilder-sw.js",
-    "revision": "10cd8b3df0aadb303371d731badbf30d"
+    "url": "scss/site.css",
+    "revision": "ea880cc5da619244fab8fbb0d56d7951"
   },
   {
-    "url": "scss/site.css",
-    "revision": "b68f86839bc04ff4d795bb5f602f50d8"
+    "url": "post-images/console.stack-output.jpg",
+    "revision": "b10b221f06930b0f8e374281ba166823"
+  },
+  {
+    "url": "post-images/console.table-output.jpg",
+    "revision": "55ce410a53992d64e88348b2b3575849"
   },
   {
     "url": "post-images/encryption-graph.png",
@@ -28,15 +32,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "7814a648dec904de38f1e5ab4b1633e4"
+    "revision": "464902eca8d3d8598af8b3d8f471cf0f"
   },
   {
     "url": "offline/index.html",
-    "revision": "5a0cb3a746139f7ad049679b2ff7b3b5"
+    "revision": "2cf3b2d25aaa5d26644e9fdadd02edbf"
   },
   {
     "url": "404.html",
-    "revision": "b3f41fd9292b72ad6dc947caeece8e96"
+    "revision": "962659f7d698e08512ec0c904f075af4"
   }
 ]);
 
