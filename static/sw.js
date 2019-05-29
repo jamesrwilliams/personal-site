@@ -16,7 +16,11 @@ if (workbox) {
   },
   {
     "url": "scss/site.css",
-    "revision": "63d92c0a5120ad2190d6e768d8d34f2b"
+    "revision": "0bc6f1253dabd89e1062b012ab900e6f"
+  },
+  {
+    "url": "post-images/_field-set-label-example.png",
+    "revision": "83227d79bc6294a885fdde8d3456a0c1"
   },
   {
     "url": "post-images/console.stack-output.jpg",
@@ -29,6 +33,18 @@ if (workbox) {
   {
     "url": "post-images/encryption-graph.png",
     "revision": "c6908260325cfab5e564d6c2d501a53f"
+  },
+  {
+    "url": "post-images/field-set-label-approach.png",
+    "revision": "6db00069ed39d897fe543c6d1e254848"
+  },
+  {
+    "url": "post-images/field-set-label-example.png",
+    "revision": "5e4e3a5721d272ea1283353e93da272f"
+  },
+  {
+    "url": "post-images/field-set-label-guide-1.png",
+    "revision": "b7f3a8c2de22c8e17e3b199da052f5d0"
   },
   {
     "url": "index.html",
