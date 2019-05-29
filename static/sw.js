@@ -12,11 +12,11 @@ if (workbox) {
   },
   {
     "url": "manifest.json",
-    "revision": "36e09fa1526e69746411334273796042"
+    "revision": "59ac0f7a5ae70ddb41b1b434a829cf2c"
   },
   {
     "url": "scss/site.css",
-    "revision": "de78e096ac258b276d4beec9d6148d3f"
+    "revision": "63d92c0a5120ad2190d6e768d8d34f2b"
   },
   {
     "url": "post-images/console.stack-output.jpg",
@@ -32,15 +32,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "87b7c03776a36d9b76da0efc8bdd2377"
+    "revision": "64d0cc0bb151468b114d896fe420d841"
   },
   {
     "url": "offline/index.html",
-    "revision": "2cf3b2d25aaa5d26644e9fdadd02edbf"
+    "revision": "1d222d0822c4aa924b5a09a9e9d6b4c6"
   },
   {
     "url": "404.html",
-    "revision": "b8df8f18f5691a739cb9d51d80521d34"
+    "revision": "8f72c4e37b787710493891dd961264a4"
   }
 ]);
 

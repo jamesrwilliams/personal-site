@@ -18,11 +18,11 @@
 	}
 
 	.post-link-prev:before {
-		content: 'Older posts';
+		content: 'Newer posts';
 	}
 
 	.post-link-next:before {
-		content: 'Newer posts';
+		content: 'Older posts';
 	}
 }
 
@@ -44,8 +44,6 @@
 .post-link {
 
 	display: block;
-	background-color: rgba(#fff, 0.2);
-	border-radius: $radius;
 	border: 1px solid rgba(#000, 0.1);
 	text-decoration: none;
 	flex-grow: 1;
@@ -66,6 +64,7 @@
 		padding: 20px 0;
 		border-bottom: 0;
 		border-top: 0;
+		border-left: 0;
 
 		&:last-child {
 			border-right: 0;

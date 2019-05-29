@@ -444,9 +444,9 @@ section.hero {
     color: #037853;
     text-decoration: none; }
   .post-list .post-link-prev:before {
-    content: 'Older posts'; }
-  .post-list .post-link-next:before {
     content: 'Newer posts'; }
+  .post-list .post-link-next:before {
+    content: 'Older posts'; }
 
 .post-draft {
   border-left: 5px dashed red;
@@ -462,8 +462,6 @@ section.hero {
 
 .post-link {
   display: block;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   text-decoration: none;
   flex-grow: 1;
@@ -481,7 +479,8 @@ section.hero {
       margin-bottom: 50px;
       padding: 20px 0;
       border-bottom: 0;
-      border-top: 0; }
+      border-top: 0;
+      border-left: 0; }
       .post-link:last-child {
         border-right: 0; } }
   .post-link:before {
