@@ -373,6 +373,8 @@ section.hero {
   background: #eeeeee; }
   .post-content {
     line-height: 1.7em; }
+    .post-content .highlight {
+      line-height: 1.1em; }
     .post-content > :first-child {
       margin-top: 0;
       padding-top: 0; }
