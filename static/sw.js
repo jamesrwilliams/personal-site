@@ -64,15 +64,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "64d0cc0bb151468b114d896fe420d841"
+    "revision": "1c30707296ecaff10a229525b86aefdd"
   },
   {
     "url": "offline/index.html",
-    "revision": "1d222d0822c4aa924b5a09a9e9d6b4c6"
+    "revision": "cc0134fe7582ade36583c11a986b0f88"
   },
   {
     "url": "404.html",
-    "revision": "6bce2a17259f148ae1d2a74427e56ce7"
+    "revision": "48bf88e0dd5512d5b34f4d7293a730e8"
   }
 ]);
 

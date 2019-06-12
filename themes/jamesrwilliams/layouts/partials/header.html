@@ -58,7 +58,6 @@
 	{{ $style := $sass | resources.ToCSS }}
 	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" href="{{ $style.Permalink | relURL  }}" integrity="{{ $style.Data.Integrity }}" media="screen">
-<!--	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" media="screen">-->
 
 	<script type="application/ld+json">
 		{
@@ -66,13 +65,15 @@
 			"@type": "Person",
 			"@id": "#person",
 			"name": "James R. Williams",
+			"jobTitle": "Web Developer",
 			"url": "{{ .Site.BaseURL }}",
 			"sameAs": [
 				"https://www.instagram.com/thejamesrwilliams\/",
 				"https://uk.linkedin.com/in/thejamesrwilliams",
 				"https://www.youtube.com/channel/UCEcQrBPkNiRV295wdTbopoA",
 				"https://twitter.com/James_RWilliams",
-				"https://github.com/jamesrwilliams"
+				"https://github.com/jamesrwilliams",
+				"https://codepen.io/jamesrwilliams/"
 			]
 		}
 	</script>
