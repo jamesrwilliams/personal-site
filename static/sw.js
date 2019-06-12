@@ -23,6 +23,22 @@ if (workbox) {
     "revision": "83227d79bc6294a885fdde8d3456a0c1"
   },
   {
+    "url": "post-images/automator-about.png",
+    "revision": "f852abc189995f51d9a7a71aec8d9916"
+  },
+  {
+    "url": "post-images/automator-configuration.png",
+    "revision": "dfee18066b880cfe78046930517113c8"
+  },
+  {
+    "url": "post-images/automator-copy-files-to-clipboard.png",
+    "revision": "eee983ddfba528e7c26fe3034c49e6ff"
+  },
+  {
+    "url": "post-images/automator-result.png",
+    "revision": "e74a74da3044d2d90a7b93cd00ac66c2"
+  },
+  {
     "url": "post-images/console.stack-output.jpg",
     "revision": "b10b221f06930b0f8e374281ba166823"
   },
@@ -56,7 +72,7 @@ if (workbox) {
   },
   {
     "url": "404.html",
-    "revision": "8f72c4e37b787710493891dd961264a4"
+    "revision": "6bce2a17259f148ae1d2a74427e56ce7"
   }
 ]);
 
