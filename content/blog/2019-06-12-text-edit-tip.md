@@ -4,7 +4,7 @@ type: post
 date: 2019-06-12T11:23:49-04:00
 ---
 
-I use textEdit a lot to format small snippets of text and code when formatting is not a concern for me. One of my biggest annoyances with this tiny application as how that it always opened to the "open file" dialog when I needed to quickly format text. Turns out there is a way to change that!
+I use TextEdit a lot to format small snippets of text and code when formatting is not a concern for me. One of my biggest annoyances with this tiny application as how that it always opened to the "open file" dialog when I needed to quickly format text. Turns out there is a way to change that!
 
 ## Open a blank file by default
 
