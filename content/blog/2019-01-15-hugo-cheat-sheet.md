@@ -20,7 +20,7 @@ Some bonus helpful things I've made a note of since doing more things with Hugo:
 
 ## File structure
 
-.. Breakdown of baseof etc.
+.. Breakdown of `baseof` etc.
 
 ## Theme boilerplate
 
