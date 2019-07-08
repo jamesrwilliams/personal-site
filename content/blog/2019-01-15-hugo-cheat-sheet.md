@@ -34,6 +34,17 @@ Conditionals and other variable based logic is done a little differently with Hu
 
 For example if we want to check if two numbers are equal we will do the following:
 
+### And (&&)
+
+
+```go
+{{ if and $foo $bar }}
+/* True condition */
+{{ end }} 
+```
+
+You can for example check if two variables are set by using the `isset()` function
+
 ### Equal (===) 
 
 ```go
