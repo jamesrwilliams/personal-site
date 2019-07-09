@@ -7,6 +7,10 @@ if (workbox) {
 
     workbox.precaching.precacheAndRoute([
   {
+    "url": "algolia.json",
+    "revision": "fd7a31a8eb1431b1fc86526c01a3ccce"
+  },
+  {
     "url": "favicon.ico",
     "revision": "33a2f904061f26f4755244b7bc2237ec"
   },
@@ -16,7 +20,7 @@ if (workbox) {
   },
   {
     "url": "scss/site.css",
-    "revision": "0bc6f1253dabd89e1062b012ab900e6f"
+    "revision": "5589d810295aae4d009dca3ba357834d"
   },
   {
     "url": "post-images/_field-set-label-example.png",
@@ -63,6 +67,14 @@ if (workbox) {
     "revision": "b7f3a8c2de22c8e17e3b199da052f5d0"
   },
   {
+    "url": "apple-touch-icon.png",
+    "revision": "fcf4328cb7778e14fdab2f8933e21632"
+  },
+  {
+    "url": "favicon-16x16.png",
+    "revision": "20c8b8e87e6a3d7dcf898fce3d349c53"
+  },
+  {
     "url": "index.html",
     "revision": "1c30707296ecaff10a229525b86aefdd"
   },
@@ -72,7 +84,7 @@ if (workbox) {
   },
   {
     "url": "404.html",
-    "revision": "48bf88e0dd5512d5b34f4d7293a730e8"
+    "revision": "acc2b649a49de54f2b0dd07ae806bb57"
   }
 ]);
 
