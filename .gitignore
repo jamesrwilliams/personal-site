@@ -1,6 +1,6 @@
 # Hugo default output directory
 /public
-/resources
+# /resources Due to https://github.com/netlify/build-image/issues/182#issuecomment-464271271
 
 ## OS Files
 # Windows
