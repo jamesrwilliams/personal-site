@@ -55,7 +55,7 @@
 	<meta name="theme-color" content="#ffffff">
 
 	{{ $sass := resources.Get "sass/site.scss" }}
-	{{ $style := $sass | resources.ToCSS }}
+	{{ $style := $sass | toCSS }}
 	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}" media="screen">
 
