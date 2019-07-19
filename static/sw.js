@@ -20,7 +20,7 @@ if (workbox) {
   },
   {
     "url": "scss/site.css",
-    "revision": "5589d810295aae4d009dca3ba357834d"
+    "revision": "9c13d4a5d9cdb774ef362d5c31a2f335"
   },
   {
     "url": "post-images/_field-set-label-example.png",
@@ -84,7 +84,7 @@ if (workbox) {
   },
   {
     "url": "404.html",
-    "revision": "acc2b649a49de54f2b0dd07ae806bb57"
+    "revision": "508a13cb1969979bc4f3eb29854da72f"
   }
 ]);
 

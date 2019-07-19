@@ -320,9 +320,6 @@ body {
 main {
   background: #eeeeee;
   border-bottom: 8px solid #04AA75; }
-  @media (prefers-color-scheme: dark) {
-    main {
-      background: #0e141a; } }
 
 .container {
   max-width: 940px;
