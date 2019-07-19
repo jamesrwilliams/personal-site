@@ -54,8 +54,7 @@
 	<meta name="msapplication-TileColor" content="#2b5797">
 	<meta name="theme-color" content="#ffffff">
 
-	{{ $sass := resources.Get "scss/site.scss" }}
-	{{ $style := $sass | resources.ToCSS }}
+	{{ $style := resources.Get "scss/site.scss" | toCSS }}
 	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" href="{{ $style.Permalink | relURL  }}" integrity="{{ $style.Data.Integrity }}" media="screen">
 
