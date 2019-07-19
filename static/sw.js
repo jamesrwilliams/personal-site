@@ -19,7 +19,7 @@ if (workbox) {
     "revision": "59ac0f7a5ae70ddb41b1b434a829cf2c"
   },
   {
-    "url": "scss/site.css",
+    "url": "sass/site.css",
     "revision": "9c13d4a5d9cdb774ef362d5c31a2f335"
   },
   {
