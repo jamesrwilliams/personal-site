@@ -28,6 +28,8 @@ open -a "/Users/james/Library/Application Support/JetBrains/Toolbox/apps/PhpStor
 
 So here we can see this lovely version number looking thing following the `/ch-0/`. This is what changes for each new version of the application. As we're using this in the path it breaks as soon as that old version is replaced with the new one. Yay for using version numbers as a directory and not using something like `/@latest/` or something similar.
 
+> Just a note as you'll need to add the `/Contents/MacOS/phpstorm` segment after the path you copied as this is the execuitable that will ingest the file path provided by the CLI.
+
 ## Fixing the issue
 
 As our bash script is still using the previous version number we need a way to find the new version number and replace it in the launcher. 
