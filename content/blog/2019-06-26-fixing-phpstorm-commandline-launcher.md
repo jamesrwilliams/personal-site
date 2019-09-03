@@ -30,6 +30,9 @@ So here we can see this lovely version number looking thing following the `/ch-0
 
 ## Fixing the issue
 
-As our bash script is still using the previous version number we need a way to find the new version number and replace it in the launcher. To find this path open the JetBrains toolbox find the application that is being a nightmare. Click on the little gear icon, and open up the settings page. On this page there is a section displaying the install location path. Copy this path by dragging the application to your terminal window or by adding this [nifty right click copy-path option](../macos-creating-a-right-click-option-to-copy-a-file-path/) utility I wrote.
+As our bash script is still using the previous version number we need a way to find the new version number and replace it in the launcher. 
 
-Copy the new version number between the `ch-0` and `PhpStorm.app` segments and replace the previous on in our bash script save and exit and we're done. The CLI launcher now behaves itself again!
+1. To find this path open the JetBrains toolbox find the application that is being a nightmare. Click on the little gear icon, and open up the settings page. On this page there is a section displaying the install location path. 
+2. Copy this path by dragging the application to your terminal window or by adding this [nifty right click copy-path option](../macos-creating-a-right-click-option-to-copy-a-file-path/) utility I wrote.
+
+3. Copy the new version number between the `ch-0` and `PhpStorm.app` segments and replace the previous on in our bash script save and exit and we're done. The CLI launcher now behaves itself again!
