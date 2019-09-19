@@ -5,8 +5,12 @@
 		{{ partial "post-header.html" . }}
 
 		{{ partial "json-ld/blog-post" . }}
-		<div class="post-content container">
-			{{ .Content }}
+		<div class="post-content">
+			<div class="container">
+				<div class="article-container">
+					{{ .Content }}
+				</div>
+			</div>
 		</div>
 		<footer class="post-footer">
 			<div class="post-links container">

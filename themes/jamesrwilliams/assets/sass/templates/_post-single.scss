@@ -2,9 +2,15 @@
 
 	&-content {
 		line-height: 1.7em;
+		padding-top: 1rem;
+		background: #eeeeee;
 
 		.highlight {
 			line-height: 1.1em;
+		}
+
+		.article-container {
+			max-width: 650px;
 		}
 
 		& > :first-child {
@@ -23,8 +29,6 @@
 		}
 
 		@include media-query($breakpoint_lg) {
-			padding-right: 40px;
-			padding-top: 30px;
 			min-height: calc(100vh - 500px);
 		}
 
