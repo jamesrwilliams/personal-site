@@ -20,7 +20,15 @@ if (workbox) {
   },
   {
     "url": "sass/site.css",
-    "revision": "9c13d4a5d9cdb774ef362d5c31a2f335"
+    "revision": "e20b3bd38550909d99a328be61142f20"
+  },
+  {
+    "url": "sass/site.dcb10cafd2c835f444c43786079fb3e8b3c2106d98d5ca70c2e8811df40a9566cb08c2c9bd0cc4e0456fc02b0e39457eb0271c967d6c84cbe8f1ba67ac66729a.css",
+    "revision": "0e9fbef648a02b2f1c818745949d9d36"
+  },
+  {
+    "url": "scss/site.css",
+    "revision": "0e9fbef648a02b2f1c818745949d9d36"
   },
   {
     "url": "post-images/_field-set-label-example.png",
@@ -76,15 +84,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "1c30707296ecaff10a229525b86aefdd"
+    "revision": "0be2b68973eecfc3e343814bef0297cd"
   },
   {
     "url": "offline/index.html",
-    "revision": "cc0134fe7582ade36583c11a986b0f88"
+    "revision": "dc3a292206c260461a4fcfb95333ae38"
   },
   {
     "url": "404.html",
-    "revision": "508a13cb1969979bc4f3eb29854da72f"
+    "revision": "bb654c1a13722f97a9689fa7e1e4d704"
   }
 ]);
 
