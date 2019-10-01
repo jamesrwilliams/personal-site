@@ -92,7 +92,7 @@ if (workbox) {
   },
   {
     "url": "404.html",
-    "revision": "bb654c1a13722f97a9689fa7e1e4d704"
+    "revision": "0eb4da7e39b51e7afcf7b95718a5537c"
   }
 ]);
 

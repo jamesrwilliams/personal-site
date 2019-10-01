@@ -1,8 +1,7 @@
 ---
-title: "The karama commit message style"
+title: "Using the karama commit message style"
 type: post
 date: 2019-08-08T09:41:33-04:00
-draft: true
 ---
 
 For my own projects (and any others I start) I *try* to stick to the [karma git commit message conventions](https://karma-runner.github.io/4.0/dev/git-commit-msg.html) which in turn is based upon the [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#). These resolves around the following format:

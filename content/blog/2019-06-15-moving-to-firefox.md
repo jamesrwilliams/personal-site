@@ -1,13 +1,14 @@
 ---
-title: "2019 Stack Upgrade: Ditching google Chrome for Firefox Quantum"
+title: "Stack Upgrade: Ditching google Chrome for Firefox Quantum"
 type: post
 date: 2019-06-16T11:26:20-04:00
-draft: true
 ---
 
 ## From Google Chrome to Firefox Developer Edition 
 
-With Google Chromes proposed changes to the WebRequest about to render ad blockers as we know them defunct I thought it was time I commit to switching to another browser for both work and personal use. I attempted to switch to Firefox when their Quantum version was first launched but for some reason I could not make it stick even though I've used Firefox as my primary browser on my mobile devices for a year or so now and I honestly think it's a superior product.
+With Google Chromes proposed changes to the WebRequest about to render ad blockers as we know them defunct I thought it was time I commit to switching to another browser for both work and personal use. 
+
+I attempted to switch to Firefox when their Quantum version was first launched but for some reason I could not make it stick even though I've used Firefox as my primary browser on my mobile devices for a year or so now and I honestly think it's a superior product.
 
 This time it seems to be working. I switched my main browser to firefox about two weeks ago and I'm enjoying it. Firefox isn't as polished as Chrome but frankly I feel better about using it with Mozilla behind it than Google.
 

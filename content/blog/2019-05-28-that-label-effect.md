@@ -2,7 +2,6 @@
 title: "Recreating the field set <legend> effect, just without the field set."
 type: post
 date: 2019-05-28T20:46:29-04:00
-draft: true
 ---
 
 ## The Ask

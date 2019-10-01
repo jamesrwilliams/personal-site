@@ -2,10 +2,9 @@
 title: "Hugo Cheat Sheet"
 date: 2019-01-15T21:49:41-05:00
 type: post
-draft: true
 ---
 
-I'm very new to Hugo and GoLang so I've started a this post as a dumping ground for things I've learnt as a form of reference for anything Hugo related. 
+I'm still learning Hugo and GoLang so I've started a this post as a dumping ground for things I've learnt as a form of reference for anything Hugo related.
 
 ## Table of contents
 
@@ -18,15 +17,11 @@ Some bonus helpful things I've made a note of since doing more things with Hugo:
 
 - [Tip #1: Make server accessible to your LAN](#tip-1-preview-site-over-lan-mac)
 
-## File structure
-
-.. Breakdown of `baseof` etc.
-
 ## Theme boilerplate
 
 This is a quick template I've setup with basic setup of a hugo site ready for development. It uses gulp to compile the SCSS and Javascript into build files ready for deployment.
 
-Check it out here [INSERT LINK TO REPO]. 
+Check it out here [INSERT LINK TO REPO].
 
 ## Variables and Logic
 
@@ -35,7 +30,6 @@ Conditionals and other variable based logic is done a little differently with Hu
 For example if we want to check if two numbers are equal we will do the following:
 
 ### And (&&)
-
 
 ```go
 {{ if and $foo $bar }}
