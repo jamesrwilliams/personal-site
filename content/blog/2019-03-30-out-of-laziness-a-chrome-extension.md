@@ -2,7 +2,6 @@
 title: "A wild Chrome extension appears"
 type: post
 date: 2019-03-30T18:09:35-04:00
-draft: true
 ---
 
 Laziness is one of the three great virtues of a programmer. The other two virtues are impatience and hubris, [read about them here](http://threevirtues.com/), but that is not what I'm really worried about at here. Laziness, according to Larry Wall is: 
