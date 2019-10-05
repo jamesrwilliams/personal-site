@@ -12,11 +12,11 @@
 
 	{{ $description := .Site.Params.siteDescription }}
 	{{ if .Description }}
-		{{ $description = .Description }}
+	{{ $description = .Description }}
 	{{ else if .IsPage }}
-		{{ $description = .Summary }}
+	{{ $description = .Summary }}
 	{{ else if eq .URL "/blog/" }}
-		{{ $description = .Site.Params.blogDescription }}
+	{{ $description = .Site.Params.blogDescription }}
 	{{ end }}
 
 	{{ $description = $description | truncate 160 }}
@@ -91,8 +91,18 @@
         }
 	</script>
 </head>
+<body class="{{ if .IsHome }}background{{ end }}">
+<!-- Code that all your templates share, like a header -->
 
+{{ partial "sidebar.html" . }}
+<main>
 
-{{ if .IsHome }}{{ else }}
-{{ partial "site-header.html" }}
+{{ block "main" . }}
+<!-- The part of the page that begins to differ between templates -->
 {{ end }}
+{{ block "footer" . }}
+<!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
+{{ end }}
+</main>
+</body>
+</html>

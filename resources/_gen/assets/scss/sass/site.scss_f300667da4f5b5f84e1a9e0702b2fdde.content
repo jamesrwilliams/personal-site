@@ -305,79 +305,68 @@ template {
 html,
 body {
   margin: 0;
-  -webkit-font-smoothing: antialiased; }
+  height: 100%; }
 
 body {
   padding: 0;
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  background-color: #0E141A; }
-  body:before {
-    content: '';
-    display: block;
-    height: 75px;
-    width: 100%;
-    background: rgba(255, 255, 0, 0.3);
-    background: url("../icon.svg");
-    background-position: bottom center;
-    opacity: 0.5;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    z-index: 100; }
+  background-color: #181818; }
   @media screen and (min-width: 960px) {
     body {
       font-size: 18px; } }
 
+aside {
+  background: #fff; }
+
 main {
-  border-bottom: 8px solid #04AA75;
   position: relative;
-  z-index: 300; }
+  display: flex;
+  font-size: 16px;
+  height: 100%;
+  flex-grow: 1;
+  max-height: 100%;
+  overflow: scroll;
+  border: 1px solid #eee; }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px; }
-  @media screen and (min-width: 960px) {
-    .container {
-      padding: 0 30px; } }
+aside {
+  width: 220px;
+  height: 100%;
+  color: black;
+  background: white;
+  display: flex;
+  flex-direction: column; }
+  aside a {
+    display: inline-block;
+    border-bottom: 1px solid #eee; }
+  aside svg {
+    margin: 82px 40px 82px; }
+  aside .spacer {
+    flex-grow: 1; }
+  aside ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative; }
+    aside ul li {
+      padding-bottom: 0; }
+    aside ul li:not(:first-child) {
+      border-top: 1px solid #eee; }
+    aside ul li a {
+      display: inline-block;
+      color: #ddd;
+      width: 100%;
+      font-size: .7rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 10px;
+      font-weight: bold; }
 
-.home-page-container {
-  max-width: 940px;
-  margin: 0 auto;
-  padding: 0 30px;
-  background: transparent;
-  border-bottom: 0; }
+.homepage {
+  padding: 40px; }
 
-section.hero {
-  max-width: 620px;
-  margin-bottom: 40px;
-  transition: margin 0.7s ease;
-  margin-top: 5vh; }
-  @media screen and (min-width: 500px) {
-    section.hero {
-      margin-top: 10vh; } }
-  @media screen and (min-width: 660px) {
-    section.hero {
-      margin-top: 25vh;
-      margin-bottom: 80px; } }
-  section.hero h1 {
-    margin-bottom: 0;
-    font-size: 40px;
-    transition: font-size 0.7s ease; }
-    @media screen and (min-width: 960px) {
-      section.hero h1 {
-        font-size: 50px; } }
-  section.hero h2 {
-    margin-bottom: 30px; }
-  section.hero p {
-    font-size: 16px;
-    line-height: 1.4em; }
-  section.hero a {
-    color: #04AA75;
-    font-weight: bold; }
-    section.hero a:hover {
-      color: white; }
+.article-container {
+  padding: 0 2rem; }
 
 .post-content {
   line-height: 1.7em;
@@ -385,17 +374,12 @@ section.hero {
   background: #ffffff; }
   .post-content .highlight {
     line-height: 1.1em; }
-  .post-content .article-container {
-    max-width: 650px; }
   .post-content > :first-child {
     margin-top: 0;
     padding-top: 0; }
   .post-content > :last-child {
     margin-bottom: 0;
     padding-bottom: 0; }
-  .post-content ol,
-  .post-content ul {
-    padding-left: 20px; }
   @media screen and (min-width: 960px) {
     .post-content {
       min-height: calc(100vh - 500px); } }
@@ -571,28 +555,13 @@ main.error404 {
   border-color: #d6d8db; }
 
 .post-header {
-  padding: 5vh 0 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  padding: 5vh 30px 30px;
   color: white;
   position: relative;
   z-index: 300; }
   .post-header .container {
     position: relative;
     z-index: 300; }
-  .post-header:before {
-    content: '';
-    display: block;
-    height: 75px;
-    width: 100%;
-    background: rgba(255, 255, 0, 0.3);
-    background: url("../icon.svg");
-    background-position: bottom left;
-    opacity: 0.5;
-    pointer-events: none;
-    position: absolute;
-    bottom: 0;
-    transform: rotate(180deg);
-    z-index: 100; }
   .post-header h1 {
     font-weight: 200;
     letter-spacing: 0.1rem;
@@ -601,22 +570,7 @@ main.error404 {
     @media screen and (min-width: 960px) {
       .post-header h1 {
         margin: 0.6em 0 0.8em 0; } }
-  .post-header p {
-    margin: 0;
-    font-size: 12px;
-    line-height: 1.5em;
-    background: white;
-    max-width: 75%;
-    color: #0E141A;
-    display: inline-block;
-    padding: 8px 10px 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px; }
   .post-header a {
-    font-size: 14px;
-    font-weight: bold;
-    color: #037853;
-    text-transform: uppercase;
     text-decoration: none; }
 
 article.post-inline:first-child {
@@ -739,6 +693,9 @@ ul li {
 img {
   max-width: 100%;
   height: auto; }
+
+body {
+  display: flex; }
 
 ul.social {
   list-style: none;

@@ -1,21 +1,13 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
+<section class="post-list">
+	{{ $paginator := .Paginate (where .Pages "Type" "post") }}
+	{{ range $paginator.Pages }}
 
-<main class="post-list">
+		{{ partial "post-inline.html" . }}
 
-	<div class="container">
-
-		{{ $paginator := .Paginate (where .Pages "Type" "post") }}
-		{{ range $paginator.Pages }}
-
-			{{ partial "post-inline.html" . }}
-
-		{{ end }}
-
-	</div>
+	{{ end }}
 
 	{{ partial "list-pagination.html" . }}
-
-</main>
-
-{{ partial "footer.html" }}
+</section>
+{{ end }}
 

@@ -9,52 +9,90 @@
 html,
 body {
 	margin: 0;
-	-webkit-font-smoothing: antialiased;
+	height: 100%;
 }
 
 body {
 	padding: 0;
 	font-size: 14px;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	background-color: #0E141A;
-
-	&:before {
-		content: '';
-		display: block;
-		height: 75px;
-		width: 100%;
-		background: rgba(255,255,0,0.3);
-		background: url("../icon.svg");
-		background-position: bottom center;
-		opacity: 0.5;
-		pointer-events: none;
-		position: absolute;
-		top: 0;
-		z-index: 100;
-	}
-
+	background-color: #181818;
 	@include media-query($breakpoint_lg){
 		font-size: 18px;
 	}
 }
 
+aside {
+	background: #fff;
+}
+
 main {
-	border-bottom: 8px solid $accent;
+	$bg: #181818;
+	$pr: #fff;
+
 	position: relative;
-	z-index: 300;
+	display: flex;
+	font-size: 16px;
+	height: 100%;
+	flex-grow: 1;
+	max-height: 100%;
+	overflow: scroll;
+	border: 1px solid #eee;
 }
 
-.container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 15px;
+aside {
+	width: 220px;
+	height: 100%;
+	color: black;
+	background: white;
+	display: flex;
+	flex-direction: column;
 
-	@include media-query($breakpoint_lg){
-		padding: 0 30px;
+	a {
+		display: inline-block;
+		border-bottom: 1px solid #eee;
 	}
+
+	svg {
+		margin: 82px 40px 82px;
+	}
+
+	.spacer {
+		flex-grow: 1;
+	}
+
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		position: relative;
+
+		li {
+			padding-bottom: 0;
+		}
+
+		li:not(:first-child) {
+			border-top: 1px solid #eee;
+		}
+
+		li a {
+			display: inline-block;
+			color: #ddd;
+			width: 100%;
+			font-size: .7rem;
+			text-decoration: none;
+			text-transform: uppercase;
+			padding: 10px;
+			font-weight: bold;
+		}
+	}
+
 }
 
-@import 'templates/homepage';
+.homepage {
+	padding: 40px
+}
+
 @import 'templates/post-single';
 @import 'templates/post_list';
 @import 'templates/404';
@@ -74,6 +112,10 @@ main {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+body {
+	display: flex;
 }
 
 ul.social {

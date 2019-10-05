@@ -1,29 +1,27 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
-<main>
-	<article class="post" id="content">
-		{{ partial "post-header.html" . }}
+<article class="post" id="content">
+	{{ partial "post-header.html" . }}
 
-		{{ partial "json-ld/blog-post" . }}
-		<div class="post-content">
-			<div class="container">
-				<div class="article-container">
-					{{ .Content }}
-				</div>
+	{{ partial "json-ld/blog-post" . }}
+	<div class="post-content">
+		<div class="container">
+			<div class="article-container">
+				{{ .Content }}
 			</div>
 		</div>
-		<footer class="post-footer">
-			<div class="post-links container">
-				{{ with .PrevInSection }}
-				<a class="post-link post-link-prev" href="{{ .RelPermalink }}">{{ .Title }}</a>
-				{{ end }}
-				{{ with .NextInSection }}
-					<a class="post-link post-link-next" href="{{ .RelPermalink }}">{{ .Title }}</a>
-				{{ end }}
-			</div>
-		</footer>
-	</article>
-</main>
+	</div>
+	<footer class="post-footer">
+		<div class="post-links container">
+			{{ with .PrevInSection }}
+			<a class="post-link post-link-prev" href="{{ .RelPermalink }}">{{ .Title }}</a>
+			{{ end }}
+			{{ with .NextInSection }}
+				<a class="post-link post-link-next" href="{{ .RelPermalink }}">{{ .Title }}</a>
+			{{ end }}
+		</div>
+	</footer>
+</article>
 
-{{ partial "footer.html" . }}
+{{ end }}
 

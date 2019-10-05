@@ -1,3 +1,7 @@
+.article-container {
+	padding: 0 2rem;
+}
+
 .post {
 
 	&-content {
@@ -9,10 +13,6 @@
 			line-height: 1.1em;
 		}
 
-		.article-container {
-			max-width: 650px;
-		}
-
 		& > :first-child {
 			margin-top: 0;
 			padding-top: 0;
@@ -21,11 +21,6 @@
 		& > :last-child {
 			margin-bottom: 0;
 			padding-bottom: 0;
-		}
-
-		ol,
-		ul {
-			padding-left: 20px;
 		}
 
 		@include media-query($breakpoint_lg) {
