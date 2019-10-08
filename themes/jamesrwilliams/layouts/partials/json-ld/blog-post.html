@@ -16,11 +16,11 @@
 			"name": "{{ .Site.Params.Author }}"
 		},
 		"publisher": {
-			"@type": "Person",
+			"@type": "Organization",
 			"name": "James R. Williams",
 			"logo": {
 				"@type": "ImageObject",
-				"url": "https://google.com/logo.jpg"
+				"url": "{{ .Site.Params.Image | absURL }}"
 			}
 		}
 	}
