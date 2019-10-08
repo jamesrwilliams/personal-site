@@ -84,15 +84,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "0be2b68973eecfc3e343814bef0297cd"
+    "revision": "c7b73dd617087cbe56f3de9ee5958362"
   },
   {
     "url": "offline/index.html",
-    "revision": "dc3a292206c260461a4fcfb95333ae38"
+    "revision": "06793426ceb4525dc1651d7abcadaf8c"
   },
   {
     "url": "404.html",
-    "revision": "d19907eeb9b1453ec83ee892a0ded4f4"
+    "revision": "c784c15764a710b6e5595ea6e4bd5899"
   }
 ]);
 
