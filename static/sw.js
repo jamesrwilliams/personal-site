@@ -7,20 +7,12 @@ if (workbox) {
 
     workbox.precaching.precacheAndRoute([
   {
+    "url": "algolia.json",
+    "revision": "fd7a31a8eb1431b1fc86526c01a3ccce"
+  },
+  {
     "url": "favicon.ico",
     "revision": "33a2f904061f26f4755244b7bc2237ec"
-  },
-  {
-    "url": "javascript/_particles.json",
-    "revision": "9cfc87dcba5e19d74e8f7fe88eb571f3"
-  },
-  {
-    "url": "javascript/particles.js",
-    "revision": "f10f10368bb1407fe7a0b392952ee5ab"
-  },
-  {
-    "url": "javascript/particles.json",
-    "revision": "91fec080a82e652e18010b75a67d5100"
   },
   {
     "url": "manifest.json",
@@ -31,8 +23,12 @@ if (workbox) {
     "revision": "0e9fbef648a02b2f1c818745949d9d36"
   },
   {
+    "url": "sass/site.dcb10cafd2c835f444c43786079fb3e8b3c2106d98d5ca70c2e8811df40a9566cb08c2c9bd0cc4e0456fc02b0e39457eb0271c967d6c84cbe8f1ba67ac66729a.css",
+    "revision": "0e9fbef648a02b2f1c818745949d9d36"
+  },
+  {
     "url": "scss/site.css",
-    "revision": "a490bea3dfbf75e4fcc85d50d682499b"
+    "revision": "0e9fbef648a02b2f1c818745949d9d36"
   },
   {
     "url": "post-images/_field-set-label-example.png",
@@ -88,15 +84,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "a222781cd944192bbf514b23adde197c"
+    "revision": "c7b73dd617087cbe56f3de9ee5958362"
   },
   {
     "url": "offline/index.html",
-    "revision": "959d748079ca581bda955e2b3bb3151d"
+    "revision": "06793426ceb4525dc1651d7abcadaf8c"
   },
   {
     "url": "404.html",
-    "revision": "b41c7fb6cbb62a677d5a3dc0828b3dda"
+    "revision": "78f1491baa60dcd3975bf1ef668bca3b"
   }
 ]);
 
