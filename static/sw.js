@@ -20,7 +20,7 @@ if (workbox) {
   },
   {
     "url": "sass/site.css",
-    "revision": "7cce35a63ca5943743837b29bea40cdc"
+    "revision": "d273cfe52c7c32f1a1df9619e2ee8004"
   },
   {
     "url": "sass/site.dcb10cafd2c835f444c43786079fb3e8b3c2106d98d5ca70c2e8811df40a9566cb08c2c9bd0cc4e0456fc02b0e39457eb0271c967d6c84cbe8f1ba67ac66729a.css",

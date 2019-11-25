@@ -1,4 +1,16 @@
+
+
 .post-list {
+
+	header {
+		padding: 3rem 2rem;
+		background: darken($primary, 10%);
+
+		h1 {
+			color: white;
+			margin: 0;
+		}
+	}
 
 	padding-bottom: 15px;
 
@@ -13,7 +25,7 @@
 	}
 
 	a {
-		color: darken($accent, 10%);
+		color: #333333;
 		text-decoration: none;
 	}
 
@@ -40,7 +52,6 @@
 }
 
 .post-link {
-
 	display: block;
 	border: 1px solid rgba(#000, 0.1);
 	text-decoration: none;

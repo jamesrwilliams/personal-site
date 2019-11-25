@@ -1,19 +1,17 @@
 article.post-inline {
 
+	h2,
+	time {
+		font-size: 16px;
+	}
+
 	&:first-child {
 		padding-top: 50px;
 	}
 
-	h2 {
-		margin-top: 5px;
-		margin-bottom: 50px;
-	}
-
 	time {
 		font-size: 14px;
-		color: #444444;
 		font-weight: bold;
-		text-transform: uppercase;
 	}
 
 	a {

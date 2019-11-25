@@ -1,5 +1,11 @@
 {{ define "main" }}
 <section class="post-list">
+
+	<header>
+		<h1>Posts</h1>
+		{{ partial "site-search" . }}
+	</header>
+
 	{{ $paginator := .Paginate (where .Pages "Type" "post") }}
 	{{ range $paginator.Pages }}
 
