@@ -1,10 +1,18 @@
-<nav class="site-header background">
-	<div class="container">
-		<div class="about">
-			<a href="{{ "/" | relURL }}">James R. Williams'</a> Blog
-		</div>
-		<div class="links">
-			{{ partial "social-bar.html" }}
-		</div>
-	</div>
+<nav class="breadcrumbs">
+	{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+	{{ $.Scratch.Add "path" .Site.BaseURL }}
+	<ol>
+		<li><a href="/">home</a></li>
+		{{ range $index, $element := split $url "/" }}
+		{{ $.Scratch.Add "path" $element }}
+		{{ if ne $element "" }}
+		<li><a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a></li>
+		{{ $.Scratch.Add "path" "/" }}
+		{{ end }}
+		{{ end }}
+	</ol>
 </nav>
+
+
+
+

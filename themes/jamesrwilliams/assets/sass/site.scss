@@ -1,9 +1,12 @@
 @import "vendor/_normalize";
 @import "_variables";
 @import "_mixins";
+@import "_utilities";
 
 * {
 	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
 }
 
 html,
@@ -31,9 +34,10 @@ main {
 	position: relative;
 	font-size: 16px;
 	height: 100%;
+	padding-top: 70px;
 	max-height: 100%;
 	overflow: scroll;
-	background-color: darken($primary, 5%);
+	background-color: darken($primary, 3%);
 
 	> section,
 	> article {
@@ -41,16 +45,23 @@ main {
 	}
 }
 
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
 aside {
-	width: 70px;
+	width: 71px;
 	height: 100%;
 	color: black;
 	background: #1D2737;
 	display: flex;
 	flex-direction: column;
-	border-right: 1px solid rgba(0,0,0,0.2);
+	border-right: 1px solid rgba(0,0,0,0.3);
 
 	.site-logo {
+		border-bottom: 1px solid rgba(0,0,0,0.3);
+		height: 70px;
 		svg {
 			margin: 10px;
 		}
@@ -94,7 +105,6 @@ aside {
 
 .introduction {
 	padding: 40px;
-	background: darken($primary, 5%);
 	color: white;
 	font-weight: 100;
 }
@@ -108,8 +118,8 @@ aside {
 
 @import 'partials/post-header';
 @import 'partials/post-inline';
-@import 'partials/site-header';
 @import 'partials/typography';
+@import 'partials/breadcrumbs';
 
 img {
 	max-width: 100%;

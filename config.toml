@@ -1,7 +1,7 @@
 baseURL = "https://jamesrwilliams.ca"
 languageCode = "en-GB"
 title = "James R. Williams · Web Developer"
-paginate = 10
+paginate = 20
 summaryLength = 40
 theme = "jamesrwilliams"
 pygmentsCodeFences = true
@@ -17,3 +17,16 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [permalinks]
     blog = "/blog/:slug/"
+
+[outputFormats.Algolia]
+    baseName = "algolia"
+    isPlainText = true
+    mediaType = "application/json"
+    notAlternative = true
+
+[params.algolia]
+    vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+    params = ["categories", "tags"]
+
+[outputs]
+    home = ["HTML", "RSS", "Algolia"]

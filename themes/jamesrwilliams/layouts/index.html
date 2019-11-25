@@ -1,17 +1,17 @@
 {{ define "main" }}
 	<section class="introduction" id="introduction">
-			<h1>Hello, I’m James.</h1>
-			<h2>A web developer living in Canada<span class="accent">.</span></h2>
-			<p>I've recently emigrated to Canada from the UK. I primarily work with WordPress, spending my spare time building apps with Ionic and Angular. Currently working to expand my skills into more services or product based technologies.</p>
-			<p>Check out some of my work on <a rel="noopener" href="https://github.com/jamesrwilliams">GitHub</a>, my occasional write ups of interesting tech can be found on my <a href="/blog/">blog</a>, or take a look at my <a target="_blank" rel="noopener" href="/cv/">CV</a>.</p>
+		<h1>Hello, I’m James.</h1>
+		<h2>A web developer living in Canada<span class="accent">.</span></h2>
+		<p>I've recently emigrated to Canada from the UK. I primarily work with WordPress, spending my spare time building apps with Ionic and Angular. Currently working to expand my skills into more services or product based technologies.</p>
+		<p>Check out some of my work on <a rel="noopener" href="https://github.com/jamesrwilliams">GitHub</a>, my occasional write ups of interesting tech can be found on my <a href="/blog/">blog</a>, or take a look at my <a target="_blank" rel="noopener" href="/cv/">CV</a>.</p>
 	</section>
-<section class="posts">
-	{{ range first 3 .Data.Pages }}
-	<ul>
-	{{ if eq .Type "post" }}
-		<li>{{ partial "post-inline.html" . }}</li>
-	{{ end }}
-	</ul>
-	{{ end }}
-</section>
+	<section class="posts">
+		{{ range first 3 .Data.Pages }}
+		<ul>
+		{{ if eq .Type "post" }}
+			<li>{{ partial "post-inline.html" . }}</li>
+		{{ end }}
+		</ul>
+		{{ end }}
+	</section>
 {{ end }}

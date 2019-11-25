@@ -1,8 +1,9 @@
 .post-header {
-	padding: 5vh 30px 30px;
 	color: white;
-	position: relative;
 	z-index: 300;
+	background: #181818;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	padding: 3rem 0;
 
 	.container {
 		position: relative;
@@ -11,12 +12,18 @@
 
 	h1 {
 		font-weight: 100;
+		margin: 0;
 		letter-spacing: 0.1rem;
 		-webkit-font-smoothing: antialiased;
-		font-size: 5rem;
+		font-size: 3rem;
 	}
 
 	a {
 		text-decoration: none;
+		color: inherit;
+	}
+
+	.meta {
+		font-size: 14px;
 	}
 }

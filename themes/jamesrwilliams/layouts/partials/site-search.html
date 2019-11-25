@@ -1,6 +1,46 @@
 <form>
-	<label for="site-search">
-		<span class="label-text">Search</span>
-		<input type="search" id="site-search" name="site-search" class="site-search" />
-	</label>
+	<div id="searchbox"></div>
+	<div id="hits"></div>
+	<script>
+        const searchClient = algoliasearch('XDDXNNWNJ6', 'bcaf39503d3c9689daab2a8eb4f66661');
+
+        const template = {
+            item: `
+			        <li>
+				        <a href="\{\{ relpermalink }}">
+				          <div class="hit-name">
+				            \{\{ title }}
+				          </div>
+				          <div class="hit-description">
+				            \{\{ description }}
+				          </div>
+				        </a>
+			        </li>
+			      `,
+        };
+
+        const search = instantsearch({
+            indexName: 'Personal Site',
+            searchClient,
+            searchFunction: function(helper) {
+                if (helper.state.query.length === 0) {
+                    return; // do not trigger search
+                }
+                helper.search();
+            }
+        });
+
+        search.addWidgets([
+            instantsearch.widgets.searchBox({
+                container: '#searchbox',
+            }),
+
+            instantsearch.widgets.hits({
+                container: '#hits',
+                templates: template
+            })
+        ]);
+
+        search.start();
+	</script>
 </form>
