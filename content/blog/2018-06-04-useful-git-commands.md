@@ -4,7 +4,16 @@ type: post
 date: 2018-06-04T14:02:18+00:00
 aliases: [/2018/06/04/useful-git-commands/]
 ---
-This is a quick and dirty git Cheat Sheet if you will, of all the commands I frequently forget/need to use most often.
+This is a quick and dirty git cheat sheet of all the commands I frequently forget how to do with Git:
+
+- [See which remote is configured](#see-the-remote)
+- [Stop tracking file permissions](#stop-git-tracking-file-permissions-chmod)
+- [Debug Authentication Issues](#debug-ssh-git-authentication)
+- [Find Unmerged Branches](#find-unmerged-branches)
+- [Export GitLog as a file](#export-log-as-file)
+- [Change commit message](#change-commit-message)
+
+<hr />
 
 ## See the remote {#see-the-remote}
 
@@ -52,7 +61,7 @@ The following command runs an ssh test connection with the `-T` flag that tests 
 ssh -T git@bitbucket.org
 ```
 
-## Find branches that have/not been merged yet
+## Find branches that have/not been merged yet {#find-unmerged-branches}
 
 Useful when cleaning out checked out branches from your machine. The last argument is the branch you want to check against, in our example its develop.
 
@@ -60,7 +69,7 @@ Useful when cleaning out checked out branches from your machine. The last argume
 git branch --no-merged develop
 ```
 
-## Export the log as a file
+## Export the log as a file {#export-log-as-file}
 
 Useful if you want to export a list of commits into a spreadsheet and do some analysis but personally only ever used this once. 
 
@@ -93,4 +102,18 @@ git log --pretty=format:%h,%an,%ad,%s > commits.txt
 
 ```bash
 git config --global core.editor "nano"
+```
+
+## Change last commit message* {#change-commit-message}
+<sup>*</sup>On the last non-pushed commit.
+
+This will directly edit the message.
+
+```bash
+git commit --amend -m "New commit message"
+```
+
+Shortening this to the following opens the whole commit into an editor for updating.
+```bash
+git commit --amend
 ```
