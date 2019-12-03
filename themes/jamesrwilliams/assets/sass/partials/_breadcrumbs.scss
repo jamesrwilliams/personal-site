@@ -1,24 +1,29 @@
 .breadcrumbs {
-	height: 70px;
 	top: 0;
-	background: #1D2737;
-	border-bottom: 1px solid rgba(0,0,0,0.3);
-	position: fixed;
-	width: 100%;
+	left: 50px;
 	z-index: 500;
+	padding: 1.5rem;
+	//border: 1px solid red;
 
 	ol {
 		margin: 0;
+		padding: 0;
 		li {
 			display: inline-block;
-			color: white;
+
+			&:first-child {
+				a { padding-left: 0; }
+			}
 
 			a {
 				padding: 0 10px;
+				color: white;
+				font-size: 14px;
+				text-decoration: none;
 			}
 
 			&:not(:last-child) {
-				border-right: 1px solid red;
+				border-right: 1px solid #444;
 			}
 		}
 	}

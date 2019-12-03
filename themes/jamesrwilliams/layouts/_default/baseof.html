@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="theme-color" content="#2E3641"/>
 
-	<title>{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
+	<title>{{ if ne .RelPermalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
 
 	{{/* Begin description generation */}}
 
@@ -15,7 +15,7 @@
 	{{ $description = .Description }}
 	{{ else if .IsPage }}
 	{{ $description = .Summary }}
-	{{ else if eq .URL "/blog/" }}
+	{{ else if eq .RelPermalink "/blog/" }}
 	{{ $description = .Site.Params.blogDescription }}
 	{{ end }}
 
@@ -29,7 +29,7 @@
 
 	{{/* End post image generation */}}
 
-	<meta name="name" content='{{if eq .URL "404.html"}} 404 Page Not Found{{else if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}'>
+	<meta name="name" content='{{if eq .RelPermalink "404.html"}} 404 Page Not Found{{else if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}'>
 
 	<meta name="image" content="{{ $image }}">
 	<meta name="description" content="{{ $description }}">
@@ -95,19 +95,39 @@
         }
 	</script>
 </head>
-<body class="{{ if .IsHome }}background{{ end }}">
-<!-- Code that all your templates share, like a header -->
+<body class="{{ if .IsHome }}homepage{{ end }}">
 {{ partial "sidebar.html" . }}
 <main>
 {{ if not .IsHome }}
-	{{ partial "site-header.html" . }}
+	{{ partial "breadcrumbs.html" . }}
 {{ end }}
-{{ block "main" . }}
-<!-- The part of the page that begins to differ between templates -->
-{{ end }}
-{{ block "footer" . }}
-<!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
-{{ end }}
+{{ block "main" . }}{{ end }}
+{{ block "footer" . }}{{ end }}
 </main>
+<script>
+    var postContent = document.querySelector('.post-content');
+    if(postContent) {
+        postContent.querySelectorAll('h2[id],h3[id],h4[id],h5[id],h6[id]').forEach((element) => {
+            const linkElement = document.createElement('a');
+            linkElement.href = '#' + element.id;
+            linkElement.text = '#';
+            linkElement.classList.add('hlink');
+            element.prepend(linkElement);
+        });
+    }
+    var codePreview = document.querySelectorAll('.highlight');
+    if(codePreview) {
+        codePreview.forEach((element) => {
+            const toggle = document.createElement('a');
+            toggle.text = 'expand';
+            toggle.classList.add('expand-code-btn');
+            toggle.addEventListener('click', () => {
+                console.log('Click event fired');
+               element.classList.toggle('expanded');
+            });
+			element.append(toggle);
+        });
+    }
+</script>
 </body>
 </html>

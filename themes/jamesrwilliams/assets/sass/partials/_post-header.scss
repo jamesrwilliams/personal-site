@@ -1,9 +1,10 @@
 .post-header {
 	color: white;
 	z-index: 300;
-	background: #181818;
-	border-bottom: 1px solid rgba(0,0,0,0.1);
-	padding: 3rem 0;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+	border-bottom: 1px solid red;
+	border-top: 1px solid red;
+	padding: 1.5rem;
 
 	.container {
 		position: relative;
@@ -11,8 +12,8 @@
 	}
 
 	h1 {
-		font-weight: 100;
-		margin: 0;
+		margin-bottom: 1rem;
+		margin-top: 0;
 		letter-spacing: 0.1rem;
 		-webkit-font-smoothing: antialiased;
 		font-size: 3rem;

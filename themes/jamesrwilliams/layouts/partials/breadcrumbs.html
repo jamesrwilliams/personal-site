@@ -1,0 +1,14 @@
+<div id="breadcrumbs" class="breadcrumbs">
+	<ol>
+		<li><a href="/">Home</a></li>
+	{{ range (split .URL "/") }}
+	{{ if gt (len . ) 0 }}
+		<li><a href="/{{ . }}">{{ humanize (replace . "posts" "blog") }}</a></li>
+	{{ end }}
+	{{ end }}
+	</ol>
+</div>
+
+
+
+

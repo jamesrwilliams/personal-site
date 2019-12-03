@@ -27,17 +27,14 @@ body {
 }
 
 main {
-	$bg: #181818;
-	$pr: #fff;
-
 	width: 100%;
 	position: relative;
 	font-size: 16px;
 	height: 100%;
-	padding-top: 70px;
 	max-height: 100%;
 	overflow: scroll;
-	background-color: darken($primary, 3%);
+
+	background-color: $background;
 
 	> section,
 	> article {
@@ -50,69 +47,45 @@ main {
 	margin: 0 auto;
 }
 
-aside {
-	width: 71px;
-	height: 100%;
-	color: black;
-	background: #1D2737;
-	display: flex;
-	flex-direction: column;
-	border-right: 1px solid rgba(0,0,0,0.3);
-
-	.site-logo {
-		border-bottom: 1px solid rgba(0,0,0,0.3);
-		height: 70px;
-		svg {
-			margin: 10px;
-		}
-	}
-
-	a {
-		display: inline-block;
-	}
-
-	.spacer {
-		flex-grow: 1;
-	}
-
-	ul {
-		padding: 0;
-		margin: 0;
-		list-style: none;
-		position: relative;
-
-		li {
-			padding-bottom: 0;
-		}
-
-		li:not(:first-child) {
-			border-top: 1px solid rgba(0,0,0,0.2);
-		}
-
-		li a {
-			display: inline-block;
-			color: #444;
-			width: 100%;
-			font-size: .7rem;
-			text-decoration: none;
-			text-transform: uppercase;
-			padding: 10px;
-			font-weight: bold;
-		}
-	}
-
+.expand-code-btn {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%);
 }
 
-.introduction {
-	padding: 40px;
-	color: white;
-	font-weight: 100;
+.highlight {
+	width: 100%;
+	transition: all .7s ease;
+	position: relative;
+	margin-left: 0;
+	left: 0;
+	overflow: hidden;
+
+	pre {
+		padding: 15px;
+		border-radius: $radius;
+		background-color: #1B1917 !important;
+		transition: all .7s ease;
+	}
+
+	&.expanded {
+		width: calc(100vw - 50px);
+		margin-left: calc(-50vw + 25px);
+		left: 50%;
+
+		pre {
+			border-radius: 0;
+			padding: 50px 20vw;
+		}
+	}
 }
 
 @import 'templates/post-single';
 @import 'templates/post_list';
-@import 'templates/404';
-@import 'templates/offline';
+@import 'pages/404';
+@import 'pages/offline';
+@import 'pages/homepage';
 
 @import 'shortcodes/alert';
 
@@ -120,33 +93,9 @@ aside {
 @import 'partials/post-inline';
 @import 'partials/typography';
 @import 'partials/breadcrumbs';
+@import 'partials/sidebar';
 
 img {
 	max-width: 100%;
 	height: auto;
-}
-
-ul.social {
-	list-style: none;
-	margin: 50px 0 0 0;
-	padding: 0;
-	text-align: center;
-	transition: all $animation-speed ease;
-
-	li {
-		display: inline-block;
-
-		&:hover {
-			svg { fill: $accent; }
-		}
-	}
-
-	svg {
-		width: 24px;
-		fill: white;
-	}
-
-	a {
-		display: block;
-	}
 }

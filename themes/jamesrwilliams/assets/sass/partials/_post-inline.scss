@@ -6,10 +6,6 @@ article.post-inline {
 		color: #d6d8db;
 	}
 
-	&:first-child {
-		padding-top: 50px;
-	}
-
 	h2 {
 		margin-bottom: 0;
 	}
@@ -33,12 +29,6 @@ article.post-inline {
 		&:hover {
 			background: rgba(0,0,0,0.2);
 			opacity: 1;
-		}
-	}
-
-	&:first-child {
-		@include media-query($breakpoint_lg) {
-			padding-top: 50px;
 		}
 	}
 }

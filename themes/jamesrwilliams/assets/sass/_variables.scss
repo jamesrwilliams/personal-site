@@ -1,6 +1,15 @@
 /* Colours */
+$primary: #545465;
 $accent: #688BC4;
-$primary: #1D2737;
+$secondary: #04AA75;
+$danger: #F80E0B;
+$warning: #D4440B;
+
+$background: #212121;
+
+$subtle-border: 1px solid rgba(0,0,0,0.2);
+
+$sidebar-color: #1E2838;
 
 $radius: 5px;
 
@@ -10,3 +19,4 @@ $animation-speed: 0.7s;
 $breakpoint_sm: 500px;
 $breakpoint_md: 660px;
 $breakpoint_lg: 960px;
+
