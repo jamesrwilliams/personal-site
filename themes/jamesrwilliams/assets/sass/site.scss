@@ -61,6 +61,7 @@ main {
 	margin-left: 0;
 	left: 0;
 	overflow: hidden;
+	line-height: 1.1em;
 
 	pre {
 		padding: 15px;
@@ -70,7 +71,7 @@ main {
 	}
 
 	&.expanded {
-		width: calc(100vw - 50px);
+		width: calc(100vw - 59px);
 		margin-left: calc(-50vw + 25px);
 		left: 50%;
 
@@ -98,4 +99,13 @@ main {
 img {
 	max-width: 100%;
 	height: auto;
+
+	@media (prefers-color-scheme: dark) {
+		opacity: .75;
+		transition: opacity .5s ease-in-out;
+		&:hover {
+			opacity: 1;
+		}
+	}
 }
+

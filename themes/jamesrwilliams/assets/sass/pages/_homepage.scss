@@ -5,9 +5,14 @@
 }
 
 .homepage main {
-	background: #444;
+	background: $accent;
 	display: flex;
 	flex-direction: column;
 	align-content: center;
 	justify-content: center;
+
+	@media (prefers-color-scheme: dark) {
+		background: darken($accent, 15%);
+	}
+
 }

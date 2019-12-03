@@ -337,7 +337,7 @@ main {
   height: 100%;
   max-height: 100%;
   overflow: scroll;
-  background-color: #212121; }
+  background-color: #0F867F; }
   main > section,
   main > article {
     width: 100%; }
@@ -358,14 +358,15 @@ main {
   position: relative;
   margin-left: 0;
   left: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  line-height: 1.1em; }
   .highlight pre {
     padding: 15px;
     border-radius: 5px;
     background-color: #1B1917 !important;
     transition: all .7s ease; }
   .highlight.expanded {
-    width: calc(100vw - 50px);
+    width: calc(100vw - 59px);
     margin-left: calc(-50vw + 25px);
     left: 50%; }
     .highlight.expanded pre {
@@ -381,8 +382,6 @@ main {
   .post-content > p:first-child {
     font-size: 1.4rem;
     line-height: 2rem; }
-  .post-content .highlight {
-    line-height: 1.1em; }
   .post-content > :first-child {
     margin-top: 0;
     padding-top: 0; }
@@ -390,7 +389,7 @@ main {
     margin-bottom: 0;
     padding-bottom: 0; }
   .post-content a {
-    color: #466fb3;
+    color: #0a5854;
     font-weight: 600;
     line-height: 1.3rem;
     /* These are technically the same, but use both */
@@ -527,7 +526,7 @@ main.error404 {
         main.error404 header p {
           font-size: 24px; } }
       main.error404 header p a {
-        color: #688BC4;
+        color: #0F867F;
         text-decoration: none; }
     @media screen and (min-width: 960px) {
       main.error404 header {
@@ -555,7 +554,7 @@ main.error404 {
     line-height: 1.4em;
     color: white; }
   .offline a {
-    color: #688BC4;
+    color: #0F867F;
     text-decoration: none;
     font-weight: bold; }
 
@@ -565,11 +564,14 @@ main.error404 {
   font-weight: 100; }
 
 .homepage main {
-  background: #444;
+  background: #0F867F;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center; }
+  @media (prefers-color-scheme: dark) {
+    .homepage main {
+      background: #07413e; } }
 
 .alert {
   position: relative;
@@ -640,7 +642,7 @@ code {
   font-weight: 100;
   margin: 0 0 0 1px;
   font-size: 90%;
-  background: #3d3d49;
+  background: #063c5d;
   padding: .3rem .4rem .1rem .4rem;
   border-radius: .2rem;
   color: white; }
@@ -649,10 +651,10 @@ blockquote {
   margin-left: 0;
   margin-right: 0;
   line-height: 1.4em;
-  background: #484857;
+  background: #074c75;
   padding: 1rem;
   width: 90%;
-  border-left: 5px solid #688BC4; }
+  border-left: 5px solid #0F867F; }
   blockquote > * {
     margin: 0; }
 
@@ -664,7 +666,7 @@ pre {
     padding: .2rem .4rem .1rem 0; }
 
 .accent {
-  color: #688BC4; }
+  color: #0F867F; }
 
 figure {
   padding: 0;
@@ -724,20 +726,30 @@ ul li {
 aside {
   width: 70px;
   height: 100%;
-  background: linear-gradient(to top, #1E2838, #151c27);
+  background: #fff;
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(0, 0, 0, 0.2); }
+  @media (prefers-color-scheme: dark) {
+    aside {
+      background: #020808; } }
   aside .site-logo {
     transition: background-color 1s ease; }
     aside .site-logo svg {
       width: 70%;
       height: 70%;
-      margin: 15%; }
-    aside .site-logo:hover {
-      background: #688BC4; }
-      aside .site-logo:hover svg {
-        fill: black !important; }
+      margin: 15%;
+      fill: blue; }
+    aside .site-logo #Shape,
+    aside .site-logo #Path {
+      fill: #0F867F;
+      transition: all 1s ease; }
+    aside .site-logo:hover #Shape,
+    aside .site-logo:hover #Path {
+      fill: white; }
+    aside .site-logo:hover #Shape {
+      transform-origin: 70px 70px;
+      transform: rotate(180deg); }
   aside a {
     display: inline-block; }
   aside .spacer {
@@ -771,14 +783,20 @@ ul.social {
   ul.social li {
     display: inline-block; }
     ul.social li:hover svg {
-      fill: #688BC4; }
+      fill: #0F867F; }
   ul.social svg {
     width: 100%;
     margin: 0;
-    fill: white; }
+    fill: #0F867F; }
   ul.social a {
     display: block; }
 
 img {
   max-width: 100%;
   height: auto; }
+  @media (prefers-color-scheme: dark) {
+    img {
+      opacity: .75;
+      transition: opacity .5s ease-in-out; }
+      img:hover {
+        opacity: 1; } }

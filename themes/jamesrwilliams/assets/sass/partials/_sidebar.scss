@@ -1,11 +1,14 @@
 aside {
 	width: 70px;
 	height: 100%;
-	//background: $sidebar-color;
-	background: linear-gradient(to top, $sidebar-color, darken($sidebar-color, 5%));
+	background: $sidebar-color;
 	display: flex;
 	flex-direction: column;
 	border-right: $subtle-border;
+
+	@media (prefers-color-scheme: dark) {
+		background: $sidebar-color_dark;
+	}
 
 	.site-logo {
 		transition: background-color 1s ease;
@@ -14,13 +17,25 @@ aside {
 			width: 70%;
 			height: 70%;
 			margin: 15%;
+			fill: blue;
+		}
+
+		#Shape,
+		#Path {
+			fill: $accent;
+			transition: all 1s ease;
 		}
 
 		&:hover {
-			background: $accent;
 
-			svg {
-				fill: black !important;
+			#Shape,
+			#Path {
+				fill: white;
+			}
+
+			#Shape {
+				transform-origin: 70px 70px;
+				transform: rotate(180deg);
 			}
 		}
 	}
@@ -79,7 +94,7 @@ ul.social {
 	svg {
 		width: 100%;
 		margin: 0;
-		fill: white;
+		fill: $accent;
 	}
 
 	a {

@@ -1,15 +1,16 @@
 /* Colours */
-$primary: #545465;
-$accent: #688BC4;
-$secondary: #04AA75;
+$primary: #095B8D;
+$accent: #0F867F;
+$secondary: #69ECDB;
 $danger: #F80E0B;
 $warning: #D4440B;
 
-$background: #212121;
+$background: $accent;
 
 $subtle-border: 1px solid rgba(0,0,0,0.2);
 
-$sidebar-color: #1E2838;
+$sidebar-color: #fff;
+$sidebar-color_dark: #020808;
 
 $radius: 5px;
 

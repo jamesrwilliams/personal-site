@@ -8,7 +8,7 @@ if (workbox) {
     workbox.precaching.precacheAndRoute([
   {
     "url": "algolia.json",
-    "revision": "3b78a50da824b816ecdfe3baeba83045"
+    "revision": "1f40cce1fbde6c301823cdb3822387d6"
   },
   {
     "url": "favicon.ico",
@@ -20,7 +20,7 @@ if (workbox) {
   },
   {
     "url": "sass/site.css",
-    "revision": "2c51eb9f74526ce8313162e91c879f0a"
+    "revision": "d644afe52bb7066027de65e008301b05"
   },
   {
     "url": "sass/site.dcb10cafd2c835f444c43786079fb3e8b3c2106d98d5ca70c2e8811df40a9566cb08c2c9bd0cc4e0456fc02b0e39457eb0271c967d6c84cbe8f1ba67ac66729a.css",
@@ -84,15 +84,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "ffc74f820ca4d5bd0dc67eaf3538f8c0"
+    "revision": "e06337f90e10a5442d1c5ff3bb147fac"
   },
   {
     "url": "offline/index.html",
-    "revision": "d97b207656a677b050ed7f77aef7d054"
+    "revision": "5ec044fc0d2850c4fbedfac6850aa6e4"
   },
   {
     "url": "404.html",
-    "revision": "ce4ead1e2324cd59107d6a8633804a9c"
+    "revision": "ea9fc83b1b23d19480df9c30f0e1af0e"
   }
 ]);
 
