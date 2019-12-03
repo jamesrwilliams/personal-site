@@ -610,6 +610,11 @@ main.error404 {
   .post-header .meta {
     font-size: 14px; }
 
+#hits {
+  background: #1B1917;
+  padding: 15px;
+  color: white; }
+
 article.post-inline h2,
 article.post-inline time {
   font-size: 16px;

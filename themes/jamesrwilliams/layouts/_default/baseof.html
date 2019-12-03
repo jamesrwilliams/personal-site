@@ -100,6 +100,7 @@
 <main>
 {{ if not .IsHome }}
 	{{ partial "breadcrumbs.html" . }}
+	{{ partial "site-search.html" . }}
 {{ end }}
 {{ block "main" . }}{{ end }}
 {{ block "footer" . }}{{ end }}
