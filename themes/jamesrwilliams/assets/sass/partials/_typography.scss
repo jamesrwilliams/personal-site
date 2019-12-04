@@ -10,6 +10,15 @@ code {
 	color: white;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $headingFonts;
+}
+
 blockquote {
 	margin-left: 0;
 	margin-right: 0;
@@ -30,7 +39,11 @@ pre {
 
 	code {
 		background: none;
+		font-family: 'Source Code Pro', monospace;
 		padding: .2rem .4rem .1rem 0;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		font-variant-numeric: tabular-nums;
 	}
 }
 

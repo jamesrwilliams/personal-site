@@ -1,7 +1,6 @@
 ---
 title: "Hugo Cheat Sheet"
 date: 2019-01-15T21:49:41-05:00
-type: post
 ---
 
 I'm still learning Hugo and GoLang so I've started a this post as a dumping ground for things I've learnt as a form of reference for anything Hugo related.

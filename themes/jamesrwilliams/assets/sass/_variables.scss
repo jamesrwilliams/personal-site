@@ -5,12 +5,17 @@ $secondary: #69ECDB;
 $danger: #F80E0B;
 $warning: #D4440B;
 
-$background: $accent;
+$background: #fff;
+
+$bodyFonts: 'Georgia', serif;
+$headingFonts:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 $subtle-border: 1px solid rgba(0,0,0,0.2);
 
 $sidebar-color: #fff;
 $sidebar-color_dark: #020808;
+
+$text-color: #303538;
 
 $radius: 5px;
 

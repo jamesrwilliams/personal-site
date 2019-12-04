@@ -1,6 +1,5 @@
 ---
 title: zxcvbn – A sensible password strength estimator
-type: post
 date: 2018-05-30T18:41:38+00:00
 aliases: [/2018/05/30/zxcvbn-a-sensible-password-strength-estimator/]
 slug: 'zxcvbn-a-sensible-password-strength-estimator'

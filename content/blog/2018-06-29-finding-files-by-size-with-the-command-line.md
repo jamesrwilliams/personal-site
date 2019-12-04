@@ -1,6 +1,5 @@
 ---
 title: Finding files by size with the command line
-type: post
 date: 2018-06-29T12:57:32+00:00
 aliases: [/2018/06/29/finding-files-by-size-with-the-command-line/]
 ---

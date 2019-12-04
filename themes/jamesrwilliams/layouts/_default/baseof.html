@@ -58,6 +58,7 @@
 	{{ $style := $sass | toCSS }}
 	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}" media="screen">
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
 
 	<!-- START Site Search -->
 	<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.35.1/dist/algoliasearchLite.min.js" integrity="sha256-5rOQwvvJdM9oDYQYCGzaJuuTy6SUALjma3OtzEGyJM0=" crossorigin="anonymous"></script>
@@ -99,8 +100,10 @@
 {{ partial "sidebar.html" . }}
 <main>
 {{ if not .IsHome }}
+	<header>
 	{{ partial "breadcrumbs.html" . }}
 	{{ partial "site-search.html" . }}
+	</header>
 {{ end }}
 {{ block "main" . }}{{ end }}
 {{ block "footer" . }}{{ end }}

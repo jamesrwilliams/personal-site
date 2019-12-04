@@ -1,18 +1,29 @@
 .introduction {
 	padding: 40px;
-	color: white;
+	color: $text-color;
 	font-weight: 100;
+
+	p {
+		font-size: 2rem;
+	}
+
+	h1 {
+		font-size: 4rem;
+	}
+	h2 {
+		background: orangered;
+	}
 }
 
 .homepage main {
-	background: $accent;
 	display: flex;
+	background: lighten($accent, 10%);
 	flex-direction: column;
 	align-content: center;
 	justify-content: center;
 
 	@media (prefers-color-scheme: dark) {
-		background: darken($accent, 15%);
+		// TBC
 	}
 
 }

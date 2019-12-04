@@ -1,6 +1,5 @@
 ---
 title: Awesome source code images with Carbon
-type: post
 date: 2018-01-31T21:59:53+00:00
 aliases: [/2018/01/31/source-code-images-with-carbon/]
 ---

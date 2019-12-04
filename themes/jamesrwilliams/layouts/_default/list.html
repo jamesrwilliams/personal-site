@@ -1,11 +1,11 @@
 {{ define "main" }}
 <section class="post-list">
 	<header>
-		<h1>Posts</h1>
+		<h1>{{ humanize .Type }}</h1>
 	</header>
 	<div class="container">
 
-	{{ $paginator := .Paginate (where .Pages "Type" "post") }}
+	{{ $paginator := .Paginate (where .Pages "Type" .Type) }}
 	{{ range $paginator.Pages }}
 		{{ partial "post-inline.html" . }}
 	{{ end }}

@@ -1,6 +1,5 @@
 ---
 title: JavaScript Encryption with RSA and AES
-type: post
 date: 2019-02-05T07:53:01+00:00
 ---
 

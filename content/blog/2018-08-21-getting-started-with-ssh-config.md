@@ -1,6 +1,5 @@
 ---
 title: Getting started with SSH config
-type: post
 date: 2018-08-21T10:42:37+00:00
 ---
 

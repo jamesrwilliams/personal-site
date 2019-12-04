@@ -22,7 +22,7 @@ aside {
 
 		#Shape,
 		#Path {
-			fill: $accent;
+			fill: #fff;
 			transition: all 1s ease;
 		}
 
@@ -30,7 +30,7 @@ aside {
 
 			#Shape,
 			#Path {
-				fill: white;
+				fill: $accent;
 			}
 
 			#Shape {
@@ -94,7 +94,8 @@ ul.social {
 	svg {
 		width: 100%;
 		margin: 0;
-		fill: $accent;
+		fill: #fff;
+		transition: fill 1s ease;
 	}
 
 	a {

@@ -1,7 +1,6 @@
 ---
 title: Drupal 8 introduction
 date: 2018-10-12T08:30:49+00:00
-type: post
 aliases: [/2018/10/12/drupal-8-introduction/]
 ---
 I&#8217;ve started learning Drupal 8! We&#8217;ve branched out at [Silver Agency](https://silver.agency) with our technology stack, and alongside our migration to AWS and introduction of Docker, our new senior developer has started sharing some experience with the Drupal CMS. We have taken on a new client project rebuilding an internal intranet in it. As there is no better way to learn something than diving right in, here is a list of useful things I&#8217;ve learnt recently with Drupal. I&#8217;ll be updating this with more material as I progress but this is a start!

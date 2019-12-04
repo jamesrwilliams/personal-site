@@ -1,6 +1,5 @@
 ---
 title: "A wild Chrome extension appears"
-type: post
 date: 2019-03-30T18:09:35-04:00
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: "Fixing the PHPStorm command line launcher"
-type: post
 date: 2019-06-25T09:33:52-04:00
 ---
 

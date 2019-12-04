@@ -2,18 +2,19 @@
 
 	&-content {
 		padding-top: 10rem;
-		font-size: 16px;
-		font-weight: 300;
-		line-height: 1.6em;
-		color: rgba(255,255,255,0.8);
+		font-size: 20px;
+		color: $text-color;
+		line-height: 32px;
+		margin-bottom: 1.5em;
+		font-family: $bodyFonts;
+
+		p {
+			margin-bottom: 1.5em;
+		}
 
 		> p:first-child {
 			font-size: 1.4rem;
 			line-height: 2rem;
-		}
-
-		.highlight {
-
 		}
 
 		& > :first-child {
@@ -30,10 +31,8 @@
 			color: darken($accent, 10%);
 			font-weight: 600;
 			line-height: 1.3rem;
-			/* These are technically the same, but use both */
 			overflow-wrap: break-word;
 			word-wrap: break-word;
-
 			-ms-word-break: break-all;
 			word-break: break-word;
 			-ms-hyphens: auto;
@@ -48,8 +47,7 @@
 		h4,
 		h5,
 		h6 {
-			color: white;
-			text-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+			color: $text-color;
 			padding-bottom: 10px;
 			padding-top: 10px;
 			margin-top: 3rem;

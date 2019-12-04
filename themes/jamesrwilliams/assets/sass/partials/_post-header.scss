@@ -1,9 +1,5 @@
 .post-header {
-	color: white;
-	z-index: 300;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
-	border-bottom: 1px solid red;
-	border-top: 1px solid red;
+	color: $text-color;
 	padding: 1.5rem;
 
 	.container {

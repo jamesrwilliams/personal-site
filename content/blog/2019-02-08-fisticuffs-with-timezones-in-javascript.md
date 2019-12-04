@@ -1,6 +1,5 @@
 ---
 title: "Fisticuffs with timezones in Javascript"
-type: post
 date: 2019-02-08T15:42:24-05:00
 ---
 

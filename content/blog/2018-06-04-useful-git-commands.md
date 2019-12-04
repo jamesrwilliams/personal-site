@@ -1,6 +1,5 @@
 ---
 title: Useful git commands
-type: post
 date: 2018-06-04T14:02:18+00:00
 aliases: [/2018/06/04/useful-git-commands/]
 ---

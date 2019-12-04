@@ -1,6 +1,5 @@
 ---
 title: Autocomplete branch names on the command line
-type: post
 date: 2018-07-23T10:53:45+00:00
 aliases: [/2018/07/23/autocomplete-branch-names-git/]
 ---

@@ -1,6 +1,5 @@
 ---
 title: "Moving from WordPress to Hugo"
-type: post
 date: 2019-01-08T13:14:21-05:00
 aliases: [/blog/moving-my-website-from-wordpress-to-hugo/]
 ---

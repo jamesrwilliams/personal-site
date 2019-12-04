@@ -1,6 +1,5 @@
 ---
 title: "I think I’ve survived my first winter in Canada!"
-type: post
 date: 2019-03-25T18:09:35-04:00
 ---
 
