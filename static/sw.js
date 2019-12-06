@@ -8,7 +8,7 @@ if (workbox) {
     workbox.precaching.precacheAndRoute([
   {
     "url": "algolia.json",
-    "revision": "1f40cce1fbde6c301823cdb3822387d6"
+    "revision": "4f4fc61e86b7152aa933199addb8100d"
   },
   {
     "url": "favicon.ico",
@@ -20,15 +20,7 @@ if (workbox) {
   },
   {
     "url": "sass/site.css",
-    "revision": "ab5a807e8210424c8954def4904c539e"
-  },
-  {
-    "url": "sass/site.dcb10cafd2c835f444c43786079fb3e8b3c2106d98d5ca70c2e8811df40a9566cb08c2c9bd0cc4e0456fc02b0e39457eb0271c967d6c84cbe8f1ba67ac66729a.css",
-    "revision": "0e9fbef648a02b2f1c818745949d9d36"
-  },
-  {
-    "url": "scss/site.css",
-    "revision": "0e9fbef648a02b2f1c818745949d9d36"
+    "revision": "5949d13c48da84d61aa3d911aca27772"
   },
   {
     "url": "post-images/_field-set-label-example.png",
@@ -84,15 +76,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "21b0927ae76d65f34cca3be711473b7d"
+    "revision": "df7866df529b4b653bc992d9c5728c4c"
   },
   {
     "url": "offline/index.html",
-    "revision": "6a1a57d178e0d0bc8aad59156e70a7ef"
+    "revision": "0e7ac1314e2f1ac27cb02a2145a1221f"
   },
   {
     "url": "404.html",
-    "revision": "6f1aa3044285c996134ae8b5040f7214"
+    "revision": "ac4f04ddd6521aab4dc1adab8ce6a819"
   }
 ]);
 
