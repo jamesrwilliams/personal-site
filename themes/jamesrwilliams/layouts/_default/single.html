@@ -3,19 +3,19 @@
 	{{ partial "post-header.html" . }}
 	{{ partial "json-ld/blog-post" . }}
 	<div class="container">
-	<div class="post-content">
-		{{ .Content }}
-	</div>
-	<footer class="post-footer">
-		<div class="post-links">
-			{{ with .PrevInSection }}
-			<a class="post-link post-link-prev" href="{{ .RelPermalink }}">{{ .Title }}</a>
-			{{ end }}
-			{{ with .NextInSection }}
-				<a class="post-link post-link-next" href="{{ .RelPermalink }}">{{ .Title }}</a>
-			{{ end }}
+		<div class="post-content">
+			{{ .Content }}
 		</div>
-	</footer>
+		<footer class="post-footer">
+			<div class="post-links">
+				{{ with .PrevInSection }}
+				<a class="post-link post-link-prev" href="{{ .RelPermalink }}">{{ .Title }}</a>
+				{{ end }}
+				{{ with .NextInSection }}
+					<a class="post-link post-link-next" href="{{ .RelPermalink }}">{{ .Title }}</a>
+				{{ end }}
+			</div>
+		</footer>
 	</div>
 </article>
 

@@ -1,12 +1,16 @@
 .post {
 
 	&-content {
-		padding-top: 10rem;
+		padding: 2rem;
 		font-size: 20px;
 		color: $text-color;
 		line-height: 32px;
 		margin-bottom: 1.5em;
 		font-family: $bodyFonts;
+
+		@media screen and (min-width: calc(800px + 2rem)) {
+			padding: 2rem 0;
+		}
 
 		p {
 			margin-bottom: 1.5em;
@@ -50,7 +54,13 @@
 			color: $text-color;
 			padding-bottom: 10px;
 			padding-top: 10px;
+			margin-left: 30px;
 			margin-top: 3rem;
+			transition: margin-left .6s ease;
+
+			@media screen and (min-width: calc(830px + 4rem)) {
+				margin-left: 0;
+			}
 
 			&:target {
 				.hlink {
@@ -61,7 +71,7 @@
 
 			&:hover {
 				.hlink {
-					opacity: 1;
+					opacity: .7;
 				}
 			}
 
@@ -69,12 +79,12 @@
 				color: inherit;
 				text-decoration: none;
 				position: absolute;
-				padding-right: 15px;
+				padding: 6px 0;
+				width: 30px;
 				font-weight: normal;
 				transform: translate(-100%);
 				transition: opacity .4s ease;
-				font-size: 2rem;
-				opacity: .4;
+				opacity: .2;
 			}
 
 		}

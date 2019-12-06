@@ -9,15 +9,14 @@
 
 	h1 {
 		font-size: 4rem;
+		color: #333;
 	}
-	h2 {
-		background: orangered;
-	}
+
 }
 
 .homepage main {
 	display: flex;
-	background: lighten($accent, 10%);
+	background: $background;
 	flex-direction: column;
 	align-content: center;
 	justify-content: center;

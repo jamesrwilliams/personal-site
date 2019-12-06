@@ -1,7 +1,7 @@
 baseURL = "https://jamesrwilliams.ca"
 languageCode = "en-GB"
 title = "James R. Williams · Web Developer"
-paginate = 20
+paginate = 30
 summaryLength = 40
 theme = "jamesrwilliams"
 pygmentsCodeFences = true

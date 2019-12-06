@@ -109,6 +109,7 @@
 {{ block "footer" . }}{{ end }}
 </main>
 <script>
+	/* Add clickable # links next to headers. */
     var postContent = document.querySelector('.post-content');
     if(postContent) {
         postContent.querySelectorAll('h2[id],h3[id],h4[id],h5[id],h6[id]').forEach((element) => {
@@ -117,19 +118,6 @@
             linkElement.text = '#';
             linkElement.classList.add('hlink');
             element.prepend(linkElement);
-        });
-    }
-    var codePreview = document.querySelectorAll('.highlight');
-    if(codePreview) {
-        codePreview.forEach((element) => {
-            const toggle = document.createElement('a');
-            toggle.text = 'expand';
-            toggle.classList.add('expand-code-btn');
-            toggle.addEventListener('click', () => {
-                console.log('Click event fired');
-               element.classList.toggle('expanded');
-            });
-			element.append(toggle);
         });
     }
 </script>

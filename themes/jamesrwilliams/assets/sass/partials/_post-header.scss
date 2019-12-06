@@ -1,6 +1,8 @@
 .post-header {
-	color: $text-color;
 	padding: 1.5rem;
+	background: darken($sidebar-color, 3%);
+	border-bottom: $subtle-border;
+	color: $text-color;
 
 	.container {
 		position: relative;
