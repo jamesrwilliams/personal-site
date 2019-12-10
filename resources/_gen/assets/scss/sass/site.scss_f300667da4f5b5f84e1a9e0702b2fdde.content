@@ -346,7 +346,6 @@ main {
     flex-grow: 1; }
   main > header {
     display: flex;
-    background: #f2f2f2;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
     @media screen and (min-width: 960px) {
       main > header {
@@ -405,7 +404,7 @@ section > header {
     margin-bottom: 0;
     padding-bottom: 0; }
   .post-content a {
-    color: #0a5854;
+    color: #950f26;
     font-weight: 600;
     line-height: 1.3rem;
     overflow-wrap: break-word;
@@ -425,9 +424,9 @@ section > header {
     color: #303538;
     padding-bottom: 10px;
     padding-top: 10px;
-    margin-left: 30px;
     margin-top: 3rem;
-    transition: margin-left .6s ease; }
+    transition: margin-left .6s ease;
+    margin-left: 30px; }
     @media screen and (min-width: calc(830px + 6rem)) {
       .post-content h1,
       .post-content h2,
@@ -443,14 +442,7 @@ section > header {
     .post-content h5:target .hlink,
     .post-content h6:target .hlink {
       opacity: 1;
-      color: #1DE0CF; }
-    .post-content h1:hover .hlink,
-    .post-content h2:hover .hlink,
-    .post-content h3:hover .hlink,
-    .post-content h4:hover .hlink,
-    .post-content h5:hover .hlink,
-    .post-content h6:hover .hlink {
-      opacity: .7; }
+      color: #c31432; }
     .post-content h1 .hlink,
     .post-content h2 .hlink,
     .post-content h3 .hlink,
@@ -462,10 +454,10 @@ section > header {
       position: absolute;
       padding: 6px 0;
       width: 30px;
-      font-weight: normal;
+      font-weight: lighter;
       transform: translate(-100%);
       transition: opacity .4s ease;
-      opacity: .2; }
+      opacity: .55; }
   .post-content figure {
     float: none; }
 
@@ -535,7 +527,7 @@ main.error404 {
         main.error404 header p {
           font-size: 24px; } }
       main.error404 header p a {
-        color: #0F867F;
+        color: #c31432;
         text-decoration: none; }
     @media screen and (min-width: 960px) {
       main.error404 header {
@@ -563,7 +555,7 @@ main.error404 {
     line-height: 1.4em;
     color: white; }
   .offline a {
-    color: #0F867F;
+    color: #c31432;
     text-decoration: none;
     font-weight: bold; }
 
@@ -611,12 +603,14 @@ main.error404 {
     margin-top: 0;
     letter-spacing: 0.1rem;
     -webkit-font-smoothing: antialiased;
-    font-size: 3rem; }
+    font-size: 3rem;
+    line-height: 3rem; }
   .post-header a {
     text-decoration: none;
     color: inherit; }
   .post-header .meta {
-    font-size: 14px; }
+    font-size: 14px;
+    line-height: 1.4rem; }
 
 button.trigger {
   border: 0;
@@ -679,12 +673,32 @@ blockquote {
   margin-left: 0;
   margin-right: 0;
   line-height: 1.4em;
-  background: #074c75;
+  background: rgba(195, 20, 50, 0.05);
   padding: 1rem;
-  width: 90%;
-  border-left: 5px solid #0F867F; }
+  position: relative;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; }
+  @media screen and (min-width: 660px) {
+    blockquote {
+      width: 90%; } }
+  blockquote:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #7e0d20, #c31432);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #7e0d20, #c31432);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
   blockquote > * {
     margin: 0; }
+    blockquote > *:last-child {
+      margin-bottom: 0; }
 
 pre {
   overflow: scroll;
@@ -696,9 +710,6 @@ pre {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     font-variant-numeric: tabular-nums; }
-
-.accent {
-  color: #0F867F; }
 
 figure {
   padding: 0;
@@ -735,13 +746,16 @@ figure {
 ul li {
   padding-bottom: 5px; }
 
+table {
+  border-collapse: collapse; }
+  table th, table td {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px; }
+
 .breadcrumbs {
   padding: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  width: 100%;
-  text-align: center;
-  overflow: scroll;
-  white-space: nowrap; }
+  width: 100%; }
   @media screen and (min-width: 960px) {
     .breadcrumbs {
       padding: 1.5rem;
@@ -751,8 +765,13 @@ ul li {
     padding: 0;
     font-size: 0; }
     .breadcrumbs ol li {
-      display: inline-block;
+      display: block;
       font-size: 1rem; }
+      .breadcrumbs ol li:last-child {
+        display: none; }
+      @media screen and (min-width: 960px) {
+        .breadcrumbs ol li {
+          display: inline-block; } }
       .breadcrumbs ol li a {
         padding: 5px 10px;
         color: #303538;
@@ -767,7 +786,7 @@ ul li {
         content: '/';
         width: 10px;
         text-align: center;
-        color: #aeb5b9;
+        color: #e5e7e8;
         display: inline-block; }
 
 aside {
@@ -889,5 +908,7 @@ img {
       img:hover {
         opacity: 1; } }
 
-.accent {
-  color: #0F867F; }
+.post-draft {
+  opacity: .25; }
+  .post-draft h2 a:after {
+    content: ' (draft)'; }

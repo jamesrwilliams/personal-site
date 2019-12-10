@@ -23,13 +23,36 @@ blockquote {
 	margin-left: 0;
 	margin-right: 0;
 	line-height: 1.4em;
-	background: darken($primary, 5%);
+	background: rgba($brightRed, .05);
 	padding: 1rem;
-	width: 90%;
-	border-left: 5px solid $accent;
+	position: relative;
+
+	border-top-right-radius: $radius;
+	border-bottom-right-radius: $radius;
+
+	@include media-query($breakpoint_md) {
+		width: 90%;
+	}
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 2px;
+		background: #c31432;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to top, darken(#c31432, 15%), #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to top, darken(#c31432, 15%), #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	}
 
 	> * {
 		margin: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -45,10 +68,6 @@ pre {
 		text-rendering: optimizeLegibility;
 		font-variant-numeric: tabular-nums;
 	}
-}
-
-.accent {
-	color: $accent;
 }
 
 figure {
@@ -103,4 +122,10 @@ ul {
 	li {
 		padding-bottom: 5px;
 	}
+}
+
+table {
+	border-collapse: collapse;
+
+	th,td { border: $subtle-border; padding: 5px; }
 }

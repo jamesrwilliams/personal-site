@@ -1,7 +1,6 @@
 ---
 title: "Experiments with responsive images"
 date: 2019-12-10T15:26:18-05:00
-type: post
 draft: true
 ---
 

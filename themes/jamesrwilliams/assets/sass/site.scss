@@ -46,10 +46,9 @@ main {
 
 	> header {
 		display: flex;
-		background: darken($sidebar-color, 3%);
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-		@include media-query($breakpoint_lg){
+		@include media-query($breakpoint_lg) {
 			flex-direction: column;
 			background: $sidebar-color;
 		}
@@ -129,6 +128,12 @@ img {
 	}
 }
 
-.accent {
-	color: $accent;
+.post-draft {
+	opacity: .25;
+
+	h2 a {
+		&:after {
+			content: ' (draft)';
+		}
+	}
 }

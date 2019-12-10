@@ -2,9 +2,6 @@
 	padding: 1rem;
 	font-family: $headingFonts;
 	width: 100%;
-	text-align: center;
-	overflow: scroll;
-	white-space: nowrap;
 
 	@include media-query($breakpoint_lg) {
 		padding: 1.5rem;
@@ -17,8 +14,16 @@
 		font-size: 0;
 
 		li {
-			display: inline-block;
+			display: block;
 			font-size: 1rem;
+
+			&:last-child {
+				display: none;
+			}
+
+			@include media-query($breakpoint_lg) {
+				display: inline-block;
+			}
 
 			a {
 				padding: 5px 10px;
@@ -38,7 +43,7 @@
 				content: '/';
 				width: 10px;
 				text-align: center;
-				color: lighten($text-color, 50%);
+				color: lighten($text-color, 70%);
 				display: inline-block;
 			}
 		}

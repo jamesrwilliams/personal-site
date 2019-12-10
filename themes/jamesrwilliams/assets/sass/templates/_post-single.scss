@@ -50,9 +50,9 @@
 			color: $text-color;
 			padding-bottom: 10px;
 			padding-top: 10px;
-			margin-left: 30px;
 			margin-top: 3rem;
 			transition: margin-left .6s ease;
+			margin-left: 30px;
 
 			@media screen and (min-width: calc(830px + 6rem)) {
 				margin-left: 0;
@@ -61,13 +61,13 @@
 			&:target {
 				.hlink {
 					opacity: 1;
-					color: #1DE0CF;
+					color: $accent;
 				}
 			}
 
 			&:hover {
 				.hlink {
-					opacity: .7;
+
 				}
 			}
 
@@ -77,10 +77,10 @@
 				position: absolute;
 				padding: 6px 0;
 				width: 30px;
-				font-weight: normal;
+				font-weight: lighter;
 				transform: translate(-100%);
 				transition: opacity .4s ease;
-				opacity: .2;
+				opacity: .55;
 			}
 
 		}

@@ -1,6 +1,5 @@
 ---
 title: "Automate All the Things"
-type: post
 date: 2019-12-10T15:33:42-05:00
 draft: true
 ---
