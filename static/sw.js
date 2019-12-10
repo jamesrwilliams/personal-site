@@ -20,7 +20,7 @@ if (workbox) {
   },
   {
     "url": "sass/site.css",
-    "revision": "5949d13c48da84d61aa3d911aca27772"
+    "revision": "713205eb430a9fb93e99214bbeb21404"
   },
   {
     "url": "post-images/_field-set-label-example.png",
@@ -80,11 +80,11 @@ if (workbox) {
   },
   {
     "url": "offline/index.html",
-    "revision": "0e7ac1314e2f1ac27cb02a2145a1221f"
+    "revision": "e2780962f4ad7c9b646076cd450ee17e"
   },
   {
     "url": "404.html",
-    "revision": "ac4f04ddd6521aab4dc1adab8ce6a819"
+    "revision": "69228ed493aa6137ce9524d2121c5fd4"
   }
 ]);
 
