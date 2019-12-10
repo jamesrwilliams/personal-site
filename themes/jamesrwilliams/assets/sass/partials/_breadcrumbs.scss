@@ -1,7 +1,15 @@
 .breadcrumbs {
-	padding: 1.5rem;
-	border-bottom: $subtle-border;
+	padding: 1rem;
 	font-family: $headingFonts;
+	width: 100%;
+	text-align: center;
+	overflow: scroll;
+	white-space: nowrap;
+
+	@include media-query($breakpoint_lg) {
+		padding: 1.5rem;
+		text-align: left;
+	}
 
 	ol {
 		margin: 0;
@@ -27,7 +35,7 @@
 			}
 
 			&:not(:last-child):after {
-				content: '|';
+				content: '/';
 				width: 10px;
 				text-align: center;
 				color: lighten($text-color, 50%);

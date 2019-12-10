@@ -1,5 +1,28 @@
-#hits {
-	background: #1B1917;
-	padding: 15px;
-	color: white;
+button.trigger {
+	border: 0;
+	background: #c31432;
+}
+
+.ais-Hits {
+
+}
+
+.search-form {
+	background: orangered;
+	padding: 50px;
+	display: none;
+	position: fixed;
+	top: 58px;
+	left: 75px;
+	right: 0;
+	width: 100%;
+	bottom: 0;
+	z-index: 500;
+	opacity: 0;
+	transition: opacity .5s ease;
+
+	&.active {
+		opacity: 1;
+		display: block;
+	}
 }

@@ -1,4 +1,4 @@
-<form class="search-form">
+<form class="search-form" id="search-form">
 	<div id="searchbox"></div>
 	<div id="hits"></div>
 	<script>
@@ -44,3 +44,15 @@
         search.start();
 	</script>
 </form>
+<script>
+    const button = document.getElementById('trigger');
+    const searchForm = document.getElementById('search-form');
+    if(button && searchForm) {
+        button.addEventListener('click', function() {
+            console.log('found');
+            searchForm.classList.toggle('active');
+        });
+    } else {
+        console.log('lost');
+    }
+</script>

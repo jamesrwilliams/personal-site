@@ -8,10 +8,6 @@
 		margin-bottom: 1.5em;
 		font-family: $bodyFonts;
 
-		@media screen and (min-width: calc(800px + 2rem)) {
-			padding: 2rem 0;
-		}
-
 		p {
 			margin-bottom: 1.5em;
 		}
@@ -58,7 +54,7 @@
 			margin-top: 3rem;
 			transition: margin-left .6s ease;
 
-			@media screen and (min-width: calc(830px + 4rem)) {
+			@media screen and (min-width: calc(830px + 6rem)) {
 				margin-left: 0;
 			}
 
