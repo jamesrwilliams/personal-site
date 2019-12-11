@@ -14,20 +14,37 @@ html,
 body {
 	margin: 0;
 	height: 100%;
-	font-family: $bodyFonts;
+	font-family: $headingFonts;
 }
 
 body {
+
+	$border-width: 5px;
+
 	display: flex;
 	flex-direction: column;
 	flex-basis: 70px;
-	padding: 0;
+	padding: $border-width 0 0 0;
 	font-size: 14px;
 
 	@include media-query($breakpoint_lg){
 		flex-direction: row;
 		font-size: 18px;
 	}
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		height: $border-width;
+		background: #00F260;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, $primary, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, $primary, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	}
+
 }
 
 main {
@@ -112,6 +129,7 @@ section > header {
 @import 'partials/site-search';
 @import 'partials/post-inline';
 @import 'partials/typography';
+@import 'partials/call-to-action';
 @import 'partials/breadcrumbs';
 @import 'partials/sidebar';
 

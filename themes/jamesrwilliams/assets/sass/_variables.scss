@@ -1,20 +1,26 @@
 $brightRed: #c31432;
+$newBlue: darken(#095B8D, 10%);
+$materialBackground: #fafafa;
+$bg_1: #F6F7F9;
+$ff_background: #F9F5EE;
 
 /* Colours */
 $primary: #095B8D;
-$accent: $brightRed;
+$accent: $newBlue;
 $secondary: #69ECDB;
 $danger: #F80E0B;
 $warning: #D4440B;
 
-$background: #fafafa;
+
+
+$background: $bg_1;
 
 $bodyFonts: 'Georgia', serif;
 $headingFonts:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 $subtle-border: 1px solid rgba(0,0,0,0.1);
 
-$sidebar-color: $background;
+$sidebar-color: #fff;
 $sidebar-color_dark: $sidebar-color;
 
 $text-color: #303538;

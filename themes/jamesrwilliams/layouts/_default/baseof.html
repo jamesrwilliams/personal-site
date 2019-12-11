@@ -98,10 +98,11 @@
 </head>
 <body class="{{ if .IsHome }}homepage{{ end }}">
 {{ partial "sidebar.html" . }}
-<main>
+<main class="fixed">
 {{ if not .IsHome }}
 	<header>
 	{{ partial "breadcrumbs.html" . }}
+	{{ partial "call-to-action.html" . }}
 	{{ partial "site-search.html" . }}
 	</header>
 {{ end }}

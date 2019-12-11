@@ -28,9 +28,7 @@
 		}
 
 		a {
-			color: darken($accent, 10%);
-			font-weight: 600;
-			line-height: 1.3rem;
+			color: $accent;
 			overflow-wrap: break-word;
 			word-wrap: break-word;
 			-ms-word-break: break-all;
@@ -75,12 +73,15 @@
 				color: inherit;
 				text-decoration: none;
 				position: absolute;
-				padding: 6px 0;
 				width: 30px;
 				font-weight: lighter;
 				transform: translate(-100%);
 				transition: opacity .4s ease;
 				opacity: .55;
+			}
+
+			a {
+				text-decoration: none;
 			}
 
 		}

@@ -4,30 +4,13 @@ aside {
 	display: flex;
 	flex-direction: row;
 	border-right: $subtle-border;
-	margin-left: 5px;
-	flex: 0 0 70px;
+	flex: 0 0 55px;
 	border-bottom: $subtle-border;
+	margin-top: 5px;
 
 	@include media-query($breakpoint_lg){
 		flex-direction: column;
-	}
-
-	&:before {
-		content: '';
-		display: block;
-		position: absolute;
-		width: 5px;
-		margin-left: -5px;
-		top: 0;
-		bottom: 0;
-		background: #c31432;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to top, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to top, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-	}
-
-	@media (prefers-color-scheme: dark) {
-		background: $sidebar-color_dark;
+		flex: 0 0 70px;
 	}
 
 	.site-logo {
@@ -77,7 +60,10 @@ aside {
 		}
 
 		li:not(:first-child) {
-			border-top: 1px solid rgba(0,0,0,0.2);
+
+			@include media-query($breakpoint_lg){
+				border-top: 1px solid rgba(0,0,0,0.2);
+			}
 		}
 
 		li a {
@@ -98,10 +84,8 @@ ul.social {
 	padding: 0;
 	text-align: center;
 	transition: all $animation-speed ease;
-	//margin: 0 auto 15px;
 	display: inline-block;
 	width: auto;
-	background: yellowgreen;
 
 	@include media-query($breakpoint_lg){
 		width: 40px;
@@ -134,8 +118,10 @@ ul.social {
 .site-profile {
 	display: flex;
 	overflow: hidden;
-	height: 70px;
-	width: 70px;
+	height: 55px;
+	width: 55px;
+	border-radius: 100%;
+	margin: 5px;
 
 	@include media-query($breakpoint_lg){
 		width: 100%;
@@ -145,8 +131,11 @@ ul.social {
 	img {
 		border-radius: 100%;
 		border: 1px solid #fff;
-		margin: 10px;
 		flex-grow: 1;
 		opacity: 1;
+
+		@include media-query($breakpoint_lg){
+			margin: 10px;
+		}
 	}
 }

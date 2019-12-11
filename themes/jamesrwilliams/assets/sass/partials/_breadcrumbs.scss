@@ -17,10 +17,6 @@
 			display: block;
 			font-size: 1rem;
 
-			&:last-child {
-				display: none;
-			}
-
 			@include media-query($breakpoint_lg) {
 				display: inline-block;
 			}

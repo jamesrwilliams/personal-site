@@ -320,18 +320,31 @@ html,
 body {
   margin: 0;
   height: 100%;
-  font-family: "Georgia", serif; }
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
 body {
   display: flex;
   flex-direction: column;
   flex-basis: 70px;
-  padding: 0;
+  padding: 5px 0 0 0;
   font-size: 14px; }
   @media screen and (min-width: 960px) {
     body {
       flex-direction: row;
       font-size: 18px; } }
+  body:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    height: 5px;
+    background: #00F260;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #095B8D, #00F260);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #095B8D, #00F260);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
 
 main {
   width: 100%;
@@ -340,7 +353,7 @@ main {
   height: 100%;
   max-height: 100%;
   overflow: scroll;
-  background-color: #fafafa; }
+  background-color: #F6F7F9; }
   main > section,
   main > article {
     flex-grow: 1; }
@@ -350,7 +363,7 @@ main {
     @media screen and (min-width: 960px) {
       main > header {
         flex-direction: column;
-        background: #fafafa; } }
+        background: #fff; } }
 
 section > header {
   padding: 2rem;
@@ -404,9 +417,7 @@ section > header {
     margin-bottom: 0;
     padding-bottom: 0; }
   .post-content a {
-    color: #950f26;
-    font-weight: 600;
-    line-height: 1.3rem;
+    color: #063c5d;
     overflow-wrap: break-word;
     word-wrap: break-word;
     -ms-word-break: break-all;
@@ -442,7 +453,7 @@ section > header {
     .post-content h5:target .hlink,
     .post-content h6:target .hlink {
       opacity: 1;
-      color: #c31432; }
+      color: #063c5d; }
     .post-content h1 .hlink,
     .post-content h2 .hlink,
     .post-content h3 .hlink,
@@ -452,12 +463,18 @@ section > header {
       color: inherit;
       text-decoration: none;
       position: absolute;
-      padding: 6px 0;
       width: 30px;
       font-weight: lighter;
       transform: translate(-100%);
       transition: opacity .4s ease;
       opacity: .55; }
+    .post-content h1 a,
+    .post-content h2 a,
+    .post-content h3 a,
+    .post-content h4 a,
+    .post-content h5 a,
+    .post-content h6 a {
+      text-decoration: none; }
   .post-content figure {
     float: none; }
 
@@ -527,7 +544,7 @@ main.error404 {
         main.error404 header p {
           font-size: 24px; } }
       main.error404 header p a {
-        color: #c31432;
+        color: #063c5d;
         text-decoration: none; }
     @media screen and (min-width: 960px) {
       main.error404 header {
@@ -555,7 +572,7 @@ main.error404 {
     line-height: 1.4em;
     color: white; }
   .offline a {
-    color: #c31432;
+    color: #063c5d;
     text-decoration: none;
     font-weight: bold; }
 
@@ -571,7 +588,7 @@ main.error404 {
 
 .homepage main {
   display: flex;
-  background: #fafafa;
+  background: #F6F7F9;
   flex-direction: column;
   align-content: center;
   justify-content: center; }
@@ -592,7 +609,7 @@ main.error404 {
   border-color: #d6d8db; }
 
 .post-header {
-  padding: 1.5rem;
+  padding: 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: #303538; }
   .post-header .container {
@@ -752,6 +769,18 @@ table {
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 5px; }
 
+.call-to-action {
+  position: absolute;
+  right: 15px;
+  top: 15px; }
+  .call-to-action a {
+    display: inline-block;
+    padding: 5px 30px;
+    text-decoration: none;
+    color: #303538;
+    background: #00F260;
+    border-radius: 10px; }
+
 .breadcrumbs {
   padding: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -767,8 +796,6 @@ table {
     .breadcrumbs ol li {
       display: block;
       font-size: 1rem; }
-      .breadcrumbs ol li:last-child {
-        display: none; }
       @media screen and (min-width: 960px) {
         .breadcrumbs ol li {
           display: inline-block; } }
@@ -791,33 +818,17 @@ table {
 
 aside {
   height: 100%;
-  background: #fafafa;
+  background: #fff;
   display: flex;
   flex-direction: row;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  margin-left: 5px;
-  flex: 0 0 70px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  flex: 0 0 55px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 5px; }
   @media screen and (min-width: 960px) {
     aside {
-      flex-direction: column; } }
-  aside:before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 5px;
-    margin-left: -5px;
-    top: 0;
-    bottom: 0;
-    background: #c31432;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #240b36, #c31432);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #240b36, #c31432);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
-  @media (prefers-color-scheme: dark) {
-    aside {
-      background: #fafafa; } }
+      flex-direction: column;
+      flex: 0 0 70px; } }
   aside .site-logo {
     transition: background-color 1s ease; }
     aside .site-logo svg {
@@ -844,8 +855,9 @@ aside {
     position: relative; }
     aside ul li {
       padding-bottom: 0; }
-    aside ul li:not(:first-child) {
-      border-top: 1px solid rgba(0, 0, 0, 0.2); }
+    @media screen and (min-width: 960px) {
+      aside ul li:not(:first-child) {
+        border-top: 1px solid rgba(0, 0, 0, 0.2); } }
     aside ul li a {
       display: inline-block;
       color: #444;
@@ -862,8 +874,7 @@ ul.social {
   text-align: center;
   transition: all 0.7s ease;
   display: inline-block;
-  width: auto;
-  background: yellowgreen; }
+  width: auto; }
   @media screen and (min-width: 960px) {
     ul.social {
       width: 40px; } }
@@ -885,8 +896,10 @@ ul.social {
 .site-profile {
   display: flex;
   overflow: hidden;
-  height: 70px;
-  width: 70px; }
+  height: 55px;
+  width: 55px;
+  border-radius: 100%;
+  margin: 5px; }
   @media screen and (min-width: 960px) {
     .site-profile {
       width: 100%;
@@ -894,9 +907,11 @@ ul.social {
   .site-profile img {
     border-radius: 100%;
     border: 1px solid #fff;
-    margin: 10px;
     flex-grow: 1;
     opacity: 1; }
+    @media screen and (min-width: 960px) {
+      .site-profile img {
+        margin: 10px; } }
 
 img {
   max-width: 100%;
