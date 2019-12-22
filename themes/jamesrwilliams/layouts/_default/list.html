@@ -3,14 +3,15 @@
 	<header>
 		<h1>{{ humanize .Type }}</h1>
 	</header>
-
-	{{ $paginator := .Paginate (where .Pages "Type" .Type) }}
-	<ul class="item-list">
-	{{ range $paginator.Pages }}
-		<li>{{ partial "post-inline.html" . }}</li>
-	{{ end }}
-	</ul>
-	{{ partial "list-pagination.html" . }}
+	<div class="container">
+		{{ $paginator := .Paginate (where .Pages "Type" .Type) }}
+		<ul class="item-list">
+		{{ range $paginator.Pages }}
+			<li>{{ partial "post-inline.html" . }}</li>
+		{{ end }}
+		</ul>
+		{{ partial "list-pagination.html" . }}
+	</div>
 </section>
 {{ end }}
 

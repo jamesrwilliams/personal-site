@@ -1,7 +1,7 @@
 .post-header {
 	padding: 2rem;
-	border-bottom: $subtle-border;
 	color: $text-color;
+	background: #ffffff;
 
 	.container {
 		position: relative;
@@ -13,8 +13,10 @@
 		margin-top: 0;
 		letter-spacing: 0.1rem;
 		-webkit-font-smoothing: antialiased;
+		font-weight: lighter;
 		font-size: 3rem;
 		line-height: 3rem;
+		padding: 2rem 0;
 	}
 
 	a {

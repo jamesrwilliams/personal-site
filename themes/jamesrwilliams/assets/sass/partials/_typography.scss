@@ -19,6 +19,14 @@ h6 {
 	font-family: $headingFonts;
 }
 
+a {
+	color: $primary;
+
+	&:hover {
+		color: $newBlue;
+	}
+}
+
 blockquote {
 	margin-left: 0;
 	margin-right: 0;

@@ -1,16 +1,20 @@
-$brightRed: #c31432;
-$newBlue: darken(#095B8D, 10%);
-$materialBackground: #fafafa;
-$bg_1: #F6F7F9;
-$ff_background: #F9F5EE;
 
 /* Colours */
+$newBlue: darken(#095B8D, 10%);
 $primary: #095B8D;
 $accent: $newBlue;
 $secondary: #69ECDB;
 $danger: #F80E0B;
 $warning: #D4440B;
 
+$brightRed: #c31432;
+
+$materialBackground: #fafafa;
+$bg_1: #F6F7F9;
+$ff_background: #F9F5EE;
+
+$gradient_start: $primary;
+$gradient_end: #00F260;
 
 
 $background: $bg_1;

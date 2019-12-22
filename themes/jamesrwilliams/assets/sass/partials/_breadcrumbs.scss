@@ -1,47 +1,46 @@
 .breadcrumbs {
-	padding: 1rem;
 	font-family: $headingFonts;
-	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	display: inline;
 
-	@include media-query($breakpoint_lg) {
-		padding: 1.5rem;
-		text-align: left;
-	}
+	li {
+		display: block;
+		font-size: 1rem;
+		opacity: .6;
 
-	ol {
-		margin: 0;
-		padding: 0;
-		font-size: 0;
+		&:last-child {
+			opacity: 1;
+			color: $primary;
+		}
 
-		li {
-			display: block;
+		@include media-query($breakpoint_lg) {
+			display: inline-block;
+		}
+
+		a {
+			color: $text-color;
 			font-size: 1rem;
+			text-decoration: none;
+			font-weight: 700;
+		}
 
-			@include media-query($breakpoint_lg) {
-				display: inline-block;
-			}
-
-			a {
-				padding: 5px 10px;
-				color: $text-color;
-				font-size: 1rem;
-				text-decoration: none;
-				border: 1px solid transparent;
-				transition: border 1s ease;
-				border-radius: 2px;
-
-				&:hover {
-					border-bottom: 1px solid lighten($text-color, 50%);
-				}
-			}
-
-			&:not(:last-child):after {
-				content: '/';
-				width: 10px;
-				text-align: center;
-				color: lighten($text-color, 70%);
-				display: inline-block;
-			}
+		&:not(:last-child):after {
+			content: '/';
+			width: 10px;
+			text-align: center;
+			display: inline-block;
+			font-weight: bold;
+			color: #444;
+			padding: 0 10px;
 		}
 	}
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	align-content: center;
 }

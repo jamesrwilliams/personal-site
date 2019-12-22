@@ -19,42 +19,39 @@ body {
 
 body {
 
-	$border-width: 5px;
+	$border-width: 7px;
 
 	display: flex;
 	flex-direction: column;
 	flex-basis: 70px;
-	padding: $border-width 0 0 0;
 	font-size: 14px;
 
-	@include media-query($breakpoint_lg){
-		flex-direction: row;
-		font-size: 18px;
+}
+
+article.content {
+	font-size: 20px;
+	color: $text-color;
+	line-height: 32px;
+	font-family: $bodyFonts;
+	padding: 2rem;
+
+	> *:first-child {
+		padding-top: 0;
+		margin-top: 0;
 	}
 
-	&:before {
-		content: '';
-		display: block;
-		position: absolute;
-		width: 100%;
-		top: 0;
-		height: $border-width;
-		background: #00F260;  /* fallback for old browsers */
-		background: -webkit-linear-gradient(to right, $primary, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
-		background: linear-gradient(to right, $primary, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+	> *:last-child {
+		padding-bottom: 0;
+		margin-bottom: 0;
 	}
-
 }
 
 main {
 	width: 100%;
 	position: relative;
 	font-size: 16px;
-	height: 100%;
-	max-height: 100%;
-	overflow: scroll;
 	background-color: $background;
+	padding-top: 75px;
 
 	> section,
 	> article {
@@ -63,7 +60,6 @@ main {
 
 	> header {
 		display: flex;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
 		@include media-query($breakpoint_lg) {
 			flex-direction: column;
@@ -74,16 +70,16 @@ main {
 
 section > header {
 	padding: 2rem;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
 	h1 {
 		color: $text-color;
+		text-align: center;
 		margin: 0;
 	}
 }
 
 .container {
-	max-width: calc(800px + 2rem);
+	max-width: calc(840px + 2rem);
 	margin: 0 auto;
 }
 
@@ -116,6 +112,33 @@ section > header {
 	}
 }
 
+.hero {
+	background: white;
+}
+
+.introduction h1 {
+	padding: 6rem 2rem 2rem 2rem;
+	font-size: 2rem;
+	margin: 0;
+	font-weight: 100;
+	color: $text-color;
+	transition: padding 1s ease;
+
+	@media screen and (min-width: $breakpoint_sm) {
+		font-size: 55px;
+		padding: 160px 2rem;
+	}
+
+	@media screen and (min-width: $breakpoint_lg) {
+		padding: 400px 2rem;
+	}
+
+	span {
+		transform: translateY(2px);
+		display: inline-block;
+	}
+}
+
 @import 'templates/post-single';
 @import 'templates/post_list';
 
@@ -129,7 +152,6 @@ section > header {
 @import 'partials/site-search';
 @import 'partials/post-inline';
 @import 'partials/typography';
-@import 'partials/call-to-action';
 @import 'partials/breadcrumbs';
 @import 'partials/sidebar';
 
@@ -146,12 +168,41 @@ img {
 	}
 }
 
-.post-draft {
-	opacity: .25;
+.quick-links {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 
-	h2 a {
-		&:after {
-			content: ' (draft)';
+	li {
+		display: inline-block;
+
+		a {
+			display: block;
+			color: $primary;
+			text-decoration: none;
+			padding: 15px;
+
+			&:hover {
+				color: $newBlue;
+			}
+		}
+
+		&:first-child a {
+			padding-left: 0;
+		}
+
+	}
+}
+
+.post-draft {
+	opacity: .4;
+	background: rgba(#f00, 0.1);
+
+	h2 {
+		a {
+			&:after {
+				content: ' (DRAFT)';
+			}
 		}
 	}
 }

@@ -1,44 +1,36 @@
 aside {
-	height: 100%;
+	$border-width: 7px;
 	background: $sidebar-color;
 	display: flex;
 	flex-direction: row;
-	border-right: $subtle-border;
 	flex: 0 0 55px;
-	border-bottom: $subtle-border;
-	margin-top: 5px;
+	height: 75px;
+	position: fixed;
+	z-index: 600;
+	left: 0;
+	right: 0;
+	padding: $border-width 0 0 0;
+	transition: all .4s ease;
+	border-bottom: 1px solid transparent;
 
-	@include media-query($breakpoint_lg){
-		flex-direction: column;
-		flex: 0 0 70px;
+	nav {
+		padding: 1rem;
 	}
 
-	.site-logo {
-		transition: background-color 1s ease;
+	&.detached {
+		border-bottom: $subtle-border;
+	}
 
-		svg {
-			width: 70%;
-			height: 70%;
-			margin: 15%;
-		}
-
-		#Shape,
-		#Path {
-			fill: $text-color;
-			transition: all 1s ease-in;
-			transform-origin: 50% 120%;
-		}
-
-		&:hover {
-
-			#Path {
-				transform: scale(2);
-			}
-
-			#Shape {
-				transform: rotate(720deg) scale(.5);
-			}
-		}
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		height: $border-width;
+		background: #00F260;
+		background: -webkit-linear-gradient(to right, $primary, #00F260);
+		background: linear-gradient(to right, $primary, #00F260);
 	}
 
 	a {
@@ -49,93 +41,63 @@ aside {
 		flex-grow: 1;
 	}
 
+	ol,
+	ul {
+		padding-top: 10px !important;
+	}
+
 	ul {
 		padding: 0;
 		margin: 0;
 		list-style: none;
 		position: relative;
+		text-align: center;
+		transition: all $animation-speed ease;
+		display: inline-block;
 
 		li {
 			padding-bottom: 0;
-		}
+			font-size: 0;
+			display: inline-block;
+			min-width: 40px;
+			position: relative;
 
-		li:not(:first-child) {
+			svg {
+				width: 15px;
+				margin: 0;
+				fill: $text-color;
+				transition: fill 1s ease;
 
-			@include media-query($breakpoint_lg){
-				border-top: 1px solid rgba(0,0,0,0.2);
+				&:hover {
+					fill: #240b36;
+				}
+			}
+
+			a {
+				display: inline-block;
+				color: #444;
+				width: 100%;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-weight: bold;
+				font-size: 1rem;
 			}
 		}
-
-		li a {
-			display: inline-block;
-			color: #444;
-			width: 100%;
-			font-size: .7rem;
-			text-decoration: none;
-			text-transform: uppercase;
-			padding: 10px;
-			font-weight: bold;
-		}
-	}
-}
-
-ul.social {
-	list-style: none;
-	padding: 0;
-	text-align: center;
-	transition: all $animation-speed ease;
-	display: inline-block;
-	width: auto;
-
-	@include media-query($breakpoint_lg){
-		width: 40px;
-	}
-
-	li {
-		display: inline-block;
-
-		&:hover {
-			svg { fill: #240b36; }
-		}
-	}
-
-	svg {
-		width: 15px;
-		margin: 0;
-		fill: $text-color;
-		transition: fill 1s ease;
-
-		@include media-query($breakpoint_lg){
-			width: 100%;
-		}
-	}
-
-	a {
-		display: block;
 	}
 }
 
 .site-profile {
-	display: flex;
+	display: block;
 	overflow: hidden;
-	height: 55px;
-	width: 55px;
+	height: 35px;
+	width: 35px;
 	border-radius: 100%;
-	margin: 5px;
-
-	@include media-query($breakpoint_lg){
-		width: 100%;
-		height: 69px;
-	}
+	margin-right: 1rem;
 
 	img {
 		border-radius: 100%;
 		border: 1px solid #fff;
 		flex-grow: 1;
 		opacity: 1;
-
-		@include media-query($breakpoint_lg){
-			margin: 10px;
-		}
 	}
 }

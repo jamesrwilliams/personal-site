@@ -98,16 +98,9 @@
 </head>
 <body class="{{ if .IsHome }}homepage{{ end }}">
 {{ partial "sidebar.html" . }}
-<main class="fixed">
-{{ if not .IsHome }}
-	<header>
-	{{ partial "breadcrumbs.html" . }}
-	{{ partial "call-to-action.html" . }}
-	{{ partial "site-search.html" . }}
-	</header>
-{{ end }}
+<main>
 {{ block "main" . }}{{ end }}
-{{ block "footer" . }}{{ end }}
+{{ partial "footer.html" . }}
 </main>
 <script>
 	/* Add clickable # links next to headers. */
@@ -122,6 +115,22 @@
             linkElement.classList.add('hlink');
             element.prepend(linkElement);
         });
+    }
+
+    var header = document.querySelector('aside');
+    if(header) {
+
+        let xpost = header.getBoundingClientRect().top;
+        let ypost = header.getBoundingClientRect().bottom;
+        console.log(ypost);
+
+        window.onscroll = (evt) => {
+	        if(window.scrollY > ypost) {
+	            header.classList.add('detached');
+	        } else {
+	            header.classList.remove('detached');
+	        }
+        }
     }
 </script>
 </body>
