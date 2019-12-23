@@ -910,5 +910,4 @@ footer {
   font-size: 14px;
   text-align: center;
   opacity: .7;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: white; }
