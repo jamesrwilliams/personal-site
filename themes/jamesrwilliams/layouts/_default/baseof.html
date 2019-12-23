@@ -61,8 +61,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
 
 	<!-- START Site Search -->
-	<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.35.1/dist/algoliasearchLite.min.js" integrity="sha256-5rOQwvvJdM9oDYQYCGzaJuuTy6SUALjma3OtzEGyJM0=" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>
+<!--	<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.35.1/dist/algoliasearchLite.min.js" integrity="sha256-5rOQwvvJdM9oDYQYCGzaJuuTy6SUALjma3OtzEGyJM0=" crossorigin="anonymous"></script>-->
+<!--	<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>-->
 	<!-- END Site Search -->
 	<script type="application/ld+json">
 		{
@@ -120,9 +120,7 @@
     var header = document.querySelector('aside');
     if(header) {
 
-        let xpost = header.getBoundingClientRect().top;
         let ypost = header.getBoundingClientRect().bottom;
-        console.log(ypost);
 
         window.onscroll = (evt) => {
 	        if(window.scrollY > ypost) {
@@ -132,6 +130,15 @@
 	        }
         }
     }
+
+    var toggleSearchButton = document.getElementById('toggleSearch');
+    if(toggleSearchButton) {
+        toggleSearchButton.addEventListener('click', function(evt) {
+           console.log('Toggle Search viability');
+           document.body.classList.toggle('search');
+        });
+    }
+
 </script>
 </body>
 </html>

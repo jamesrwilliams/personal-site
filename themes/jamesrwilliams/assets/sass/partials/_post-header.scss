@@ -1,22 +1,14 @@
 .post-header {
-	padding: 2rem;
 	color: $text-color;
 	background: #ffffff;
+
+	&-inner {
+		padding: 2rem;
+	}
 
 	.container {
 		position: relative;
 		z-index: 300;
-	}
-
-	h1 {
-		margin-bottom: 1rem;
-		margin-top: 0;
-		letter-spacing: 0.1rem;
-		-webkit-font-smoothing: antialiased;
-		font-weight: lighter;
-		font-size: 3rem;
-		line-height: 3rem;
-		padding: 2rem 0;
 	}
 
 	a {

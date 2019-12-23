@@ -1,0 +1,13 @@
+section.hire {
+	height: 100%;
+
+	h1 {
+		font-weight: lighter;
+		font-size: 4rem;
+		line-height: 1.2;
+	}
+
+	@media screen and (min-width: $breakpoint_md) {
+		padding-top: 10vh;
+	}
+}

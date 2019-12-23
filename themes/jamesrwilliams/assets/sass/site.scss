@@ -6,7 +6,7 @@
 * {
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
-	//-moz-osx-font-smoothing: auto;
+	-moz-osx-font-smoothing: auto;
 	text-rendering: optimizeLegibility;
 }
 
@@ -18,14 +18,10 @@ body {
 }
 
 body {
-
-	$border-width: 7px;
-
 	display: flex;
 	flex-direction: column;
 	flex-basis: 70px;
-	font-size: 14px;
-
+	font-size: 16px;
 }
 
 article.content {
@@ -51,12 +47,9 @@ main {
 	position: relative;
 	font-size: 16px;
 	background-color: $background;
-	padding-top: 75px;
-
-	> section,
-	> article {
-		flex-grow: 1;
-	}
+	padding-top: 51px;
+	height: 100%;
+	overflow: scroll;
 
 	> header {
 		display: flex;
@@ -68,74 +61,44 @@ main {
 	}
 }
 
+article > header,
 section > header {
-	padding: 2rem;
+	background: white;
+	background: linear-gradient(to top, #fff, $background);
 
 	h1 {
 		color: $text-color;
-		text-align: center;
-		margin: 0;
+		margin-bottom: 0;
+		margin-top: 0;
+		letter-spacing: 0.1rem;
+		-webkit-font-smoothing: antialiased;
+		font-weight: lighter;
+		font-size: 3rem;
+		line-height: 3rem;
 	}
 }
 
 .container {
-	max-width: calc(840px + 2rem);
+	max-width: calc(860px + 2rem);
+	transition: width 1s ease;
+	width: 100%;
 	margin: 0 auto;
 }
 
+// Syntax Highlighting Block
 .highlight {
 	width: 100%;
 	transition: all .7s ease;
 	position: relative;
-	margin-left: 0;
-	left: 0;
 	overflow: hidden;
 	line-height: 1.1em;
 
 	pre {
-		padding: 15px;
+		padding: 2rem;
 		margin-top: 0;
 		border-radius: $radius;
 		background-color: #1B1917 !important;
 		transition: all .7s ease;
-	}
-
-	&.expanded {
-		width: calc(100vw - 59px);
-		margin-left: calc(-50vw + 25px);
-		left: 50%;
-
-		pre {
-			border-radius: 0;
-			padding: 50px 20vw;
-		}
-	}
-}
-
-.hero {
-	background: white;
-}
-
-.introduction h1 {
-	padding: 6rem 2rem 2rem 2rem;
-	font-size: 2rem;
-	margin: 0;
-	font-weight: 100;
-	color: $text-color;
-	transition: padding 1s ease;
-
-	@media screen and (min-width: $breakpoint_sm) {
-		font-size: 55px;
-		padding: 160px 2rem;
-	}
-
-	@media screen and (min-width: $breakpoint_lg) {
-		padding: 400px 2rem;
-	}
-
-	span {
-		transform: translateY(2px);
-		display: inline-block;
 	}
 }
 
@@ -145,15 +108,16 @@ section > header {
 @import 'pages/404';
 @import 'pages/offline';
 @import 'pages/homepage';
+@import 'pages/hire';
 
 @import 'shortcodes/alert';
 
 @import 'partials/post-header';
-@import 'partials/site-search';
 @import 'partials/post-inline';
-@import 'partials/typography';
-@import 'partials/breadcrumbs';
 @import 'partials/sidebar';
+@import 'partials/typography';
+
+
 
 img {
 	max-width: 100%;
@@ -168,41 +132,12 @@ img {
 	}
 }
 
-.quick-links {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-
-	li {
-		display: inline-block;
-
-		a {
-			display: block;
-			color: $primary;
-			text-decoration: none;
-			padding: 15px;
-
-			&:hover {
-				color: $newBlue;
-			}
-		}
-
-		&:first-child a {
-			padding-left: 0;
-		}
-
-	}
-}
-
-.post-draft {
-	opacity: .4;
-	background: rgba(#f00, 0.1);
-
-	h2 {
-		a {
-			&:after {
-				content: ' (DRAFT)';
-			}
-		}
-	}
+footer {
+	padding: 2rem 0;
+	color: $text-color;
+	font-size: 14px;
+	text-align: center;
+	opacity: .7;
+	border-top: $subtle-border;
+	background: white;
 }

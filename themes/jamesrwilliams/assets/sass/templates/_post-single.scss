@@ -12,9 +12,11 @@
 			margin-bottom: 1.5em;
 		}
 
-		> p:first-child {
-			font-size: 1.4rem;
-			line-height: 2rem;
+		@media screen and (min-width: $breakpoint_md) {
+			> p:first-child {
+				font-size: 1.7rem;
+				line-height: 2.4rem;
+			}
 		}
 
 		& > :first-child {

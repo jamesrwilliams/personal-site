@@ -1,4 +1,6 @@
 article.post-inline {
+	border-bottom: $subtle-border;
+	padding: 1rem 0;
 
 	h2,
 	time {
@@ -6,11 +8,18 @@ article.post-inline {
 		color: lighten($text-color, 10%);
 	}
 
+	time {
+		min-width: 100px;
+		display: inline-block;
+		font-family: $headingFonts;
+	}
+
 	h2 {
-		margin-bottom: 0;
+		margin: 0;
 	}
 
 	a {
+		font-family: $bodyFonts;
 		color: $text-color;
 		text-decoration: none;
 		display: block;

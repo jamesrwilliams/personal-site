@@ -78,24 +78,30 @@ The `-D` here renders draft posts so I can see how my drafts are doing (the shor
 hugo list drafts
 ```
 
-## Shortcodes
-
-- TODO: Custom Shortcodes
-
 ## Documentation
 
 Very useful documentation links for when you're building your own theme:
 
 - [Hugo templates documentation](https://gohugo.io/templates/)
 
+## Raw variables
+
+```google cloud
+{{ printf "%#v" $.Site }}
+```
+
 ## Tip #1: Preview site over LAN (Mac)
 
-Very useful little command to enable you to preview your Hugo site on your iPhone/iPad to test your template etc. For this to work replace the `nexus.local` with the local address of your mac, found in System Preferences, and then Sharing. My laptop is called nexus currently hence the example.
+Very useful little command to enable you to preview your Hugo site on your iPhone/iPad to test your template etc. This command creates a new server changing the base URL to be your machine name so it is accessibly on the local network.
 
-This will then allow you to visit the local address of your mac with the port your hugo server runs on, via the web browser on your phone to preview the site.
+```bash
+hugo server --baseURL=$HOSTNAME --bind="0.0.0.0"
+```
+
+Here we are using the variable `$HOSTNAME` to automatically fetch the computer name on the network. For example my machine is called `nexus.local` instead of typing this I can use $HOSTNAME to replace this when running. So the command it runs is this:
 
 ```bash
 hugo server --baseUrl=nexus.local --bind="0.0.0.0"
 ```
 
-For example using the above as an example, and assuming the server runs on port `1313` to access this on your iPhone you would visit: _http://nexus.local:1313_ to preview your site.
+For example using the above as an example, and assuming the server runs on port `1313` to access this on another device you would visit: _http://nexus.local:1313_ to preview your site.

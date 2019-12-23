@@ -1,9 +1,17 @@
 .post-list {
 
 	ul.item-list {
-		padding: 0;
+		padding: 0 2rem;
 		margin: 0;
 		list-style: none;
+
+		li {
+			padding-bottom: 0;
+		}
+	}
+
+	&-header {
+		padding: 2rem
 	}
 
 	.post-link-prev:before {
@@ -12,12 +20,6 @@
 
 	.post-link-next:before {
 		content: 'Older posts';
-	}
-
-	> header {
-		background: white;
-		font-weight: 100;
-		padding: 60px 0;
 	}
 }
 
@@ -61,4 +63,17 @@
 
 	&-prev {}
 	&-next {}
+}
+
+.post-draft {
+	opacity: .4;
+	background: rgba(#f00, 0.1);
+
+	h2 {
+		a {
+			&:after {
+				content: ' (DRAFT)';
+			}
+		}
+	}
 }

@@ -5,7 +5,7 @@ date: 2018-08-22T12:13:37+00:00
 ### Target all images that have an empty `alt` tag
 ```css
 img[alt=""] {
-  /* Rules for <a> elements without alt text. */
+  /* Rules for <img> elements without alt text. */
  }
 ```
 ### A links without a `href` attribute

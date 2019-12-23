@@ -1,15 +1,17 @@
 <header class="post-header">
 	<div class="container">
-		<h1>{{ .Title }}</h1>
-		<div class="meta">
-			{{ $publish_date := .PublishDate.Format "2 January, 2006" }}
-			{{ $updated_date := .Lastmod.Format "2 January, 2006" }}
-			Posted on <time datetime='{{ .PublishDate.Format "2006-01-02" }}'>{{ $publish_date }}</time>{{ if not (eq $publish_date $updated_date) }}, updated <time datetime='{{ .Lastmod.Format "2006-01-02" }}'>{{ $updated_date }}</time>{{ end }}. A
-		{{ if lt .ReadingTime 3 }}
-			quick read.
-		{{ else }}
-			{{ .ReadingTime }} minute read.
-		{{ end }}
+		<div class="post-header-inner">
+			<h1>{{ .Title }}</h1>
+			<div class="meta">
+				{{ $publish_date := .PublishDate.Format "2 January, 2006" }}
+				{{ $updated_date := .Lastmod.Format "2 January, 2006" }}
+				Posted on <time datetime='{{ .PublishDate.Format "2006-01-02" }}'>{{ $publish_date }}</time>{{ if not (eq $publish_date $updated_date) }}, updated <time datetime='{{ .Lastmod.Format "2006-01-02" }}'>{{ $updated_date }}</time>{{ end }}. A
+			{{ if lt .ReadingTime 3 }}
+				quick read.
+			{{ else }}
+				{{ .ReadingTime }} minute read.
+			{{ end }}
+			</div>
 		</div>
 	</div>
 </header>

@@ -1,24 +1,31 @@
-.introductio {
-	padding: 40px;
-	font-weight: 100;
-
-	p {
-		font-size: 2rem;
-	}
-
-
-	h1 {
-		font-size: 4rem;
-		text-align: center;
-		color: red;
-	}
-
-}
-
-.homepage main {
+.hero {
+	background: white;
+	background: linear-gradient(to top, #fff, $background);
 	display: flex;
-	background: $background;
-	flex-direction: column;
 	align-content: center;
 	justify-content: center;
+	flex-direction: column;
+
+	@media screen and (min-width: $breakpoint_md) {
+		height: 600px;
+	}
+}
+
+.introduction h1 {
+	font-size: 2rem;
+	margin: 0;
+	padding: 4rem 2rem;
+	font-weight: 100;
+	color: $text-color;
+	transition: padding 1s ease;
+
+	@media screen and (min-width: $breakpoint_sm) {
+		font-size: 55px;
+		padding: 0 2rem;
+	}
+
+	span {
+		transform: translateY(2px);
+		display: inline-block;
+	}
 }
