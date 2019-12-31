@@ -5,12 +5,27 @@
 			<div class="meta">
 				{{ $publish_date := .PublishDate.Format "2 January, 2006" }}
 				{{ $updated_date := .Lastmod.Format "2 January, 2006" }}
-				Posted on <time datetime='{{ .PublishDate.Format "2006-01-02" }}'>{{ $publish_date }}</time>{{ if not (eq $publish_date $updated_date) }}, updated <time datetime='{{ .Lastmod.Format "2006-01-02" }}'>{{ $updated_date }}</time>{{ end }}. A
-			{{ if lt .ReadingTime 3 }}
-				quick read.
-			{{ else }}
-				{{ .ReadingTime }} minute read.
-			{{ end }}
+				<div class="published">
+					<span>Published</span>
+					<time datetime='{{ .PublishDate.Format "2006-01-02" }}'>{{ $publish_date }}</time>
+				</div>
+				{{ if not (eq $publish_date $updated_date) }}
+				<div class="updated">
+					<span>Updated on</span>
+					<time datetime='{{ .Lastmod.Format "2006-01-02" }}'>{{ $updated_date }}</time>
+				</div>
+				{{ end }}
+
+				{{ if isset .Params "tag"}}
+				<div class="tags">
+					<span>Tagged</span>
+					<ul>
+						{{ range $index, $name := sort .Params.tag -}}
+						<li><a class=ph1 href={{ (printf "/tags/%s/" $name) | urlize }} title="Index: {{$name | markdownify }}">{{$name | markdownify}}</a></li>
+						{{- end}}
+					</ul>
+				</div>
+				{{- end }}
 			</div>
 		</div>
 	</div>

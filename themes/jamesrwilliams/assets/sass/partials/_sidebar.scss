@@ -11,11 +11,15 @@ aside {
 	border-bottom: 1px solid $subtle-border;
 
 	nav {
-		padding: .5rem 1rem;
+		padding: 0 .5rem;
 		display: flex;
 		flex-direction: row;
 		flex-grow: 1;
 		align-content: center;
+
+		@media screen and (max-width: $breakpoint_md) {
+			padding: .5rem 2rem;
+		}
 	}
 
 	&.detached {
@@ -36,6 +40,7 @@ aside {
 
 	a {
 		display: inline-block;
+		font-size: 14px;
 	}
 
 	.spacer {
@@ -81,7 +86,7 @@ aside {
 				text-decoration: none;
 				text-transform: uppercase;
 				font-weight: bold;
-				font-size: 1rem;
+				font-size: 14px;
 			}
 		}
 	}
@@ -93,6 +98,7 @@ aside {
 	padding: 0;
 	font-size: 0;
 	display: none;
+	padding-top: 0 !important;
 
 	@media screen and (min-width: $breakpoint_md) {
 		display: inline;
@@ -114,18 +120,12 @@ aside {
 
 		a {
 			color: $text-color;
-			font-size: 1rem;
+			font-size: 16px;
+			font-weight: 300;
 			text-decoration: none;
-		}
-
-		&:not(:last-child):after {
-			content: '»';
-			width: 10px;
-			margin-top: -2px;
-			text-align: center;
-			display: inline-block;
-			color: #444;
-			padding: 0 10px;
+			overflow: hidden;
+			position: relative;
+			margin-right: 1px;
 		}
 	}
 }

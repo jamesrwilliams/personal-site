@@ -1,5 +1,5 @@
 ---
-title: "CodePen Concept: Wheel of Prizes"
+title: "Spinning wheel of Prizes"
 date: 2019-12-20
 slug: 'wheel-of-prizes'
 tag: ["CSS", "Animations", "CodePen"]

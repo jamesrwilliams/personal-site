@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pwa": "hugo && workbox injectManifest workbox-config.js",
-    "start": "hugo serve --disableFastRender --buildDrafts --buildFuture"
+    "start": "hugo serve --disableFastRender --buildDrafts --buildFuture",
+    "sever": "hugo server --baseURL=$HOSTNAME --bind='0.0.0.0' --disableFastRender --buildDrafts --buildFuture"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "devDependencies": {
     "copyfiles": "^1.2.0",
     "workbox-cli": "^3.5.0"
+  },
+  "dependencies": {
+    "stylelint-config-standard": "^19.0.0"
   }
 }

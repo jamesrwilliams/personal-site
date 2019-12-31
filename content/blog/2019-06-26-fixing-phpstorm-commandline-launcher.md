@@ -1,15 +1,10 @@
 ---
 title: "Fixing the PHPStorm command line launcher"
 date: 2019-06-25T09:33:52-04:00
+tags: ["bash","phpstorm"]
 ---
 
 I use Jetbrains' [PHPStorm](https://www.jetbrains.com/phpstorm/) as my primary editor for any digital project and have been since mid-2017. It's an all round solid editor, especially useful when working with WordPress projects and I've found it a bit more powerful than VSCode but one thing that really gets on my nerves with it is that **every time the application updates my CLI launcher script breaks**.
-
-> "Ooo a new version of PHPStorm to use, R.I.P my launcher." - @me
-
-```bash
-$ pstorm ./path-to-project-dir 
-```
 
 ## It's not a bug, it's a feature
 
@@ -18,6 +13,12 @@ Ironically when this happened it was announced as a feature via their [Toolbox a
 There is a issue being [tracked](https://youtrack.jetbrains.com/issue/TBX-1266) for this however it's still less intuitive than the previous `Tools > Create Command-line launcher` method implemented previously. After a little digging and some annoying application behaviour involving version numbers I found the reason why this happens and with it, the solution to my first-world development problem.
 
 ## Why this happens
+
+I use the `pstorm` command to open things in my editor. Much like code works for VSCode:
+
+```bash
+$ pstorm ./path-to-project-dir 
+```
 
 The bash script that runs when I execute my `pstorm` (`/usr/local/bin/pstorm`) command looks like this:
 

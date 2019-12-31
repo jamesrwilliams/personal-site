@@ -68,20 +68,16 @@ section > header {
 
 	h1 {
 		color: $text-color;
-		margin-bottom: 0;
-		margin-top: 0;
 		letter-spacing: 0.1rem;
 		-webkit-font-smoothing: antialiased;
 		font-weight: lighter;
 		font-size: 3rem;
-		line-height: 3rem;
 	}
 }
 
 .container {
 	max-width: calc(860px + 2rem);
 	transition: width 1s ease;
-	width: 100%;
 	margin: 0 auto;
 }
 

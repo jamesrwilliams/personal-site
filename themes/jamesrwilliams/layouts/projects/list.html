@@ -12,7 +12,7 @@
 		<ul class="project-list">
 			{{ range $paginator.Pages }}
 
-			<li>
+			<li class="{{ if .Draft }}draft{{ end }}">
 				<h2><a href="{{ .RelPermalink }}">
 					{{ .Title }}</a></h2>
 			</li>

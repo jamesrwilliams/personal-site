@@ -1,6 +1,6 @@
 .post-header {
 	color: $text-color;
-	background: #ffffff;
+	background: $subtle-gradient;
 
 	&-inner {
 		padding: 2rem;
@@ -17,7 +17,49 @@
 	}
 
 	.meta {
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 1.4rem;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+
+				display: inline-block;
+				margin-right: 5px;
+
+				&:not(:last-child) {
+					&:after {
+						content: ','
+					}
+				}
+
+			}
+		}
+
+		.published,
+		.updated,
+		.tags {
+
+			display: inline-block;
+			margin-right: 2rem;
+
+			time {
+				font-family: $bodyFonts;
+			}
+
+			li a { font-family: $bodyFonts; }
+
+			span {
+				opacity: .5;
+				text-transform: uppercase;
+				font-size: 12px;
+				display: block;
+				font-weight: 600;
+			}
+		}
+
 	}
 }
