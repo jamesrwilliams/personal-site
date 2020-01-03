@@ -63,13 +63,12 @@ main {
 article > header,
 section > header {
 	background: white;
-	background: linear-gradient(to top, #fff, $background);
 
 	h1 {
 		color: $text-color;
 		letter-spacing: 0.1rem;
 		-webkit-font-smoothing: antialiased;
-		font-weight: lighter;
+		font-weight: bold;
 		font-size: 3rem;
 	}
 }

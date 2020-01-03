@@ -308,6 +308,18 @@ template {
 .ml-1 {
   margin-left: 1rem; }
 
+.fs-1 {
+  font-size: 1rem; }
+
+.fs-2 {
+  font-size: 2rem; }
+
+.fs-3 {
+  font-size: 3rem; }
+
+.fs-4 {
+  font-size: 4rem; }
+
 .translucent {
   opacity: .5; }
 
@@ -362,14 +374,13 @@ main {
 
 article > header,
 section > header {
-  background: white;
-  background: linear-gradient(to top, #fff, #F6F7F9); }
+  background: white; }
   article > header h1,
   section > header h1 {
     color: #303538;
     letter-spacing: 0.1rem;
     -webkit-font-smoothing: antialiased;
-    font-weight: lighter;
+    font-weight: bold;
     font-size: 3rem; }
 
 .container {
@@ -580,29 +591,35 @@ main.error404 {
 
 .hero {
   background: white;
-  background: linear-gradient(to top, #fff, #F6F7F9);
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column; }
-  @media screen and (min-width: 660px) {
-    .hero {
-      height: 600px; } }
+  padding-top: 200px;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem; }
 
 .introduction h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 0;
-  padding: 4rem 2rem;
-  font-weight: 100;
+  font-weight: bold;
   color: #303538;
-  transition: padding 1s ease; }
+  transition: padding 1s ease;
+  padding: 2rem; }
   @media screen and (min-width: 500px) {
     .introduction h1 {
-      font-size: 55px;
-      padding: 0 2rem; } }
-  .introduction h1 span {
-    transform: translateY(2px);
-    display: inline-block; }
+      font-size: 3.5rem; } }
+
+.accent {
+  color: #00F260;
+  animation-name: colorCycle;
+  animation-direction: alternate-reverse;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite; }
+
+@keyframes colorCycle {
+  0% {
+    color: #00F260; }
+  100% {
+    color: #095B8D; } }
 
 section.hire {
   height: 100%; }
@@ -704,18 +721,13 @@ aside {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    max-width: 1200px;
+    max-width: calc(860px + 2rem);
     margin: 0 auto;
+    padding: .5rem 2rem;
     align-content: center; }
-    aside nav.active {
-      flex-direction: column; }
-      aside nav.active .social {
-        display: block; }
     @media screen and (max-width: 660px) {
       aside nav {
-        padding: .5rem 2rem; } }
-  aside.detached {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+        padding: 1rem 2rem; } }
   aside:before {
     content: '';
     display: block;
@@ -726,57 +738,53 @@ aside {
     background: #00F260;
     background: -webkit-linear-gradient(to right, #095B8D, #00F260);
     background: linear-gradient(to right, #095B8D, #00F260); }
-  aside a {
-    display: inline-block;
-    font-size: 14px; }
   aside .spacer {
     flex-grow: 1; }
   aside ul {
-    padding: 0 1rem;
+    padding: 0;
     margin: 0;
     list-style: none;
     position: relative;
     transition: all 0.7s ease;
-    display: inline-block;
-    border-left: 1px solid #eee; }
-    aside ul.social {
-      text-align: right; }
-      @media screen and (min-width: 660px) {
-        aside ul.social {
-          display: inline-block; } }
-    aside ul.links a {
-      transform: translateY(-2px);
-      font-weight: 600; }
+    display: flex; }
     aside ul li {
       padding-bottom: 0;
       font-size: 0;
-      display: inline-block;
       position: relative;
-      background: rgba(255, 0, 0, 0.4); }
-      aside ul li:not(:last-child) {
-        margin-right: 1rem; }
+      align-content: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column; }
+      aside ul li.divider {
+        background: #eee;
+        width: 1px;
+        margin: 0 5px; }
       aside ul li svg {
-        width: 15px;
+        width: 17px;
         margin: 0;
         fill: #303538;
         transition: fill 1s ease; }
-        aside ul li svg:hover {
-          fill: #240b36; }
+      aside ul li:last-child a {
+        padding-right: 0; }
       aside ul li a {
-        display: inline-block;
         color: #444;
-        padding: .5rem;
-        width: 100%;
         text-decoration: none;
-        font-size: 14px; }
+        font-size: 14px;
+        padding: 0 .5rem; }
 
 .site-profile {
-  margin-right: 1rem; }
-  .site-profile a {
-    display: block; }
+  vertical-align: middle;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  color: #000; }
   .site-profile span {
     display: inline-block;
-    padding: .5 rem; }
+    padding: .5rem; }
+  .site-profile > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
   .site-profile img {
     display: inline-block;
     border-radius: 100%;
@@ -864,8 +872,9 @@ figure {
     figure figcaption p {
       margin-top: 0; }
 
-ul li {
-  padding-bottom: 5px; }
+ul li,
+ol li {
+  padding-bottom: 1.5rem; }
 
 table {
   border-collapse: collapse; }

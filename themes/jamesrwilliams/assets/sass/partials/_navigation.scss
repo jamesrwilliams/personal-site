@@ -10,25 +10,14 @@ aside {
 		display: flex;
 		flex-direction: row;
 		flex-grow: 1;
-		max-width: 1200px;
+		max-width: calc(860px + 2rem);
 		margin: 0 auto;
+		padding: .5rem 2rem;
 		align-content: center;
 
-		&.active {
-			flex-direction: column;
-
-			.social {
-				display: block;
-			}
-		}
-
 		@media screen and (max-width: $breakpoint_md) {
-			padding: .5rem 2rem;
+			padding: 1rem 2rem;
 		}
-	}
-
-	&.detached {
-		border-bottom: $subtle-border;
 	}
 
 	&:before {
@@ -43,83 +32,72 @@ aside {
 		background: linear-gradient(to right, $primary, #00F260);
 	}
 
-	a {
-		display: inline-block;
-		font-size: 14px;
-	}
-
 	.spacer {
 		flex-grow: 1;
 	}
 
 	ul {
-		padding: 0 1rem;
+		padding: 0;
 		margin: 0;
 		list-style: none;
 		position: relative;
 		transition: all $animation-speed ease;
-		display: inline-block;
-		border-left: 1px solid #eee;
-
-		&.social {
-			text-align: right;
-
-			@media screen and (min-width: $breakpoint_md) {
-				display: inline-block;
-			}
-		}
-
-		&.links {
-			a {
-				transform: translateY(-2px);
-				font-weight: 600;
-			}
-		}
+		display: flex;
 
 		li {
 			padding-bottom: 0;
 			font-size: 0;
-			display: inline-block;
 			position: relative;
-			background: rgba(red, .4);
+			align-content: center;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
 
-			&:not(:last-child) {
-				margin-right: 1rem;
+
+
+			&.divider {
+				background: #eee;
+				width: 1px;
+				margin: 0 5px;
 			}
 
 			svg {
-				width: 15px;
+				width: 17px;
 				margin: 0;
 				fill: $text-color;
 				transition: fill 1s ease;
+			}
 
-				&:hover {
-					fill: #240b36;
-				}
+			&:last-child a {
+				padding-right: 0;
 			}
 
 			a {
-				display: inline-block;
 				color: #444;
-				padding: .5rem;
-				width: 100%;
 				text-decoration: none;
 				font-size: 14px;
+				padding: 0 .5rem;
 			}
 		}
 	}
 }
 
 .site-profile {
-	margin-right: 1rem;
-
-	a {
-		display: block;
-	}
+	vertical-align: middle;
+	display: flex;
+	flex-direction: row;
+	text-decoration: none;
+	color: #000;
 
 	span {
 		display: inline-block;
-		padding: .5 rem;
+		padding: .5rem;
+	}
+
+	> div {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
 	}
 
 	img {
