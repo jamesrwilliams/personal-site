@@ -97,7 +97,7 @@
 	</script>
 </head>
 <body class="{{ if .IsHome }}homepage{{ end }}">
-{{ partial "sidebar.html" . }}
+{{ partial "navigation.html" . }}
 <main>
 {{ block "main" . }}{{ end }}
 {{ partial "footer.html" . }}
@@ -117,27 +117,13 @@
         });
     }
 
-    var header = document.querySelector('aside');
-    if(header) {
-
-        let ypost = header.getBoundingClientRect().bottom;
-
-        window.onscroll = (evt) => {
-	        if(window.scrollY > ypost) {
-	            header.classList.add('detached');
-	        } else {
-	            header.classList.remove('detached');
-	        }
-        }
-    }
-
-    var toggleSearchButton = document.getElementById('toggleSearch');
-    if(toggleSearchButton) {
-        toggleSearchButton.addEventListener('click', function(evt) {
-           console.log('Toggle Search viability');
-           document.body.classList.toggle('search');
-        });
-    }
+    var menuToggle = document.getElementById('toggle');
+	if(menuToggle) {
+	    menuToggle.addEventListener('click', () => {
+            var navigation = document.getElementById('navigation');
+            navigation.classList.toggle('active');
+	    });
+	}
 
 </script>
 </body>

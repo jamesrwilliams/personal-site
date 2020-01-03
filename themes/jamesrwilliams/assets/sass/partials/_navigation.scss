@@ -1,21 +1,26 @@
 aside {
 	$border-width: 7px;
 	background: $sidebar-color;
-	position: fixed;
-	z-index: 600;
-	left: 0;
-	right: 0;
 	padding: $border-width 0 0 0;
 	transition: all .4s ease;
 	border-bottom: 1px solid transparent;
 	border-bottom: 1px solid $subtle-border;
 
 	nav {
-		padding: 0 .5rem;
 		display: flex;
 		flex-direction: row;
 		flex-grow: 1;
+		max-width: 1200px;
+		margin: 0 auto;
 		align-content: center;
+
+		&.active {
+			flex-direction: column;
+
+			.social {
+				display: block;
+			}
+		}
 
 		@media screen and (max-width: $breakpoint_md) {
 			padding: .5rem 2rem;
@@ -47,26 +52,40 @@ aside {
 		flex-grow: 1;
 	}
 
-	ol,
 	ul {
-		padding-top: 10px !important;
-	}
-
-	ul {
-		padding: 0;
+		padding: 0 1rem;
 		margin: 0;
 		list-style: none;
 		position: relative;
-		text-align: center;
 		transition: all $animation-speed ease;
 		display: inline-block;
+		border-left: 1px solid #eee;
+
+		&.social {
+			text-align: right;
+
+			@media screen and (min-width: $breakpoint_md) {
+				display: inline-block;
+			}
+		}
+
+		&.links {
+			a {
+				transform: translateY(-2px);
+				font-weight: 600;
+			}
+		}
 
 		li {
 			padding-bottom: 0;
 			font-size: 0;
 			display: inline-block;
-			min-width: 40px;
 			position: relative;
+			background: rgba(red, .4);
+
+			&:not(:last-child) {
+				margin-right: 1rem;
+			}
 
 			svg {
 				width: 15px;
@@ -82,64 +101,32 @@ aside {
 			a {
 				display: inline-block;
 				color: #444;
+				padding: .5rem;
 				width: 100%;
 				text-decoration: none;
-				text-transform: uppercase;
-				font-weight: bold;
 				font-size: 14px;
 			}
 		}
 	}
 }
 
-.breadcrumbs {
-	font-family: $headingFonts;
-	margin: 0;
-	padding: 0;
-	font-size: 0;
-	display: none;
-	padding-top: 0 !important;
-
-	@media screen and (min-width: $breakpoint_md) {
-		display: inline;
-	}
-
-	li {
-		display: block;
-		font-size: 1rem;
-		opacity: .6;
-
-		&:last-child {
-			opacity: 1;
-			color: $primary;
-		}
-
-		@include media-query($breakpoint_lg) {
-			display: inline-block;
-		}
-
-		a {
-			color: $text-color;
-			font-size: 16px;
-			font-weight: 300;
-			text-decoration: none;
-			overflow: hidden;
-			position: relative;
-			margin-right: 1px;
-		}
-	}
-}
-
 .site-profile {
-	display: block;
-	overflow: hidden;
-	height: 35px;
-	width: 35px;
-	border-radius: 100%;
 	margin-right: 1rem;
 
+	a {
+		display: block;
+	}
+
+	span {
+		display: inline-block;
+		padding: .5 rem;
+	}
+
 	img {
+		display: inline-block;
 		border-radius: 100%;
+		height: 35px;
+		width: 35px;
 		border: 1px solid #fff;
 		flex-grow: 1;
 		opacity: 1;

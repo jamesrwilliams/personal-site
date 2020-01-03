@@ -351,7 +351,6 @@ main {
   position: relative;
   font-size: 16px;
   background-color: #F6F7F9;
-  padding-top: 51px;
   height: 100%;
   overflow: scroll; }
   main > header {
@@ -697,20 +696,21 @@ article.post-inline {
 
 aside {
   background: #fff;
-  position: fixed;
-  z-index: 600;
-  left: 0;
-  right: 0;
   padding: 7px 0 0 0;
   transition: all .4s ease;
   border-bottom: 1px solid transparent;
   border-bottom: 1px solid 1px solid rgba(0, 0, 0, 0.1); }
   aside nav {
-    padding: 0 .5rem;
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    max-width: 1200px;
+    margin: 0 auto;
     align-content: center; }
+    aside nav.active {
+      flex-direction: column; }
+      aside nav.active .social {
+        display: block; }
     @media screen and (max-width: 660px) {
       aside nav {
         padding: .5rem 2rem; } }
@@ -731,23 +731,30 @@ aside {
     font-size: 14px; }
   aside .spacer {
     flex-grow: 1; }
-  aside ol,
   aside ul {
-    padding-top: 10px !important; }
-  aside ul {
-    padding: 0;
+    padding: 0 1rem;
     margin: 0;
     list-style: none;
     position: relative;
-    text-align: center;
     transition: all 0.7s ease;
-    display: inline-block; }
+    display: inline-block;
+    border-left: 1px solid #eee; }
+    aside ul.social {
+      text-align: right; }
+      @media screen and (min-width: 660px) {
+        aside ul.social {
+          display: inline-block; } }
+    aside ul.links a {
+      transform: translateY(-2px);
+      font-weight: 600; }
     aside ul li {
       padding-bottom: 0;
       font-size: 0;
       display: inline-block;
-      min-width: 40px;
-      position: relative; }
+      position: relative;
+      background: rgba(255, 0, 0, 0.4); }
+      aside ul li:not(:last-child) {
+        margin-right: 1rem; }
       aside ul li svg {
         width: 15px;
         margin: 0;
@@ -758,50 +765,23 @@ aside {
       aside ul li a {
         display: inline-block;
         color: #444;
+        padding: .5rem;
         width: 100%;
         text-decoration: none;
-        text-transform: uppercase;
-        font-weight: bold;
         font-size: 14px; }
 
-.breadcrumbs {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  margin: 0;
-  padding: 0;
-  font-size: 0;
-  display: none;
-  padding-top: 0 !important; }
-  @media screen and (min-width: 660px) {
-    .breadcrumbs {
-      display: inline; } }
-  .breadcrumbs li {
-    display: block;
-    font-size: 1rem;
-    opacity: .6; }
-    .breadcrumbs li:last-child {
-      opacity: 1;
-      color: #095B8D; }
-    @media screen and (min-width: 960px) {
-      .breadcrumbs li {
-        display: inline-block; } }
-    .breadcrumbs li a {
-      color: #303538;
-      font-size: 16px;
-      font-weight: 300;
-      text-decoration: none;
-      overflow: hidden;
-      position: relative;
-      margin-right: 1px; }
-
 .site-profile {
-  display: block;
-  overflow: hidden;
-  height: 35px;
-  width: 35px;
-  border-radius: 100%;
   margin-right: 1rem; }
+  .site-profile a {
+    display: block; }
+  .site-profile span {
+    display: inline-block;
+    padding: .5 rem; }
   .site-profile img {
+    display: inline-block;
     border-radius: 100%;
+    height: 35px;
+    width: 35px;
     border: 1px solid #fff;
     flex-grow: 1;
     opacity: 1; }
@@ -910,3 +890,6 @@ footer {
   text-align: center;
   opacity: .7;
   background: white; }
+
+.social li a {
+  max-width: 50px; }
