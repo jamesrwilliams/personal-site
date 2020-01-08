@@ -2,6 +2,7 @@
 title: "Spinning wheel of Prizes"
 date: 2019-12-20
 slug: 'wheel-of-prizes'
+draft: true
 categories: ["project"]
 tags: ["CSS", "Animations", "CodePen"]
 ---

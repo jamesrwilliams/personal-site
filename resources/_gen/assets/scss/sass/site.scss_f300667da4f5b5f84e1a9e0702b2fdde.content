@@ -579,11 +579,6 @@ main.error404 {
 .offline article {
   line-height: 1.4em; }
 
-.offline a {
-  color: #063c5d;
-  text-decoration: none;
-  font-weight: bold; }
-
 .hero {
   background: white;
   padding-top: 200px;
@@ -776,6 +771,7 @@ aside {
   vertical-align: middle;
   display: flex;
   flex-direction: row;
+  font-size: 14px;
   text-decoration: none;
   color: #000; }
   .site-profile span {
