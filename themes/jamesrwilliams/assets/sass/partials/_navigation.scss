@@ -3,9 +3,7 @@ aside {
 	padding: $border-width 0 0 0;
 	transition: all .4s ease;
 	border-bottom: 1px solid transparent;
-	//border-bottom: $subtle-border;
 	background: $sidebar-color;
-
 	position: fixed;
 	width: 100%;
 	top: 0;
@@ -14,6 +12,7 @@ aside {
 	nav {
 		display: flex;
 		flex-direction: row;
+		max-width: 860px;
 		flex-grow: 1;
 		margin: 0 auto;
 		padding: .5rem 1rem;

@@ -9,10 +9,12 @@
 		<footer class="post-footer">
 			<div class="post-links">
 				{{ with .PrevInSection }}
+				<span>Previous Post</span>
 				<a class="post-link post-link-prev" href="{{ .RelPermalink }}">{{ .Title }}</a>
 				{{ end }}
 				{{ with .NextInSection }}
-					<a class="post-link post-link-next" href="{{ .RelPermalink }}">{{ .Title }}</a>
+				<span>Next Post</span>
+				<a class="post-link post-link-next" href="{{ .RelPermalink }}">{{ .Title }}</a>
 				{{ end }}
 			</div>
 		</footer>

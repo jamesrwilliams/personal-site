@@ -730,6 +730,7 @@ aside {
   aside nav {
     display: flex;
     flex-direction: row;
+    max-width: 860px;
     flex-grow: 1;
     margin: 0 auto;
     padding: .5rem 1rem;
