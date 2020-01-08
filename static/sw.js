@@ -8,7 +8,7 @@ if (workbox) {
     workbox.precaching.precacheAndRoute([
   {
     "url": "algolia.json",
-    "revision": "e046211f7c37753abbc90ecccd939727"
+    "revision": "7a805dd5653bb4bd8fb11f6525adc318"
   },
   {
     "url": "favicon.ico",
@@ -24,7 +24,7 @@ if (workbox) {
   },
   {
     "url": "sass/site.css",
-    "revision": "3e1c790e7651a6278da47303bb2086b3"
+    "revision": "a143135a97e8c0754af7b6ffd547c4ac"
   },
   {
     "url": "post-images/_field-set-label-example.png",
@@ -100,15 +100,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "f8d9fa120894fb7001274a53fe48b41f"
+    "revision": "f35306d4eb463c41be4dab1fcbff2783"
   },
   {
     "url": "offline/index.html",
-    "revision": "73d9695f09baed9f5c18a8691f364cbd"
+    "revision": "d5be41e29657d75a400d700582e4e1d0"
   },
   {
     "url": "404.html",
-    "revision": "d4afa95479140edb4ccff743ec89f9bc"
+    "revision": "085e332365a7cf8b932bc0a0d7ea83e5"
   }
 ]);
 
