@@ -1,12 +1,16 @@
 .post {
 
 	&-content {
-		padding: 2rem;
+		padding: 2rem 1rem;
 		font-size: 20px;
 		color: $text-color;
 		line-height: 32px;
 		margin-bottom: 1.5em;
 		font-family: $bodyFonts;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			padding: 2rem;
+		}
 
 		p {
 			margin-bottom: 1.5em;

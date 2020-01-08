@@ -373,7 +373,12 @@ main {
 article > header,
 section > header {
   background: #fff;
-  padding-top: 200px; }
+  padding-top: 4rem;
+  transition: padding 1s ease; }
+  @media screen and (min-width: 500px) {
+    article > header,
+    section > header {
+      padding-top: 200px; } }
   article > header h1,
   section > header h1 {
     color: #303538;
@@ -402,12 +407,15 @@ section > header {
     transition: all .7s ease; }
 
 .post-content {
-  padding: 2rem;
+  padding: 2rem 1rem;
   font-size: 20px;
   color: #303538;
   line-height: 32px;
   margin-bottom: 1.5em;
   font-family: "Georgia", serif; }
+  @media screen and (min-width: 500px) {
+    .post-content {
+      padding: 2rem; } }
   .post-content p {
     margin-bottom: 1.5em; }
   .post-content > :first-child {
@@ -508,12 +516,6 @@ section > header {
 .post-list-header {
   padding: 0 2rem; }
 
-.post-list .post-link-prev:before {
-  content: 'Newer posts'; }
-
-.post-list .post-link-next:before {
-  content: 'Older posts'; }
-
 .post-links {
   display: flex;
   flex-direction: column; }
@@ -598,7 +600,6 @@ main.error404 {
     padding: 0 2rem;
     font-size: 2.5rem;
     margin: 0;
-    color: #303538;
     transition: padding 1s ease; }
 
 @media screen and (min-width: 500px) {
@@ -648,7 +649,10 @@ section.hire {
 .post-header {
   color: #303538; }
   .post-header-inner {
-    padding: 2rem; }
+    padding: 2rem 1rem; }
+    @media screen and (min-width: 500px) {
+      .post-header-inner {
+        padding: 2rem; } }
   .post-header .container {
     position: relative;
     z-index: 300; }
@@ -697,8 +701,13 @@ article.post-inline {
     font-size: 16px;
     color: #484f53; }
   article.post-inline time {
-    min-width: 100px;
-    display: inline-block; }
+    display: block;
+    margin-bottom: .5rem; }
+    @media screen and (min-width: 500px) {
+      article.post-inline time {
+        min-width: 100px;
+        margin-bottom: 0;
+        display: inline-block; } }
   article.post-inline h2 {
     margin: 0; }
   article.post-inline a {
@@ -886,7 +895,7 @@ footer {
   color: #303538;
   font-size: 14px;
   opacity: .7;
-  background: white; }
+  background: #fff; }
   footer nav {
     padding: 2rem; }
   footer ul {

@@ -2,7 +2,11 @@
 	color: $text-color;
 
 	&-inner {
-		padding: 2rem;
+		padding: 2rem 1rem;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			padding: 2rem;
+		}
 	}
 
 	.container {
