@@ -6,18 +6,6 @@
 		<div class="post-content">
 			{{ .Content }}
 		</div>
-		<footer class="post-footer">
-			<div class="post-links">
-				{{ with .PrevInSection }}
-				<span>Previous Post</span>
-				<a class="post-link post-link-prev" href="{{ .RelPermalink }}">{{ .Title }}</a>
-				{{ end }}
-				{{ with .NextInSection }}
-				<span>Next Post</span>
-				<a class="post-link post-link-next" href="{{ .RelPermalink }}">{{ .Title }}</a>
-				{{ end }}
-			</div>
-		</footer>
 	</div>
 </article>
 

@@ -15,15 +15,6 @@
 	}
 }
 
-.post-links {
-	display: flex;
-	flex-direction: column;
-
-	@include media-query($breakpoint_lg) {
-		flex-direction: row;
-	}
-}
-
 .post-link {
 	display: block;
 	border: 1px solid rgba(#000, 0.1);

@@ -384,9 +384,13 @@ section > header {
     color: #303538;
     -webkit-font-smoothing: antialiased;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2.2rem;
     padding-bottom: 2rem;
     margin: 0; }
+    @media screen and (min-width: 500px) {
+      article > header h1,
+      section > header h1 {
+        font-size: 3rem; } }
 
 .container {
   max-width: calc(860px + 2rem);
@@ -400,11 +404,14 @@ section > header {
   overflow: hidden;
   line-height: 1.1em; }
   .highlight pre {
-    padding: 2rem;
+    padding: 1rem;
     margin-top: 0;
     border-radius: 5px;
     background-color: #1B1917 !important;
     transition: all .7s ease; }
+    @media screen and (min-width: 500px) {
+      .highlight pre {
+        padding: 2rem; } }
 
 .post-content {
   padding: 2rem 1rem;
@@ -516,13 +523,6 @@ section > header {
 .post-list-header {
   padding: 0 2rem; }
 
-.post-links {
-  display: flex;
-  flex-direction: column; }
-  @media screen and (min-width: 960px) {
-    .post-links {
-      flex-direction: row; } }
-
 .post-link {
   display: block;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -573,23 +573,16 @@ main.error404 {
         font-size: 80px;
         text-align: left; } }
 
-.offline {
-  background: none;
-  padding: 50px 15px;
-  max-width: 500px;
-  margin: 0 auto; }
-  .offline h1 {
-    color: white;
-    margin: 0;
-    text-align: center;
-    font-size: 36px; }
-  .offline article {
-    line-height: 1.4em;
-    color: white; }
-  .offline a {
-    color: #063c5d;
-    text-decoration: none;
-    font-weight: bold; }
+.offline h1 {
+  padding: 2rem; }
+
+.offline article {
+  line-height: 1.4em; }
+
+.offline a {
+  color: #063c5d;
+  text-decoration: none;
+  font-weight: bold; }
 
 .hero {
   background: white;
@@ -809,7 +802,7 @@ code {
   top: -1px;
   font-weight: 100;
   margin: 0 0 0 1px;
-  font-size: 90%;
+  font-size: 14px;
   background: #063c5d;
   padding: .3rem .4rem .1rem .4rem;
   border-radius: .2rem;
