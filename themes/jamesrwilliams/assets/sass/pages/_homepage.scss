@@ -13,10 +13,11 @@
 	}
 }
 
-.introduction h1 {
-
-	@media screen and (min-width: $breakpoint_sm) {
-		font-size: 4rem;
+.introduction {
+	h1 {
+		@media screen and (min-width: $breakpoint_sm) {
+			font-size: 4rem;
+		}
 	}
 }
 

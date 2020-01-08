@@ -372,14 +372,16 @@ main {
 
 article > header,
 section > header {
-  background: white; }
+  background: #fff;
+  padding-top: 200px; }
   article > header h1,
   section > header h1 {
     color: #303538;
-    letter-spacing: 0.1rem;
     -webkit-font-smoothing: antialiased;
     font-weight: bold;
-    font-size: 3rem; }
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    margin: 0; }
 
 .container {
   max-width: calc(860px + 2rem);
@@ -504,7 +506,7 @@ section > header {
     padding-bottom: 0; }
 
 .post-list-header {
-  padding: 2rem; }
+  padding: 0 2rem; }
 
 .post-list .post-link-prev:before {
   content: 'Newer posts'; }
@@ -644,8 +646,7 @@ section.hire {
   border-color: #d6d8db; }
 
 .post-header {
-  color: #303538;
-  background: linear-gradient(to bottom, #fafafa, #fff); }
+  color: #303538; }
   .post-header-inner {
     padding: 2rem; }
   .post-header .container {
@@ -709,21 +710,21 @@ article.post-inline {
     opacity: 1; }
 
 aside {
-  background: #fff;
   padding: 7px 0 0 0;
   transition: all .4s ease;
   border-bottom: 1px solid transparent;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; }
   aside nav {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     margin: 0 auto;
-    padding: .5rem .5rem;
+    padding: .5rem 1rem;
     align-content: center; }
-    @media screen and (max-width: 660px) {
-      aside nav {
-        padding: 1rem 2rem; } }
   aside:before {
     content: '';
     display: block;
@@ -778,9 +779,12 @@ aside {
     display: inline-block;
     padding: .5rem; }
   .site-profile > div {
-    display: flex;
+    display: none;
     justify-content: center;
     flex-direction: column; }
+    @media screen and (min-width: 500px) {
+      .site-profile > div {
+        display: flex; } }
   .site-profile img {
     display: inline-block;
     border-radius: 100%;
@@ -878,6 +882,18 @@ table {
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 5px; }
 
+footer {
+  color: #303538;
+  font-size: 14px;
+  opacity: .7;
+  background: white; }
+  footer nav {
+    padding: 2rem; }
+  footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+
 img {
   max-width: 100%;
   height: auto; }
@@ -887,14 +903,6 @@ img {
       transition: opacity .5s ease-in-out; }
       img:hover {
         opacity: 1; } }
-
-footer {
-  padding: 2rem 0;
-  color: #303538;
-  font-size: 14px;
-  text-align: center;
-  opacity: .7;
-  background: white; }
 
 .social li a {
   max-width: 50px; }

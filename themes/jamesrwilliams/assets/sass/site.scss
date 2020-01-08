@@ -60,14 +60,16 @@ main {
 
 article > header,
 section > header {
-	background: white;
+	background: #fff;
+	padding-top: 200px;
 
 	h1 {
 		color: $text-color;
-		letter-spacing: 0.1rem;
 		-webkit-font-smoothing: antialiased;
 		font-weight: bold;
 		font-size: 3rem;
+		padding-bottom: 2rem;
+		margin: 0;
 	}
 }
 
@@ -109,6 +111,7 @@ section > header {
 @import 'partials/post-inline';
 @import 'partials/navigation';
 @import 'partials/typography';
+@import 'partials/footer';
 
 img {
 	max-width: 100%;
@@ -121,15 +124,6 @@ img {
 			opacity: 1;
 		}
 	}
-}
-
-footer {
-	padding: 2rem 0;
-	color: $text-color;
-	font-size: 14px;
-	text-align: center;
-	opacity: .7;
-	background: white;
 }
 
 .social {
