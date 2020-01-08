@@ -1,6 +1,5 @@
 ---
 title: Terminal Aliases
-type: post
 date: 2018-04-04T12:05:30+00:00
 aliases: [/2018/04/04/terminal-aliases/]
 ---

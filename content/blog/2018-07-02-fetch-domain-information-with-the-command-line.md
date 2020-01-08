@@ -1,6 +1,5 @@
 ---
 title: Fetch domain information in the command line
-type: post
 date: 2018-07-02T12:07:51+00:00
 aliases: [/2018/07/02/fetch-domain-information-with-the-command-line/]
 ---

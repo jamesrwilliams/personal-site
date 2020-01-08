@@ -1,6 +1,5 @@
 ---
 title: Article – Life as a Web Developer
-type: post
 date: 2017-11-24T08:30:49+00:00
 aliases: [/2017/11/24/life-as-a-web-developer/]
 ---

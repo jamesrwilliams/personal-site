@@ -8,11 +8,15 @@ if (workbox) {
     workbox.precaching.precacheAndRoute([
   {
     "url": "algolia.json",
-    "revision": "fd7a31a8eb1431b1fc86526c01a3ccce"
+    "revision": "e046211f7c37753abbc90ecccd939727"
   },
   {
     "url": "favicon.ico",
-    "revision": "33a2f904061f26f4755244b7bc2237ec"
+    "revision": "2ed31f3c0e47b0f259f8baf6b538746e"
+  },
+  {
+    "url": "javascript/site.js",
+    "revision": "d2fb9ba4be44ca1eae99ab8f3f4ef7bf"
   },
   {
     "url": "manifest.json",
@@ -20,15 +24,7 @@ if (workbox) {
   },
   {
     "url": "sass/site.css",
-    "revision": "0e9fbef648a02b2f1c818745949d9d36"
-  },
-  {
-    "url": "sass/site.dcb10cafd2c835f444c43786079fb3e8b3c2106d98d5ca70c2e8811df40a9566cb08c2c9bd0cc4e0456fc02b0e39457eb0271c967d6c84cbe8f1ba67ac66729a.css",
-    "revision": "0e9fbef648a02b2f1c818745949d9d36"
-  },
-  {
-    "url": "scss/site.css",
-    "revision": "0e9fbef648a02b2f1c818745949d9d36"
+    "revision": "3e1c790e7651a6278da47303bb2086b3"
   },
   {
     "url": "post-images/_field-set-label-example.png",
@@ -75,24 +71,44 @@ if (workbox) {
     "revision": "b7f3a8c2de22c8e17e3b199da052f5d0"
   },
   {
+    "url": "post-images/wheel-of-prizes_1.png",
+    "revision": "346125b2b0b72e610dafd5ae486b3712"
+  },
+  {
+    "url": "post-images/wheel-of-prizes_animation-example.gif",
+    "revision": "8679cada7527258ff444759915279c23"
+  },
+  {
+    "url": "post-images/wheel-of-prizes_center-issue.png",
+    "revision": "273d5b3d04986a877089a09fb1d0022c"
+  },
+  {
+    "url": "post-images/wheel-of-prizes_slice-effect.gif",
+    "revision": "b23c58ec5e531707da3c647a1774196b"
+  },
+  {
+    "url": "post-images/wheel-of-prizes_slice-structure.png",
+    "revision": "60f94f89b95e06997b8c7e5fb0f4fa7b"
+  },
+  {
     "url": "apple-touch-icon.png",
     "revision": "fcf4328cb7778e14fdab2f8933e21632"
   },
   {
     "url": "favicon-16x16.png",
-    "revision": "20c8b8e87e6a3d7dcf898fce3d349c53"
+    "revision": "24382a83d746d53fe3abf799bff69593"
   },
   {
     "url": "index.html",
-    "revision": "c7b73dd617087cbe56f3de9ee5958362"
+    "revision": "f8d9fa120894fb7001274a53fe48b41f"
   },
   {
     "url": "offline/index.html",
-    "revision": "06793426ceb4525dc1651d7abcadaf8c"
+    "revision": "73d9695f09baed9f5c18a8691f364cbd"
   },
   {
     "url": "404.html",
-    "revision": "78f1491baa60dcd3975bf1ef668bca3b"
+    "revision": "d4afa95479140edb4ccff743ec89f9bc"
   }
 ]);
 

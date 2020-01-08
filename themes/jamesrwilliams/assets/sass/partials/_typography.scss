@@ -1,21 +1,49 @@
 code {
 	position: relative;
 	top: -1px;
+	font-weight: 100;
 	margin: 0 0 0 1px;
-	font-size: 90%;
-	background: white;
-	padding: .2rem .4rem .1rem .4rem;
+	font-size: 14px;
+	background: $accent;
+	padding: .3rem .4rem .1rem .4rem;
 	border-radius: .2rem;
+	color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $headingFonts;
+}
+
+a {
+	color: $primary;
+
+	&:hover {
+		color: $newBlue;
+	}
 }
 
 blockquote {
-	font-style: italic;
-	color: darken($accent, 10%);
 	margin-left: 0;
 	margin-right: 0;
-	font-size: 1.4em;
 	line-height: 1.4em;
-	max-width: 100%;
+	background: rgba($gradient_start, .07);
+	box-shadow: inset 0 0 2rem 0px rgba(#000, .05);
+	padding: 2rem;
+	position: relative;
+	border-radius: $radius;
+
+	> * {
+		margin: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 pre {
@@ -24,16 +52,15 @@ pre {
 
 	code {
 		background: none;
+		font-family: 'Source Code Pro', monospace;
 		padding: .2rem .4rem .1rem 0;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		font-variant-numeric: tabular-nums;
 	}
 }
 
-.accent {
-	color: $accent;
-}
-
 figure {
-
 	padding: 0;
 	margin: 0;
 	text-align: center;
@@ -60,11 +87,6 @@ figure {
 		}
 	}
 
-	img {
-		border-radius: $radius;
-		box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-	}
-
 	figcaption {
 
 		font-style: italic;
@@ -81,8 +103,15 @@ figure {
 	}
 }
 
-ul {
+ul,
+ol {
 	li {
-		padding-bottom: 5px;
+		padding-bottom: 1.5rem;
 	}
+}
+
+table {
+	border-collapse: collapse;
+
+	th,td { border: $subtle-border; padding: 5px; }
 }

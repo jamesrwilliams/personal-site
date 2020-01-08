@@ -1,6 +1,5 @@
 ---
 title: "A start to my General Transit Feed Specification project: GTFS to SQL"
-type: post
 date: 2019-07-09T11:16:35-04:00
 ---
 

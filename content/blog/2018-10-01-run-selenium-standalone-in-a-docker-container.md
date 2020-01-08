@@ -1,6 +1,5 @@
 ---
 title: Run Selenium Standalone in a Docker container
-type: post
 date: 2018-10-01
 aliases: [/2018/10/01/run-selenium-standalone-in-a-docker-container/]
 ---

@@ -1,10 +1,19 @@
 .post {
 
 	&-content {
-		line-height: 1.7em;
+		padding: 2rem 1rem;
+		font-size: 20px;
+		color: $text-color;
+		line-height: 32px;
+		margin-bottom: 1.5em;
+		font-family: $bodyFonts;
 
-		.highlight {
-			line-height: 1.1em;
+		@media screen and (min-width: $breakpoint_sm) {
+			padding: 2rem;
+		}
+
+		p {
+			margin-bottom: 1.5em;
 		}
 
 		& > :first-child {
@@ -17,24 +26,10 @@
 			padding-bottom: 0;
 		}
 
-		ol,
-		ul {
-			padding-left: 20px;
-		}
-
-		@include media-query($breakpoint_lg) {
-			padding-right: 40px;
-			padding-top: 30px;
-			min-height: calc(100vh - 500px);
-		}
-
 		a {
-			color: darken($accent, 10%);
-			font-weight: 600;
-			/* These are technically the same, but use both */
+			color: $accent;
 			overflow-wrap: break-word;
 			word-wrap: break-word;
-
 			-ms-word-break: break-all;
 			word-break: break-word;
 			-ms-hyphens: auto;
@@ -49,23 +44,54 @@
 		h4,
 		h5,
 		h6 {
+			color: $text-color;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			margin-top: 3rem;
+			transition: margin-left .6s ease;
+			margin-left: 30px;
 
-			padding-top: 15px;
+			@media screen and (min-width: calc(830px + 6rem)) {
+				margin-left: 0;
+			}
 
 			&:target {
-				color: $accent;
+				.hlink {
+					opacity: 1;
+					color: $accent;
+				}
 			}
+
+			&:hover {
+				.hlink {
+
+				}
+			}
+
+			.hlink {
+				color: inherit;
+				text-decoration: none;
+				position: absolute;
+				width: 30px;
+				font-weight: lighter;
+				transform: translate(-100%);
+				transition: opacity .4s ease;
+				opacity: .55;
+			}
+
+			&[id] {
+				padding-top: 100px;
+				margin-top: -100px;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
 		}
 
 		figure { float: none; }
 
-		.post-link-next:before {
-			content: 'Next Post';
-		}
-
-		.post-link-prev:before {
-			content: 'Previous post';
-		}
 	}
 }
 

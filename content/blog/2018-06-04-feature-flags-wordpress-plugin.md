@@ -1,6 +1,5 @@
 ---
 title: Feature Flags WordPress Plugin
-type: post
 date: 2018-06-04T09:08:01+00:00
 aliases: [/2018/06/04/feature-flags-wordpress-plugin/]
 ---

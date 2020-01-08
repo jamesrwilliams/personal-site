@@ -1,6 +1,5 @@
 ---
 title: "MacOS: Creating a right click option to copy a file path"
-type: post
 date: 2019-06-04T21:10:32-04:00
 ---
 

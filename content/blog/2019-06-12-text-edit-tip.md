@@ -1,6 +1,5 @@
 ---
 title: "MacOS: Make TextEdit.app open new file on launch"
-type: post
 date: 2019-06-12T11:23:49-04:00
 ---
 

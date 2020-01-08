@@ -1,6 +1,5 @@
 ---
 title: My Reading List
-type: post
 date: 2016-04-24T18:13:11+00:00
 aliases: [/2016/04/24/my-reading-list/]
 ---

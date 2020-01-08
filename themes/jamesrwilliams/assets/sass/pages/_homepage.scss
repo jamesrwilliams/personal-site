@@ -1,0 +1,47 @@
+.hero {
+	background: white;
+	padding-top: 200px;
+	padding-bottom: 2rem;
+
+	h1 {
+		color: $text-color;
+		padding: 0 2rem;
+		font-size: 2.5rem;
+		margin: 0;
+		transition: padding 1s ease;
+	}
+}
+
+.introduction {
+	h1 {
+		@media screen and (min-width: $breakpoint_sm) {
+			font-size: 4rem;
+		}
+	}
+}
+
+#animated {
+	span {
+		transition: color 1s ease-in;
+		cursor: pointer;
+	}
+}
+
+.accent {
+	color: $gradient_end;
+	animation-name: colorCycle;
+	animation-direction: alternate-reverse;
+	animation-duration: 3s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+}
+
+@keyframes colorCycle {
+	0% {
+		color: $gradient_end;
+	}
+
+	100% {
+		color: $gradient_start;
+	}
+}

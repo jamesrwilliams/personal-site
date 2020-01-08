@@ -1,6 +1,5 @@
 ---
 title: "I emigrated to Canada!"
-type: post
 date: 2019-01-09T16:29:51-05:00
 ---
 

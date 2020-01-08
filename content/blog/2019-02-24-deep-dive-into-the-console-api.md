@@ -1,7 +1,6 @@
 ---
 title: "A deep dive into the console API"
 date: 2019-02-24T13:07:03-05:00
-type: post
 ---
 
 I will be honest with you. I debug almost all of my Javascript with a million and one `console.log()` calls. I haven't been able to get very far into using a proper Javascript debugger system just yet, but I might not be alone. Brian Kernighan said:

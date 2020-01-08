@@ -1,17 +1,15 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
+<section class="offline">
+	<div class="hero">
+		<div class="container">
+			<h1>You are offline<span class="accent">!</span></h1>
+		</div>
+	</div>
+	<div class="container">
+		<article class="content">
 
-<main class="offline">
-
-	<h1>You are offline<span class="accent">!</span></h1>
-
-	<article>
-
-		<p>Congratulations you digital nomad, or adventurer of airplane mode. Sadly this current network situation means you cannot view this page as it's not saved in the site cache and you are offline.</p>
-
-		<p>You should try to find some internet connection to browse here.</p>
-
-		<a href='{{ "/" | relURL }}blog/'>Head back to the posts page?</a>
-
-	</article>
-
-</main>
+			<p>Congratulations you digital nomad, or adventurer of airplane mode. Sadly this current network situation means you cannot view this page as it's not saved in the site cache and you are offline. You should try to find some internet connection to browse here or give the <a href='{{ "/" | relURL }}blog/'>posts</a> page a visit?</p>
+		</article>
+	</div>
+</section>
+{{ end }}

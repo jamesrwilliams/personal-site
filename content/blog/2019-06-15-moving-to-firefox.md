@@ -1,6 +1,5 @@
 ---
 title: "Stack Upgrade: Ditching google Chrome for Firefox Quantum"
-type: post
 date: 2019-06-16T11:26:20-04:00
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Zipping folder contents
-type: post
 date: 2018-03-13T09:16:09+00:00
 aliases: [/2018/03/13/terminal-zip-folder-contents/]
 ---

@@ -1,6 +1,5 @@
 ---
 title: Long live the WordPress CLI
-type: post
 date: 2018-05-29T16:31:06+00:00
 aliases: [/2018/05/29/long-live-the-wordpress-cli/]
 ---

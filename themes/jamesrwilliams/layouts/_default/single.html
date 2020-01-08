@@ -1,25 +1,13 @@
-{{ partial "header.html" . }}
-
-<main>
-	<article class="post" id="content">
-		{{ partial "post-header.html" . }}
-
-		{{ partial "json-ld/blog-post" . }}
-		<div class="post-content container">
+{{ define "main" }}
+<article class="post" id="content">
+	{{ partial "post-header.html" . }}
+	{{ partial "json-ld/blog-post" . }}
+	<div class="container">
+		<div class="post-content">
 			{{ .Content }}
 		</div>
-		<footer class="post-footer">
-			<div class="post-links container">
-				{{ with .PrevInSection }}
-				<a class="post-link post-link-prev" href="{{ .RelPermalink }}">{{ .Title }}</a>
-				{{ end }}
-				{{ with .NextInSection }}
-					<a class="post-link post-link-next" href="{{ .RelPermalink }}">{{ .Title }}</a>
-				{{ end }}
-			</div>
-		</footer>
-	</article>
-</main>
+	</div>
+</article>
 
-{{ partial "footer.html" . }}
+{{ end }}
 

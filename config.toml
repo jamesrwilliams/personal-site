@@ -1,19 +1,34 @@
 baseURL = "https://jamesrwilliams.ca"
 languageCode = "en-GB"
-title = "James R. Williams · Web Developer"
-paginate = 10
+title = "James R. Williams - Web Developer"
+paginate = 30
 summaryLength = 40
 theme = "jamesrwilliams"
 pygmentsCodeFences = true
 googleAnalytics = "UA-26549429-1"
 enableGitInfo = true
-disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
   author = "James R. Williams"
   siteDescription = "A British web developer living in Canada. Busy closing divs and mass producing angular errors."
-  blogDescription = "Home of my occasional write ups of interesting tech and things I'm working on."
   image = "https://www.gravatar.com/avatar/b2623db89a42dd363c33d1d4df39654a?s=500"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
 
 [permalinks]
     blog = "/blog/:slug/"
+
+[outputFormats.Algolia]
+    baseName = "algolia"
+    isPlainText = true
+    mediaType = "application/json"
+    notAlternative = true
+
+[params.algolia]
+    vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+    params = ["categories", "tags"]
+
+[outputs]
+    home = ["HTML", "RSS", "Algolia"]

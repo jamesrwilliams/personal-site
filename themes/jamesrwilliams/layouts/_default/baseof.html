@@ -6,17 +6,17 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="theme-color" content="#2E3641"/>
 
-	<title>{{ if ne .URL "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
+	<title>{{ if ne .RelPermalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
 
 	{{/* Begin description generation */}}
 
 	{{ $description := .Site.Params.siteDescription }}
 	{{ if .Description }}
-		{{ $description = .Description }}
+	{{ $description = .Description }}
 	{{ else if .IsPage }}
-		{{ $description = .Summary }}
-	{{ else if eq .URL "/blog/" }}
-		{{ $description = .Site.Params.blogDescription }}
+	{{ $description = .Summary }}
+	{{ else if eq .RelPermalink "/blog/" }}
+	{{ $description = .Site.Params.blogDescription }}
 	{{ end }}
 
 	{{ $description = $description | truncate 160 }}
@@ -29,7 +29,7 @@
 
 	{{/* End post image generation */}}
 
-	<meta name="name" content='{{if eq .URL "404.html"}} 404 Page Not Found{{else if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}'>
+	<meta name="name" content='{{if eq .RelPermalink "404.html"}} 404 Page Not Found{{else if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}'>
 
 	<meta name="image" content="{{ $image }}">
 	<meta name="description" content="{{ $description }}">
@@ -58,7 +58,12 @@
 	{{ $style := $sass | toCSS }}
 	<link rel="manifest" href="/manifest.json">
 	<link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}" media="screen">
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
 
+	<!-- START Site Search -->
+<!--	<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.35.1/dist/algoliasearchLite.min.js" integrity="sha256-5rOQwvvJdM9oDYQYCGzaJuuTy6SUALjma3OtzEGyJM0=" crossorigin="anonymous"></script>-->
+<!--	<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.0.0/dist/instantsearch.production.min.js" integrity="sha256-6S7q0JJs/Kx4kb/fv0oMjS855QTz5Rc2hh9AkIUjUsk=" crossorigin="anonymous"></script>-->
+	<!-- END Site Search -->
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -77,23 +82,14 @@
 			]
 		}
 	</script>
-	<script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log(`Service Worker registered! Scope: ${registration.scope}`);
-                    })
-                    .catch(err => {
-                        console.log(`Service Worker registration failed: ${err}`);
-                    });
-            });
-        }
-	</script>
-
 </head>
-<body class="{{ if .IsHome }}background{{ end }}">
-
-{{ if .IsHome }}{{ else }}
-{{ partial "site-header.html" }}
-{{ end }}
+<body class="{{ if .IsHome }}homepage{{ end }}">
+{{ partial "navigation.html" . }}
+<main>
+{{ block "main" . }}{{ end }}
+</main>
+{{ partial "footer.html" . }}
+{{ $js := resources.Get "javascript/site.js" }}
+<script src="{{ $js.Permalink | relURL }}"></script>
+</body>
+</html>

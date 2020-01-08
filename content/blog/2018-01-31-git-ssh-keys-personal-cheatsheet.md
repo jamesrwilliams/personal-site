@@ -1,6 +1,5 @@
 ---
 title: Git/SSH Keys Personal Cheat sheet
-type: post
 date: 2018-01-31T20:33:56+00:00
 
 ---

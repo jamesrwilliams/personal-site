@@ -1,6 +1,5 @@
 ---
 title: Sending a variable as an attachment with PHP Mailer
-type: post
 date: 2018-03-13T07:39:56+00:00
 aliases: [/2018/03/13/sending-a-variable-as-an-attachment-with-php-mailer/]
 ---
