@@ -82,49 +82,14 @@
 			]
 		}
 	</script>
-	<script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log(`Service Worker registered! Scope: ${registration.scope}`);
-                    })
-                    .catch(err => {
-                        console.log(`Service Worker registration failed: ${err}`);
-                    });
-            });
-        }
-	</script>
 </head>
 <body class="{{ if .IsHome }}homepage{{ end }}">
 {{ partial "navigation.html" . }}
 <main>
 {{ block "main" . }}{{ end }}
-{{ partial "footer.html" . }}
 </main>
-<script>
-	/* Add clickable # links next to headers. */
-    var postContent = document.querySelector('.post-content');
-    if(postContent) {
-        postContent.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]').forEach((element) => {
-
-            const linkElement = document.createElement('a');
-            linkElement.href = '#' + element.id;
-            linkElement.text = '#';
-            linkElement.title = 'Link to "' + element.lastChild.data + '"';
-            linkElement.classList.add('hlink');
-            element.prepend(linkElement);
-        });
-    }
-
-    var menuToggle = document.getElementById('toggle');
-	if(menuToggle) {
-	    menuToggle.addEventListener('click', () => {
-            var navigation = document.getElementById('navigation');
-            navigation.classList.toggle('active');
-	    });
-	}
-
-</script>
+{{ partial "footer.html" . }}
+{{ $js := resources.Get "javascript/site.js" }}
+<script src="{{ $js.Permalink | relURL }}"></script>
 </body>
 </html>

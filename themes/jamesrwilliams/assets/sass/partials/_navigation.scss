@@ -4,15 +4,14 @@ aside {
 	padding: $border-width 0 0 0;
 	transition: all .4s ease;
 	border-bottom: 1px solid transparent;
-	border-bottom: 1px solid $subtle-border;
+	border-bottom: $subtle-border;
 
 	nav {
 		display: flex;
 		flex-direction: row;
 		flex-grow: 1;
-		max-width: calc(860px + 2rem);
 		margin: 0 auto;
-		padding: .5rem 2rem;
+		padding: .5rem .5rem;
 		align-content: center;
 
 		@media screen and (max-width: $breakpoint_md) {
