@@ -595,7 +595,7 @@ main.error404 {
     font-size: 4rem; } }
 
 #animated span {
-  transition: color 2s ease-out;
+  transition: color 1s ease-in;
   cursor: pointer; }
 
 .accent {
