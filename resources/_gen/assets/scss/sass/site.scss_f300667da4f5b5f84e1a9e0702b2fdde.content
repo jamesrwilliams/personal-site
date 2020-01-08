@@ -362,9 +362,7 @@ main {
   width: 100%;
   position: relative;
   font-size: 16px;
-  background-color: #F6F7F9;
-  height: 100%;
-  overflow: scroll; }
+  background-color: #F6F7F9; }
   main > header {
     display: flex; }
     @media screen and (min-width: 960px) {
@@ -592,20 +590,22 @@ main.error404 {
 .hero {
   background: white;
   padding-top: 200px;
-  padding-bottom: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem; }
+  padding-bottom: 2rem; }
+  .hero h1 {
+    color: #303538;
+    padding: 0 2rem;
+    font-size: 2.5rem;
+    margin: 0;
+    color: #303538;
+    transition: padding 1s ease; }
 
-.introduction h1 {
-  font-size: 2.5rem;
-  margin: 0;
-  font-weight: bold;
-  color: #303538;
-  transition: padding 1s ease;
-  padding: 2rem; }
-  @media screen and (min-width: 500px) {
-    .introduction h1 {
-      font-size: 3.5rem; } }
+@media screen and (min-width: 500px) {
+  .introduction h1 {
+    font-size: 4rem; } }
+
+#animated span {
+  transition: color 2s ease-out;
+  cursor: pointer; }
 
 .accent {
   color: #00F260;
@@ -624,12 +624,9 @@ main.error404 {
 section.hire {
   height: 100%; }
   section.hire h1 {
-    font-weight: lighter;
-    font-size: 4rem;
-    line-height: 1.2; }
-  @media screen and (min-width: 660px) {
-    section.hire {
-      padding-top: 10vh; } }
+    line-height: 1.2;
+    font-size: 3rem;
+    padding: 0 2rem; }
 
 .alert {
   position: relative;
@@ -716,14 +713,13 @@ aside {
   padding: 7px 0 0 0;
   transition: all .4s ease;
   border-bottom: 1px solid transparent;
-  border-bottom: 1px solid 1px solid rgba(0, 0, 0, 0.1); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   aside nav {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    max-width: calc(860px + 2rem);
     margin: 0 auto;
-    padding: .5rem 2rem;
+    padding: .5rem .5rem;
     align-content: center; }
     @media screen and (max-width: 660px) {
       aside nav {
