@@ -32,6 +32,8 @@ var fun = function lang(l) {
 }
 ```
 
+This is a paragraph with a footnote. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam beatae blanditiis doloremque eos esse, explicabo laborum[^1] maiores nemo pariatur vel veritatis, voluptas. Deserunt ea non odio pariatur quidem rerum.
+
 ```ruby  {#header-3}
 # Ruby code with syntax highlighting
 GitHubPages::Dependencies.gems.each do |gem, version|
@@ -48,7 +50,7 @@ end
 ##### Header 5 {#header-5} 
 
 1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
+2.  This is an ordered list following a header.[^2]
 3.  This is an ordered list following a header.
 
 ###### Header 6 {#header-6}
@@ -116,7 +118,7 @@ end
 
 - [ ] Hello, this is a TODO item
 - [ ] Hello, this is another TODO item
-- [x] Goodbye, this item is done
+- [x] Goodbye, this item is done[^3]
 
 ### Small image
 
@@ -147,5 +149,6 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 The final element.
 ```
 
-
-
+[^1]: A full-stack web developer working in Toronto. https://jamesrwilliams.ca
+[^2]: https://www.lego.com
+[^3]: https://example.com

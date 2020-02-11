@@ -490,7 +490,7 @@ section > header {
     .post-content h5[id],
     .post-content h6[id] {
       padding-top: 100px;
-      margin-top: -100px; }
+      margin-top: -80px; }
     .post-content h1 a,
     .post-content h2 a,
     .post-content h3 a,
@@ -581,22 +581,24 @@ main.error404 {
 
 .hero {
   background: white;
-  padding-top: 200px;
+  padding-top: 350px;
   padding-bottom: 2rem; }
   .hero h1 {
     color: #303538;
     padding: 0 2rem;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     margin: 0;
     transition: padding 1s ease; }
 
 @media screen and (min-width: 500px) {
   .introduction h1 {
-    font-size: 4rem; } }
+    font-size: 60px; } }
 
 #animated span {
   transition: color 1s ease-in;
   cursor: pointer; }
+  #animated span:focus {
+    background: red; }
 
 .accent {
   color: #00F260;
@@ -635,7 +637,8 @@ section.hire {
   border-color: #d6d8db; }
 
 .post-header {
-  color: #303538; }
+  color: #303538;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
   .post-header-inner {
     padding: 2rem 1rem; }
     @media screen and (min-width: 500px) {
@@ -789,9 +792,12 @@ aside {
     border-radius: 100%;
     height: 35px;
     width: 35px;
-    border: 1px solid #fff;
+    border: 1px solid transparent;
     flex-grow: 1;
-    opacity: 1; }
+    opacity: 1;
+    overflow: hidden;
+    background: white;
+    color: #383d41; }
 
 code {
   position: relative;
@@ -818,14 +824,16 @@ a {
     color: #063c5d; }
 
 blockquote {
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
   line-height: 1.4em;
   background: rgba(9, 91, 141, 0.07);
   box-shadow: inset 0 0 2rem 0px rgba(0, 0, 0, 0.05);
   padding: 2rem;
   position: relative;
-  border-radius: 5px; }
+  border-radius: 5px;
+  font-style: italic;
+  font-size: 1.8rem;
+  display: inline-block; }
   blockquote > * {
     margin: 0; }
     blockquote > *:last-child {
@@ -833,7 +841,11 @@ blockquote {
 
 pre {
   overflow: scroll;
-  padding: 15px 25px; }
+  padding: 15px 25px;
+  margin-top: 0;
+  border-radius: 5px;
+  background-color: #1B1917 !important;
+  transition: all .7s ease; }
   pre code {
     background: none;
     font-family: 'Source Code Pro', monospace;
@@ -871,15 +883,28 @@ figure {
     figure figcaption p {
       margin-top: 0; }
 
-ul li,
-ol li {
+ul,
+ol {
   padding-bottom: 1.5rem; }
 
 table {
-  border-collapse: collapse; }
+  border-collapse: collapse;
+  margin-bottom: 1.5rem; }
   table th, table td {
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 5px; }
+
+.footnotes {
+  font-size: 14px; }
+  .footnotes ol {
+    padding-top: 0;
+    padding-left: 15px; }
+    .footnotes ol li {
+      line-height: 1.5; }
+  .footnotes hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    height: 1px; }
 
 footer {
   color: #303538;

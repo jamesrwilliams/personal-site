@@ -1,12 +1,12 @@
 .hero {
 	background: white;
-	padding-top: 200px;
+	padding-top: 350px;
 	padding-bottom: 2rem;
 
 	h1 {
 		color: $text-color;
 		padding: 0 2rem;
-		font-size: 2.5rem;
+		font-size: 2.3rem;
 		margin: 0;
 		transition: padding 1s ease;
 	}
@@ -15,7 +15,7 @@
 .introduction {
 	h1 {
 		@media screen and (min-width: $breakpoint_sm) {
-			font-size: 4rem;
+			font-size: 60px;
 		}
 	}
 }
@@ -24,6 +24,10 @@
 	span {
 		transition: color 1s ease-in;
 		cursor: pointer;
+
+		&:focus {
+			background: red;
+		}
 	}
 }
 

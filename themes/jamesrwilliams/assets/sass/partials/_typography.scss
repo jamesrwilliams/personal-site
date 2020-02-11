@@ -28,14 +28,16 @@ a {
 }
 
 blockquote {
-	margin-left: 0;
-	margin-right: 0;
+	margin: 0;
 	line-height: 1.4em;
 	background: rgba($gradient_start, .07);
 	box-shadow: inset 0 0 2rem 0px rgba(#000, .05);
 	padding: 2rem;
 	position: relative;
 	border-radius: $radius;
+	font-style: italic;
+	font-size: 1.8rem;
+	display: inline-block;
 
 	> * {
 		margin: 0;
@@ -49,6 +51,10 @@ blockquote {
 pre {
 	overflow: scroll;
 	padding: 15px 25px;
+	margin-top: 0;
+	border-radius: 5px;
+	background-color: #1B1917 !important;
+	transition: all .7s ease;
 
 	code {
 		background: none;
@@ -105,13 +111,31 @@ figure {
 
 ul,
 ol {
-	li {
-		padding-bottom: 1.5rem;
-	}
+	padding-bottom: 1.5rem;
 }
 
 table {
 	border-collapse: collapse;
+	margin-bottom: 1.5rem;
 
 	th,td { border: $subtle-border; padding: 5px; }
+}
+
+.footnotes {
+	font-size: 14px;
+
+	ol {
+		padding-top: 0;
+		padding-left: 15px;
+
+		li {
+			line-height: 1.5;
+		}
+	}
+
+	hr {
+		border: 0;
+		border-top: 1px solid rgba(#000, .1);
+		height: 1px;
+	}
 }
