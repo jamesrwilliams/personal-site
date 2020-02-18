@@ -43,9 +43,12 @@
 	<meta name="image" content="{{ $image }}">
 	<meta name="description" content="{{ $description }}">
 
-	<meta name="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
-	<meta name="og:description" content="{{ $description }}">
-	<meta name="og:image" content="{{ $image }}">
+	<meta property="og:title" content="{{ if .IsHome }} {{ .Title }} {{ else }} {{ .Title }} | {{ .Site.Title }} {{ end }}">
+	<meta property="og:description" content="{{ $description }}">
+	<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+	<meta property="og:image" content="{{ $image }}">
+
+	<meta name="author" content="James R. Williams - Web Developer">
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:description" content="{{ $description }}" />
