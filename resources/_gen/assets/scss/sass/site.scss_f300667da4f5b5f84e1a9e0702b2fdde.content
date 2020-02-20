@@ -550,11 +550,11 @@ section > header {
 main.error404 {
   background: transparent; }
   main.error404 header {
-    padding: 20px 0;
-    color: #ffffff; }
+    padding: 20px 2rem; }
+    main.error404 header h1 {
+      padding-top: 50px; }
     main.error404 header p {
-      font-size: 18px;
-      color: white; }
+      font-size: 18px; }
       @media screen and (min-width: 960px) {
         main.error404 header p {
           font-size: 24px; } }
@@ -581,14 +581,20 @@ main.error404 {
 
 .hero {
   background: white;
-  padding-top: 350px;
+  padding-top: 150px;
   padding-bottom: 2rem; }
+  @media screen and (min-width: 500px) {
+    .hero {
+      padding-top: 350px; } }
   .hero h1 {
     color: #303538;
     padding: 0 2rem;
-    font-size: 2.3rem;
+    font-size: 2rem;
     margin: 0;
     transition: padding 1s ease; }
+    @media screen and (min-width: 500px) {
+      .hero h1 {
+        font-size: 2.3rem; } }
 
 @media screen and (min-width: 500px) {
   .introduction h1 {
@@ -910,7 +916,8 @@ footer {
   color: #303538;
   font-size: 14px;
   opacity: .7;
-  background: #fff; }
+  background: #fff;
+  text-align: center; }
   footer nav {
     padding: 2rem; }
   footer ul {

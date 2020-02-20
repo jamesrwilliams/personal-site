@@ -9,7 +9,7 @@
 	</header>
 	<div class="container">
 		{{ $paginator := .Paginate (where .Pages "Type" .Type) }}
-		<ul class="item-list">
+		<ul class="item-list" data-type="{{ .Type }}">
 		{{ range $paginator.Pages }}
 			<li>{{ partial "post-inline.html" . }}</li>
 		{{ end }}

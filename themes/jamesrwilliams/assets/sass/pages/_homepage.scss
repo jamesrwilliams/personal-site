@@ -1,14 +1,22 @@
 .hero {
 	background: white;
-	padding-top: 350px;
+	padding-top: 150px;
 	padding-bottom: 2rem;
+
+	@media screen and (min-width: $breakpoint_sm) {
+		padding-top: 350px;
+	}
 
 	h1 {
 		color: $text-color;
 		padding: 0 2rem;
-		font-size: 2.3rem;
+		font-size: 2rem;
 		margin: 0;
 		transition: padding 1s ease;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			font-size: 2.3rem;
+		}
 	}
 }
 
