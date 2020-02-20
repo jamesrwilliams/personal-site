@@ -2,12 +2,14 @@ main.error404 {
 	background: transparent;
 
 	header {
-		padding: 20px 0;
-		color: #ffffff;
+		padding: 20px 2rem;
+
+		h1 {
+			padding-top: 50px;
+		}
 
 		p {
 			font-size: 18px;
-			color: white;
 
 			@include media-query($breakpoint_lg){
 				font-size: 24px;

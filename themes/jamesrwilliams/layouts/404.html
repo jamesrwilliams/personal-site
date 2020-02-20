@@ -1,30 +1,14 @@
 {{ define "main" }}
 
 <main class="error404 background">
-
-	<header>
+	<div class="hero">
 		<div class="container">
 			<h1><span class="accent">404</span> Page Not Found<span class="accent">!</span></h1>
-			<p>The page you are looking for does not exists. Please check your URL address or vist my <a href="{{ "/" | relURL }}">homepage</a> or try my <a href='{{ "/blog/" | relURL }}'>blog.</a> or take a peak at some of my latest posts:</p>
 		</div>
-	</header>
-
-	<section class="container">
-
-		{{ $previews := .Paginate (where .Pages "Type" "post") }}
-
-		<div class="post-list">
-
-		{{ range $previews.Pages | first 3 }}
-
-			{{ partial "post-inline.html" . }}
-
-		{{ end }}
-
-		</div>
-
-	</section>
-
+	</div>
+	<article class="container content">
+		<p>The page you are looking for does not exists. Please check your URL address or vist my <a href='{{ "/" | relURL }}'>homepage</a> or try my <a href='{{ "/blog/" | relURL }}'>blog.</a> or take a peak at some of my latest posts:</p>
+	</article>
 </main>
 
 {{ end }}
