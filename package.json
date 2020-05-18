@@ -24,6 +24,8 @@
     "workbox-cli": "^3.5.0"
   },
   "dependencies": {
+    "audit": "0.0.6",
+    "fix": "0.0.6",
     "stylelint-config-standard": "^19.0.0"
   }
 }
