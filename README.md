@@ -10,7 +10,7 @@ This is the source code for my personal website, and it's former `.co.uk` form.
 
 ## PWA with WorkBox
 
-This site uses [WorkBox](https://developers.google.com/web/tools/workbox) to generate it's service worker. 
+This site uses [WorkBox](https://developers.google.com/web/tools/workbox) to generate it's service worker.
 
 This can be updated by editing the `archetypes/sw.js` or by using the `/workbox-config.js` file that is used by WorkBox to dynamically edit the `precacheAndRoute` array in the exported `sw.js` file.
 

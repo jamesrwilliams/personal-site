@@ -4,10 +4,13 @@
   "description": "This is the source code for my personal website [https://jamesrwilliams.co.uk](https://jamesrwilliams.co.uk), and eventually it's `.ca` TLD replacement! Built with the static site generator [Hugo](https://gohugo.io/) and using a custom made theme, that I might release sometime in the future as a stand alone project.",
   "main": "workbox-config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pwa": "hugo && workbox injectManifest workbox-config.js",
-    "start": "hugo serve --disableFastRender --buildDrafts --buildFuture",
-    "sever": "hugo server --baseURL=$HOSTNAME --bind='0.0.0.0' --disableFastRender --buildDrafts --buildFuture"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -20,12 +23,34 @@
   },
   "homepage": "https://github.com/jamesrwilliams/jamesrwilliams.co.uk#readme",
   "devDependencies": {
-    "copyfiles": "^1.2.0",
-    "workbox-cli": "^3.5.0"
+    "prettier": "2.0.5",
+    "tailwindcss": "^1.4.6"
   },
   "dependencies": {
-    "audit": "0.0.6",
-    "fix": "0.0.6",
-    "stylelint-config-standard": "^19.0.0"
+    "gatsby": "^2.21.37",
+    "gatsby-image": "^2.4.4",
+    "gatsby-plugin-algolia": "^0.11.1",
+    "gatsby-plugin-manifest": "^2.4.5",
+    "gatsby-plugin-offline": "^3.2.3",
+    "gatsby-plugin-postcss": "^2.3.2",
+    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-sass": "^2.3.2",
+    "gatsby-plugin-sharp": "^2.6.4",
+    "gatsby-plugin-sitemap": "^2.4.3",
+    "gatsby-plugin-styled-components": "^3.3.3",
+    "gatsby-remark-prismjs": "^3.5.3",
+    "gatsby-source-filesystem": "^2.3.8",
+    "gatsby-transformer-remark": "^2.8.13",
+    "gatsby-transformer-sharp": "^2.5.2",
+    "node-sass": "^4.14.1",
+    "prismjs": "^1.20.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0",
+    "react-instantsearch-dom": "^6.5.0",
+    "striptags": "^3.1.1",
+    "styled-components": "^5.1.1",
+    "typescript": "^3.9.3"
   }
 }
