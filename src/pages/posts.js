@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import { graphql, useStaticQuery } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -10,7 +9,6 @@ const PostsPage = () => {
     query {
       allMarkdownRemark(
         sort: { order: DESC, fields: frontmatter___date }
-        filter: { frontmatter: { draft: { ne: true } } }
       ) {
         nodes {
           frontmatter {
@@ -30,11 +28,11 @@ const PostsPage = () => {
       <SEO title="Posts" />
       <h1>Posts</h1>
       <ul>
-        {posts.map((_post) => {
+        {posts.map((_post, index) => {
           let post = _post.frontmatter;
           return (
-            <li>
-              <PostInline post={post} />{" "}
+            <li key={index}>
+              <PostInline key={_post.slug} post={post} />
             </li>
           );
         })}

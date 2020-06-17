@@ -4,7 +4,10 @@ require("dotenv").config({
   path: `.env`,
 })
 
-const myQuery = `{
+/* Show drafts in non-production environments */
+const env = process.env.NODE_ENV || 'development';
+
+const searchQuery = `{
    allMarkdownRemark {
     nodes {
       objectID: id
@@ -144,7 +147,7 @@ module.exports = {
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
         queries: [
           {
-            query: myQuery,
+            query: searchQuery,
             transformer: ({ data }) => data.allMarkdownRemark.nodes.map((node) => {
               node.html = striptags(node.html);
               return node;

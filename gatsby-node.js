@@ -5,9 +5,7 @@
  */
 
 // You can delete this file if you're not using it
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
@@ -23,6 +21,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             frontmatter {
               slug
               title
+              draft
             }
           }
         }
@@ -34,6 +33,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
+
+  let hiddenPosts = 0;
+
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
 
     const _slug =
@@ -41,15 +43,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         ? node.frontmatter.slug
         : formatTitleToSlug(node.frontmatter.title);
 
-    createPage({
-      path: "/posts/" + _slug,
-      component: blogPostTemplate,
-      context: {
-        // additional data can be passed via context
-        slug: _slug,
-      },
-    });
+    const isDraft = (node.frontmatter.draft === true);
+
+    if(activeEnv === 'production' && isDraft === true) {
+      hiddenPosts++;
+    } else {
+      createPage({
+        path: "/posts/" + _slug,
+        component: blogPostTemplate,
+        context: {
+          // additional data can be passed via context
+          slug: _slug,
+        },
+      });
+    }
   });
+
+  if(hiddenPosts > 0) {
+    console.log(`Ignoring ${hiddenPosts} draft posts.`);
+  }
+
 };
 
 function formatTitleToSlug(title) {
