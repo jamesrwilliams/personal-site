@@ -10,11 +10,13 @@ const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "deve
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const blogPostTemplate = require.resolve(`./src/templates/postTemplate.js`);
+  const filter = 'filter: { frontmatter: {draft: { ne: true }}}';
   const result = await graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
+        ${activeEnv === 'production' ? filter : '' }
       ) {
         edges {
           node {
@@ -34,8 +36,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  let hiddenPosts = 0;
-
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
 
     const _slug =
@@ -43,25 +43,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         ? node.frontmatter.slug
         : formatTitleToSlug(node.frontmatter.title);
 
-    const isDraft = (node.frontmatter.draft === true);
-
-    if(activeEnv === 'production' && isDraft === true) {
-      hiddenPosts++;
-    } else {
-      createPage({
-        path: "/posts/" + _slug,
-        component: blogPostTemplate,
-        context: {
-          // additional data can be passed via context
-          slug: _slug,
-        },
-      });
-    }
+    createPage({
+      path: "/posts/" + _slug,
+      component: blogPostTemplate,
+      context: {
+        // additional data can be passed via context
+        slug: _slug,
+      },
+    });
   });
-
-  if(hiddenPosts > 0) {
-    console.log(`Ignoring ${hiddenPosts} draft posts.`);
-  }
 
 };
 
