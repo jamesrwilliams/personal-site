@@ -4,15 +4,11 @@
 	background: $brand_blue;
 	color: white;
 	font-family: $fonts_heading;
+	padding-left: 2rem;
+	transition: padding 1s ease;
 
-	&:after {
-		content: '';
-		display: block;
-		height: 4px;
-		width: 100%;
-		background: #00F260;
-		background: -webkit-linear-gradient(to left, $brand_blue, #00F260);
-		background: linear-gradient(to left, $brand_blue, #00F260);
+	@media screen and (min-width: 860px) {
+		padding-left: 0;
 	}
 
 	&-inner {

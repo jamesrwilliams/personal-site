@@ -1,7 +1,7 @@
 {
-  "name": "jamesrwilliams.co.uk",
-  "version": "1.0.0",
-  "description": "This is the source code for my personal website [https://jamesrwilliams.co.uk](https://jamesrwilliams.co.uk), and eventually it's `.ca` TLD replacement! Built with the static site generator [Hugo](https://gohugo.io/) and using a custom made theme, that I might release sometime in the future as a stand alone project.",
+  "name": "jamesrwilliams.ca",
+  "version": "2.0.0",
+  "description": "This is the source code for my personal website [https://jamesrwilliams.ca](https://jamesrwilliams.co.uk), and eventually it's `.ca` TLD replacement! Built with the static site generator [Hugo](https://gohugo.io/) and using a custom made theme, that I might release sometime in the future as a stand alone project.",
   "main": "workbox-config.js",
   "scripts": {
     "build": "gatsby build",
@@ -14,17 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamesrwilliams/jamesrwilliams.co.uk.git"
+    "url": "git+https://github.com/jamesrwilliams/personal-site.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jamesrwilliams/jamesrwilliams.co.uk/issues"
+    "url": "https://github.com/jamesrwilliams/personal-site/issues"
   },
-  "homepage": "https://github.com/jamesrwilliams/jamesrwilliams.co.uk#readme",
+  "homepage": "https://github.com/jamesrwilliams/personal-site#readme",
   "devDependencies": {
-    "prettier": "2.0.5",
-    "tailwindcss": "^1.4.6"
+    "prettier": "2.0.5"
   },
   "dependencies": {
     "gatsby": "^2.21.37",
@@ -34,7 +33,7 @@
     "gatsby-plugin-offline": "^3.2.3",
     "gatsby-plugin-postcss": "^2.3.2",
     "gatsby-plugin-react-helmet": "^3.3.1",
-    "gatsby-plugin-sass": "^2.3.2",
+    "gatsby-plugin-sass": "^2.3.4",
     "gatsby-plugin-sharp": "^2.6.4",
     "gatsby-plugin-sitemap": "^2.4.3",
     "gatsby-plugin-styled-components": "^3.3.3",

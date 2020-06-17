@@ -11,7 +11,7 @@ export default function Template({
     <Layout>
       <PostHeader meta={frontmatter} />
       <div
-        className="container post-content"
+        className="container content-container"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </Layout>

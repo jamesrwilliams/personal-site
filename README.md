@@ -4,9 +4,9 @@
 
 This is the source code for my personal website, and it's former `.co.uk` form.
 
-- Built with the static site generator [Hugo](https://gohugo.io/) and using a custom made theme.
-- Is a progressive web app though a [WorkBox](https://developers.google.com/web/tools/workbox/) generated Service worker,
+- Built with the [GatsbyJS](https://www.gatsbyjs.org/).
 - Deployed via [Netlify](https://www.netlify.com/).
+- Search provided by [Algolia](https://www.algolia.com).
 
 ## PWA with WorkBox
 
