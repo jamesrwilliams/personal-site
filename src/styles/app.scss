@@ -70,15 +70,8 @@ footer {
 	h2,
 	h3 {
 		margin-top: 4rem;
-
-		&:after {
-			content: '';
-			display: block;
-			width: 100%;
-			padding-top: .8rem;
-			border-bottom: 2px solid #eee;
-		}
-
+		padding-bottom: 15px;
+		border-bottom: 2px solid #eee;
 	}
 
 	hr {
@@ -266,5 +259,26 @@ footer {
 		background: #00F260;
 		background: -webkit-linear-gradient(to left, $brand_blue, #00F260);
 		background: linear-gradient(to left, $brand_blue, #00F260);
+	}
+}
+
+h1[id],
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+h6[id] {
+	padding-left: 20px;
+
+	@media screen and (min-width: $containerMax) {
+		padding-left: 0;
+	}
+}
+
+.anchor {
+	transform: none;
+
+	@media screen and (min-width: $containerMax) {
+		transform: translateX(-100%);
 	}
 }
