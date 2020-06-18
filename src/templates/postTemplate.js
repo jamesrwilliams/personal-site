@@ -11,7 +11,7 @@ export default function Template({
   const { frontmatter, html } = markdownRemark;
   return (
     <Layout>
-      <PageHeader title={frontmatter.title} />
+      <PageHeader title={frontmatter.title} keyline={false} />
       <PostMeta meta={frontmatter} />
       <div
         className="container content-container"

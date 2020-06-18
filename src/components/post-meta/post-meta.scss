@@ -1,0 +1,25 @@
+@import './src/styles/_base.scss';
+
+.post-meta {
+	font-size: 16px;
+	line-height: 1.4rem;
+	font-family: $fonts_heading;
+	padding-bottom: 2rem;
+
+	.published,
+	.updated,
+	.tags {
+		display: inline-block;
+		margin-right: 2rem;
+
+		span {
+			opacity: .5;
+			text-transform: uppercase;
+			font-size: 12px;
+			display: block;
+			font-weight: 600;
+
+		}
+	}
+
+}

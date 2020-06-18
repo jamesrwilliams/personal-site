@@ -1,28 +1,12 @@
 @import './src/styles/_base.scss';
 
 .page-header {
-	background: $brand_blue;
-	color: white;
-	position: relative;
 	font-family: $fonts_heading;
 	padding: 2rem 1rem;
 	transition: padding 1s ease;
 
 	@media screen and (min-width: ($containerMax + 31.5px)) {
 		padding: 2rem 0;
-	}
-
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 4px;
-		background: #00F260;
-		background: -webkit-linear-gradient(to left, $brand_blue, #00F260);
-		background: linear-gradient(to left, $brand_blue, #00F260);
 	}
 
 	h1 {
@@ -61,24 +45,4 @@
 		color: inherit;
 	}
 
-	.meta {
-		font-size: 16px;
-		line-height: 1.4rem;
-
-		.published,
-		.updated,
-		.tags {
-			display: inline-block;
-			margin-right: 2rem;
-
-			span {
-				opacity: .5;
-				text-transform: uppercase;
-				font-size: 12px;
-				display: block;
-				font-weight: 600;
-			}
-		}
-
-	}
 }

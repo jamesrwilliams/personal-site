@@ -242,3 +242,29 @@ footer {
 		opacity: .7;
 	}
 }
+
+.fill-color {
+	background: $brand_blue;
+	color: #fff;
+}
+
+.post-meta {
+
+}
+
+.accent-line {
+	position: relative;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: #00F260;
+		background: -webkit-linear-gradient(to left, $brand_blue, #00F260);
+		background: linear-gradient(to left, $brand_blue, #00F260);
+	}
+}

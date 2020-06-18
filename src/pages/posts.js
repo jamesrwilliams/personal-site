@@ -28,7 +28,7 @@ const PostsPage = () => {
     <Layout>
       <SEO title="Posts" />
       <main>
-        <PageHeader title={"Posts"} />
+        <PageHeader title={"Posts"} accentLine />
         <div className="container">
           <ul>
             {posts.map((_post, index) => {
