@@ -7,7 +7,7 @@ slug: "drupal-8-introduction"
 
 I&#8217;ve started learning Drupal 8! We&#8217;ve branched out at [Silver Agency](https://silver.agency) with our technology stack, and alongside our migration to AWS and introduction of Docker, our new senior developer has started sharing some experience with the Drupal CMS. We have taken on a new client project rebuilding an internal intranet in it. As there is no better way to learn something than diving right in, here is a list of useful things I&#8217;ve learnt recently with Drupal. I&#8217;ll be updating this with more material as I progress but this is a start!
 
-## Template Hierarchy {#template-hierarchy}
+## Template Hierarchy
 
 Drupal 8 uses the Twig templating engine, which is part of the <a href="http://symfony.com/" rel="nofollow">Symfony2 framework.</a> Similar to WordPress Drupal has a template hierarchy, however, it&#8217;s inheritance system is a little different. Drupal&#8217;s theme system works by having custom themes overriding the Drupal&#8217;s core template files. If you&#8217;re after a &#8220;show me the code&#8221; method for templating in Drupal 8, a good way to start working with Drupal templates is to do the following:
 
@@ -15,11 +15,11 @@ Drupal 8 uses the Twig templating engine, which is part of the <a href="http://
 2. Copy the template file from its base location into your theme folder.
 3. Modify the template to your liking.
 
-## Twig {#twig}
+## Twig
 
 Out of the box, Drupal 8 supports Twig version 1.x. So worth noting when searching for documentation that we need v1.x, not the newer version 2.x.
 
-### Turn on Twig debugging {#turn-on-twig-debugging}
+### Turn on Twig debugging
 
 A very useful feature of working out what templates Drupal is looking for when rendering pages is to enable the debugging options:
 
@@ -50,7 +50,7 @@ $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml'
 
 Read more about how to enable Twig Debug mode via the [Drupal documentation][2].
 
-### Types of Twig Tags {#types-of-twig-tags}
+### Types of Twig Tags
 
 1. `{{ ... }}` = **Say** &#8211; Echo a variable or an expression result.
 2. `{% ... %}` = **Do** &#8211; Assign a variable, conditionals, and loops.
@@ -67,7 +67,7 @@ See the [Twig documentation][4] for more information on the native functions (en
 - `link($text, $uri, $attributes)` &#8211; This helper function accepts as the first parameter the text and as second parameter the URI.
 - `path($name, $parameters, $options)` &#8211; This generates a relative URL path given a route name and parameters.
 
-### Twig Filters {#twig-filters}
+### Twig Filters
 
 Similar to how they behave in angular, twig filters manipulate the content before the pipe character (&#8216;|&#8217;). Some useful examples of these are:
 
@@ -78,7 +78,7 @@ Similar to how they behave in angular, twig filters manipulate the content befor
 
 Check out the [Twig documentation][5] for a full list of native filter options. You can also write your own custom filters for Twig, however, this is a little beyond my needs right now.
 
-## Useful Resources {#useful-resources}
+## Useful Resources
 
 - [[YouTube] Theming with Twig in Drupal 8][6]
 - [[Druapl Docs] Disable Drupal 8 caching during development][7]

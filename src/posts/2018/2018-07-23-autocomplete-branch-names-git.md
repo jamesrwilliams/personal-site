@@ -15,7 +15,7 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 
 Next, you need to edit your `~/.bash_profile` and add the following:
 
-```bash
+```
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi

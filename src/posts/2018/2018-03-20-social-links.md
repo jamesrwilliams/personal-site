@@ -47,7 +47,7 @@ Let&#8217;s do away with large and ugly script includes for share buttons. URL s
 </ul>
 ```
 
-### With Simple Icons {#with-simple-icons}
+### With Simple Icons
 
 Using `svg` icons from [Simple Icons][1]:
 

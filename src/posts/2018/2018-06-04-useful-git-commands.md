@@ -16,7 +16,7 @@ This is a quick and dirty git cheat sheet of all the commands I frequently forge
 
 <hr />
 
-## See the remote {#see-the-remote}
+## See the remote
 
 I frequently mislabel project folders on my local and easily lose track of which remote each directory points to. The solution, this short git config command that shows me the remote URL:
 
@@ -48,7 +48,7 @@ The output of which would look something like this (example taken from the Hugo 
         merge = refs/heads/master
 ```
 
-## Stop git tracking file permissions (chmod) {#stop-git-tracking-file-permissions-chmod}
+## Stop git tracking file permissions (chmod)
 
 Occasionally repositories bring with them their permissions that need to be updated on the remote. A nightmare when working with deploy keys as they're one way. So set the following config rule to false to stop git from tracking file permissions / chmod changes.
 
@@ -56,7 +56,7 @@ Occasionally repositories bring with them their permissions that need to be upd
 git config core.fileMode false
 ```
 
-## Debug ssh/git authentication {#debug-ssh-git-authentication}
+## Debug ssh/git authentication
 
 The following command runs an ssh test connection with the `-T` flag that tests an SSH connection to a remote. In this case, it tests the current account has the correct credentials to access BitBucket.
 
@@ -64,7 +64,7 @@ The following command runs an ssh test connection with the `-T` flag that tests 
 ssh -T git@bitbucket.org
 ```
 
-## Find branches that have/not been merged yet {#find-unmerged-branches}
+## Find branches that have/not been merged yet
 
 Useful when cleaning out checked out branches from your machine. The last argument is the branch you want to check against, in our example its develop.
 
@@ -72,7 +72,7 @@ Useful when cleaning out checked out branches from your machine. The last argume
 git branch --no-merged develop
 ```
 
-## Export the log as a file {#export-log-as-file}
+## Export the log as a file
 
 Useful if you want to export a list of commits into a spreadsheet and do some analysis but personally only ever used this once.
 
@@ -109,7 +109,7 @@ git log --pretty=format:%h,%an,%ad,%s > commits.txt
 git config --global core.editor "nano"
 ```
 
-## Change last commit message\* {#change-commit-message}
+## Change last commit message\*
 
 <sup>\*</sup>On the last non-pushed commit.
 

@@ -1,7 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import PostHeader from "../components/post-header/post-header";
+import PageHeader from '../components/page-header/page-header';
+import PostMeta from '../components/post-meta/post-meta';
+
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
@@ -9,7 +11,8 @@ export default function Template({
   const { frontmatter, html } = markdownRemark;
   return (
     <Layout>
-      <PostHeader meta={frontmatter} />
+      <PageHeader title={frontmatter.title} />
+      <PostMeta meta={frontmatter} />
       <div
         className="container content-container"
         dangerouslySetInnerHTML={{ __html: html }}
@@ -23,8 +26,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        updated(formatString: "MMMM DD, YYYY")
         slug
         title
+        draft
       }
     }
   }

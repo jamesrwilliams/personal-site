@@ -4,9 +4,6 @@ require("dotenv").config({
   path: `.env`,
 })
 
-/* Show drafts in non-production environments */
-const env = process.env.NODE_ENV || 'development';
-
 const searchQuery = `{
    allMarkdownRemark {
     nodes {
@@ -65,6 +62,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -139,12 +137,11 @@ module.exports = {
     // `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     {
-      // This plugin must be placed last in your list of plugins to ensure that it can query all the GraphQL data
       resolve: `gatsby-plugin-algolia`,
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // for all queries
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
         queries: [
           {
             query: searchQuery,
@@ -154,9 +151,9 @@ module.exports = {
             }),
           }
         ],
-        chunkSize: 10000, // default: 1000
+        chunkSize: 10000,
         settings: {
-          // optional, any index settings
+          enablePartialUpdates: true,
         },
       },
     },

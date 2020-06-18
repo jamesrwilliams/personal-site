@@ -12,7 +12,7 @@ slug: "where-was-i-when-2015-turned-into-2016"
 - Fallout 4 in November,
 - Continuing working for the SU and its awesome team,
 
-## So Where Was I For New Year? {#so-where-was-i-for-new-year}
+## So Where Was I For New Year?
 
 Back around April 2015, my sister Louise was accepted onto the Walt Disney World Cultural Representative Program. The programme is a 12-month placement working around the WDW parks in Florida. Louise was working in World Showcase, a feature of the EPCOT park. Each of the 11 countries hires young adults to work in merchandise and food within their pavilions. How awesome is that?
 

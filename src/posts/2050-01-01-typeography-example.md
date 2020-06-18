@@ -1,21 +1,22 @@
 ---
 title: "Typography Preview"
 date: 2050-01-01T09:00:00-04:00
+updated: 2060-01-01
 draft: true
 slug: "preview"
 ---
 
-# Header 1 {#header-one}
+# Header 1
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-## Header 2 {#header-2}
+## Header 2
 
 > This is a blockquote following a header.
 >
 > When something is important enough, you do it even if the odds are not in your favor.
 
-### Header 3 {#header-3}
+### Header 3
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
@@ -35,26 +36,26 @@ var fun = function lang(l) {
 
 This is a paragraph with a footnote. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam beatae blanditiis doloremque eos esse, explicabo laborum[^1] maiores nemo pariatur vel veritatis, voluptas. Deserunt ea non odio pariatur quidem rerum.
 
-```ruby  {#header-3}
+```ruby
 # Ruby code with syntax highlighting
 GitHubPages::Dependencies.gems.each do |gem, version|
   s.add_dependency(gem, "= #{version}")
 end
 ```
 
-#### Header 4 {#header-4}
+#### Header 4
 
 - This is an unordered list following a header.
 - This is an unordered list following a header.
 - This is an unordered list following a header.
 
-##### Header 5 {#header-5}
+##### Header 5
 
 1.  This is an ordered list following a header.
 2.  This is an ordered list following a header.[^2]
 3.  This is an ordered list following a header.
 
-###### Header 6 {#header-6}
+###### Header 6
 
 | head1        | head two          | three |
 | :----------- | :---------------- | :---- |

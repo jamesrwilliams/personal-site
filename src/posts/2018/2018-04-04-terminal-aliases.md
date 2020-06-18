@@ -7,23 +7,23 @@ slug: "terminal-aliases"
 
 Aliases are nothing more than keyboard shortcuts or abbreviations, and although they’re a bit limited, they’re great for simple commands. Edit the `nano ~/.bash_profile` file and add your alias, save and restart and boom, shortcuts!<!--more-->
 
-## Projects Folder {#projects-folder}
+## Projects Folder
 
 ```bash
 alias code="cd /Users/jameswilliams/documents/repos"
 ```
 
-## Symbolic links  for applications. {#symbolic-links-for-applications}
+## Symbolic links  for applications.
 
 Use applications more easily from the command line.
 
-### Sourcetree {#sourcetree}
+### Sourcetree
 
 ```bash
 ln -s /Applications/SourceTree.app/Contents/Resources/stree /usr/local/bin/
 ```
 
-### Sublime Text {#sublime-text}
+### Sublime Text
 
 ```bash
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl

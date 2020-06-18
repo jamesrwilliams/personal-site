@@ -10,13 +10,23 @@ const searchClient = algoliasearch(
 );
 
 const Search = () => (
-  <InstantSearch
-    indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
-    searchClient={searchClient}
-  >
-    <SearchBox />
-    <Hits hitComponent={SearchHit} />
-  </InstantSearch>
+  <>
+  <main>
+    <InstantSearch
+      indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
+      searchClient={searchClient}
+    >
+      <div style={{ backgroundColor: '#e9ecef', padding: '2rem' }}>
+        <div className="container">
+         <SearchBox />
+        </div>
+      </div>
+      <div className={"container"}>
+        <Hits hitComponent={SearchHit} />
+      </div>
+    </InstantSearch>
+  </main>
+  </>
 );
 
 export default Search;

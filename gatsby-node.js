@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
 const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
@@ -23,7 +22,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             frontmatter {
               slug
               title
-              draft
             }
           }
         }
@@ -47,7 +45,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: "/posts/" + _slug,
       component: blogPostTemplate,
       context: {
-        // additional data can be passed via context
         slug: _slug,
       },
     });

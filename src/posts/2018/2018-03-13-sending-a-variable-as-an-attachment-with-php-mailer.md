@@ -16,7 +16,7 @@ $data = ['foo' => 'bar'];
 What we're after is to set this variable as a file. we can do this using PHP mailers [AddStringAttachement](https://github.com/PHPMailer/PHPMailer/wiki/Tutorial#string-attachments) function which looks like this:
 
 ```php
-$mail-&gt;AddStringAttachment($contents, $filename);
+$mail->AddStringAttachment($contents, $filename);
 ```
 
 Applying this to our example could be the following:
