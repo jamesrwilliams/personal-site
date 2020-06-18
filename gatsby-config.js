@@ -152,9 +152,7 @@ module.exports = {
           }
         ],
         chunkSize: 10000,
-        settings: {
-          enablePartialUpdates: true,
-        },
+        enablePartialUpdates: true,
       },
     },
   ],
