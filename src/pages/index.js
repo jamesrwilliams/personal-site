@@ -10,12 +10,12 @@ const IndexPage = () => {
       <SEO/>
       <div style={{ height: 'calc(100vh - 135px)' }}>
         <div style={{ backgroundColor: '#e9ecef' }}>
-          <div className={'container'} style={{ padding: '2rem' }}>
-            <h1 style={{ marginTop: '10vh', fontSize: '70px' }}>
+          <div className={'container'} style={{ padding: '10vh 2rem' }}>
+            <h1 style={{ fontSize: '70px' }}>
               Hey! I'm James <span role={'img'} aria-label={'Hand waving emoji'}>👋</span><br/>
             </h1>
-            <h2 style={{ fontSize: '40px' }}>
-              I am software engineer working in Toronto, specialising in front end.
+            <h2 style={{ fontSize: '25px' }}>
+              I am a full-stack web developer working in Toronto.
             </h2>
           </div>
         </div>

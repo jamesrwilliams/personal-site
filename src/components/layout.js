@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       {children}
       <footer>
-          <p>© {new Date().getFullYear()} James R. Williams <code style={{ opacity: .2 }}>['hip','hip']</code></p>
+          <p>© {new Date().getFullYear()} James R. Williams <code title={"Hip Hip Array"} style={{ opacity: .2 }}>['hip','hip']</code></p>
           <nav className={'social'}>
             <a href="https://www.twitter.com/James_RWilliams">
               <svg className="svg-icon svg-icon-twitter" aria-labelledby="simpleicons-twitter-icon" role="img" aria-label={'Twitter Icon'}  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-twitter-icon">Twitter icon</title>

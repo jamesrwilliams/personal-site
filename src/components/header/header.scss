@@ -25,13 +25,17 @@ header {
 		border: 2px solid transparent;
 		font-weight: 600;
 		font-size: 14px;
-		padding: 5px 15px 5px;
+		display: inline-block;
+		padding: 5px 10px 5px;
 		transition: opacity 1s ease;
 		border-top-right-radius: 10px;
+		vertical-align: bottom;
 		border-top-left-radius: 10px;
 
 		@media screen and (min-width: $breakpoint_sm) {
 			border-radius: 25px;
+			padding: 0 15px;
+			margin: 0 0 0 15px;
 		}
 
 		&:focus {
@@ -45,7 +49,13 @@ header {
 
 		&.search-icon {
 			position: relative;
-			margin-left: 25px;
+			height: 42px;
+			float: right;
+			width: 42px;
+
+			@media screen and (min-width: $breakpoint_sm) {
+				height: 36px;
+			}
 
 			svg {
 				position: absolute;
@@ -100,9 +110,9 @@ header {
 		display: inline-block;
 		background-image: url(https://www.gravatar.com/avatar/b2623db89a42dd363c33d1d4df39654a?s=100);
 		background-size: cover;
-		height: 27px;
+		height: 31px;
 		border-radius: 100%;
-		width: 27px;
+		width: 31px;
 		position: absolute;
 		left: 0;
 		bottom: 1px;
