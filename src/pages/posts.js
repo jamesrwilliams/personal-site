@@ -27,7 +27,9 @@ const PostsPage = () => {
 
   return (
     <Layout>
-      <SEO title="Posts" />
+      <SEO
+        title="Posts"
+        description={"My sporadic thoughts on web development and fun things I find on the internet."} />
       <main>
         <PageHeader title={"Posts"} />
         <div className="container pt-4">

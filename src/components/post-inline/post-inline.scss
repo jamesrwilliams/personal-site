@@ -24,6 +24,7 @@
 	p {
 		font-family: $fonts_body;
 		max-width: 100%;
+		margin-bottom: 1rem;
 		line-height: 21px;
 	}
 
@@ -32,6 +33,11 @@
 		font-size: 23px;
 		margin-bottom: .8125rem;
 		font-weight: 600;
+	}
+
+	.read-more-link {
+		color: $brand_blue;
+		font-weight: bold;
 	}
 }
 

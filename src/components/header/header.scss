@@ -22,7 +22,7 @@ header {
 	a {
 		color: #fff;
 		text-decoration: none;
-		border: 1px solid transparent;
+		border: 2px solid transparent;
 		font-weight: 600;
 		font-size: 14px;
 		padding: 5px 15px 5px;
@@ -34,13 +34,18 @@ header {
 			border-radius: 25px;
 		}
 
+		&:focus {
+			border-color: $brand_grey;
+			outline: 0;
+		}
+
 		&:hover {
-			background: #0004;
-			opacity: .8;
+			background: #fff5;
 		}
 
 		&.search-icon {
 			position: relative;
+			margin-left: 25px;
 
 			svg {
 				position: absolute;
@@ -65,13 +70,13 @@ header {
 			background: #e9ecef;
 			color: $brand_blue;
 
-			&:hover {
-				background: #fff;
-				color: $brand_blue;
+			svg { fill: $brand_blue; }
 
-				svg {
-					fill: $brand_blue;
-				}
+			&:focus {
+				background: $brand_blue;
+				color: #fff;
+
+				svg { fill: #fff; }
 			}
 		}
 	}

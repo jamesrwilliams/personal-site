@@ -32,7 +32,7 @@ body {
 	font-size: 16px;
 	line-height: 28px;
 
-	@media screen and (min-width: $containerMax) {
+	@media screen and (min-width: $breakpoint_sm) {
 		font-size: 20px;
 		line-height: 32px;
 	}
@@ -60,11 +60,6 @@ body {
 	position: relative;
 
 	&-content {
-		border-left: 1rem solid #e9ecef;
-
-		@media screen and (min-width: $breakpoint_sm) {
-			border-left: 2rem solid #e9ecef;
-		}
 
 		h1,
 		h2,
@@ -201,29 +196,46 @@ footer {
 	font-size: 14px;
 	font-family: $fonts_heading;
 	background-color: #e9ecef;
+	padding: 1rem 2rem;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	justify-content: space-between;
 
-	> .container {
-		padding-top: 0;
+	@media screen and (min-width: $breakpoint_sm) {
+		flex-direction: row;
 	}
 
 	p {
-		padding: 1rem 0;
+		padding: 0;
+		font-weight: bold;
 		margin-bottom: 0;
 		opacity: 1;
 	}
 
-	&.social {
-		padding: 7px 7px;
+	svg {
+		fill: $brand_blue;
+		width: 25px;
+		vertical-align: middle;
+	}
+
+	nav {
+		padding: 1rem 0;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			text-align: right;
+			padding: 0;
+		}
+	}
+
+	.social a {
+		display: inline-block;
+		margin-right: 15px;
 
 		@media screen and (min-width: $breakpoint_sm) {
 			margin-left: 10px;
 		}
-
 	}
 
-	svg {
-		fill: $brand_blue;
-		width: 17px;
-		vertical-align: middle;
-	}
+
 }

@@ -14,8 +14,8 @@ const PostInline = ({ post }) => {
           month: "long",
         }).format(date)}</time>
         <Link className={'post-title'} to={"/posts/" + post.slug}>{post.title}</Link>
-        <p>{post.excerpt} <Link to={"/posts/" + post.slug}>[Read more]</Link></p>
-
+        <p>{post.excerpt}</p>
+        <Link className={'read-more-link'} to={"/posts/" + post.slug}>Read</Link>
       </div>
     </>
   );
