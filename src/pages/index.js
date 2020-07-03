@@ -18,7 +18,7 @@ const IndexPage = () => {
           </h2>
         </div>
       </div>
-      <div className={'container'} style={{ padding: '2rem' }}>
+      <div className={'container container-content'} style={{ padding: '2rem' }}>
         <p>I enjoy building delightfully fast, and engaging digital projects. I'm currently exploring ways to integrate
           static site generators (like Hugo and Gatsby) into more projects with the wonderful team at <a
             rel="noopener noreferrer" href="https://points.com">Points</a>. In my spare time I'm building native apps

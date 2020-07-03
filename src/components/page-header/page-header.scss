@@ -13,6 +13,7 @@
 		font-size: 28px;
 		word-break: keep-all;
 		margin-bottom: 0;
+		font-family: $fonts_body;
 
 		@media screen and (min-width: $breakpoint_sm) {
 			font-size: 45px;

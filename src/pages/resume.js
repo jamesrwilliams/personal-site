@@ -10,7 +10,13 @@ const ResumePage = () => {
     <Layout>
       <SEO title="Resume" />
       <PageHeader title={"Resume"} />
-      <Link to="/">Go back to the homepage</Link>
+      <div className="container content-container">
+        <ul className={'link-icons'}>
+          <li>
+            <a target={'_blank'} rel={'noopener'} href="https://docs.google.com/document/d/1T1Ohlnh0rdVUGVhlCK3H4n6h2Nr_MxqMuLz92wJI4bg/edit">View Resume</a>
+          </li>
+        </ul>
+      </div>
     </Layout>
   );
 };

@@ -6,7 +6,6 @@
 	font-family: $fonts_heading;
 	background-color: #e9ecef;
 	padding-bottom: 2rem;
-	border-bottom: 1px solid #ccc6;
 
 	.published,
 	.updated,
@@ -20,7 +19,11 @@
 			font-size: 12px;
 			display: block;
 			font-weight: 600;
+		}
 
+		time {
+			font-weight: 600;
+			font-size: 14px;
 		}
 	}
 

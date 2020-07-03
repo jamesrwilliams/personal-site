@@ -1,20 +1,18 @@
 @import './src/styles/_base.scss';
 
 header {
-	padding: 1rem 0 0;
+	padding: 1rem 1rem 0 1rem;
 	background: $brand_blue;
 	font-family: $fonts_heading;
 	position: relative;
 	min-height: 65px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-	> .container {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-
-		@media screen and (min-width: $breakpoint_sm) {
-			flex-direction: row;
-		}
+	@media screen and (min-width: $breakpoint_sm) {
+		flex-direction: row;
+		padding: 1rem 0 0;
 	}
 
 	@media screen and (min-width: $breakpoint_sm) {
@@ -28,7 +26,7 @@ header {
 		font-weight: 600;
 		font-size: 14px;
 		padding: 5px 15px 5px;
-		transition: background 1s ease;
+		transition: opacity 1s ease;
 		border-top-right-radius: 10px;
 		border-top-left-radius: 10px;
 
@@ -36,13 +34,45 @@ header {
 			border-radius: 25px;
 		}
 
-		&.active {
-			background: #fff;
-			color: $brand_blue;
+		&:hover {
+			background: #0004;
+			opacity: .8;
 		}
 
-		&:hover {
-			background: #fff2;
+		&.search-icon {
+			position: relative;
+
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -11px;
+				margin-left: -12px;
+				display: inline-block;
+				vertical-align: center;
+				height: 23px;
+				fill: #fff;
+			}
+
+			&:hover {
+				svg {
+					fill: $brand_blue;
+				}
+			}
+		}
+
+		&.active {
+			background: #e9ecef;
+			color: $brand_blue;
+
+			&:hover {
+				background: #fff;
+				color: $brand_blue;
+
+				svg {
+					fill: $brand_blue;
+				}
+			}
 		}
 	}
 }

@@ -60,6 +60,12 @@ body {
 	position: relative;
 
 	&-content {
+		border-left: 1rem solid #e9ecef;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			border-left: 2rem solid #e9ecef;
+		}
+
 		h1,
 		h2,
 		h3 {
@@ -176,30 +182,6 @@ blockquote {
 
 th {
 	border-bottom: 2px solid $brand_blue;
-}
-
-
-
-.fill-color {
-	background: $brand_blue;
-	color: #fff;
-}
-
-.accent-line {
-	position: relative;
-
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 4px;
-		background: #00F260;
-		background: -webkit-linear-gradient(to left, $brand_blue, #00F260);
-		background: linear-gradient(to left, $brand_blue, #00F260);
-	}
 }
 
 .anchor {

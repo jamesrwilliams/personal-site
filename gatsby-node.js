@@ -7,6 +7,7 @@
 const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
+
   const { createPage } = actions;
   const blogPostTemplate = require.resolve(`./src/templates/postTemplate.js`);
   const filter = 'filter: { frontmatter: {draft: { ne: true }}}';
@@ -50,6 +51,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     });
   });
+
+  const { createRedirect } = actions;
+  createRedirect({
+    fromPath: "/cv",
+    toPath: "/resume",
+    isPermanent: true
+  })
 
 };
 
