@@ -45,6 +45,14 @@ button:-moz-focusring {
 	outline: 1px dotted ButtonText;
 }
 
+.search-parent {
+	padding: 1rem 0;
+
+	@media screen and (min-width: $breakpoint_sm) {
+		padding: 2rem;
+	}
+}
+
 .ais-SearchBox-form {
 	position: relative;
 	margin-bottom: 0;

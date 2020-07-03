@@ -2,6 +2,7 @@
 
 .page-header {
 	font-family: $fonts_heading;
+	background-color: #e9ecef;
 	padding: 1rem 0;
 
 	@media screen and (min-width: ($containerMax + 31.5px)) {
@@ -11,6 +12,7 @@
 	h1 {
 		font-size: 28px;
 		word-break: keep-all;
+		margin-bottom: 0;
 
 		@media screen and (min-width: $breakpoint_sm) {
 			font-size: 45px;

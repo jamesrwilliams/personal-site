@@ -29,15 +29,15 @@ const PostsPage = () => {
     <Layout>
       <SEO title="Posts" />
       <main>
-        <PageHeader title={"Posts"} accentLine />
-        <div className="container">
+        <PageHeader title={"Posts"} />
+        <div className="container pt-4">
           <ul style={{ margin: 0, listStyle: 'none' }}>
             {posts.map((_post, index) => {
               let post = _post.frontmatter;
                   post.excerpt = _post.excerpt;
 
               return (
-                <li key={index}>
+                <li key={index} className={'mb-4'}>
                   <PostInline key={_post.slug} post={post} />
                 </li>
               );

@@ -1,46 +1,48 @@
 @import './src/styles/_base.scss';
 
 header {
-	padding: 1rem 2rem;
+	padding: 1rem 0 0;
 	background: $brand_blue;
 	font-family: $fonts_heading;
 	position: relative;
+	min-height: 65px;
 
-	nav {
-		float: right;
+	> .container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 
-		a {
-			margin-left: 10px;
-			text-decoration: none;
-
-			&.social {
-				padding: 7px 7px;
-				margin-left: 10px;
-			}
-
-			svg {
-				fill: white;
-				width: 17px;
-				vertical-align: middle;
-			}
-
-			&.active {
-				background: #0005;
-			}
+		@media screen and (min-width: $breakpoint_sm) {
+			flex-direction: row;
 		}
+	}
+
+	@media screen and (min-width: $breakpoint_sm) {
+		padding: 1rem 2rem;
 	}
 
 	a {
 		color: #fff;
+		text-decoration: none;
+		border: 1px solid transparent;
 		font-weight: 600;
 		font-size: 14px;
-		padding: 5px 15px 6px;
-		border-radius: 25px;
-		border: 2px solid transparent;
+		padding: 5px 15px 5px;
 		transition: background 1s ease;
+		border-top-right-radius: 10px;
+		border-top-left-radius: 10px;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			border-radius: 25px;
+		}
+
+		&.active {
+			background: #fff;
+			color: $brand_blue;
+		}
 
 		&:hover {
-			background: #0005;
+			background: #fff2;
 		}
 	}
 }
@@ -48,18 +50,34 @@ header {
 .site-profile {
 	display: inline-block;
 	text-decoration: none;
-	padding: 0 25px 0 50px;
 	position: relative;
+	padding: 0 25px 0 50px;
+	margin-bottom: 1rem;
+	border-radius: 27px;
+
+	@media screen and (min-width: $breakpoint_sm) {
+		padding: 0 25px 0 50px;
+		margin-bottom: 0;
+	}
+
+	span {
+		float: right;
+		@media screen and (min-width: $breakpoint_sm) {
+			float: none;
+		}
+	}
 
 	&:before {
 		content: '';
 		display: inline-block;
 		background-image: url(https://www.gravatar.com/avatar/b2623db89a42dd363c33d1d4df39654a?s=100);
 		background-size: cover;
-		height: 32px;
-		border-radius: 32px;
-		width: 32px;
+		height: 27px;
+		border-radius: 100%;
+		width: 27px;
 		position: absolute;
 		left: 0;
+		bottom: 1px;
+		top: 1px;
 	}
 }

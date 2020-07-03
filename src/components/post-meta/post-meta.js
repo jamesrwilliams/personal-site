@@ -1,12 +1,11 @@
 import React from "react";
 import "./post-meta.scss";
 import PropTypes from 'prop-types'
-import PageHeader from '../page-header/page-header'
 
-const PostMeta = ({ meta, keyline }) => {
+const PostMeta = ({ meta }) => {
   return (
     <>
-      <div className={"post-meta fill-color " + (keyline ? 'accent-line' : '') }>
+      <div className={"post-meta" }>
         <div className="container">
           <div className="published">
             <span>Published</span>
@@ -22,14 +21,6 @@ const PostMeta = ({ meta, keyline }) => {
       </div>
     </>
   );
-};
-
-PostMeta.propTypes = {
-  keyline: PropTypes.bool,
-};
-
-PostMeta.defaultProps = {
-  keyline: true,
 };
 
 export default PostMeta;

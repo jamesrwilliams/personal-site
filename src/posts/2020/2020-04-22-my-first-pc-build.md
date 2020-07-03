@@ -2,10 +2,13 @@
 title: "Building my own PC"
 date: 2020-04-22T10:55:56-04:00
 slug: "pc-building-part-1"
+jira: "POST-24"
 draft: true
 ---
 
-Just before all this COVID-19 imposed lifestyle choices, and after talking about it for so long, I decided it was time to retire my 2009 27" iMac and change up my computer setup. I use my work laptop (13-inch, 2018 MacBook Pro) for, well work, and any side projects.
+Just before all this COVID-19 imposed lifestyle choices, and after talking about it for so long, I decided it was time to retire my 2009 27" iMac and change up my computer setup. I use my work laptop (13-inch, 2018 MacBook Pro) for, well work, and any side projects, but gaming on a Mac is not a thing.
+
+So with the help of some friends on the part list here are the specs for my first gaming PC:
 
 ## Parts
 
@@ -25,7 +28,7 @@ Just before all this COVID-19 imposed lifestyle choices, and after talking about
 - LG 34" UltraWide Monitor (34UM69G-B)
 - Razer Cynosa Chroma Keyboard
 - Rzer Deathadder Essential Mouse
-- Dell 6000 USB C Dock for hooking up my Macbook Pro to my monitor + charging and USB hub.
+- Dell 6000 USB C Dock for hooking up my MacBook Pro to my monitor + charging and USB hub.
 
 ## Benchmarks
 
@@ -38,4 +41,6 @@ I ran 3DMark's benchmarks initially a week or so after building, In the meantime
 
 ## Next Upgrades
 
-Probably not wise that I'm overclocking with a stock CPU cooler so I'll be looking into an after market one soon. I've been looking at some all-in-one liquid coolers, but these might be a little overkill for my current setup and usage. But CPU / cooling is the next thing I need to improve.
+Probably not wise that I'm overclocking with a stock CPU cooler, I'll be looking into an after market one soon. I've been looking at some all-in-one liquid coolers, but these might be a little overkill for my current setup and usage. 
+
+Probably another SSD for steam games as my poor M.2 boot drive is under way too much usage with Steam games at the moment. 

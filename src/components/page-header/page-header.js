@@ -2,24 +2,16 @@ import React from "react";
 import "./page-header.scss";
 import PropTypes from 'prop-types'
 
-const PageHeader = ({ title, keyline }) => {
+const PageHeader = ({ title }) => {
   return (
     <>
-      <div className={"page-header fill-color " + (keyline ? 'accent-line' : '') }>
+      <div className={"page-header" }>
         <div className="container">
           <h1>{title}</h1>
         </div>
       </div>
     </>
   );
-};
-
-PageHeader.propTypes = {
-  keyline: PropTypes.bool,
-};
-
-PageHeader.defaultProps = {
-  keyline: true,
 };
 
 export default PageHeader;
