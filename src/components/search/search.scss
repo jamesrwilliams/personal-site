@@ -21,7 +21,7 @@ button,
 input {
 	overflow: visible;
 }
-button,e
+button,
 select {
 	text-transform: none;
 }
@@ -43,4 +43,33 @@ button::-moz-focus-inner {
 [type="submit"]:-moz-focusring,
 button:-moz-focusring {
 	outline: 1px dotted ButtonText;
+}
+
+.ais-SearchBox-form {
+	position: relative;
+	margin-bottom: 0;
+
+	input {
+		width: 100%;
+		border: 0;
+		padding: 5px 60px 5px 10px;
+	}
+
+	.ais-SearchBox-reset {
+		position: absolute;
+		right: 0;
+	}
+
+	.ais-SearchBox-submit {
+		display: none;
+	}
+
+	button {
+		width: 50px;
+		height: 42px;
+		border: 0;
+		background: $brand_blue;
+
+		svg { fill: #fff; }
+	}
 }

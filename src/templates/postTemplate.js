@@ -16,7 +16,7 @@ export default function Template({
       <PageHeader title={frontmatter.title} keyline={false} />
       <PostMeta meta={frontmatter} />
       <div
-        className="container content-container"
+        className="container content-container pt-4"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </Layout>

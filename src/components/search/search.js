@@ -16,7 +16,7 @@ const Search = () => (
       indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
       searchClient={searchClient}
     >
-      <div style={{ backgroundColor: '#e9ecef', padding: '2rem' }}>
+      <div style={{ backgroundColor: '#e9ecef', padding: '2rem', marginBottom: '2rem' }}>
         <div className="container">
          <SearchBox />
         </div>

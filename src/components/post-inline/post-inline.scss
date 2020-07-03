@@ -1,0 +1,36 @@
+@import './src/styles/_base.scss';
+
+.post-inline {
+	font-family: $fonts_heading;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 2rem;
+	font-size: 14px;
+
+	time {
+		display: block;
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		text-rendering: optimizelegibility;
+		line-height: 23px;
+	}
+
+	a {
+		color: $brand_blue;
+		text-decoration: none;
+	}
+
+	p {
+		font-family: $fonts_body;
+	}
+
+	.post-title {
+		display: block;
+		font-size: 23px;
+		margin-bottom: .8125rem;
+		font-weight: 600;
+	}
+}
+
+

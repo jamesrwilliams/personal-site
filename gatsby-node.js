@@ -46,6 +46,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: blogPostTemplate,
       context: {
         slug: _slug,
+        description: 'example'
       },
     });
   });
