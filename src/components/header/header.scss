@@ -90,13 +90,6 @@ header {
 		margin-bottom: 0;
 	}
 
-	span {
-		float: right;
-		@media screen and (min-width: $breakpoint_sm) {
-			float: none;
-		}
-	}
-
 	&:before {
 		content: '';
 		display: inline-block;
