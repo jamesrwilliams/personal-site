@@ -9,7 +9,7 @@ const IndexPage = () => {
     <Layout>
       <SEO />
       <div style={{ backgroundColor: '#021526' }}>
-        <div className={'container'} style={{ padding: '2rem 0' }}>
+        <div className={'container'} style={{ padding: '2rem' }}>
         <h1 style={{ marginTop: '10vh', color: 'white', fontSize: '70px' }}>
           Hey! I'm James <span role={'img'} aria-label={"Hand waving emoji"}>👋</span><br />
         </h1>

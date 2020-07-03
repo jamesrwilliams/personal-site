@@ -1,9 +1,8 @@
 ---
-title: "CSS Roulette Wheel Project"
+title: "CSS Roulette Wheel"
 date: 2019-12-20
 slug: "css-roulette-wheel"
 draft: true
-categories: ["project"]
 tags: ["CSS", "Animations", "CodePen"]
 ---
 
@@ -87,6 +86,23 @@ To do this with [CSS timing functions](https://developer.mozilla.org/en-US/docs/
 Without these animation timing functions the wheel just abruptly starts spinning and then stops, while using the default keywords like `ease` and `ease-in` didn't have quite the right feel.
 
 ### Putting the slices together.
+
+We've got our 12 "slices" we now need to spread them out evenly around the wheel. We've got 12 slices in this example we need to work out how many degrees to rotate each one to cover the wheel. Which is `360 / 12 = 30` So each slice needs to be rotated 30&deg; from the previous slice which would fan out the slices over the wheel.
+
+This can be done with a tactful use of the `nth-child` selector in CSS, like so:
+
+```scss
+&:nth-child(1) {
+    transform: rotate(0deg);
+}
+&:nth-child(2) {
+    transform: rotate(30deg);
+}
+/* Skip a few for breviety */
+&:nth-child(12) {
+    transform: rotate(330deg);
+}
+```
 
 ### Making the loading random.
 

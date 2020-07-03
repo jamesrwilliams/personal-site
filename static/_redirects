@@ -1,6 +1,6 @@
 # Old WordPress post redirects
 
-## Posts
+## WordPress Post Migration
 /2018/03/13/sending-a-variable-as-an-attachment-with-php-mailer/	/blog/sending-a-variable-as-an-attachment-with-php-mailer/  301
 /2016/02/11/aside-from-work-what-do-you-do/	                        /blog/aside-from-work-what-do-you-do/                       301
 /2016/04/24/my-reading-list/	                                    /blog/my-reading-list/                                      301
@@ -26,7 +26,7 @@
 /2018/10/12/drupal-8-introduction/                      	        /blog/drupal-8-introduction/                                301
 /2016/01/18/where-was-i-when-2015-turned-into-2016/                 /blog/where-was-i-when-2015-turned-into-2016/               301
 
-## Pages
-/about/                                                             /                                                           301
-/goals/                                                             /                                                           301
+# Blog => Post Migration in gatsby
+/blog/essay-technology-and-control/                                 /posts/essay-technology-and-control/                        301
+/blog/where-was-i-when-2015-turned-into-2016/                        /posts/where-was-i-when-2015-turned-into-2016/              301
 

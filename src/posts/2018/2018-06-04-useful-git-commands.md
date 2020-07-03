@@ -13,12 +13,21 @@ This is a quick and dirty git cheat sheet of all the commands I frequently forge
 - [Find Unmerged Branches](#find-unmerged-branches)
 - [Export GitLog as a file](#export-log-as-file)
 - [Change commit message](#change-commit-message)
+- [Empty commit message](#commit-nothing)
 
 <hr />
 
+## Commit nothing
+
+Sometimes you need to just commit something to trigger some CI/CD process. This is how you do that:
+
+```
+git commit --allow-empty -m "Trigger notification"
+```
+
 ## See the remote
 
-I frequently mislabel project folders on my local and easily lose track of which remote each directory points to. The solution, this short git config command that shows me the remote URL:
+I frequently mislabel project folders on my local and easily lose-track of the remote each directory points to. The solution, this short git config command that shows me the remote URL:
 
 ```bash
 git config --get remote.origin.url
@@ -66,7 +75,7 @@ ssh -T git@bitbucket.org
 
 ## Find branches that have/not been merged yet
 
-Useful when cleaning out checked out branches from your machine. The last argument is the branch you want to check against, in our example its develop.
+Useful when removing "checked out" branches from your machine. The last argument is the branch you want to check against, in our example here it is develop.
 
 ```bash
 git branch --no-merged develop

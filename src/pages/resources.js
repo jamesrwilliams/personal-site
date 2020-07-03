@@ -2,12 +2,13 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import PageHeader from '../components/page-header/page-header'
 
 const ResourcesPage = () => (
   <Layout>
     <SEO title="Resources" />
-    <article className={'content-container'}>
-      <h1>Resources</h1>
+    <PageHeader title={"Resources"} />
+    <article className={'container'}>
       <p>Here you can find a collection of cool and useful tools and resources I've found over the years. Previously written posts about these put thought I would combine them now:</p>
       <ul className={'full icon-links'}>
         <li className={'divider'}>Example Divider</li>

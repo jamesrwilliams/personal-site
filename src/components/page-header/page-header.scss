@@ -2,16 +2,19 @@
 
 .page-header {
 	font-family: $fonts_heading;
-	padding: 2rem 1rem;
-	transition: padding 1s ease;
+	padding: 1rem 0;
 
 	@media screen and (min-width: ($containerMax + 31.5px)) {
 		padding: 2rem 0;
 	}
 
 	h1 {
-		font-size: 45px;
+		font-size: 28px;
 		word-break: keep-all;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			font-size: 45px;
+		}
 	}
 
 	&.draft-post {

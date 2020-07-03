@@ -151,8 +151,7 @@ module.exports = {
             }),
           }
         ],
-        chunkSize: 10000,
-        enablePartialUpdates: true,
+        chunkSize: 10000
       },
     },
   ],

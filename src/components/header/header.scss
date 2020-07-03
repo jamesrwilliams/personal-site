@@ -1,0 +1,69 @@
+@import './src/styles/_base.scss';
+
+header {
+	padding: 1rem 2rem;
+	background: $brand_blue;
+	font-family: $fonts_heading;
+	position: relative;
+
+	> .container {
+		padding: 0;
+	}
+
+	nav {
+		float: right;
+
+		a {
+			margin-left: 10px;
+			text-decoration: none;
+
+			&.social {
+				padding: 7px 7px;
+				margin-left: 10px;
+			}
+
+			svg {
+				fill: white;
+				width: 17px;
+				vertical-align: middle;
+			}
+
+			&.active {
+				background: #0005;
+			}
+		}
+	}
+
+	a {
+		color: #fff;
+		font-weight: 600;
+		font-size: 14px;
+		padding: 5px 15px 6px;
+		border-radius: 25px;
+		border: 2px solid transparent;
+		transition: background 1s ease;
+
+		&:hover {
+			background: #0005;
+		}
+	}
+}
+
+.site-profile {
+	display: inline-block;
+	text-decoration: none;
+	padding: 0 25px 0 50px;
+	position: relative;
+
+	&:before {
+		content: '';
+		display: inline-block;
+		background-image: url(https://www.gravatar.com/avatar/b2623db89a42dd363c33d1d4df39654a?s=100);
+		background-size: cover;
+		height: 32px;
+		border-radius: 32px;
+		width: 32px;
+		position: absolute;
+		left: 0;
+	}
+}

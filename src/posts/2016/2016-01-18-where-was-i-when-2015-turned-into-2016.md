@@ -1,6 +1,7 @@
 ---
 title: Where was I when 2015 turned into 2016? Is that where I wanted to be?
 date: 2016-01-18T21:30:21+00:00
+updated: 2019-12-04
 aliases: [/2016/01/18/where-was-i-when-2015-turned-into-2016/]
 slug: "where-was-i-when-2015-turned-into-2016"
 ---
