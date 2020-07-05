@@ -4,19 +4,15 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
-
 exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const { createPage } = actions;
   const blogPostTemplate = require.resolve(`./src/templates/postTemplate.js`);
-  const filter = 'filter: { frontmatter: {draft: { ne: true }}}';
   const result = await graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
-        ${activeEnv === 'production' ? filter : '' }
       ) {
         edges {
           node {

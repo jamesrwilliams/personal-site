@@ -1,6 +1,5 @@
 import React from "react";
 import "./page-header.scss";
-import PropTypes from 'prop-types'
 
 const PageHeader = ({ title }) => {
   return (

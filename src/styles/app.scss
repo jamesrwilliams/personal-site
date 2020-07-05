@@ -38,26 +38,17 @@ body {
 	}
 }
 
-.gatsby-highlight {
-	pre {
-		border-radius: 0;
-	}
-}
-
 .container {
-	max-width: 820px;
+	max-width: 960px;
 	margin: 0 auto;
 	padding-left: 1rem;
 	padding-right: 1rem;
+	position: relative;
 
 	@media screen and (min-width: $containerMax) {
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
-}
-
-.container {
-	position: relative;
 
 	&-content {
 
@@ -123,42 +114,12 @@ body {
 
 .footnotes p { display: inline-block; }
 
-pre[class*="language-"] {
-	padding: 1rem;
-	font-size: 70%;
-	max-width: 820px;
-	margin: 0 auto;
-
-	@media screen and (min-width: $breakpoint_sm) {
-		font-size: 80%;
-		padding: 1rem 2rem;
-	}
-}
-
-code[class*="language-"] {
-	font-size: 14px;
-	display: inline-block;
-
-}
-
-:not(pre) > code[class*="language-"] {
-	padding: 2px 5px;
-	background: #eee;
-	color: #000000;
-}
-
-.gatsby-highlight {
-	border-radius: 5px;
-	overflow: hidden;
-	margin-bottom: 1rem;
-}
-
 blockquote {
 	line-height: 1.4em;
 	background: #eee;
 	font-family: $fonts_heading;
 	padding: 2rem;
-	border-left: 1rem solid $brand_blue;
+	border-left: 1rem solid $brand_accent;
 	position: relative;
 	font-size: 1.2rem;
 	display: inline-block;
@@ -195,51 +156,54 @@ ul li {
 	margin-bottom: calc(1.45rem / 6);
 }
 
-footer {
-	border-top: 1px solid #eee;
-	font-size: 14px;
+.hero {
 	font-family: $fonts_heading;
-	background-color: #e9ecef;
-	padding: 1rem 2rem;
-	display: flex;
-	text-align: center;
-	flex-direction: column;
-	justify-content: space-between;
+	height: 50%;
+	padding: 2rem 1rem;
+	color: #fff;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		height: 50%;
+		width: 50%;
+	}
 
 	@media screen and (min-width: $breakpoint_sm) {
-		flex-direction: row;
+		height: calc(100vh - (67px + 50px));
+		padding: 15rem 2rem 5rem;
 	}
 
-	p {
-		padding: 0;
-		font-weight: bold;
-		margin-bottom: 0;
-		opacity: 1;
+	a {
+		color: #fff;
+		font-style: italic;
 	}
 
-	svg {
-		fill: $brand_blue;
-		width: 25px;
-		vertical-align: middle;
-	}
-
-	nav {
-		padding: 1rem 0;
+	h1 {
+		font-family: $fonts_body;
+		font-size: 35px;
 
 		@media screen and (min-width: $breakpoint_sm) {
-			text-align: right;
-			padding: 0;
+			font-size: 70px;
 		}
 	}
 
-	.social a {
-		display: inline-block;
-		margin-right: 15px;
-
-		@media screen and (min-width: $breakpoint_sm) {
-			margin-left: 10px;
-		}
+	article {
+		max-width: 960px;
 	}
-
-
 }
+
+#gatsby-focus-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.larger {
+	font-size: 130%;
+	font-weight: bold;
+}
+
+@import 'syntax-highlighting';
+@import 'footer';

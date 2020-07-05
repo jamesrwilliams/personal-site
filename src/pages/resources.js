@@ -1,6 +1,6 @@
 import React from "react";
 
-import Layout from "../components/layout";
+import Layout from "../components/layout/layout";
 import SEO from "../components/seo";
 import PageHeader from '../components/page-header/page-header'
 
@@ -28,6 +28,7 @@ const ResourcesPage = () => (
       <h2 className={'mb-0'}>Posts / Articles</h2>
       <ul className="full icon-links">
         <li><a href="https://blog.trello.com/maker-vs-manager-productivity">Maker vs. Manager: How To Schedule For Your Productivity Style</a></li>
+        <li><a href="https://bigmedium.com/ideas/only-one-deliverable-matters.html">Only One Deliverable Matters</a></li>
       </ul>
     </article>
   </Layout>

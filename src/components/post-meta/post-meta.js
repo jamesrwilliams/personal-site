@@ -1,6 +1,5 @@
 import React from "react";
 import "./post-meta.scss";
-import PropTypes from 'prop-types'
 
 const PostMeta = ({ meta }) => {
   return (
