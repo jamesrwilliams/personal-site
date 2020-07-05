@@ -152,6 +152,8 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 The final element.
 ```
 
+# Really, really, really, really long heading to test heading link on mobile.
+
 [^1]: A full-stack web developer working in Toronto. https://jamesrwilliams.ca
 [^2]: https://www.lego.com
 [^3]: https://example.com
