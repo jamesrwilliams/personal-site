@@ -54,7 +54,7 @@ module.exports = {
         background_color: `#021526`,
         theme_color: `#021526`,
         display: `minimal-ui`,
-        icon: `static/app-icons/512x512.png`, // This path is relative to the root of the site.
+        icon: `/app-icons/512x512.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sass`,
