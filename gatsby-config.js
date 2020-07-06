@@ -51,10 +51,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#021526`,
+        theme_color: `#021526`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/app-icons/512x512.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sass`,
@@ -137,6 +137,15 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-26549429-1",
+        head: true,
+        defer: true,
+        anonymize: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
