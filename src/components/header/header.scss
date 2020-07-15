@@ -1,7 +1,6 @@
-@import './src/styles/_base.scss';
+@import './src/styles/_variables.scss';
 
 header {
-	padding: 1rem 1rem 0 1rem;
 	background: $brand_blue;
 	font-family: $fonts_heading;
 	position: relative;
@@ -9,6 +8,7 @@ header {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding-top: 15px;
 
 	@media screen and (min-width: $breakpoint_sm) {
 		flex-direction: row;
@@ -99,30 +99,33 @@ header {
 }
 
 .site-profile {
+	height: 30px;
 	display: inline-block;
 	text-decoration: none;
 	position: relative;
-	padding: 0 25px 0 50px;
 	margin-bottom: 1rem;
 	margin-left: 0;
-	border-radius: 27px;
+	padding: 0 25px 0 0;
+	border: 0;
+	border-radius: 30px;
 
 	@media screen and (min-width: $breakpoint_sm) {
-		padding: 0 25px 0 50px;
 		margin-bottom: 0;
 	}
 
-	&:before {
-		content: '';
-		display: inline-block;
-		background-image: url(https://www.gravatar.com/avatar/b2623db89a42dd363c33d1d4df39654a?s=100);
-		background-size: cover;
-		height: 31px;
-		border-radius: 100%;
-		width: 31px;
+	span {
+		vertical-align: top;
+	}
+
+	.gatsby-image-wrapper {
 		position: absolute;
-		left: 0;
+		left: 1px;
 		bottom: 1px;
 		top: 1px;
+		height: 28px;
+		border-radius: 100%;
+		width: 28px;
+		margin-right: 1rem;
+		display: inline-block;
 	}
 }

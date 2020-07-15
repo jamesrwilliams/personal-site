@@ -3,9 +3,9 @@ footer {
 	font-size: 14px;
 	font-family: $fonts_heading;
 	background-color: #e9ecef;
-	padding: .5rem 2rem;
-	display: flex;
 	text-align: center;
+	display: flex;
+	padding: .5rem 2rem;
 	flex-direction: column;
 	justify-content: space-between;
 
@@ -22,7 +22,7 @@ footer {
 
 	svg {
 		fill: $brand_blue;
-		width: 25px;
+		width: 19px;
 		vertical-align: middle;
 	}
 

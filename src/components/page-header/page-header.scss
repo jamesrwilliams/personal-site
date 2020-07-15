@@ -1,4 +1,4 @@
-@import './src/styles/_base.scss';
+@import './src/styles/_variables.scss';
 
 .page-header {
 	font-family: $fonts_heading;
@@ -16,6 +16,7 @@
 		font-family: $fonts_body;
 
 		@media screen and (min-width: $breakpoint_sm) {
+			margin-top: 2rem;
 			font-size: 45px;
 		}
 	}

@@ -14,7 +14,7 @@ import "../../styles/app.scss";
 import Header from "../header/header";
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, wrapperClass }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -30,11 +30,11 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main>
+      <main className={wrapperClass}>
       {children}
       </main>
-      <footer>
-          <p>© {new Date().getFullYear()} James R. Williams <code title={"Hip Hip Array"} style={{ opacity: .2 }}>['hip','hip']</code> <a style={{ color: "inherit", fontWeight: '600', textDecoration: 'none', opacity: .5 }} href="javascript:gaOptout();">Deactivate Google Analytics</a></p>
+      <footer className={'container'}>
+          <p>© {new Date().getFullYear()} James R. Williams <code title={"Hip Hip Array"} style={{ opacity: .2 }}>['hip','hip']</code></p>
           <nav className={'social'}>
             <OutboundLink target={target} rel={'noopener noreferrer'} href="https://www.twitter.com/James_RWilliams">
               <svg className="svg-icon svg-icon-twitter" aria-labelledby="simpleicons-twitter-icon" role="img" aria-label={'Twitter Icon'}  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-twitter-icon">Twitter icon</title>
@@ -70,6 +70,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  wrapperClass: PropTypes.string
 };
 
 export default Layout;
