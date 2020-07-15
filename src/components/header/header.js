@@ -8,7 +8,7 @@ const Header = ({ siteTitle }) => {
 
   const data = useStaticQuery(graphql`
     query {
-      allImageSharp(filter: {id: {eq: "21d43b4e-17ee-5aa6-b31f-9c9bf142ea09"}}) {
+      allImageSharp {
         edges {
           node {
             fluid (maxWidth: 50) {
@@ -21,7 +21,13 @@ const Header = ({ siteTitle }) => {
     }
   `);
 
-  const profileImage = data.allImageSharp.edges[0].node;
+  const _image = data.allImageSharp.edges.find(
+    edge => edge.node.fluid.originalName === 'profile_472 × 473.jpg'
+  );
+
+  if (!_image) {
+    return null
+  }
 
   return (
     <header className={'accent-line-top container'}>
@@ -29,7 +35,7 @@ const Header = ({ siteTitle }) => {
           to="/"
           className="site-profile"
         >
-          <GatsbyImage fluid={profileImage.fluid} />
+          <GatsbyImage fluid={_image.node.fluid} />
           <span>{siteTitle}</span>
         </Link>
         <nav>
