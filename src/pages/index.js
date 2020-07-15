@@ -91,7 +91,7 @@ const IndexPage = () => {
           {projects.map((project, index) => {
             return (
               <li key={index} className={'mb-4'}>
-                <a target={'_blank'} href={project.url} rel={'noopener'}>{project.name}</a>
+                <a target={'_blank'} href={project.url} rel={'noopener noreferrer'}>{project.name}</a>
                 <p>{ project.description }</p>
               </li>
             )
