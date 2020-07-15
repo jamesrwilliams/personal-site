@@ -1,0 +1,121 @@
+.home {
+	font-family: $fonts_heading;
+	background: $brand_blue;
+	color: #fff;
+	display: grid;
+	margin: 0 auto;
+	grid-auto-columns: 1fr;
+	grid-auto-flow: column;
+	grid-template-areas:
+    	'hero'
+    	'posts'
+		'projects';
+	grid-gap: 10px;
+
+	@media screen and (min-width: 600px) {
+		grid-template-areas:
+    		'hero hero'
+   			'posts projects';
+	}
+
+	section h2 {
+		font-family: $fonts_body;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		padding-bottom: 1rem;
+		max-width: 80%;
+	}
+
+	a { color: $brand_accent; font-style: italic; }
+
+	.hero {
+		grid-area: hero;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			padding-bottom: 3rem;
+		}
+
+		h1 {
+			font-size: 10vw;
+			padding: 50px 0 1vw;
+			font-family: $fonts_body;
+
+			@media screen and (min-width: $breakpoint_sm) {
+				font-size: 60px;
+				padding: 20vh 0 1vw;
+			}
+		}
+
+		p {
+			font-family: $fonts_body;
+		}
+	}
+
+	.recent-posts,
+	.current-projects {
+		padding-top: 2rem;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			padding-top: 4rem;
+		}
+
+		li {
+			p {
+				font-size: 14px;
+				line-height: 1.5rem;
+			}
+		}
+	}
+
+	.recent-posts {
+		grid-area: posts;
+		background: $brand_grey;
+		color: $brand_blue;
+		padding-right: 1rem;
+		position: relative;
+		border-top-right-radius: 15px;
+		border-bottom-right-radius: 15px;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			border-bottom-right-radius: 0;
+		}
+
+		h2 {
+			border-bottom-color: rgba($brand_blue, .6);
+		}
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 2rem;
+			margin-left: -2rem;
+			background: $brand_grey;
+
+			@media screen and (min-width: $breakpoint_sm) {
+				margin-left: calc(((100vw - #{960px} ) / 2 ) * -1);
+				width: calc((100vw - #{960px} ) / 2 );
+			}
+		}
+	}
+
+	.current-projects {
+		grid-area: projects;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			padding-left: 4rem;
+		}
+
+		h2 {
+			border-bottom-color: #fff6;
+		}
+
+	}
+
+	p.larger {
+		font-size: 1.5rem;
+	}
+}
