@@ -1,9 +1,9 @@
-/blog/:token                                                        /posts/:token                                               301xit
+/blog/                                                                  /posts/                                                      301
+/blog/:token                                                            /posts/:token                                                301
 
 # WordPress Redirects
 /2018/03/13/sending-a-variable-as-an-attachment-with-php-mailer/        /posts/sending-a-variable-as-an-attachment-with-php-mailer/  301
 /2016/02/11/aside-from-work-what-do-you-do/                             /posts/aside-from-work-what-do-you-do/                       301
-/2016/04/24/my-reading-list/                                            /posts/my-reading-list/                                      301
 /2018/03/19/postcardware/                                               /posts/postcardware/                                         301
 /2017/11/24/life-as-a-web-developer/                                    /posts/article--life-as-a-web-developer/                     301
 /2018/03/13/terminal-zip-folder-contents/                               /posts/zipping-folder-contents/                              301
@@ -12,7 +12,6 @@
 /2018/01/31/source-code-images-with-carbon/                             /posts/awesome-source-code-images-with-carbon/               301
 /2018/03/20/social-links/                                               /posts/social-links/                                         301
 /2018/04/04/terminal-aliases/                                           /posts/terminal-aliases/                                     301
-/2018/04/29/maker-vs-manager-schedules-and-productivity/                /posts/maker-vs-manager-schedules-and-productivity/          301
 /2018/05/29/long-live-the-wordpress-cli/                                /posts/long-live-the-wordpress-cli/                          301
 /2018/05/30/zxcvbn-a-sensible-password-strength-estimator/              /posts/zxcvbn-a-sensible-password-strength-estimator/        301
 /2018/06/04/feature-flags-wordpress-plugin/                             /posts/feature-flags-wordpress-plugin/                       301
@@ -26,6 +25,7 @@
 /2016/01/18/where-was-i-when-2015-turned-into-2016/                     /posts/where-was-i-when-2015-turned-into-2016/               301
 
 # Retired Posts
-/2018/05/08/explain-shell/                                          /resources/                                                 301
-/blog/explain-shell/                                                /resources/                                                 301
-
+/2018/05/08/explain-shell/                                              /resources/                                                  301
+/blog/explain-shell/                                                    /resources/                                                  301
+/blog/awesome-source-code-images-with-carbon/                           /resources/                                                  301
+/blog/maker-vs-manager-schedules-and-productivity/                      /resources/                                                  301
