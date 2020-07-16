@@ -9,8 +9,6 @@ Just before all this COVID-19 imposed lifestyle choices, and after talking about
 
 So with the help of some friends on the part list here are the specs for my first gaming PC:
 
-## Parts
-
 | Component     | Part                                      |
 | ------------- | ----------------------------------------- |
 | CPU           | AMD Ryzen 5 3600 (Overclocked to 4.10GHz) |
@@ -21,6 +19,8 @@ So with the help of some friends on the part list here are the specs for my firs
 | Case          | Corsair Carbide 175R RGB                  |
 | Storage (SSD) | Patriot VPN100 512GB NVME SSD             |
 | Storage (HDD) | Seagate Barracuda Compute 2TB             |
+
+![AMD Ryzen 5 3600 CPU and Gigabyte GeForce GTX 1660 SUPER boxes ](../images/cpu-gpu.jpg)
 
 ### Peripherals
 
@@ -37,6 +37,10 @@ I ran 3DMark's benchmarks initially a week or so after building, In the meantime
 | -------------------- | -------------------------------------------- | ------------------------------------------- |
 | 32 GB / May 5th      | [6,285](https://www.3dmark.com/spy/11868164) | [38,578](https://www.3dmark.com/sd/5911583) |
 | 16 GB / May 1st      | [5,915](https://www.3dmark.com/spy/11790173) | [32,894](https://www.3dmark.com/sd/5905804) |
+
+I installed the stock CPU fan with the top AMD logo to the right initially. I only noticed after trying to install my second RAM kit. So while installing the new RAM I took the time to rotate the fan 90deg to keep the AMD logo chunk at the top. Looking quite tidy now I think:
+
+![CPU Fan in the upright position with all four ram slots filled.](../images/corrected-cpu-fan.jpg)
 
 ## Next Upgrades
 

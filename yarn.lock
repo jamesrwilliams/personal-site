@@ -6481,6 +6481,23 @@ gatsby-remark-autolink-headers@^2.3.5:
     mdast-util-to-string "^1.1.0"
     unist-util-visit "^1.4.1"
 
+gatsby-remark-images@^3.3.19:
+  version "3.3.19"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.3.19.tgz#2f0610f603683ac317f6ff5f205e06b7f765de6b"
+  integrity sha512-37bmHbba/VNoehfrmCyt9mVtSV5s4wUW6d4e9JNb5xWP3Fihvz0Oz/cFeZzmd59eoYLEPlBv9Fsp9GXWkVEUhA==
+  dependencies:
+    "@babel/runtime" "^7.10.3"
+    chalk "^2.4.2"
+    cheerio "^1.0.0-rc.3"
+    gatsby-core-utils "^1.3.12"
+    is-relative-url "^3.0.0"
+    lodash "^4.17.15"
+    mdast-util-definitions "^1.2.5"
+    potrace "^2.1.6"
+    query-string "^6.13.1"
+    unist-util-select "^1.5.0"
+    unist-util-visit-parents "^2.1.2"
+
 gatsby-remark-prismjs@^3.5.3:
   version "3.5.10"
   resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.5.10.tgz#4291818501c2d3f5970830b9509592efaf0f6b07"
@@ -9310,7 +9327,7 @@ mdast-util-compact@^2.0.0:
   dependencies:
     unist-util-visit "^2.0.0"
 
-mdast-util-definitions@^1.2.0:
+mdast-util-definitions@^1.2.0, mdast-util-definitions@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/mdast-util-definitions/-/mdast-util-definitions-1.2.5.tgz#3fe622a4171c774ebd06f11e9f8af7ec53ea5c74"
   integrity sha512-CJXEdoLfiISCDc2JB6QLb79pYfI6+GcIH+W2ox9nMc7od0Pz+bovcHsiq29xAQY6ayqe/9CsK2VzkSJdg1pFYA==
@@ -14272,7 +14289,7 @@ unist-util-visit-children@^1.0.0:
   resolved "https://registry.yarnpkg.com/unist-util-visit-children/-/unist-util-visit-children-1.1.4.tgz#e8a087e58a33a2815f76ea1901c15dec2cb4b432"
   integrity sha512-sA/nXwYRCQVRwZU2/tQWUqJ9JSFM1X3x7JIOsIgSzrFHcfVt6NkzDtKzyxg2cZWkCwGF9CO8x4QNZRJRMK8FeQ==
 
-unist-util-visit-parents@^2.0.0:
+unist-util-visit-parents@^2.0.0, unist-util-visit-parents@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/unist-util-visit-parents/-/unist-util-visit-parents-2.1.2.tgz#25e43e55312166f3348cae6743588781d112c1e9"
   integrity sha512-DyN5vD4NE3aSeB+PXYNKxzGsfocxp6asDc2XXE3b0ekO2BaRUpBicbbUygfSvYfUz1IkmjFR1YF7dPklraMZ2g==

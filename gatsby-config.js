@@ -43,6 +43,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-remark-images`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
     {
@@ -63,6 +64,12 @@ module.exports = {
       options: {
         excerpt_separator: `<!-- end -->`,
         plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 960,
+            },
+          },
           `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-prismjs`,
