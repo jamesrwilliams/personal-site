@@ -3,6 +3,7 @@ title: Quick Save (QS) – Side project
 date: 2018-03-13T08:40:40+00:00
 aliases: [/2018/03/13/quick-save-qs-side-project/]
 slug: "quick-save-side-project"
+jira: POST-31
 ---
 
 During a recent project exploring Javascript encryption, I added an auto-save feature for the form fields so I didn&#8217;t need to constantly repast RSA keys and other configs into the page. I have expanded this into its own library (my first). I used [Krasimir&#8217;s boilerplate][1] for the web pack config.
