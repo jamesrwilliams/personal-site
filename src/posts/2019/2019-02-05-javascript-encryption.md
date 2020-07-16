@@ -76,7 +76,7 @@ Turns out RSA is only able to encrypt data to a maximum amount of your key, but 
 
 ## Enter AES
 
-The Advanced Encryption Standard (AES) is a symmetrical encryption algorithm, one that uses the same keys for encrypting the plain text as it does for decrypting the cypher text, you can think of these as a shared secret that people can use to jointly decrypt the cypher text.
+The Advanced Encryption Standard (AES) is a symmetrical encryption algorithm, that uses the same keys for encrypting the plain text as it does for decrypting the cypher text, you can think of these as a shared secret people can use to jointly decrypt the cypher text.
 
 With AES’s operation modes allow it different methods the length of the data you wish to encrypt. AES has a number of operation modes, these change the way the algorithm works and ultimately how difficult the cypher text is to break.
 
@@ -84,20 +84,20 @@ I settled on the Counter (CTR) mode due to the need to keep the initialisation v
 
 ## Hybrid Approach
 
-Due to the size of our data payload we can't just use RSA (as I naïvely thought at the outset). What would work however is a combination of symmetrical encryption and asymmetrical. With my trusty graph editor yEd, I started diagramming an outline of how this would work. See the graph below, outlining my planned approach. Without the private RSA key the transmitted payload is useless.
+Due to the size of our data payload we can't just use RSA (as I naively thought at the outset). What would work however is a combination of symmetrical encryption and asymmetrical. With my trusty graph editor yEd, I started diagramming an outline of how this would work. See the graph below, outlining my planned approach. Without the private RSA key the transmitted payload is useless.
 
-{{< figure src="/post-images/encryption-graph.png" link="/post-images/encryption-graph.png" alt="Flowchart detailing approach to this system." >}}
+![Flowchart detailing approach to this system.](../images/encryption-graph.png)
 
 ### Encryption
 
-We start by randomly generating the AES counter and key for each round of encryption. Then we encrypt your payload with these, leaving you with an encrypted payload and a plain text counter and key. We then use the public RSA key to encrypt the counter and key leaving us with all three components encrypted.
+We start by randomly generating the AES counter and key for each round of encryption. Then we encrypt your payload with these, leaving you with an encrypted payload, and a plain text counter and key. We then use the public RSA key to encrypt the counter and key leaving us with all three components encrypted.
 
 ### Decryption
 
-Once we have transmitted our data the client can then decrypt using their private key. First use that key to decrypt the counter and key for the AES encryption. Then pass these too the AES decryption process, leaving us with an unencrypted payload.
+Once we have transmitted our data the client can then decrypt using their private key. First use that key to decrypt the counter and key for the AES encryption. Then pass these to the AES decryption process, leaving us with an unencrypted payload.
 
 ## In summary
 
 **TL;DR** - _RSA keys are too small for large encryption. You can solve this by using AES to encrypt your data and then RSA encrypt the AES components (key and initialisation vectors) to have a fully encrypted payload. Winning!_
 
-This was an interesting gander into the world of web encryption and I can guarantee I have done this properly but it was a useful learning experience. I have set up an example project on GitHub showing the two scripts in action with the option to change the keys and encrypt/decrypt strings. Useful for verifying if the encryption is working correctly. Take a look here: [https://jamesrwilliams.github.io/javascript-encryption/](https://jamesrwilliams.github.io/javascript-encryption/)
+This was an interesting gander into the world of web encryption, and I can guarantee I have done this properly, but it was a useful learning experience. I have set up an example project on GitHub showing the two scripts in action with the option to change the keys and encrypt/decrypt strings. Useful for verifying if the encryption is working correctly. Take a look here: [https://jamesrwilliams.github.io/javascript-encryption/](https://jamesrwilliams.github.io/javascript-encryption/)

@@ -8,7 +8,7 @@ slug: "recreating-the-field-set-legend-effect-just-without-the-field-set"
 
 I had a dilemma. A seemingly simple design element that featured a line of text with a border starting from each end and stretching out to the edge of the container. Something like this:
 
-{{< figure src="/post-images/field-set-label-example.png" link="/post-images/field-set-label-example.png" alt="An example of the effect we're looking for" >}}
+![An example of the effect we're looking for](../images/field-set-label-example.png)
 
 Note the background gradient. My first idea here would be to plop a background color fill that matches the background on the text to obscure a border behind it. But that lovely background gradient we're using does not allow for that. Even if you matched the background gradient perfectly, the approach would not really work for images or be very responsive.
 
@@ -26,13 +26,13 @@ Semantically these elements are really useful however you hardly see them anymor
 - **Responsive** - Ensure this works properly on smaller devices, not causing over-scroll or other strange effects. This goes without saying these days.
 - **Minimal code** - Smallest file size, minimal css etc.
 
-You know the effect. A big of text and then a key-line running out of both the left and right sides. The thing is usually. So in an effort to make myself not forget how to do this properly.
+You know the effect. A bit of text and then a key-line running out of both the left and right sides. The thing is usually. So in an effort to make myself not forget how to do this properly.
 
 ## Demo
 
 So my next idea was to use both the `::before` and `::after` pseudo elements to create the lines that precede and follow the text element. Straightforward enough right? So our final implementation would look something like this:
 
-{{< figure src="/post-images/field-set-label-approach.png" link="/post-images/field-set-label-approach.png" alt="An example of the effect we're looking for" >}}
+![An example of the effect we're looking for](../images/field-set-label-approach.png)
 
 ### Getting started
 
@@ -70,7 +70,7 @@ Just a note: _You don't need to use the exact same elements but just take note o
 
 Which should look something like the following. A good starting block:
 
-{{< figure src="/post-images/field-set-label-guide-1.png" link="/post-images/field-set-label-guide-1.png" alt="An example of the effect we're looking for" >}}
+![A centered bit of text with a red and blue square above and below](../images/field-set-label-guide-1.png)
 
 ### Position? Absolutely!
 
@@ -96,7 +96,7 @@ Next off we need to get the before and after blocks to stick to the text element
 
 ## Result
 
-We'll I managed it! With many things I was certainly over thinking it initially and I'm sure there is a easier way to do this but this is an ample solution for my needs. Check out the CodePen mock example I've put together or see the full code here:
+We'll I managed it! With many things I was certainly over thinking it initially, and I'm sure there is an easier way to do this but this is an ample solution for my needs. Check out the CodePen mock example I've put together or see the full code here:
 
 ```scss
 .label {

@@ -4,7 +4,7 @@ date: 2019-01-09T16:29:51-05:00
 slug: "i-emigrated-to-canada"
 ---
 
-{{< figure src="https://media.giphy.com/media/i0f2SCKCv7AsM/giphy-downsized.gif" alt="Canadian flag being waved" class="float-right" >}}
+<img src="https://media.giphy.com/media/i0f2SCKCv7AsM/giphy-downsized.gif" alt="Canadian flag being waved"> 
 
 A little under three months ago, after a year or so of forms and online applications I left the UK, and landed in Canada as a new permanent resident! A move I had been thinking about since early 2016, but towards the end of 2017 I started the process properly and it has been one of the best decisions I've made in my life.
 

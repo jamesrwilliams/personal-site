@@ -37,7 +37,7 @@ See the [MDN Documentation for console.assert()](https://developer.mozilla.org/e
 
 ## Computed property names
 
-Ever forgotten which variable is being logged? Fed up of concatenating a label before the variable you want to output, try wrapping your variable in an object literal.
+Ever forgotten which variable is being logged? No more concatenating a label before the variable you want to output, try wrapping your variable in an object literal.
 
 By doing this the console call will also display the name of the properties alongside their values, useful when you often want to see the name of a variable when outputting via a log message. You can do this with a single variable e.g: `console.log({obj})` or outputting a number of things at once:
 
@@ -76,7 +76,8 @@ console.table(books, ["title", "author"]);
 
 This would look something like this:
 
-{{< figure src="/post-images/console.table-output.jpg" link="/post-images/console.table-output.jpg" alt="Chrome web console.table(); example output." caption="Example output of a console.table() running in Chrome." >}}
+![Chrome web console.table(); example output.](../images/console.table-output.jpg)
+_Example output of a console.table() running in Chrome._
 
 [See the MDN Documentation for console.table() for more.](https://developer.mozilla.org/en-US/docs/Web/API/Console/table)
 
@@ -137,7 +138,7 @@ In the meantime before ending the timer you can call `timeLog()` to log the curr
 console.timeLog("foo");
 ```
 
-I've set up a demo CodePen that uses a setTimeout and a setInterval to showcase these features that you can see here: https://codepen.io/jamesrwilliams/pen/WmepWv
+I've set up a demo CodePen that uses a `setTimeout` and a setInterval to showcase these features that you can see here: https://codepen.io/jamesrwilliams/pen/WmepWv
 
 There is also the `timeStamp()` method which is an **experimental** feature at the time of writing. This lets you add markers to the browsers performance metrics, allowing you to mark a point in your execution with others like layout and paint events. Read more on the MDN docs about [`console.timeStamp()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/timeStamp).
 
@@ -157,7 +158,8 @@ foo();
 
 This would log something like this to your browser console:
 
-{{< figure src="/post-images/console.stack-output.jpg" link="/post-images/console.stack-output.jpg" alt="Chrome web console.trace(); output." caption="Example output of a console.trace() running in Chrome." >}}
+![Chrome web console.trace(); output.](../images/console.stack-output.jpg)
+_Example output of a console.trace() running in Chrome._
 
 ## console.dir()
 
