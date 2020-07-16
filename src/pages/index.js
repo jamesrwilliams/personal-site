@@ -78,7 +78,7 @@ const IndexPage = () => {
       </section>
       <div className="grid container">
         <section className="recent-posts">
-          <h2>✏️ Recent posts</h2>
+          <h2><span role={'img'} aria-label={"pencil icon"}>✏️</span>Recent posts</h2>
           <ul style={{ margin: 0, listStyle: 'none' }}>
             {posts.map((_post, index) => {
               let post = _post.frontmatter
@@ -98,7 +98,7 @@ const IndexPage = () => {
           </ul>
         </section>
         <section className="current-projects">
-          <h2>🛠️ Active projects</h2>
+          <h2><span role={'img'} aria-label={"hammer and wrench icon"}>🛠</span>️ Active projects</h2>
           <ul style={{ margin: 0, listStyle: 'none' }}>
             {projects.map((project, index) => {
               return (

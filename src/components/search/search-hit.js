@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import PostInline from '../post-inline/post-inline'
 
 const SearchHit = ({ hit }) => {
