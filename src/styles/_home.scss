@@ -11,17 +11,14 @@
 		grid-template-areas:
     	'hero'
     	'posts'
-		'projects'
-		'reading'
-		'hire';
+		'projects';
 		grid-gap: 10px;
+		padding-bottom: 5rem;
 
 		@media screen and (min-width: $breakpoint_sm) {
 			grid-template-areas:
     		'hero hero'
-   			'posts projects'
-			'reading reading'
-			'hire hire';
+   			'posts projects';
 		}
 	}
 
@@ -37,7 +34,10 @@
 		}
 	}
 
-	a { color: $brand_accent; font-style: italic; }
+	a {
+		color: $brand_accent;
+		font-style: italic;
+	}
 
 	.hero {
 		grid-area: hero;
@@ -64,8 +64,7 @@
 
 
 	.recent-posts,
-	.current-projects,
-	.currently-reading {
+	.current-projects {
 		padding-top: 2rem;
 
 		@media screen and (min-width: $breakpoint_sm) {
@@ -80,17 +79,9 @@
 		}
 	}
 
-	.currently-reading {
-		grid-area: reading;
-	}
-
 	.recent-posts {
 		grid-area: posts;
 		position: relative;
-	}
-
-	.hire {
-		grid-area: hire;
 	}
 
 	.current-projects {

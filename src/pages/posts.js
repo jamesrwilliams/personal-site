@@ -33,7 +33,7 @@ const PostsPage = () => {
       <main>
         <PageHeader title={"Posts"} />
         <div className="container pt-4">
-          <ul style={{ margin: 0, listStyle: 'none' }}>
+          <ul className={'list-none m-0'}>
             {posts.map((_post, index) => {
               let post = _post.frontmatter;
                   post.excerpt = _post.excerpt;

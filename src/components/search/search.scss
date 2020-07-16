@@ -46,10 +46,12 @@ button:-moz-focusring {
 }
 
 .search-parent {
-	padding: 1rem 0;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 
 	@media screen and (min-width: $breakpoint_sm) {
-		padding: 2rem;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 	}
 }
 
@@ -80,4 +82,12 @@ button:-moz-focusring {
 
 		svg { fill: #fff; }
 	}
+}
+
+
+.ais-Hits-list {
+	margin: 0;
+}
+.ais-Hits-item {
+	list-style: none;
 }
