@@ -3,7 +3,6 @@ title: "Building my own PC"
 date: 2020-04-22T10:55:56-04:00
 slug: "pc-building-part-1"
 jira: "POST-24"
-draft: true
 ---
 
 Just before all this COVID-19 imposed lifestyle choices, and after talking about it for so long, I decided it was time to retire my 2009 27" iMac and change up my computer setup. I use my work laptop (13-inch, 2018 MacBook Pro) for, well work, and any side projects, but gaming on a Mac is not a thing.
@@ -12,7 +11,7 @@ So with the help of some friends on the part list here are the specs for my firs
 
 ## Parts
 
-| Part          | Product                                   |
+| Component     | Part                                      |
 | ------------- | ----------------------------------------- |
 | CPU           | AMD Ryzen 5 3600 (Overclocked to 4.10GHz) |
 | GPU           | Gigabyte GeForce GTX 1660 SUPER 6 GB      |

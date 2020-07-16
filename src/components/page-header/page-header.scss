@@ -2,40 +2,26 @@
 
 .page-header {
 	font-family: $fonts_heading;
-	background-color: #e9ecef;
-	padding: 1rem 0;
+	background-color: $brand_blue;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid $brand_accent;
 
 	@media screen and (min-width: ($containerMax + 31.5px)) {
-		padding: 2rem 0;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
 	}
 
 	h1 {
 		font-size: 28px;
 		word-break: keep-all;
+		color: #fff;
 		margin-bottom: 0;
 		font-family: $fonts_body;
 
 		@media screen and (min-width: $breakpoint_sm) {
-			margin-top: 2rem;
+			padding: 20vh 0 1vw;
 			font-size: 45px;
-		}
-	}
-
-	&.draft-post {
-		h1 {
-			&:before {
-				content: 'Draft';
-				padding: 2px 10px;
-				font-size: 12px;
-				display: block;
-				width: 70px;
-				text-align: center;
-				margin-right: .5rem;
-				margin-bottom: .5rem;
-				background: #DC071D;
-				color: #fff;
-				border-radius: 5px;
-			}
 		}
 	}
 
@@ -50,6 +36,52 @@
 	a {
 		text-decoration: none;
 		color: inherit;
+	}
+
+	&.compressed {
+		h1 {
+			padding-top: 0;
+
+			@media screen and (min-width: $breakpoint_sm) {
+				margin-top: 2rem;
+				font-size: 45px;
+			}
+		}
+	}
+
+
+	.post-meta {
+		font-size: 16px;
+		line-height: 1.4rem;
+		font-family: $fonts_heading;
+		background-color: $brand_blue;
+		padding-top: 1rem;
+		color: $brand_grey;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			padding-bottom: 2rem;
+		}
+
+		.published,
+		.updated,
+		.tags {
+			display: inline-block;
+			margin-right: 2rem;
+
+			span {
+				opacity: .5;
+				text-transform: uppercase;
+				font-size: 12px;
+				display: block;
+				font-weight: 600;
+			}
+
+			time {
+				font-weight: 600;
+				font-size: 14px;
+			}
+		}
+
 	}
 
 }

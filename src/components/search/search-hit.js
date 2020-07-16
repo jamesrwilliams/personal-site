@@ -1,14 +1,17 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import PostInline from '../post-inline/post-inline'
 
-const SearchHit = ({ hit }) => (
-  <div className="search-hit">
+const SearchHit = ({ hit }) => {
 
-    <Link to={'/posts/' + hit.frontmatter.slug}>
-      <div className="title">{hit.frontmatter.title}</div></Link>
-      <p>{hit.excerpt}</p>
+  const post = hit.frontmatter;
+    post.excerpt = hit.excerpt;
 
-  </div>
-)
+  return (
+    <div className="search-hit">
+      <PostInline post={post}/>
+    </div>
+  )
+}
 
 export default SearchHit

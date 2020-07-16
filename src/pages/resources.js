@@ -7,7 +7,7 @@ import PageHeader from '../components/page-header/page-header'
 const ResourcesPage = () => (
   <Layout>
     <SEO title="Resources" />
-    <PageHeader title={"Resources"} />
+    <PageHeader title={"Resources"} compressed />
     <article className={'container container-content pt-4'}>
       <p className={'pb-0 mb-0'}>Here you can find a collection of cool and useful tools and resources I've found over the years. Previously written posts about these put thought I would combine them now:</p>
       <h2 className={'mb-0'}>Sites / Products / Services</h2>

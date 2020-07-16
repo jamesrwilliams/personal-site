@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import PageHeader from '../components/page-header/page-header';
-import PostMeta from '../components/post-meta/post-meta';
 import SEO from '../components/seo'
 
 export default function Template({
@@ -13,8 +12,7 @@ export default function Template({
   return (
     <Layout>
       <SEO title={frontmatter.title} />
-      <PageHeader title={frontmatter.title} keyline={false} />
-      <PostMeta meta={frontmatter} />
+      <PageHeader title={frontmatter.title} keyline={false} post={frontmatter} />
       <div
         className="container container-content pt-4"
         dangerouslySetInnerHTML={{ __html: html }}

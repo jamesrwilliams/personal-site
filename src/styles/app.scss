@@ -1,3 +1,9 @@
+@font-face {
+	font-family: "tabular-numbers";
+	src: local("charter"), local("cambria");
+	unicode-range: U+0030-0039;
+}
+
 @import 'variables';
 @import 'utilities';
 
@@ -17,8 +23,8 @@ html {
 
 body {
 	color: $text_color;
-	background: #fff;
-	font-family: georgia, serif;
+	background: $brand_grey;
+	font-family: "tabular-numbers", georgia, serif;
 	font-weight: normal;
 	word-wrap: break-word;
 	font-kerning: normal;
@@ -39,7 +45,7 @@ body {
 }
 
 .container-content {
-		margin-bottom: 1rem;
+		margin-bottom: 4rem;
 
 		h1,
 		h2,
@@ -157,6 +163,7 @@ ul li {
 	display: flex;
 	flex-direction: column;
 }
+
 
 @import 'syntax-highlighting';
 @import '404';

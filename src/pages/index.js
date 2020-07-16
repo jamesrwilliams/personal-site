@@ -47,6 +47,19 @@ const IndexPage = () => {
           }
         }
       }
+      allBooksBeingRead(limit: 1) {
+        nodes {
+          id
+          link
+          title
+          description
+          year
+          author {
+            link
+            name
+          }
+        }
+        }
 }
   `)
 
@@ -61,8 +74,9 @@ const IndexPage = () => {
         <h1 style={{ color: '#fff' }}>Hey, I'm James</h1>
         <p className={'larger'}>I'm a full-stack web developer based in Toronto, currently working with the wonderful team at <OutboundLink
           rel="noopener noreferrer" style={{ color: '#027BB6' }} target={'_blank'}
-          href="https://points.com">Points</OutboundLink>. I enjoy building delightfully fast, and engaging digital
-          projects.</p>
+          href="https://points.com">Points</OutboundLink>. I enjoy building delightfully fast, and engaging digital projects. Currently focusing exploring</p>
+        <p className={'larger'}>I'm currently reading <a title={book.title + " by " + book.author.name + " on GoodReads.com"} href={book.link}>{book.title}</a> by <a
+          href={book.author.link}>{book.author.name}</a>.</p>
       </section>
       <div className="grid container">
         <section className="recent-posts">
@@ -75,14 +89,11 @@ const IndexPage = () => {
 
               return (
                 <li key={index} className={'mb-4'}>
-                  <Link to={'/posts/' + post.slug}>
-                    <time dateTime={post.date}>{new Intl.DateTimeFormat('en-GB', {
-                      year: 'numeric',
-                      month: 'long',
-                    }).format(date)}</time> - { post.title }
-                  </Link>
-                  <p>{ post.excerpt }</p>
-                  <Link to={'/posts/' + post.slug}>Read more...</Link>
+                  <Link to={'/posts/' + post.slug}>{ post.title }</Link>
+                  <p><time style={{ textTransform: 'uppercase' }} dateTime={post.date}>{new Intl.DateTimeFormat('en-GB', {
+                    year: 'numeric',
+                    month: 'long',
+                  }).format(date)}</time> - { post.excerpt }</p>
                 </li>
               )
             })}
