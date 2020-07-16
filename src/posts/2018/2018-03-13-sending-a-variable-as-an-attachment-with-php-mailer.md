@@ -25,7 +25,7 @@ Applying this to our example could be the following:
 $contents = json_encode($data, JSON_PRETTY_PRINT);
 ```
 
-PHP has had the JSON_PRETTY_PRINT option since 5.4.0.
+PHP has had the `JSON_PRETTY_PRINT` option since v5.4.0.
 
 ```php
 $mail->AddStringAttachement($contents, 'example.json');

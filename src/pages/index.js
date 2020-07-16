@@ -78,7 +78,7 @@ const IndexPage = () => {
       </section>
       <div className="grid container">
         <section className="recent-posts">
-          <h2><span role={'img'} aria-label={"pencil icon"}>✏️</span>Recent posts</h2>
+          <h2><span role={'img'} aria-label={"pencil icon"}>✏️</span> Recent posts</h2>
           <ul style={{ margin: 0, listStyle: 'none' }}>
             {posts.map((_post, index) => {
               let post = _post.frontmatter
