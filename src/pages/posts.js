@@ -39,8 +39,8 @@ const PostsPage = () => {
                   post.excerpt = _post.excerpt;
 
               return (
-                <li key={index} className={'mb-4'}>
-                  <PostInline key={_post.slug} post={post} />
+                <li key={index} id={post.slug} className={'mb-4'}>
+                  <PostInline key={post.slug} post={post} />
                 </li>
               );
             })}

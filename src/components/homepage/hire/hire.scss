@@ -1,0 +1,8 @@
+@import './src/styles/_variables.scss';
+
+.hire {
+	background: darken($brand_blue, 1.5);
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	border-radius: 15px;
+}

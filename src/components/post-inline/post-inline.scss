@@ -4,8 +4,10 @@
 	font-family: $fonts_heading;
 	display: inline-block;
 	vertical-align: top;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 	font-size: 14px;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #eee;
 
 	time {
 		display: block;
@@ -38,6 +40,17 @@
 	.read-more-link {
 		color: $brand_accent;
 		font-weight: bold;
+		display: block;
+		padding: 5px 10px;
+		border: 1px solid $brand_accent;
+		text-align: center;
+		border-radius: 5px;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			display: inline;
+			border: 0;
+			padding: 0;
+		}
 	}
 }
 

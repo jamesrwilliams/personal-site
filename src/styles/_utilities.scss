@@ -13,3 +13,15 @@
 		padding-right: calc((100vw - #{960px}) / 2);
 	}
 }
+
+.container-margin {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 2rem;
+	padding-right: 2rem;
+
+	@media screen and (min-width: $containerMax) {
+		margin-left: calc((100vw - #{960px} - 2rem) / 2);
+		margin-right: calc((100vw - #{960px} - 2rem) / 2);
+	}
+}
