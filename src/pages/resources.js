@@ -31,6 +31,10 @@ const ResourcesPage = () => (
         <li><a href="https://blog.trello.com/maker-vs-manager-productivity">Maker vs. Manager: How To Schedule For Your Productivity Style</a></li>
         <li><a href="https://bigmedium.com/ideas/only-one-deliverable-matters.html">Only One Deliverable Matters</a></li>
       </ul>
+      <h2 className={'mb-0'}>Blogs I follow</h2>
+      <ul className={'full'}>
+        <li><a href="https://slack.engineering/">https://slack.engineering/</a> - The blog from the Slack.app engineering team</li>
+      </ul>
     </article>
   </Layout>
 );
