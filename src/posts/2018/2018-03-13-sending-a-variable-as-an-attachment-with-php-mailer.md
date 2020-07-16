@@ -9,7 +9,7 @@ Recently I've been working on a on-boarding application for an agency client tha
 
 We are using [PHPMailer][1] as a more comprehensive mailing solution rather than PHP's `mail()` function. Let's say our form data looks like this:
 
-```php?linenos=inline
+```php
 $data = ['foo' => 'bar'];
 ```
 
@@ -21,7 +21,7 @@ $mail->AddStringAttachment($contents, $filename);
 
 Applying this to our example could be the following:
 
-```php?noclasses=1
+```php
 $contents = json_encode($data, JSON_PRETTY_PRINT);
 ```
 

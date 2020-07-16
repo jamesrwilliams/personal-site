@@ -30,6 +30,7 @@ const ResourcesPage = () => (
       <ul className="full icon-links">
         <li><a href="https://blog.trello.com/maker-vs-manager-productivity">Maker vs. Manager: How To Schedule For Your Productivity Style</a></li>
         <li><a href="https://bigmedium.com/ideas/only-one-deliverable-matters.html">Only One Deliverable Matters</a></li>
+        <li><a href="https://mailchimp.com/did-you-mean/">Mailchimp.com/did-you-mean/</a> - A cool solution to incorreclty typed product names</li>
       </ul>
       <h2 className={'mb-0'}>Blogs I follow</h2>
       <ul className={'full'}>
