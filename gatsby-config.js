@@ -23,7 +23,7 @@ module.exports = {
   siteMetadata: {
     title: `James R. Williams`,
     siteUrl: `https://jamesrwilliams.ca`,
-    description: ``,
+    description: `I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.`,
     author: `@james_rwilliams`,
   },
   plugins: [
@@ -45,18 +45,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-remark-images`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `JRW`,
-        start_url: `/`,
-        background_color: `#021526`,
-        theme_color: `#021526`,
-        display: `minimal-ui`,
-        icon: `src/images/profile.jpg`, // This path is relative to the root of the site.
-      },
-    },
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-transformer-remark`,
@@ -139,8 +127,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-sitemap`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     {
@@ -180,6 +166,18 @@ module.exports = {
           // Learn about environment variables: https://gatsby.dev/env-vars
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `JRW`,
+        start_url: `/`,
+        background_color: `#021526`,
+        theme_color: `#021526`,
+        display: `minimal-ui`,
+        icon: `/favicon.jpg`, // This path is relative to the root of the site.
       },
     },
   ],
