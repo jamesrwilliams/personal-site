@@ -49,12 +49,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
-        short_name: `starter`,
+        short_name: `JRW`,
         start_url: `/`,
         background_color: `#021526`,
         theme_color: `#021526`,
         display: `minimal-ui`,
-        icon: `512x512.png`, // This path is relative to the root of the site.
+        icon: `src/images/profile.jpg`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sass`,

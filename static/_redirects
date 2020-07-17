@@ -24,8 +24,16 @@
 /2018/10/12/drupal-8-introduction/                                      /posts/drupal-8-introduction/                                301
 /2016/01/18/where-was-i-when-2015-turned-into-2016/                     /posts/where-was-i-when-2015-turned-into-2016/               301
 
+# Corrected slugs
+/posts/recreating-the-field-set-legend-effect-just-without-the-field-set./  /posts/recreating-the-field-set-legend-effect-just-without-the-field-set/   301
+/posts/2020-goals                                                           /posts/personal-development-goals-for-2020/                                 301
+
 # Retired Posts
 /2018/05/08/explain-shell/                                              /resources/                                                  301
 /posts/explain-shell/                                                   /resources/                                                  301
 /posts/awesome-source-code-images-with-carbon/                          /resources/                                                  301
 /posts/maker-vs-manager-schedules-and-productivity/                     /resources/                                                  301
+
+# Other Redirects
+/resume/                                                                /cv/
+/cv/                                                                    https://docs.google.com/document/d/1T1Ohlnh0rdVUGVhlCK3H4n6h2Nr_MxqMuLz92wJI4bg/edit    302

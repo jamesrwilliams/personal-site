@@ -22,7 +22,7 @@ const Header = ({ siteTitle }) => {
   `);
 
   const _image = data.allImageSharp.edges.find(
-    edge => edge.node.fluid.originalName === 'profile_472 × 473.jpg'
+    edge => edge.node.fluid.originalName === 'profile.jpg'
   );
 
   if (!_image) {
