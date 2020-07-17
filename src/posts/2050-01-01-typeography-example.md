@@ -46,6 +46,8 @@ end
 
 #### Header 4
 
+A paragraph with <var>var</var>, key commands like <kbd>CMD + P</kbd>  and `inline code`.    
+
 - This is an unordered list following a header.
 - This is an unordered list following a header.
 - This is an unordered list following a header.
