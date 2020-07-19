@@ -32,12 +32,10 @@ header {
 		display: inline-block;
 		padding: 5px 10px 5px;
 		transition: opacity 1s ease;
-		border-top-right-radius: 10px;
+		border-radius: 25px;
 		vertical-align: bottom;
-		border-top-left-radius: 10px;
 
 		@media screen and (min-width: $breakpoint_sm) {
-			border-radius: 25px;
 			padding: 0 15px;
 			margin: 0 0 0 15px;
 		}

@@ -88,10 +88,7 @@ const IndexPage = () => {
               return (
                 <li key={index} className={'mb-4'}>
                   <Link to={'/posts/' + post.slug}>{ post.title }</Link>
-                  <p><time style={{ textTransform: 'uppercase' }} dateTime={post.date}>{new Intl.DateTimeFormat('en-GB', {
-                    year: 'numeric',
-                    month: 'long',
-                  }).format(date)}</time> - { post.excerpt }</p>
+                  <p>{ post.excerpt }</p>
                 </li>
               )
             })}
