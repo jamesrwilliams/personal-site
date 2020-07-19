@@ -13,6 +13,7 @@ import "../../styles/app.scss";
 
 import Header from "../header/header";
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { Helmet } from 'react-helmet'
 
 const Layout = ({ children, wrapperClass }) => {
   const data = useStaticQuery(graphql`
@@ -27,8 +28,21 @@ const Layout = ({ children, wrapperClass }) => {
 
   var target = '_blank';
 
+  const globalJSONLD = {
+    "@context" : "http://schema.org",
+    "@type" : "Organization",
+    "name" : data.site.siteMetadata.title,
+    "url" : "https://jamesrwilliams.ca",
+    "logo": "https://jamesrwilliams.ca/favicon.png",
+  }
+
   return (
     <>
+      <Helmet>
+        <script type="application/ld+json">
+          { JSON.stringify(globalJSONLD, null, 4) }
+        </script>
+      </Helmet>
       <Header siteTitle={data.site.siteMetadata.title} />
       <main className={wrapperClass}>
       {children}
