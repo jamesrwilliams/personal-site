@@ -7,9 +7,7 @@ require("dotenv").config({
 const searchQuery = `{
    allMarkdownRemark {
     nodes {
-      objectID: id
       excerpt
-      html
       frontmatter {
         title
         date
@@ -151,7 +149,7 @@ module.exports = {
           {
             query: searchQuery,
             transformer: ({ data }) => data.allMarkdownRemark.nodes.map((node) => {
-              node.html = striptags(node.html);
+              node.objectID = node.frontmatter.slug;
               return node;
             }),
           }
