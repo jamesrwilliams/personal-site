@@ -16,7 +16,7 @@ export default function Template({
       <SEO title={frontmatter.title} description={markdownRemark.excerpt} />
       <JSONLD data={data}/>
       <PageHeader title={frontmatter.title} keyline={false} post={frontmatter} />
-      <div
+      <article
         className="container container-content pt-4"
         dangerouslySetInnerHTML={{ __html: html }}
       />

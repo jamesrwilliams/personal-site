@@ -164,8 +164,54 @@ ul li {
 	flex-direction: column;
 }
 
+.img-left,
+.img-right {
+	height: auto;
+	width: calc(50% - 2rem);
+	max-width: 50%;
+	display: inline-block;
+}
+
+.img-left {
+	float: left;
+	margin-right: 2rem;
+}
+
+.img-right {
+	float: right;
+	margin-left: 2rem;
+}
+
+.gatsby-resp-image-wrapper {
+	overflow: hidden;
+	border-radius: 5px;
+}
 
 @import 'syntax-highlighting';
 @import '404';
 @import 'home';
 @import 'footer';
+
+article.container-content {
+	.w-50 {
+		display: block;
+		width: 50%;
+	}
+
+	.fr {
+		float: right;
+		margin-left: 2rem;
+	}
+}
+
+iframe[src*="https://www.openstreetmap.org"] {
+	margin-bottom: 0;
+	border: 0 !important;
+	width: 100%;
+
+	+ small {
+		display: block;
+		margin-top: -1rem;
+		font-size: 12px;
+	}
+}
