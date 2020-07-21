@@ -106,8 +106,9 @@ body {
 blockquote {
 	line-height: 1.4em;
 	background: #eee;
+	font-style: italic;
 	font-family: $fonts_heading;
-	padding: 2rem;
+	padding: 1rem 2rem;
 	border-left: 1rem solid $brand_accent;
 	position: relative;
 	font-size: 1.2rem;

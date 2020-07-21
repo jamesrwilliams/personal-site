@@ -81,9 +81,8 @@ const IndexPage = () => {
           <h2><span role={'img'} aria-label={"pencil icon"}>✏️</span> Recent posts</h2>
           <ul style={{ margin: 0, listStyle: 'none' }}>
             {posts.map((_post, index) => {
-              let post = _post.frontmatter
-              post.excerpt = _post.excerpt
-              let date = new Date(post.date)
+              let post = _post.frontmatter;
+              post.excerpt = _post.excerpt;
 
               return (
                 <li key={index} className={'mb-4'}>
