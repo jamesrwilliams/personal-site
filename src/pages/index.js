@@ -67,7 +67,7 @@ const IndexPage = () => {
 
   return (
     <Layout wrapperClass={'home'}>
-      <SEO/>
+      <SEO description={"I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects."}/>
       <section className={'hero container'}>
         <h1 style={{ color: '#fff' }}>Hey, I'm James</h1>
         <p className={'larger'}>I'm a full-stack web developer based in Toronto, currently working with the wonderful team at <OutboundLink
