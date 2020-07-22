@@ -1,0 +1,129 @@
+@import './src/styles/_variables.scss';
+
+header {
+	background: $brand_blue;
+	font-family: $fonts_heading;
+	position: relative;
+	min-height: 65px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 15px;
+
+	@media screen and (min-width: $breakpoint_sm) {
+		flex-direction: row;
+		padding: 1rem 0 0;
+	}
+
+	@media screen and (min-width: $breakpoint_sm) {
+		padding: 1rem 2rem;
+	}
+
+	nav a:first-child {
+		margin-left: -.5rem;
+	}
+
+	a {
+		color: #fff;
+		text-decoration: none;
+		border: 2px solid transparent;
+		font-weight: 600;
+		font-size: 14px;
+		display: inline-block;
+		padding: 5px 10px 5px;
+		transition: opacity 1s ease;
+		border-radius: 25px;
+		vertical-align: bottom;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			padding: 0 15px;
+			margin: 0 0 0 15px;
+		}
+
+		&:focus {
+			border-color: $brand_grey;
+			outline: 0;
+		}
+
+		&:hover {
+			background: #fff5;
+		}
+
+
+
+		&.search-icon {
+			position: relative;
+			height: 42px;
+			float: right;
+			width: 42px;
+
+			@media screen and (min-width: $breakpoint_sm) {
+				height: 36px;
+			}
+
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -11px;
+				margin-left: -12px;
+				display: inline-block;
+				vertical-align: center;
+				height: 23px;
+				fill: #fff;
+			}
+
+			&:hover {
+				svg {
+					fill: $brand_blue;
+				}
+			}
+		}
+
+		&.active {
+			background: #e9ecef;
+			color: $brand_blue;
+
+			svg { fill: $brand_blue; }
+
+			&:focus {
+				background: $brand_blue;
+				color: #fff;
+
+				svg { fill: #fff; }
+			}
+		}
+	}
+}
+
+.site-profile {
+	height: 30px;
+	display: inline-block;
+	text-decoration: none;
+	position: relative;
+	margin-bottom: 1rem;
+	margin-left: 0;
+	padding: 0 25px 0 0;
+	border: 0;
+	border-radius: 30px;
+
+	@media screen and (min-width: $breakpoint_sm) {
+		margin-bottom: 0;
+	}
+
+	span {
+		vertical-align: top;
+	}
+
+	.gatsby-image-wrapper {
+		position: absolute;
+		left: 1px;
+		bottom: 1px;
+		top: 1px;
+		height: 28px;
+		border-radius: 100%;
+		width: 28px;
+		margin-right: 1rem;
+		display: inline-block;
+	}
+}

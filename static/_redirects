@@ -1,32 +1,39 @@
-# Old WordPress post redirects
+/blog/                                                                  /posts/                                                      301
+/blog/:token                                                            /posts/:token                                                301
 
-## Posts
-/2018/03/13/sending-a-variable-as-an-attachment-with-php-mailer/	/blog/sending-a-variable-as-an-attachment-with-php-mailer/  301
-/2016/02/11/aside-from-work-what-do-you-do/	                        /blog/aside-from-work-what-do-you-do/                       301
-/2016/04/24/my-reading-list/	                                    /blog/my-reading-list/                                      301
-/2018/03/19/postcardware/	                                        /blog/postcardware/                                         301
-/2017/11/24/life-as-a-web-developer/	                            /blog/article--life-as-a-web-developer/                     301
-/2018/03/13/terminal-zip-folder-contents/	                        /blog/zipping-folder-contents/                              301
-/2018/03/13/quick-save-qs-side-project/	                            /blog/quick-save-side-project/                              301
-/2018/05/03/htaccess-redirects/                                     /blog/htaccess-redirects-scratchpad/                        301
-/2018/01/31/source-code-images-with-carbon/	                        /blog/awesome-source-code-images-with-carbon/               301
-/2018/03/20/social-links/	                                        /blog/social-links/                                         301
-/2018/04/04/terminal-aliases/	                                    /blog/terminal-aliases/                                     301
-/2018/04/29/maker-vs-manager-schedules-and-productivity/	        /blog/maker-vs-manager-schedules-and-productivity/          301
-/2018/05/08/explain-shell/	                                        /blog/explain-shell/                                        301
-/2018/05/29/long-live-the-wordpress-cli/	                        /blog/long-live-the-wordpress-cli/                          301
-/2018/05/30/zxcvbn-a-sensible-password-strength-estimator/	        /blog/zxcvbn-a-sensible-password-strength-estimator/        301
-/2018/06/04/feature-flags-wordpress-plugin/	                        /blog/feature-flags-wordpress-plugin/                       301
-/2018/06/04/useful-git-commands/	                                /blog/useful-git-commands/                                  301
-/2018/06/11/server-firewall-csf-files/	                            /blog/a-brief-look-at-server-firewalls-with-csf-files/      301
-/2018/06/29/finding-files-by-size-with-the-command-line/	        /blog/finding-files-by-size-with-the-command-line/          301
-/2018/07/23/autocomplete-branch-names-git/	                        /blog/autocomplete-branch-names-on-the-command-line/        301
-/2018/07/02/fetch-domain-information-with-the-command-line/         /blog/fetch-domain-information-in-the-command-line/         301
-/2018/10/01/run-selenium-standalone-in-a-docker-container/	        /blog/run-selenium-standalone-in-a-docker-container/        301
-/2018/10/12/drupal-8-introduction/                      	        /blog/drupal-8-introduction/                                301
-/2016/01/18/where-was-i-when-2015-turned-into-2016/                 /blog/where-was-i-when-2015-turned-into-2016/               301
+# WordPress Redirects
+/2018/03/13/sending-a-variable-as-an-attachment-with-php-mailer/        /posts/sending-a-variable-as-an-attachment-with-php-mailer/  301
+/2016/02/11/aside-from-work-what-do-you-do/                             /posts/aside-from-work-what-do-you-do/                       301
+/2018/03/19/postcardware/                                               /posts/postcardware/                                         301
+/2017/11/24/life-as-a-web-developer/                                    /posts/article--life-as-a-web-developer/                     301
+/2018/03/13/terminal-zip-folder-contents/                               /posts/zipping-folder-contents/                              301
+/2018/03/13/quick-save-qs-side-project/                                 /posts/quick-save-side-project/                              301
+/2018/05/03/htaccess-redirects/                                         /posts/htaccess-redirects-scratchpad/                        301
+/2018/01/31/source-code-images-with-carbon/                             /posts/awesome-source-code-images-with-carbon/               301
+/2018/03/20/social-links/                                               /posts/social-links/                                         301
+/2018/04/04/terminal-aliases/                                           /posts/terminal-aliases/                                     301
+/2018/05/29/long-live-the-wordpress-cli/                                /posts/long-live-the-wordpress-cli/                          301
+/2018/05/30/zxcvbn-a-sensible-password-strength-estimator/              /posts/zxcvbn-a-sensible-password-strength-estimator/        301
+/2018/06/04/feature-flags-wordpress-plugin/                             /posts/feature-flags-wordpress-plugin/                       301
+/2018/06/04/useful-git-commands/                                        /posts/useful-git-commands/                                  301
+/2018/06/11/server-firewall-csf-files/                                  /posts/a-brief-look-at-server-firewalls-with-csf-files/      301
+/2018/06/29/finding-files-by-size-with-the-command-line/                /posts/finding-files-by-size-with-the-command-line/          301
+/2018/07/23/autocomplete-branch-names-git/                              /posts/autocomplete-branch-names-on-the-command-line/        301
+/2018/07/02/fetch-domain-information-with-the-command-line/             /posts/fetch-domain-information-in-the-command-line/         301
+/2018/10/01/run-selenium-standalone-in-a-docker-container/              /posts/run-selenium-standalone-in-a-docker-container/        301
+/2018/10/12/drupal-8-introduction/                                      /posts/drupal-8-introduction/                                301
+/2016/01/18/where-was-i-when-2015-turned-into-2016/                     /posts/where-was-i-when-2015-turned-into-2016/               301
 
-## Pages
-/about/                                                             /                                                           301
-/goals/                                                             /                                                           301
+# Corrected slugs
+/posts/recreating-the-field-set-legend-effect-just-without-the-field-set./  /posts/recreating-the-field-set-legend-effect-just-without-the-field-set/   301
+/posts/2020-goals                                                           /posts/personal-development-goals-for-2020/                                 301
 
+# Retired Posts
+/2018/05/08/explain-shell/                                              /resources/                                                  301
+/posts/explain-shell/                                                   /resources/                                                  301
+/posts/awesome-source-code-images-with-carbon/                          /resources/                                                  301
+/posts/maker-vs-manager-schedules-and-productivity/                     /resources/                                                  301
+
+# Other Redirects
+/resume/                                                                /cv/
+/cv/                                                                    https://docs.google.com/document/d/1T1Ohlnh0rdVUGVhlCK3H4n6h2Nr_MxqMuLz92wJI4bg/edit    302

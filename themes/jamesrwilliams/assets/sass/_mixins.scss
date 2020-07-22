@@ -1,5 +1,0 @@
-@mixin media-query($breakpoint) {
-	@media screen and (min-width: $breakpoint) {
-		@content;
-	}
-}

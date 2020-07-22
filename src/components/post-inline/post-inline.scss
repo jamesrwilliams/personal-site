@@ -1,0 +1,59 @@
+@import './src/styles/_variables.scss';
+
+.post-inline {
+	font-family: $fonts_heading;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 1rem;
+	font-size: 14px;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #eee;
+
+	time {
+		display: block;
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		text-rendering: optimizelegibility;
+		line-height: 23px;
+	}
+
+	a {
+		color: $brand_blue;
+		text-decoration: none;
+	}
+
+	p {
+		font-family: $fonts_body;
+		max-width: 100%;
+		margin-bottom: 1rem;
+		line-height: 21px;
+	}
+
+	.post-title {
+		display: block;
+		font-size: 23px;
+		margin-bottom: .8125rem;
+		font-weight: 600;
+	}
+
+	.read-more-link {
+		color: #fff;
+		font-weight: bold;
+		display: block;
+		padding: 5px 10px;
+		background: $brand_blue;
+		text-align: center;
+		border-radius: 5px;
+
+		@media screen and (min-width: $breakpoint_sm) {
+			display: inline;
+			background: none;
+			color: $brand_accent;
+			border: 0;
+			padding: 0;
+		}
+	}
+}
+
+

@@ -1,4 +1,0 @@
-# For some reason I can't disable these with Hugo.
-User-agent: *
-Disallow: /tags/
-Disallow: /categories/

@@ -1,6 +1,8 @@
-# Hugo default output directory
+# Output directory
 /public
 # /resources Due to https://github.com/netlify/build-image/issues/182#issuecomment-464271271
+.cache
+/.env.*
 
 ## OS Files
 # Windows
@@ -14,3 +16,5 @@ $RECYCLE.BIN/
 
 ## IDE Stuff
 .idea
+
+/.env
