@@ -11,11 +11,11 @@ With COVID-19 cancelling all my travel plans for the year, and finding myself wi
 
 I had already moved all my side project work onto my new Points work laptop (a 13-inch, 2018 MacBook Pro) so the reasons to keep the iMac were getting smaller and smaller. Epically when my new MacBook can out preform my iMac!
 
-After a few years of attempting to game on it using Mac OSX Boot Camp it was time I joined the big leagues and built myself my own gaming PC. A perfect way to spend my first bonus from Points!
+After a few years of attempting to game on it with Mac OSX Boot Camp it was time I joined the big leagues and built myself my own gaming PC. A perfect way to spend my first bonus from Points!
 
 ## Parts
 
-With the help of some colleagues at Points and lots of searching on PCPartPicker I settled on the following part list here are the specs for my first gaming PC:
+With the help of some colleagues at Points and lots of searching on PCPartPicker, I settled on the following part list here are the specs for my first gaming PC:
 
 | Components    |                                           |
 | ------------- | ----------------------------------------- |
@@ -35,11 +35,13 @@ With the help of some colleagues at Points and lots of searching on PCPartPicker
 | Mouse       | Razer Deathadder Essential           | 
 | Dock        | Dell 6000 USB-C Dock                 |
 
-_The dock is super handy for connecting my MacBook to my monitor and for charging without a myriad of cables. It also mirrors my setup almost at the Points office which is convenient._
+The dock is super handy for connecting my MacBook to my monitor and for charging without a myriad of cables. It also mirrors my setup almost at the Points office which is convenient.
 
 ## The Build
 
-I installed the stock CPU fan with the top AMD logo to the right initially. I only noticed after trying to install my second RAM kit. So while installing the new RAM I took the time to rotate the fan 90deg to keep the AMD logo chunk at the top. Looking quite tidy now I think:
+The build went well apart from one thing, after spending a few minutes working out why it wouldn't post after I had finished building, I noticed I had wired the front panel connectors to the wrong connections on my Motherboard, so my start button wasn't doing anything!
+
+A day or so after I noticed that I had installed the stock CPU fan with the top AMD logo off by 90deg to the right. So while installing my second RAM kit, I took the time to rotate the fan 90deg to keep the AMD logo chunk at the top. Looking quite tidy now I think:
 
 ![CPU Fan in the upright position with all four ram slots filled.](../images/corrected-cpu-fan.jpg)
 
@@ -54,7 +56,7 @@ I ran 3DMark's benchmarks initially a week or so after building just before deci
 
 ## Next Upgrades
 
-Probably not wise that I'm overclocking with a stock CPU cooler, I'll be looking into an after market one soon. I've been looking at some all-in-one liquid coolers, but these might be a little overkill for my current setup and usage. One thing I am certainly going to buy soon is another SSD for games. My poor M.2 boot drive is under way too much usage with Steam games at the moment. 
+Probably not wise that I'm overclocking with a stock CPU cooler, I'll be looking into an after market one soon, potentially going to go for an all-in-one liquid cooler, but these might be a little overkill for my current setup and usage. One thing I am certainly going to buy soon is another SSD for games. My poor M.2 boot drive is under way too much usage with Steam games at the moment.
 
 
 

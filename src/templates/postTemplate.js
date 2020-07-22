@@ -36,7 +36,6 @@ export const pageQuery = graphql`
         updated(formatString: "MMMM DD, YYYY")
         slug
         title
-        draft
       }
     }
   }
