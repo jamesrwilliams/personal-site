@@ -172,8 +172,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `jamesrwilliams.ca`,
         short_name: `JRW`,
+        lang: `en`,
         start_url: `/`,
         background_color: `#021526`,
         theme_color: `#021526`,
