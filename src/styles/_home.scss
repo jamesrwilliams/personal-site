@@ -35,7 +35,7 @@
 	}
 
 	a {
-		color: $brand_accent;
+		color: lighten($brand_accent, 5);
 		display: inline-block;
 		margin-bottom: .7em;
 	}
