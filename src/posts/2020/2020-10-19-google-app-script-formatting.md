@@ -5,9 +5,9 @@ slug: "complex-formatting-in-google-sheets-with-apps-script"
 jira: "POST-33"
 ---
 
-As part of a recent side project I've been exploring ways to apply rich text formatting to Google Sheets programmatically. Google Workspace (previously G Suite) comes with an extensive suite of APIs for interacting with its products called [Google Apps Script](https://developers.google.com/apps-script), a Javascript environment that runs in the cloud, where you can use a number of APIs for products like the Docs, Sheets, and Gmail to name a few.
+As part of a recent side project I've been exploring ways to apply rich text formatting to Google Sheets programmatically. Google Workspace (previously G Suite) comes with an extensive suite of APIs for interacting with its products called [Google Apps Script](https://developers.google.com/apps-script), a Javascript environment that runs in the cloud, where you can use a number of APIs for products like the Docs, Sheets, and Gmail.
 
-The goal here is to apply text formatting to number of strings for our translation partner to then translate. These strings may include any combination of things like templating tags (like liquid), angular syntax, and/or regular ol' HTML. Any of these are to be highlight in red, meaning "don't translate". 
+My goal is to apply text formatting to number of strings for our translation partner to then translate. These strings may include any combination of things like templating tags (like liquid), angular syntax, and/or regular ol' HTML. Any of these are to be highlight in red, meaning "don't translate". 
 
 If our string was `<p>hello</p>`, we'd only want the word "hello" translated. A more complex, visual example:
 
@@ -28,13 +28,11 @@ Turns out you can do this with Apps Script! After gathering some test cases, I d
 - *Formatting* - How to use App Script to read Google Sheet's content, and apply formatting to it. 
 - *Parsing* - How can I intake a string and return only the bits we want to be translated. 
 
-In this post I'm only going to address the formatting component as the parsing component turned into something far more complicated than I anticipated.
+In this post I'm only going to address the formatting component as the "*Parsing*" component turned into something far more complicated than I anticipated.
 
 ## Breaking ground
 
-To get started create a new Google Sheet in your Google drive. From the top menu navigate to "Tools" => "Script Editor". This will open a new Apps Script project for this document. This is a fully-grown IDE for any Apps scripts where we will be putting our code. To find out more about the IDE and App scripts checkout the [Apps Script developers site](https://developers.google.com/apps-script).
-
-When you first set things up you will probably need to grant the script some OAuth permissions to "See, edit, create, and delete your spreadsheets in Google Drive".
+To get started create a new Google Sheet in your Google drive. From the top menu navigate to "Tools" => "Script Editor". This will open a new Apps Script project for this document. This is a fully-grown IDE for any Apps scripts where we will be putting our code. To find out more about the IDE and App scripts checkout the [Apps Script developers site](https://developers.google.com/apps-script). When you first run your script you will probably need to grant the script some OAuth permissions to "See, edit, create, and delete your spreadsheets in Google Drive".
 
 ## Adding a trigger
  
@@ -59,7 +57,7 @@ function onOpen() {
 
 ## Reading a Range of values
 
-Now we have a button that triggers a function, it's time to make it do things. I only need column A's values, so I'm hard coding my specific input range (A2:A999), which is column A down to the 999th row, plenty of results to get started with.
+Now we have a button that triggers a function, it's time to make it do things. I only need the values from column `A`, so I'm hard coding my specific input range (A2:A999), which is column A down to the 999th row, plenty of results to get started with.
 
 ```js
 function myCustomFunction() {
@@ -84,14 +82,12 @@ function myCustomFunction() {
 
 ## Side note on Debugging
 
-You can't use things like `console.log` within app scripts as the code isn't executed in the browser. You can use the [Logger](https://developers.google.com/apps-script/class_logger) class provided by Apps Script and then view the results in the IDE under View > Logs, or even use [`Browser.msgBox()`](https://developers.google.com/apps-script/reference/base/browser#msgBox(String,ButtonSet)) to show a Google native message box within your application usage context.
+You can't use things like `console.log` within app scripts as the code isn't executed in the browser. You can however, use the [Logger](https://developers.google.com/apps-script/class_logger) class provided by Apps Script and then view the results in the IDE under View > Logs. A more direct approach is to use the [`Browser.msgBox()`](https://developers.google.com/apps-script/reference/base/browser#msgBox(String,ButtonSet)) to show a Google native message box within your application usage context.
 
 ## Parsing values & Using an external API
 
 For the sake of reducing complexity of this example. I'm going to brush over how the REST endpoint logic works in detail. 
-In summary, it ingests an array of strings and returns an array of found results (a pair of start and end offsets of the string). We will use these start/end pairs as indexes to apply our custom formatting in a moment.
-
-This is a reference of how to make a REST call inside Google App Scripts. Adding the `UrlFetchApp()` method to your code will trigger an OAuth dialog to reappear as the permissions your app now needs have changed.
+In summary, it ingests an array of strings and returns an array of found results (a pair of start and end offsets of the string). We will use these start/end pairs as indexes to apply our custom formatting in a moment. The following is a reference of how to make a REST call inside Google App Scripts:
 
 ```js
 var options = {
@@ -111,15 +107,15 @@ translatableStrings.forEach((row, index) => {
 });
 ```
 
-
+Adding the `UrlFetchApp()` method to your code will trigger an OAuth dialog to reappear as the permissions your app now needs have changed.
 
 ## Rich Text Formatting
 
-We've now got an array of our original values stored in `entries`, and an array of offsets denoting the start and end of each substring that we want to be translated. Time for formatting. I abstracted the formatting portion into its own function that accepts a string and returns a rich formatted string.
+We've now got an array of our original values stored in `entries`, and an array of offsets denoting the start and end of each substring that we want to be translated in `translatableStrings`. Time for formatting. I abstracted the formatting portion into its own function that accepts a string, an array of offsets (start & end pairs), and returns a rich formatted string.
 
 ```js
 /**
- * Wrapper function
+ * Apply highlight formatting to input strings and other terrible function comments
  *
  * @param {string} input The string value we're formatting.
  * @param {array} offsets An array of offset pairs.
