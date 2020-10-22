@@ -1,6 +1,6 @@
 ---
 title: Programmatic text formatting in Google Sheets with Google Apps Script
-date: 2020-10-19
+date: 2020-10-22
 slug: "programmatic-text-formatting-in-google-sheets"
 jira: "POST-33"
 ---
@@ -80,11 +80,11 @@ function myCustomFunction() {
 }
 ```
 
-## Side note on Debugging
+## Side note on debugging
 
 You can't use things like `console.log` within Apps Scripts as the code isn't executed in the browser. You can however, use the [Logger](https://developers.google.com/apps-script/class_logger) class and then view the results in the IDE under View > Logs. A more direct approach is to use the [`Browser.msgBox()`](https://developers.google.com/apps-script/reference/base/browser#msgBox(String,ButtonSet)) to show a Google native message box within your application usage context.
 
-## Parsing values & Using an external API
+## Parsing values & using an external API
 
 For the sake of reducing complexity of this example. I'm going to brush over how the REST endpoint logic works in detail but, in summary, it ingests an array of strings and returns an array of found results (a pair of start and end offsets of the string). 
 We will use these start/end pairs as indexes to apply our custom formatting in a moment. The following is a reference of how to make a REST call inside Google App Scripts:
@@ -109,7 +109,7 @@ translatableStrings.forEach((row, index) => {
 
 Adding the `UrlFetchApp()` method to your code will trigger an OAuth dialog to reappear as the permissions your app now needs have changed.
 
-## Rich Text Formatting
+## Rich text formatting
 
 We've now got an array of our original values stored in `entries`, and an array of offsets denoting the start and end of each substring that we want to be formatted in `translatableStrings`. Time for formatting. I abstracted the formatting logic into its own function that accepts a string, an array of offsets (start & end pairs), and returns a rich formatted string.
 
