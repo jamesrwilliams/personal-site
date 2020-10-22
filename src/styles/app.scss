@@ -60,6 +60,10 @@ body {
 
 		a {
 			color: $brand_blue;
+
+			> code:hover {
+				text-decoration: underline;
+			}
 		}
 
 		hr {
@@ -101,7 +105,16 @@ body {
 		}
 }
 
-.footnotes p { display: inline-block; }
+.footnotes {
+	p {
+		display: inline;
+		vertical-align: top;
+	}
+	.footnote-backref {
+		margin-left: 1rem;
+		text-decoration: none;
+	}
+}
 
 blockquote {
 	line-height: 1.4em;
