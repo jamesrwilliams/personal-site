@@ -5,10 +5,10 @@ function JSONLD({ data }) {
 
   const post = data.markdownRemark;
 
-  let jsonLD = {
+  const jsonLD = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "description": "We love to do stuff to help people and stuff",
+    "description": "I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.",
     "publisher": "James R. Williams",
     "datePublished": post.frontmatter.date,
     "headline": post.frontmatter.title,
@@ -37,11 +37,10 @@ function JSONLD({ data }) {
     jsonLD['description'] = post.excerpt;
   }
 
-  return (
+  const JSONString = JSON.stringify(jsonLD, null, 4);
 
-    <script type="application/ld+json">
-      { JSON.stringify(jsonLD, null, 4) }
-    </script>
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSONString }} />
   );
 }
 
