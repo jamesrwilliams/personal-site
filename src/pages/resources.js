@@ -19,6 +19,7 @@ const ResourcesPage = () => (
         <li><a href="https://whocanuse.com/">whocanuse.com</a> - It's a tool that brings attention and understanding to how color contrast can affect different people with visual impairments.</li>
         <li><a href="https://www.notion.vip/icons/">notion.vip/icons/</a> - The free icon set from the people behind Notion.app</li>
         <li><a href="https://undraw.co">undraw.co</a> - A collection of open-source illustrations for any idea you can imagine and create.</li>
+        <li><a href="https://getwaves.io/">getwaves.io</a> - A free SVG wave generator to make unique SVG waves. Choose a curve, adjust complexity, and even randomize.</li>
       </ul>
       <h2 className={'mb-0'}>GitHub projects</h2>
       <ul className={'full icon-links'}>
