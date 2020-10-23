@@ -26,7 +26,7 @@ function SEO({ description, lang, meta, title, image, published_time }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const defaultImage = image || '/favicon.png';
+  const defaultImage = image || 'favicon.png';
 
   const metaData = [
     {
@@ -51,7 +51,7 @@ function SEO({ description, lang, meta, title, image, published_time }) {
     },
     {
       property: 'og:image',
-      content: defaultImage,
+      content: 'https://jamesrwilliams.ca/' + defaultImage,
     },
     {
       name: `twitter:card`,
