@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 function SEO({ description, lang, meta, title, image, published_time }) {
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,13 +26,14 @@ function SEO({ description, lang, meta, title, image, published_time }) {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultImage = image || 'favicon.png';
-
   const metaData = [
     {
+      name: `author`,
+      content: site.siteMetadata.author
+    },
+    {
       name: `description`,
-      content: metaDescription,
+      content: description,
     },
     {
       property: `og:title`,
@@ -39,7 +41,7 @@ function SEO({ description, lang, meta, title, image, published_time }) {
     },
     {
       property: `og:description`,
-      content: metaDescription,
+      content: description,
     },
     {
       property: `og:type`,
@@ -47,11 +49,11 @@ function SEO({ description, lang, meta, title, image, published_time }) {
     },
     {
       property: `og:url`,
-      content: `website`,
+      content: window.location.href,
     },
     {
       property: 'og:image',
-      content: 'https://jamesrwilliams.ca/' + defaultImage,
+      content: 'https://jamesrwilliams.ca/' + image.url,
     },
     {
       name: `twitter:card`,
@@ -59,7 +61,7 @@ function SEO({ description, lang, meta, title, image, published_time }) {
     },
     {
       name: `twitter:creator`,
-      content: site.siteMetadata.author,
+      content:  site.siteMetadata.twitter,
     },
     {
       name: `twitter:title`,
@@ -67,8 +69,20 @@ function SEO({ description, lang, meta, title, image, published_time }) {
     },
     {
       name: `twitter:description`,
-      content: metaDescription,
+      content: description,
     },
+    {
+      name: 'twitter:image:src',
+      content: 'https://jamesrwilliams.ca/' + image.url,
+    },
+    {
+      name: 'twitter:image:width',
+      content: image.height
+    },
+    {
+      name: 'twitter:image:height',
+      content: image.height
+    }
   ];
 
   if(published_time) {
@@ -94,8 +108,12 @@ function SEO({ description, lang, meta, title, image, published_time }) {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
-  image: ``
+  description: '',
+  image: {
+    url: 'favicon.png',
+    height: 512,
+    width: 512
+  }
 };
 
 SEO.propTypes = {
@@ -103,7 +121,11 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.shape({
+    height: PropTypes.number,
+    width: PropTypes.number,
+    url: PropTypes.string
+  }),
 };
 
 export default SEO;

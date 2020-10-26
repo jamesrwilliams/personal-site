@@ -42,7 +42,6 @@ const Layout = ({ children, wrapperClass }) => {
         <script type="application/ld+json">
           { JSON.stringify(globalJSONLD, null, 4) }
         </script>
-        <meta name="author" content="James R. Williams" />
       </Helmet>
       <Header siteTitle={data.site.siteMetadata.title} />
       <main className={wrapperClass}>
