@@ -11,7 +11,7 @@ const PageHeader = ({ title, compressed, post }) => {
             <div className={"post-meta" }>
                 <div className="published">
                 <span>Published</span>
-                <time dateTime="{ post.date }">{post.date}</time>
+                <time dateTime={ new Date(post.date).toISOString() }>{post.date}</time>
                 </div>
                 {post.updated !== null &&
                   <div className="updated">

@@ -11,10 +11,12 @@ export default function Template({
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
 
+  const postDate = new Date(frontmatter.date).toISOString();
+
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={markdownRemark.excerpt} />
-      <JSONLD data={data}/>
+      <SEO title={frontmatter.title} description={markdownRemark.excerpt} published_time={postDate} path={frontmatter.slug} />
+      <JSONLD data={data} />
       <PageHeader title={frontmatter.title} keyline={false} post={frontmatter} />
       <article
         className="container container-content pt-4"
