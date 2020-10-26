@@ -20,7 +20,8 @@ const Layout = ({ children, wrapperClass }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
+          title,
+          buildId
         }
       }
     }
@@ -36,6 +37,8 @@ const Layout = ({ children, wrapperClass }) => {
     "logo": "https://jamesrwilliams.ca/favicon.png",
   }
 
+  var buildID = data.site.siteMetadata.buildId;
+
   return (
     <>
       <Helmet>
@@ -47,8 +50,8 @@ const Layout = ({ children, wrapperClass }) => {
       <main className={wrapperClass}>
       {children}
       </main>
-      <footer className={'container'}>
-          <p>© {new Date().getFullYear()} James R. Williams <code title={"Hip Hip Array"} style={{ opacity: .2 }}>['hip','hip']</code></p>
+      <footer className={'container'} data-build-id={buildID}>
+        <p>© {new Date().getFullYear()} James R. Williams <code title={"Hip Hip Array "} style={{ opacity: .2 }}>['hip','hip']</code></p>
           <nav className={'social'}>
             <OutboundLink target={target} rel={'noopener noreferrer'} href="https://www.twitter.com/James_RWilliams">
               <svg className="svg-icon svg-icon-twitter" aria-labelledby="simpleicons-twitter-icon" role="img" aria-label={'Twitter Icon'}  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-twitter-icon">Twitter icon</title>
