@@ -15,8 +15,8 @@ export default function Template({
 
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={markdownRemark.excerpt} published_time={postDate} />
-      <JSONLD data={data}/>
+      <SEO title={frontmatter.title} description={markdownRemark.excerpt} published_time={postDate} path={frontmatter.slug} />
+      <JSONLD data={data} />
       <PageHeader title={frontmatter.title} keyline={false} post={frontmatter} />
       <article
         className="container container-content pt-4"

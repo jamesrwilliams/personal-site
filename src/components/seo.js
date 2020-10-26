@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, title, image, published_time }) {
+function SEO({ description, lang, meta, title, image, published_time, path }) {
 
   const { site } = useStaticQuery(
     graphql`
@@ -49,7 +49,7 @@ function SEO({ description, lang, meta, title, image, published_time }) {
     },
     {
       property: `og:url`,
-      content: window.location.href,
+      content: 'https://jamesrwilliams.ca/' + (path ? path : ''),
     },
     {
       property: 'og:image',
@@ -90,6 +90,10 @@ function SEO({ description, lang, meta, title, image, published_time }) {
       name: 'article:published_time',
       content: published_time
     })
+  }
+
+  if(path) {
+
   }
 
   return (
