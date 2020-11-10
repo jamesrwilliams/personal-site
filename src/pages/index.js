@@ -72,8 +72,8 @@ const IndexPage = () => {
         <h1 style={{ color: '#fff' }}>Hey, I'm James</h1>
         <p className={'larger'}>I'm a full-stack web developer based in Toronto, currently working with the wonderful team at <OutboundLink
           rel="noopener noreferrer" target={'_blank'}
-          href="https://points.com">Points</OutboundLink>, who enjoys building delightfully fast, easy to use, and engaging digital projects.</p>
-        <p className={'larger'}>I'm currently reading <a title={book.title + " by " + book.author.name + " on GoodReads.com"} href={book.link}>{book.title}</a> by <a
+          href="https://points.com" style={{ marginBottom: 0 }}>Points</OutboundLink>, who enjoys building delightfully fast, easy to use, and engaging digital projects.</p>
+        <p className={'larger'}>I'm currently reading <a style={{ marginBottom: 0 }} title={book.title + " by " + book.author.name + " on GoodReads.com"} href={book.link}>{book.title}</a> by <a
           href={book.author.link}>{book.author.name}</a>.</p>
       </section>
       <div className="grid container">
