@@ -1,8 +1,7 @@
-import React from 'react';
-import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox, Hits } from 'react-instantsearch-dom';
-import './search.scss';
-import SearchHit from './search-hit';
+import React from 'react'
+import algoliasearch from 'algoliasearch/lite'
+import { Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom'
+import SearchHit from './search-hit'
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,

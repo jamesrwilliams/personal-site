@@ -1,5 +1,5 @@
 import React from 'react'
-import PostInline from '../post-inline/post-inline'
+import PostLink from '../PostLink/PostLink'
 
 const SearchHit = ({ hit }) => {
 
@@ -8,7 +8,7 @@ const SearchHit = ({ hit }) => {
 
   return (
     <div className="search-hit">
-      <PostInline post={post}/>
+      <PostLink post={post}/>
     </div>
   )
 }

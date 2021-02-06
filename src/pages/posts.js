@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import Layout from "../components/layout/layout";
-import SEO from "../components/seo";
-import PostInline from "../components/post-inline/post-inline";
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import Layout from '../components/Layout/Layout'
+import SEO from '../components/utilities/seo'
 import PageHeader from '../components/page-header/page-header'
+import PostLink from '../components/PostLink/PostLink'
 
 const PostsPage = () => {
   const data = useStaticQuery(graphql`
@@ -36,12 +36,8 @@ const PostsPage = () => {
           <ul className={'list-none m-0'}>
             {posts.map((_post, index) => {
               let post = _post.frontmatter;
-                  post.excerpt = _post.excerpt;
-
               return (
-                <li key={index} id={post.slug} className={'mb-4'}>
-                  <PostInline key={post.slug} post={post} />
-                </li>
+                <PostLink post={post} />
               );
             })}
           </ul>

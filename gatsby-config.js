@@ -45,7 +45,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-remark-images`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -131,7 +131,6 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

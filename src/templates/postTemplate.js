@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/layout/layout";
-import PageHeader from '../components/page-header/page-header';
-import SEO from '../components/seo'
-import JSONLD from '../components/json-ld/json-ld'
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout/Layout'
+import PageHeader from '../components/page-header/page-header'
+import SEO from '../components/utilities/seo'
+import JSONLD from '../components/utilities/json-ld'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.

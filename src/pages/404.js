@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import Layout from "../components/layout/layout";
-import SEO from "../components/seo";
+import Layout from '../components/Layout/Layout'
+import SEO from '../components/utilities/seo'
 import PageHeader from '../components/page-header/page-header'
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
 
 const NotFoundPage = () => (
   <Layout wrapperClass={'page-404'}>
