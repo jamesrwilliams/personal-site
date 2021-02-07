@@ -37,3 +37,4 @@
 # Other Redirects
 /resume/                                                                /cv/
 /cv/                                                                    https://docs.google.com/document/d/1T1Ohlnh0rdVUGVhlCK3H4n6h2Nr_MxqMuLz92wJI4bg/edit    302
+/search/                                                                /posts/                                                     301

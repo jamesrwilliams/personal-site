@@ -2,6 +2,7 @@
 title: Building a React component live editor
 date: 2021-01-28
 slug: "building-a-react-component-live-editor"
+draft: true
 ---
 
 My day job at points often involves making minor copy and style updates to marketing messaging for our wider product suite. These little marketing banners are usually built using a Node CLI that I wrote when I first got the job about two years ago, that does most of the leg work for formatting and combining the HTML/CSS/Javascript into a single file and a few utility tasks also.
@@ -13,6 +14,8 @@ The annoying part of that was I still had to get the data from the provided tran
 ## Mainspring
 
 This little side project I started back in September 2020 was to make all these marketing banners I write editable. Not just by myself or other members of my dev team, but by anyone at the company through a web app. Instead of the usual request tickets being required to do the simplest change or update, now anyone at the company to generate branded templates,  relationship managers wanting to see what options are available too them, and the team configuring these into our product can make any necessary changes on the fly, no need for us to get involved.
+
+Think of this as a sort of Storybook where we can both view examples of deliverables and also change their content. It just so happens we use the output of this directly in our product.
 
 ### Change of process
 

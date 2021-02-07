@@ -5,13 +5,13 @@ require("dotenv").config({
 })
 
 const searchQuery = `{
-   allMarkdownRemark {
+   allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
     nodes {
       excerpt
       frontmatter {
         title
-        date
         slug
+        post_date_timestamp: date(formatString: "X")
       }
     }
   }
@@ -151,11 +151,14 @@ module.exports = {
             query: searchQuery,
             transformer: ({ data }) => data.allMarkdownRemark.nodes.map((node) => {
               node.objectID = node.frontmatter.slug;
-              return node;
+              const output = {...node, ...node.frontmatter};
+              delete output.frontmatter;
+              delete output.slug;
+              // Don't make index changes here unless it's not possible using the GraphQL query on #L7.
+              return output;
             }),
           }
         ],
-        chunkSize: 10000
       },
     },
     {

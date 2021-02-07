@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
+      padding: '2rem',
     },
     colors: {
       transparent: 'transparent',
@@ -14,11 +15,14 @@ module.exports = {
         DEFAULT: '#021526',
         dark: '#010E18',
       },
+      indigo: colors.indigo,
       white: colors.white,
       black: colors.black,
       gray: colors.trueGray,
     }
   },
   variants: {},
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/typography'),
+  ],
 }

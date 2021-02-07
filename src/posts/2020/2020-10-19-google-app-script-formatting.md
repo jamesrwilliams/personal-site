@@ -17,11 +17,7 @@ If our string was `<p>hello</p>`, we'd only want the word "hello" translated, to
 
 We would want to look like:
 
----
-
 <span style="color: #f00">&lt;p&gt;</span>Please <span style="color: #f00">&lt;a target="_top" href="%retry.url%"&gt;</span>click here<span style="color: #f00">&lt;/a&gt;</span> to try your purchase again.<span style="color: #f00">&lt;/p&gt;</span>
-
----
 
 Turns out you can do this with Apps Script! After gathering some test cases, I divided the project into two software components:
  

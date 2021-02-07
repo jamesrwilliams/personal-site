@@ -1,67 +1,85 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout'
 import SEO from '../components/utilities/seo'
-import PageHeader from '../components/page-header/page-header'
-import { GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, Twitter } from '../components/social'
+import PageHeader from '../components/PageHeader/PageHeader'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { Reading } from '../components'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const AboutPage = () => {
 
+  const { book } = useStaticQuery(graphql`
+      query {
+          book: booksBeingRead {
+              link
+              title
+              year
+              author {
+                  link
+                  name
+              }
+          }
+      }
+  `);
+
+  const professionalExperience = [
+    {
+      company: 'Web Developer @ Points.com, Toronto CA',
+      start_date: '2019 March',
+      end_date: 'Current'
+    },
+    {
+      company: 'Web Developer @ Silver Agency, Cheltenham, UK',
+      start_date: '2016 October',
+      end_date: '2018 November'
+    },
+    {
+      company: 'Web Developer @ Fusion Design & Print, Cheltenham, UK',
+      start_date: '2016 March',
+      end_date: '2016 October'
+    }
+  ];
+
   return (
-    <Layout footerHidden={true}>
+    <Layout>
       <SEO title="About me" />
-      <PageHeader title={"About me"} />
+      <PageHeader title={"About me"}>
+        <a
+          href={'https://docs.google.com/document/d/1T1Ohlnh0rdVUGVhlCK3H4n6h2Nr_MxqMuLz92wJI4bg'}
+          className={'border border-white px-5 py-3 text-white font-bold rounded-md absolute right-10 bottom-10 bg-transparent hover:bg-white hover:text-blue transition'}>Download Resume</a>
+      </PageHeader>
       <main>
-
-        <article style={{ maxWidth: '50%' }}>
-          <h5>BIO</h5>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam beatae commodi consequuntur culpa deleniti hic id inventore itaque nemo neque, officiis omnis, perferendis placeat praesentium, provident repellat repudiandae unde vel.
-        </article>
-
-        <section>
-          <h4>Skills</h4>
-          <p>Front End Technologies</p>
-          <p>Backend</p>
-          <p>Services</p>
-          <p>Products</p>
-          <ul>
-            <li>Adobe Creative Suite (Photoshop, Illustrator, XD, InDesign, Premier Pro)</li>
-          </ul>
-        </section>
-
-        <section>
-          <a href={'/cv/'}>View Resume</a>
-        </section>
-
-        <section>
-          <h4>Experience</h4>
-          <ul>
-            <li>
-              <h3>Web Developer @ Points.com</h3>
-              <p>Toronto | 2019 Mar - Current</p>
-            </li>
-            <li>
-              <h3>Web Developer @ Silver Agency, Cheltenham</h3>
-              <p>2016 Oct - 2018 Nov</p>
-            </li>
-            <li>
-              <h3>Web Developer @ Fusion Design & Print LTD, Cheltenham</h3>
-              <p>2016 Mar - 2016 Oct</p>
-            </li>
-          </ul>
-        </section>
-
-        <section style={{ background: '#eee', textAlign: 'center', padding: '2rem' }}>
-          <div className="container">
-            <h2>Around the web</h2>
-            <ul>
-              <li><GitHub /></li>
-              <li><Twitter /></li>
-              <li><LinkedIn /></li>
-              <li><HackerRank /></li>
-              <li><StackOverflow /></li>
-              <li><Instagram /></li>
-              <li><Pluralsight /></li>
-            </ul>
+        <section className={'container my-8'}>
+          <h2 className={'font-bold text-xl my-6'}>Bio</h2>
+          <div className={'grid gap-8 grid-cols-3'}>
+            <article className={'prose prose-xl col-span-2'}>
+              <p className={'mb-4'}>Hello! I'm James W. a web developer, originally from the UK <span>🇬🇧</span> but moved to Canada <span>🇨🇦</span> in 2018. The tools of my trade are the usual suspects (HTML, CSS and JavaScript) in varying forms. I'm currently working in TypeScript, React.js, Node, Gatsby and Ionic.</p>
+              <p>I first started with web development in 2011 as part of a college project and never dropped it. I then changed my plans for my undergraduate degree from marketing to "Multimedia Web Design" at the University of Gloucestershire.</p>
+              <p>My professional start was in a few agencies developing bespoke WordPress themes amongst other things like AI powered Chat Bots, and interactive direct-marketing campaigns. Now I'm building the future of loyalty at <OutboundLink href={'https://www.points.com'}>Points.com</OutboundLink>.</p>
+            </article>
+            <aside>
+              <h2 className={'font-bold text-xl mb-6'}>Skills</h2>
+              <p>Front End Technologies</p>
+              <p>Backend</p>
+              <p>Services</p>
+              <p>Products</p>
+              <ul>
+                <li>Adobe Creative Suite (Photoshop, Illustrator, XD, InDesign, Premier Pro)</li>
+              </ul>
+              <hr className={'mt-5'}/>
+              <h2 className={'font-bold text-xl my-6'}>Professional Experience</h2>
+              <ul>
+                { professionalExperience.map(({company, start_date, end_date}, index) => (
+                  <li className={'mb-3'} key={index}>
+                    <h4 className={'font-medium'}>{ company }</h4>
+                    <p className={'opacity-70'}>{ start_date } - { end_date }</p>
+                  </li>
+                )) }
+              </ul>
+              <hr className={'mt-5'}/>
+              <h2 className={'font-bold text-xl my-6'}>Currently Reading</h2>
+              <Reading book={book} />
+            </aside>
           </div>
         </section>
       </main>

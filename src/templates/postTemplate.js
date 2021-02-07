@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
-import PageHeader from '../components/page-header/page-header'
+import PageHeader from '../components/PageHeader/PageHeader'
 import SEO from '../components/utilities/seo'
 import JSONLD from '../components/utilities/json-ld'
 
@@ -18,10 +18,12 @@ export default function Template({
       <SEO title={frontmatter.title} description={markdownRemark.excerpt} published_time={postDate} path={frontmatter.slug} />
       <JSONLD data={data} />
       <PageHeader title={frontmatter.title} keyline={false} post={frontmatter} />
-      <article
-        className="container container-content pt-4"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <main className={'container'}>
+        <article
+          className="prose prose-lg py-4"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </main>
     </Layout>
   );
 }

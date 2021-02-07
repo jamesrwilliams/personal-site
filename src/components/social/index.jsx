@@ -89,8 +89,8 @@ const SocialNav = styled.ul`
 
 const SocialIcons = () => {
   return (
-    <nav className={'social'}>
-      <SocialNav>
+    <nav>
+      <ul>
         <li><GitHub /></li>
         <li><Twitter /></li>
         <li><LinkedIn /></li>
@@ -98,7 +98,7 @@ const SocialIcons = () => {
         <li><HackerRank /></li>
         <li><Pluralsight /></li>
         <li><StackOverflow /></li>
-      </SocialNav>
+      </ul>
     </nav>
   )
 }

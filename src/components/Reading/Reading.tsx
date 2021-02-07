@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Reading = ({book}) => {
+const Reading = ({book}: { book: BookInterface }) => {
 
   const { author, title, link } = book;
   const { name, authorLink } = author;
@@ -8,8 +8,8 @@ const Reading = ({book}) => {
   const linkTitle = `${title} by ${name}, on GoodReads.com`;
 
   return (
-    <p>I'm currently reading <a title={linkTitle} href={link}>{title}</a> by <a
-      href={authorLink}>{name}</a>.</p>
+      <span>I'm currently reading: "<a title={linkTitle} href={link}>{title}</a>" by <a
+          href={authorLink}>{name}</a>.</span>
   )
 }
 

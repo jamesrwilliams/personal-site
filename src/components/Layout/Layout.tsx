@@ -1,12 +1,17 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import {graphql, useStaticQuery} from 'gatsby'
 import PropTypes from 'prop-types'
 
-import { Helmet } from 'react-helmet'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import {Helmet} from 'react-helmet';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
-const Layout = ({ children, wrapperClass, footerHidden = false }) => {
+interface LayoutProps {
+    children: React.ReactNode,
+    footerHidden?: boolean;
+}
+
+const Layout = ({ children, footerHidden = false }: LayoutProps) => {
 
   const data = useStaticQuery(graphql`
       query SiteTitleQuery {
@@ -39,7 +44,7 @@ const Layout = ({ children, wrapperClass, footerHidden = false }) => {
         </script>
       </Helmet>
       <Header />
-      <main className={wrapperClass}>
+      <main>
       {children}
       </main>
       { !footerHidden ? <Footer buildID={buildID} buildTime={data.site.buildTime} /> : '' }
@@ -48,8 +53,11 @@ const Layout = ({ children, wrapperClass, footerHidden = false }) => {
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  wrapperClass: PropTypes.string
+    /*
+    Optionally hide the footer on certain pages.
+     */
+    footerHidden: PropTypes.bool,
+    children: PropTypes.node.isRequired
 };
 
 export default Layout;
