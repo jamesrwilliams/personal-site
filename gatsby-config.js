@@ -1,17 +1,15 @@
-const striptags = require('striptags');
-
 require("dotenv").config({
   path: `.env`,
-})
+});
 
 const searchQuery = `{
-   allMarkdownRemark {
+   allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
     nodes {
       excerpt
       frontmatter {
         title
-        date
         slug
+        post_date_timestamp: date(formatString: "X")
       }
     }
   }
@@ -45,7 +43,13 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-remark-images`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-webpack-size`,
+      options: {
+        development: true
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -131,7 +135,6 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -147,16 +150,20 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        skipIndexing: !process.env.NETLIFY,
         queries: [
           {
             query: searchQuery,
             transformer: ({ data }) => data.allMarkdownRemark.nodes.map((node) => {
               node.objectID = node.frontmatter.slug;
-              return node;
+              const output = {...node, ...node.frontmatter};
+              delete output.frontmatter;
+              delete output.slug;
+              // Don't make index changes here unless it's not possible using the GraphQL query on #L7.
+              return output;
             }),
           }
         ],
-        chunkSize: 10000
       },
     },
     {

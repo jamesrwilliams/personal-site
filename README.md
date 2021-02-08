@@ -1,4 +1,4 @@
-# Personal website of James R. Williams
+# The personal website of James R. Williams
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7fc57b18-f2ef-4fc0-9d79-ab5d5287b0fb/deploy-status)](https://app.netlify.com/sites/jamesrwilliams-site/deploys)
 

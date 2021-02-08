@@ -23,6 +23,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             frontmatter {
               slug
               title
+              post_date: date,
+              post_date_timestamp: date(formatString: "X")
             }
           }
         }

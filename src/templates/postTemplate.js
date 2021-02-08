@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/layout/layout";
-import PageHeader from '../components/page-header/page-header';
-import SEO from '../components/seo'
-import JSONLD from '../components/json-ld/json-ld'
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout/Layout'
+import PageHeader from '../components/PageHeader/PageHeader'
+import SEO from '../components/utilities/seo'
+import JSONLD from '../components/utilities/json-ld'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -17,11 +17,13 @@ export default function Template({
     <Layout>
       <SEO title={frontmatter.title} description={markdownRemark.excerpt} published_time={postDate} path={frontmatter.slug} />
       <JSONLD data={data} />
-      <PageHeader title={frontmatter.title} keyline={false} post={frontmatter} />
-      <article
-        className="container container-content pt-4"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <PageHeader title={frontmatter.title} post={frontmatter} />
+      <main className={'container'}>
+        <article
+          className="prose prose-lg py-8"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </main>
     </Layout>
   );
 }
@@ -38,6 +40,7 @@ export const pageQuery = graphql`
         updated(formatString: "MMMM DD, YYYY")
         slug
         title
+        draft
       }
     }
   }
