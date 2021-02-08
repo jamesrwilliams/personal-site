@@ -34,7 +34,7 @@ const Header = () => {
               <NavLink label={'About'} url={'/about/'} />
               <NavLink label={'Posts'} url={'/posts/'} />
               <NavLink label={'Resources'} url={'/resources/'} />
-              {/*<NavLink label={'Search'} url={'/search/'} />*/}
+              <NavLink label={'Search'} url={'/search/'} />
             </nav>
           </div>
         </header>

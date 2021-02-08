@@ -9,7 +9,7 @@ My day job at points often involves making minor copy and style updates to marke
 
 The major challenge with these "banners" is internationalization. We are often asked to produce banners in +18 languages and then have that multiplied per variation if we're running an experiment.
 
-- CLI started by setting up JSON files of translations (terrible to use so we abanadonded that)
+- CLI started by setting up JSON files of translations which was terrible to use. We abandoned that quickly, replacing it with a feature that uses CSV files instead of JSON.
 - Next version of the CLI we moved to ingesting CSV files, much easier to transpile from the original translation files we were provided. This still required creating a new CSV file, downloading it, and running the CLI to generate a new banner.
 
 The idea from this project came from finding a way to have an "interactive" translation tool where you can change the translation tokens for a banner on the fly without needing to run any build process.
