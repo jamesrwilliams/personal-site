@@ -8,7 +8,7 @@ const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}, limit: 5) {
+      allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}, limit: 6) {
         nodes {
           excerpt(pruneLength: 150, format: PLAIN)
           frontmatter {
@@ -23,7 +23,7 @@ const IndexPage = () => {
           pinnedItems(first: 3) {
             nodes {
               ... on GitHub_Repository {
-                name: nameWithOwner
+                name
                 url
                 description
               }
@@ -39,27 +39,24 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO description={"I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects."}/>
+      <SEO
+        description={"I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects."}
+      />
       <Hero />
-      <div className="grid container">
+      <div className="grid container py-8">
         <section className="recent-posts">
-          <h2>Recent posts</h2>
+          <h2 className={'font-bold text-xl mb-6'}>Recent posts</h2>
           <ul>
-            { posts.map(_post => <PostLink post={_post.frontmatter} /> )}
+            { posts.map((_post, index) => <PostLink key={index} post={_post.frontmatter} /> )}
           </ul>
         </section>
         <section className="current-projects">
-          <h2 className={'text-bold'}>Projects</h2>
-          <ul>
-            {projects.map((project, index) => {
-              return (
-                <li key={index} className={'mb-4'}>
-                  <a target={'_blank'} href={project.url} rel={'noopener noreferrer'}>{project.name}</a>
-                  <p>{ project.description }</p>
-                </li>
-              )
-            })}
-          </ul>
+          <h2 className={'font-bold text-xl my-6'}>Projects</h2>
+          <div className={'grid grid-cols-3 gap-4'}>
+            { projects.map((project, index) => (
+                <ProjectTile key={index} project={project} className={'mb-4'} />
+            )) }
+          </div>
         </section>
       </div>
     </Layout>
@@ -67,3 +64,11 @@ const IndexPage = () => {
 }
 
 export default IndexPage;
+
+const ProjectTile = ({ project }) => (
+  <div>
+    <h3><a target={'_blank'} href={project.url} rel={'noopener noreferrer'}>{project.name}</a></h3>
+    <p>{ project.description }</p>
+  </div>
+)
+

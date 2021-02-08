@@ -19,6 +19,36 @@ module.exports = {
       white: colors.white,
       black: colors.black,
       gray: colors.trueGray,
+    },
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            code: {
+              color: '#24292e',
+              padding: '.2em .4em !important;',
+              borderRadius: 6,
+              fontSize: '85%',
+              background: '#f3f3f3',
+              fontWeight: '400',
+              '&::before': {
+                content: '"" !important;',
+              },
+              '&::after': {
+                content: '"" !important;',
+              },
+              '&::selection': {
+                color: '#f3f3f3;'
+              }
+            },
+            a: {
+              code: {
+                color: '#fff',
+              }
+            }
+          },
+        },
+      }
     }
   },
   variants: {},

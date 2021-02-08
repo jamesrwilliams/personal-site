@@ -17,7 +17,7 @@ export default function Template({
     <Layout>
       <SEO title={frontmatter.title} description={markdownRemark.excerpt} published_time={postDate} path={frontmatter.slug} />
       <JSONLD data={data} />
-      <PageHeader title={frontmatter.title} keyline={false} post={frontmatter} />
+      <PageHeader title={frontmatter.title} post={frontmatter} />
       <main className={'container'}>
         <article
           className="prose prose-lg py-4"
@@ -40,6 +40,7 @@ export const pageQuery = graphql`
         updated(formatString: "MMMM DD, YYYY")
         slug
         title
+        draft
       }
     }
   }

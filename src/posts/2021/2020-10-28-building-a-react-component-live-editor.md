@@ -17,12 +17,12 @@ This little side project I started back in September 2020 was to make all these 
 
 Think of this as a sort of Storybook where we can both view examples of deliverables and also change their content. It just so happens we use the output of this directly in our product.
 
-### Change of process
+## Change of process
 
 Instead of us using our Node CLI we now build everything as react components.
 All banners are JSX "templates", and each editable/translatable token is now a prop. For complex CSS we use [styled-components](https://styled-components.com/), for one this makes migration from our previous LESS set up a breeze as styled-components natively supports rule nesting, and it's a better developer experience (in my mind) than inlining all the rules. Each template can be encapsulated in a single JSX file and is translation agnostic so can be reused over and over! 
 
-### The `<Wrapper />` component
+## The `<Wrapper />` component
 
 To continue my focus on developer experience, this component was to do most of the heavy lifting with very little code required in each template. This acts as our default starting block to contain the rest of the template and handles script inclusion! All through a what I think is a very clean syntax:
 
@@ -38,6 +38,29 @@ const ExampleTemplate = () => (
 )
 ```
 
+### Client side scripts
 
+I used the following logic to "inline" any code that should run on the client side. The scripts are passed in as an array to the `<Wrapper />` element in the template file which I find is the cleanest experience for managing multiple scripts.
+
+```js
+export default function loader(scripts) {
+
+  let output = '';
+
+  if(scripts) {
+    scripts.forEach((script) => {
+      output += script.toString() + script.name + '()\n';
+    });
+  }
+
+  return output;
+}
+```
+
+### A heavy use of the `ReactDOMServer.renderToStaticMarkup`
+
+What is great about this approach for us is that once the tool is built and deployed to the server all the code is obfuscated into smaller variable names, making the code smaller, and then using `ReactDOMServer.renderToStaticMarkup` it spits out exactly the code we want.
+
+## Client side JS
 
 

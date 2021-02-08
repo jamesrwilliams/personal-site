@@ -1,8 +1,6 @@
-const striptags = require('striptags');
-
 require("dotenv").config({
   path: `.env`,
-})
+});
 
 const searchQuery = `{
    allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
@@ -46,6 +44,12 @@ module.exports = {
     `gatsby-remark-images`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-webpack-size`,
+      options: {
+        development: true
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -146,6 +150,7 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        skipIndexing: !process.env.NETLIFY,
         queries: [
           {
             query: searchQuery,

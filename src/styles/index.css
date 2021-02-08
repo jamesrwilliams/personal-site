@@ -2,4 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../../node_modules/prismjs/themes/prism-tomorrow.css';
+@import './prism-material-oceanic.css';

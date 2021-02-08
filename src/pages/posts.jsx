@@ -16,6 +16,7 @@ const PostsPage = () => {
           excerpt(pruneLength: 250, format: PLAIN)
           frontmatter {
             date
+            draft
             title
             slug
           }
@@ -38,7 +39,7 @@ const PostsPage = () => {
             {posts.map((_post, index) => {
               let post = _post.frontmatter;
               return (
-                <PostLink post={post} />
+                <PostLink key={index} post={post} />
               );
             })}
           </ul>
