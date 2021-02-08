@@ -48,7 +48,7 @@ const AboutPage = () => {
           target={'_blank'}
           rel={'noreferrer noopener'}
           href={'https://docs.google.com/document/d/1T1Ohlnh0rdVUGVhlCK3H4n6h2Nr_MxqMuLz92wJI4bg'}
-          className={'border inline-block border-white px-5 py-3 text-white font-bold rounded-md absolute bottom-11 right-10 md:right-10 bg-transparent hover:bg-white hover:text-blue transition'}>View Resume</OutboundLink>
+          className={'border inline-block border-white px-3 py-2 md:py-3 text-white font-bold rounded-md absolute bottom-9 md:bottom-11 right-10 md:right-10 bg-transparent hover:bg-white hover:text-blue transition'}>View Resume</OutboundLink>
       </PageHeader>
       <main>
         <article className={'container my-8'}>

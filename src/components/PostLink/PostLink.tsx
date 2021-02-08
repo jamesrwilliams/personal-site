@@ -17,11 +17,11 @@ const PostLink = ({ post }: { post: PostInterface }) => {
   const readableDate = new Intl.DateTimeFormat("en-GB", dateOptions).format(date);
 
   return (
-    <li className={'flex mb-4'}>
-      <time dateTime={post.date} className={'tabular-nums'}>{ readableDate }</time>
-      <span className={'mx-4'}> - </span>
+    <li className={'flex flex-col md:flex-row mb-4'}>
+      <time dateTime={post.date} className={'tabular-nums block md:inline-block font-bold md:font-normal'}>{ readableDate }</time>
+      <span className={'hidden md:inline-block mx-4 '}> - </span>
       { post.draft ? <mark className={'mr-2'}>DRAFT</mark> : '' }
-      <Link className={'post-title'} to={"/posts/" + post.slug}>{post.title}</Link>
+      <Link className={'mb-2'} to={"/posts/" + post.slug}>{post.title}</Link>
     </li>
   );
 };

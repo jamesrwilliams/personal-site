@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import { Hero, Layout, PostLink } from '../components'
 
 import SEO from '../components/utilities/seo'
@@ -24,6 +24,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO
+        title={'Recent posts'}
         description={"I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects."}
       />
       <Hero />
@@ -33,6 +34,7 @@ const IndexPage = () => {
           <ul>
             { posts.nodes.map((_post, index) => <PostLink key={index} post={_post.frontmatter} /> )}
           </ul>
+          <p><Link to={'/posts/'}>View all</Link></p>
         </section>
       </div>
     </Layout>

@@ -34,7 +34,7 @@ const PostsPage = () => {
       <main>
         <PageHeader title={"Posts"} />
         <div className="container pt-4">
-          <h2 className="font-bold text-xl mb-6">Recent posts</h2>
+          <h2 className="font-bold text-xl mb-6">All posts</h2>
           <ul className={'list-none m-0'}>
             {posts.nodes.map((_post, index) => {
               let post = _post.frontmatter;

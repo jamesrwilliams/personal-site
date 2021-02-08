@@ -20,7 +20,7 @@ export default function Template({
       <PageHeader title={frontmatter.title} post={frontmatter} />
       <main className={'container'}>
         <article
-          className="prose prose-lg py-4"
+          className="prose prose-lg py-8"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </main>

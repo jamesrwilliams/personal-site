@@ -25,7 +25,7 @@ const Header = () => {
               <GatsbyImage className={'rounded-full self-center inline-block'} style={{ width: 30, height: 30 }} fluid={profile.childImageSharp.fluid} />
               <span className={'ml-4 self-center'}>James R. Williams</span>
             </Link>
-            <button className={'inline-block sm:hidden'} onClick={() => toggleMenu(!menuOpen) }>
+            <button className={'inline-block md:hidden'} onClick={() => toggleMenu(!menuOpen) }>
                 <span className={`text-white `}>
                     <svg className={`fill-current transition-all transform ${ menuOpen ? 'rotate-90' : 'rotate-0' }`} xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
                 </span>
