@@ -45,12 +45,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-postcss`,
     {
-      resolve: `gatsby-plugin-webpack-size`,
-      options: {
-        development: true
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         excerpt_separator: `<!-- end -->`,

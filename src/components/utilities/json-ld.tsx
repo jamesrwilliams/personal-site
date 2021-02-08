@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function JSONLD({ data }) {
+function JSONLD({ data }: any) {
 
   const post = data.markdownRemark;
 
-  const jsonLD = {
+  const jsonLD: any = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "description": "I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.",

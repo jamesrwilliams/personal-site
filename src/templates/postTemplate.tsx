@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import {graphql} from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import PageHeader from '../components/PageHeader/PageHeader'
 import SEO from '../components/utilities/seo'
@@ -7,7 +7,7 @@ import JSONLD from '../components/utilities/json-ld'
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
-}) {
+}: any) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
 
