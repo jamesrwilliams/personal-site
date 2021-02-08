@@ -78,7 +78,7 @@ function myCustomFunction() {
 
 ## Side note on debugging
 
-You can't use things like `console.log` within Apps Scripts as the code isn't executed in the browser. You can however, use the [Logger](https://developers.google.com/apps-script/class_logger) class and then view the results in the IDE under View > Logs. A more direct approach is to use the [`Browser.msgBox()`](https://developers.google.com/apps-script/reference/base/browser#msgBox(String,ButtonSet)) to show a Google native message box within your application usage context.
+A word of caution within using `console.log` calls within App Scripts, these don't log to the browser console in Google Apps Scripts, instead they write logs to the Google Cloud Platform's Stackdriver Logging service. Alternatively you can use the [Logger](https://developers.google.com/apps-script/class_logger) class and then view the results in the IDE under View > Logs. A more direct approach is to use the [`Browser.msgBox()`](https://developers.google.com/apps-script/reference/base/browser#msgBox(String,ButtonSet)) to show a Google native message box within your application usage context.
 
 ## Parsing values & using an external API
 

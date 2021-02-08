@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Reading = ({book}: { book: BookInterface }) => {
+const Reading: React.FC<{ book: BookInterface }> = ({book}) => {
 
   const { author, title, link } = book;
   const { name, authorLink } = author;

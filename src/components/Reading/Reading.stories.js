@@ -6,4 +6,10 @@ export default {
   component: Reading
 };
 
-export const reading = () => <Reading />;
+const Template = (args) => <Reading {...args} />;
+
+export const reading = Template.bind({});
+
+reading.args = {
+  title: 'Foo bar'
+}
