@@ -7,10 +7,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const PostsPage = () => {
 
-  const data = useStaticQuery(graphql`
+  const { posts } = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: frontmatter___date }
+      posts: allMarkdownRemark(
+        sort: { order: DESC, fields: frontmatter___date },
+        filter: {frontmatter: {draft: {ne: true}}}
       ) {
         nodes {
           excerpt(pruneLength: 250, format: PLAIN)
@@ -25,8 +26,6 @@ const PostsPage = () => {
     }
   `);
 
-  const posts = data.allMarkdownRemark.nodes;
-
   return (
     <Layout>
       <SEO
@@ -35,8 +34,9 @@ const PostsPage = () => {
       <main>
         <PageHeader title={"Posts"} />
         <div className="container pt-4">
+          <h2 className="font-bold text-xl mb-6">Recent posts</h2>
           <ul className={'list-none m-0'}>
-            {posts.map((_post, index) => {
+            {posts.nodes.map((_post, index) => {
               let post = _post.frontmatter;
               return (
                 <PostLink key={index} post={post} />

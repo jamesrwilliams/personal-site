@@ -6,9 +6,9 @@ import SEO from '../components/utilities/seo'
 
 const IndexPage = () => {
 
-  const data = useStaticQuery(graphql`
+  const { posts } = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}, limit: 6) {
+      posts: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}, limit: 10, sort: {fields: frontmatter___date, order: DESC}) {
         nodes {
           excerpt(pruneLength: 150, format: PLAIN)
           frontmatter {
@@ -18,24 +18,8 @@ const IndexPage = () => {
           }
         }
       }
-      github {
-        user(login: "jamesrwilliams") {
-          pinnedItems(first: 3) {
-            nodes {
-              ... on GitHub_Repository {
-                name
-                url
-                description
-              }
-            }
-          }
-        }
-      }
     }
   `)
-
-  const posts = data.allMarkdownRemark.nodes;
-  const projects = data.github.user.pinnedItems.nodes;
 
   return (
     <Layout>
@@ -47,16 +31,8 @@ const IndexPage = () => {
         <section className="recent-posts">
           <h2 className={'font-bold text-xl mb-6'}>Recent posts</h2>
           <ul>
-            { posts.map((_post, index) => <PostLink key={index} post={_post.frontmatter} /> )}
+            { posts.nodes.map((_post, index) => <PostLink key={index} post={_post.frontmatter} /> )}
           </ul>
-        </section>
-        <section className="current-projects">
-          <h2 className={'font-bold text-xl my-6'}>Projects</h2>
-          <div className={'grid grid-cols-3 gap-4'}>
-            { projects.map((project, index) => (
-                <ProjectTile key={index} project={project} className={'mb-4'} />
-            )) }
-          </div>
         </section>
       </div>
     </Layout>
@@ -64,11 +40,3 @@ const IndexPage = () => {
 }
 
 export default IndexPage;
-
-const ProjectTile = ({ project }) => (
-  <div>
-    <h3><a target={'_blank'} href={project.url} rel={'noopener noreferrer'}>{project.name}</a></h3>
-    <p>{ project.description }</p>
-  </div>
-)
-

@@ -6,10 +6,17 @@ export default {
   component: Reading
 };
 
+const exampleBook =  {
+  title: 'string',
+  link: '',
+  author: {
+    name: 'string',
+    authorLink: 'string',
+  }
+}
+
 const Template = (args) => <Reading {...args} />;
 
 export const reading = Template.bind({});
 
-reading.args = {
-  title: 'Foo bar'
-}
+reading.args = exampleBook;

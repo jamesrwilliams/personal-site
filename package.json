@@ -11,9 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -27,10 +25,6 @@
   "homepage": "https://github.com/jamesrwilliams/personal-site#readme",
   "devDependencies": {
     "@babel/core": "^7.12.13",
-    "@storybook/addon-actions": "^6.1.17",
-    "@storybook/addon-essentials": "^6.1.17",
-    "@storybook/addon-links": "^6.1.17",
-    "@storybook/react": "^6.1.17",
     "@types/react-helmet": "^6.1.0",
     "babel-loader": "^8.2.2",
     "prettier": "2.0.5",
