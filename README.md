@@ -7,8 +7,3 @@ This is the source code for my personal website, and it's former `.co.uk` form.
 > https://jamesrwilliams.ca
 
 Built with [GatsbyJS](https://www.gatsbyjs.org/), deployed via [Netlify](https://www.netlify.com/). Search provided by [Algolia](https://www.algolia.com).
-
-## Components
-
-| Component | SB |
-| --------- |----|
