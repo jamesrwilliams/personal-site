@@ -1,5 +1,5 @@
 import React from 'react'
-import {GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, Twitter} from '../social/social';
+import {GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, Twitter} from '../social/Social';
 
 const Footer: React.FC<{ buildID: string, buildTime: string }> = ({ buildID, buildTime}) => (
     <footer className={'bg-blue text-white text-sm'} data-build-id={buildID} data-build-date={buildTime}>
