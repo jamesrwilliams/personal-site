@@ -92,6 +92,7 @@ const SocialIcon: React.FC<{ target?: string, href: string, title?: string }> = 
   return (
     <OutboundLink
       target={target}
+      title={title}
       rel={'noopener noreferrer'}
       href={href}>
       { children }
