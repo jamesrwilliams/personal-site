@@ -11,7 +11,7 @@ const parser = require('xml2json');
 exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const { createPage } = actions;
-  const blogPostTemplate = require.resolve(`./src/templates/postTemplate.js`);
+  const blogPostTemplate = require.resolve(`./src/templates/postTemplate.tsx`);
   const result = await graphql(`
     {
       allMarkdownRemark(
