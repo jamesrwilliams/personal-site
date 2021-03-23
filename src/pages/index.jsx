@@ -25,7 +25,7 @@ const IndexPage = () => {
     <Layout>
       <SEO
         title={'Recent posts'}
-        description={"I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects."}
+        description={"I'm James, a development engineer working in Toronto. I enjoy building delightfully fast, and engaging digital projects."}
       />
       <Hero />
       <div className="grid container py-8">

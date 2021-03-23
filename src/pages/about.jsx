@@ -4,7 +4,7 @@ import SEO from '../components/utilities/seo'
 import PageHeader from '../components/PageHeader/PageHeader'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import { Reading } from '../components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 
 const AboutPage = () => {
 
@@ -55,7 +55,7 @@ const AboutPage = () => {
           <h2 className={'font-bold text-xl my-6'}>Bio</h2>
           <div className={'grid gap-8 grid-cols-1 md:grid-cols-3'}>
             <div className={'prose prose-xl col-span-2'}>
-              <p className={'mb-4'}>Hello! I'm James W. a web developer, originally from the UK <span role={'img'} aria-label={'Flag of the United Kingdom'}>🇬🇧</span> but moved to Canada <span role={'img'} aria-label={'Flag of Canada'}>🇨🇦</span> in 2018. The tools of my trade are the usual suspects (HTML, CSS and JavaScript) in varying forms. I'm currently working in TypeScript, React.js, Node, Gatsby, and Ionic.</p>
+              <p className={'mb-4'}>Hello! I'm James W. a development engineer, originally from the UK <span role={'img'} aria-label={'Flag of the United Kingdom'}>🇬🇧</span> but moved to Canada <span role={'img'} aria-label={'Flag of Canada'}>🇨🇦</span> in 2018. The tools of my trade are the usual suspects (HTML, CSS and JavaScript) in varying forms. I'm currently working in TypeScript, React.js, Node, Gatsby, and Ionic.</p>
               <p>I first started with web development in 2011 as part of a college project and never dropped it. I then changed my plans for my undergraduate degree from marketing to "Multimedia Web Design" at the University of Gloucestershire.</p>
               <p>My professional start was in a few agencies developing bespoke WordPress themes amongst other things like AI powered Chat Bots, and interactive direct-marketing campaigns. Now I'm building the future of loyalty at <OutboundLink href={'https://www.points.com'}>Points.com</OutboundLink>.</p>
             </div>
@@ -69,9 +69,25 @@ const AboutPage = () => {
                   </li>
                 )) }
               </ul>
-              <hr className={'mt-5'}/>
+              <hr className={'mt-5'} />
               <h2 className={'font-bold text-xl my-6'}>Currently Reading</h2>
               <Reading book={book} />
+              <hr className={'mt-5'} />
+              <h2 className={'font-bold text-xl my-6'}>Uses</h2>
+              <h3 className={'font-bold'}>Development tools</h3>
+              <ul className={'list-disc list-inside'}>
+                <li>Editor: <OutboundLink className={'underline'} href="https://www.jetbrains.com/phpstorm/" target={'_blank'} rel={'noopener nofollow'}>PHPStorm</OutboundLink></li>
+                <li>Terminal: <OutboundLink className={'underline'} href="https://iterm2.com" target={'_blank'} rel={'noopener nofollow'}>iTerm2</OutboundLink></li>
+                <li>Browser: <OutboundLink className={'underline'} href="https://www.mozilla.org/en-US/firefox/developer/" target={'_blank'} rel={'noopener nofollow'}>Firefox Developer Edition</OutboundLink></li>
+                <li>Code font: <OutboundLink className={'underline'} href="https://github.com/tonsky/FiraCode" target={'_blank'} rel={'noopener nofollow'}>Firacode</OutboundLink> (with ligatures)</li>
+              </ul>
+              <h3 className={'font-bold text-xl my-6'}>Gear</h3>
+              <ul className={'list-disc list-inside'}>
+                <li>Laptop: MacBook Pro (13-inch, 2018)</li>
+                <li>Monitor: LG 34" UltraWide Monitor (34UM69G-B)</li>
+                <li>Mouse / Keyboard: Apple Wireless</li>
+                <li>Self-built gaming PC: <Link className={'underline'} to={'/posts/pc-building-part-1'}>Specs</Link></li>
+              </ul>
             </aside>
           </div>
         </article>

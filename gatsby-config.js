@@ -19,7 +19,7 @@ module.exports = {
   siteMetadata: {
     title: `James R. Williams`,
     siteUrl: `https://jamesrwilliams.ca`,
-    description: `I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.`,
+    description: `I'm James, a development engineer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.`,
     twitter: `@james_rwilliams`,
     author: 'James R. Williams',
     buildId: process.env.BUILD_ID
