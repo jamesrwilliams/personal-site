@@ -8,7 +8,7 @@ function JSONLD({ data }: any) {
   const jsonLD: any = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "description": "I'm James, a full-stack web developer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.",
+    "description": "I'm James, a full-stack development engineer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.",
     "publisher": "James R. Williams",
     "datePublished": post.frontmatter.date,
     "headline": post.frontmatter.title,
