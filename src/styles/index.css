@@ -3,3 +3,6 @@
 @tailwind utilities;
 
 @import './prism-material-oceanic.css';
+
+/* Fix first line indent issue */
+.prose pre code { padding-left: 0 !important; }

@@ -24,9 +24,14 @@ const AboutPage = () => {
 
   const professionalExperience = [
     {
+      company: 'Development Engineer @ Points.com, Toronto, CA',
+      start_date: '2021 March',
+      end_date: 'Current'
+    },
+    {
       company: 'Web Developer @ Points.com, Toronto, CA',
       start_date: '2019 March',
-      end_date: 'Current'
+      end_date: '2021 March'
     },
     {
       company: 'Web Developer @ Silver Agency, Cheltenham, UK',
