@@ -11,13 +11,11 @@ const PostsPage = () => {
     query {
       posts: allMarkdownRemark(
         sort: { order: DESC, fields: frontmatter___date },
-        filter: {frontmatter: {draft: {ne: true}}}
       ) {
         nodes {
           excerpt(pruneLength: 250, format: PLAIN)
           frontmatter {
             date
-            draft
             title
             slug
           }
