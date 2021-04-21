@@ -3,7 +3,7 @@ require("dotenv").config({
 });
 
 const searchQuery = `{
-   allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}) {
+   allMarkdownRemark {
     nodes {
       excerpt
       frontmatter {
@@ -59,6 +59,21 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-autolink-headers`,
+          {
+            resolve: 'gatsby-remark-mermaid',
+            options: {
+              language: 'mermaid',
+              theme: 'neutral',
+              viewport: {
+                width: 650,
+                height: 400
+              },
+              mermaidOptions: {
+                themeCSS: ".node rect { fill: #fff; }",
+                fontSize: 12
+              }
+            }
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
