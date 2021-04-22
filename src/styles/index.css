@@ -6,3 +6,8 @@
 
 /* Fix first line indent issue */
 .prose pre code { padding-left: 0 !important; }
+
+.mermaid div {
+  line-height: 1!important;
+  vertical-align: super;
+}

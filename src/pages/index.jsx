@@ -8,7 +8,7 @@ const IndexPage = () => {
 
   const { posts } = useStaticQuery(graphql`
     query {
-      posts: allMarkdownRemark(filter: {frontmatter: {draft: {ne: true}}}, limit: 10, sort: {fields: frontmatter___date, order: DESC}) {
+      posts: allMarkdownRemark(limit: 10, sort: {fields: frontmatter___date, order: DESC}) {
         nodes {
           excerpt(pruneLength: 150, format: PLAIN)
           frontmatter {
@@ -24,7 +24,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO
-        title={'Recent posts'}
+        title={''}
         description={"I'm James, a development engineer working in Toronto. I enjoy building delightfully fast, and engaging digital projects."}
       />
       <Hero />
