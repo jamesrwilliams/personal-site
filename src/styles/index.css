@@ -11,3 +11,8 @@
   line-height: 1!important;
   vertical-align: super;
 }
+
+.gatsby-resp-image-wrapper {
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
