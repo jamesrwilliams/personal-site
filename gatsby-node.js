@@ -37,7 +37,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  let posts = result.data.allMarkdownRemark.edges;
+
+  posts.forEach(({ node }, index) => {
+
+    const nextNode = (index === 0 ? null : posts[index - 1].node.frontmatter );
+    const previousNode = (index ===  posts.length - 1 ? null : posts[index + 1].node.frontmatter );
+
+    console.log(`index: ${index}, posts.length: ${posts.length} - ${node.frontmatter.slug}`);
 
     const _slug =
       node.frontmatter.slug !== null
@@ -49,7 +56,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: blogPostTemplate,
       context: {
         slug: _slug,
-        description: 'example'
+        pagination: {
+          previous: previousNode,
+          next: nextNode
+        }
       },
     });
   });
