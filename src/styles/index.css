@@ -16,11 +16,3 @@
   border-radius: 0.375rem;
   overflow: hidden;
 }
-
-.bg-angle:after {
-  content: '';
-  display: block;
-  height: 74px;
-  background: #fff;
-  clip-path: polygon(100% 100%, 0 100%, 100% 0%);
-}
