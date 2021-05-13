@@ -16,6 +16,8 @@ const PostsPage = () => {
           excerpt(pruneLength: 250, format: PLAIN)
           frontmatter {
             date
+            date_timestamp: date
+            date_readable: date(formatString: "DD/MM/YYYY")
             title
             slug
           }

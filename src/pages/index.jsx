@@ -12,7 +12,8 @@ const IndexPage = () => {
         nodes {
           excerpt(pruneLength: 150, format: PLAIN)
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
+            date
+            date_readable: date(formatString: "DD/MM/YYYY")
             title
             slug
           }

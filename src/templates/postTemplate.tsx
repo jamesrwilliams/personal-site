@@ -4,12 +4,16 @@ import Layout from '../components/Layout/Layout'
 import PageHeader from '../components/PageHeader/PageHeader'
 import SEO from '../components/utilities/seo'
 import JSONLD from '../components/utilities/json-ld'
+import Pagination from "../components/Pagination";
 
 export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
+  data,
+  pageContext
 }: any) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
+
+  const { pagination } = pageContext;
 
   const postDate = new Date(frontmatter.date).toISOString();
 
@@ -23,6 +27,7 @@ export default function Template({
           className="prose prose-lg py-8"
           dangerouslySetInnerHTML={{ __html: html }}
         />
+        <Pagination data={pagination} />
       </main>
     </Layout>
   );

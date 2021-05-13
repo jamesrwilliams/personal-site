@@ -28,7 +28,7 @@ const Layout = ({ children, footerHidden = false }: LayoutProps) => {
   const buildID = data.site.siteMetadata.buildId;
 
   const globalJSONLD = {
-    "@context" : "http://schema.org",
+    "@context" : "https://schema.org",
     "@type" : "Organization",
     "name" : data.site.siteMetadata.title,
     "url" : "https://jamesrwilliams.ca",
