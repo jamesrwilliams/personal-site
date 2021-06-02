@@ -44,8 +44,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const nextNode = (index === 0 ? null : posts[index - 1].node.frontmatter );
     const previousNode = (index ===  posts.length - 1 ? null : posts[index + 1].node.frontmatter );
 
-    console.log(`index: ${index}, posts.length: ${posts.length} - ${node.frontmatter.slug}`);
-
     const _slug =
       node.frontmatter.slug !== null
         ? node.frontmatter.slug
@@ -82,7 +80,7 @@ exports.sourceNodes = async ({ actions }) => {
 
   const { GoodreadsResponse } = parser.toJson(res.data, {object: true});
 
-  const book = GoodreadsResponse.reviews.review.book;
+  const book = GoodreadsResponse.reviews.review[0].book;
 
   const { name, link } = book.authors.author;
 
