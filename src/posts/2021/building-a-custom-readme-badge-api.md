@@ -107,7 +107,7 @@ It had been a while since I had used Heroku, but it is my go-to service for Netl
 
 Inside your [`Procfile`](https://devcenter.heroku.com/articles/procfile), the Heroku config file, you specify the commands that each Heroku process runs each time the dyno starts. So ours looks like this:
 
-```Procfile
+```
 web: gunicorn app:app
 ```
 

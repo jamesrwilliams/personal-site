@@ -1,7 +1,7 @@
 import React from 'react';
 import {GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, Twitter,} from '../social/Social';
 import Container from '../Container';
-import {primaryBlue} from '../../variables.js';
+import {primaryBlue} from '../../variables';
 
 const socialLinks = [
   <GitHub />,

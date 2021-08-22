@@ -30,7 +30,8 @@ function buildSourceCalls(name = 'posts') {
   const years = new Date().getFullYear() - startYear;
   const output = [];
 
-  for (let i = 0; i < years + 1; i + 1) {
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < years + 1; i++) {
     output.push({
       resolve: 'gatsby-source-filesystem',
       options: {

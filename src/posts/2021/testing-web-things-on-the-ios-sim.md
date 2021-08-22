@@ -26,7 +26,7 @@ xcrun simctl list
 
 Which will display a list of all the runtimes and devices you have set up on your machine, and they will look something like this:
 
-```log
+```
 == Devices ==
 -- iOS 13.3 --
   iPhone 5 (D1F67F00-FA3D-42B7-9E2F-FEF23809D4A0) (Booted)
