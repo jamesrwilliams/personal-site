@@ -1,5 +1,5 @@
-require("dotenv").config({
-  path: `.env`,
+require('dotenv').config({
+  path: '.env',
 });
 
 const searchQuery = `{
@@ -15,50 +15,60 @@ const searchQuery = `{
   }
 }`;
 
+/**
+ * This works out the year directories for all my posts
+ * and creates a unique source node call for each directory.
+ *
+ * This approach avoids having the year in the URL but lets me keep my posts organised
+ * in year directories.
+ *
+ * Just using one source of `/src/posts` would be /posts/{YEAR}/{SLUG} rather
+ * than what I want: /posts/{SLUG}
+ */
+function buildSourceCalls(name = 'posts') {
+  const startYear = 2015;
+  const years = new Date().getFullYear() - startYear;
+  const output = [];
+
+  for (let i = 0; i < years + 1; i + 1) {
+    output.push({
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name,
+        path: `${__dirname}/src/posts/${startYear + i}`,
+      },
+    });
+  }
+
+  return output;
+}
+
 module.exports = {
   siteMetadata: {
-    title: `James R. Williams`,
-    siteUrl: `https://jamesrwilliams.ca`,
-    description: `I'm James, a development engineer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.`,
-    twitter: `@james_rwilliams`,
+    title: 'James R. Williams',
+    siteUrl: 'https://jamesrwilliams.ca',
+    description: 'I\'m James, a development engineer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.',
+    twitter: '@james_rwilliams',
     author: 'James R. Williams',
-    buildId: process.env.BUILD_ID
+    buildId: process.env.BUILD_ID,
   },
   plugins: [
+    ...buildSourceCalls(),
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `markdown-pages`,
-        path: `${__dirname}/src/posts`,
-      },
-    },
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
+        name: 'images',
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-remark-images`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-postcss`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        excerpt_separator: `<!-- end -->`,
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              linkImagesToOriginal: true,
-              maxWidth: 1200,
-              quality: 90,
-            }
-          },
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-autolink-headers`,
+        extensions: ['.mdx', '.md'],
+        defaultLayouts: {
+          default: require.resolve('./src/components/postLayout.tsx'),
+        },
+        gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-mermaid',
             options: {
@@ -66,16 +76,16 @@ module.exports = {
               theme: 'neutral',
               viewport: {
                 width: 650,
-                height: 400
+                height: 400,
               },
               mermaidOptions: {
-                themeCSS: ".node rect { fill: #fff; }",
-                fontSize: 12
-              }
-            }
+                themeCSS: '.node rect { fill: #fff; }',
+                fontSize: 12,
+              },
+            },
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: 'gatsby-remark-prismjs',
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
               // defaults to 'language-' (e.g. <pre class="language-js">).
@@ -139,22 +149,36 @@ module.exports = {
               escapeEntities: {},
             },
           },
-        ]
-      }
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              linkImagesToOriginal: true,
+              maxWidth: 1200,
+              quality: 90,
+            },
+          },
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-images',
+        ],
+      },
     },
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-offline`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: "UA-26549429-1",
+        trackingId: 'UA-26549429-1',
         head: true,
         defer: true,
         anonymize: true,
       },
     },
     {
-      resolve: `gatsby-plugin-algolia`,
+      resolve: 'gatsby-plugin-algolia',
       options: {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
@@ -164,22 +188,25 @@ module.exports = {
           {
             query: searchQuery,
             transformer: ({ data }) => data.allMarkdownRemark.nodes.map((node) => {
+              // TODO fix this to remove the disable
+              // eslint-disable-next-line no-param-reassign
               node.objectID = node.frontmatter.slug;
-              const output = {...node, ...node.frontmatter};
-              // Don't make index changes here unless it's not possible using the GraphQL query on #L7.
+              const output = { ...node, ...node.frontmatter };
+              // Don't make index changes here unless it's not possible
+              // using the GraphQL query on #L7.
               delete output.frontmatter;
               return output;
             }),
-          }
+          },
         ],
       },
     },
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "GitHub",
-        fieldName: "github",
-        url: "https://api.github.com/graphql",
+        typeName: 'GitHub',
+        fieldName: 'github',
+        url: 'https://api.github.com/graphql',
         headers: {
           // Learn about environment variables: https://gatsby.dev/env-vars
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
@@ -187,17 +214,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `jamesrwilliams.ca`,
-        short_name: `JRW`,
-        lang: `en`,
-        start_url: `/`,
-        background_color: `#021526`,
-        theme_color: `#021526`,
-        display: `minimal-ui`,
-        icon: `static/favicon.png`, // This path is relative to the root of the site.
+        name: 'jamesrwilliams.ca',
+        short_name: 'JRW',
+        lang: 'en',
+        start_url: '/',
+        background_color: '#021526',
+        theme_color: '#021526',
+        display: 'minimal-ui',
+        icon: 'static/favicon.png', // This path is relative to the root of the site.
       },
     },
   ],
-}
+};
