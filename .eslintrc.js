@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
@@ -14,6 +15,7 @@ module.exports = {
     '**/vendor/*.js',
   ],
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'airbnb',
   ],
@@ -31,6 +33,10 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'import/extensions': [2, {
+      extensions: { json: 'always' },
+    }],
+    'import/no-unresolved': "off",
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-use-before-define': 'off',
   },

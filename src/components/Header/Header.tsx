@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {graphql, Link, useStaticQuery} from 'gatsby';
 import styled from 'styled-components';
-import GatsbyImage from 'gatsby-image';
+import {GatsbyImage} from 'gatsby-plugin-image';
 import {primaryBlue} from '../../variables';
 import Container from '../Container';
 
@@ -12,6 +12,7 @@ const Header = () => {
     query {
       profile: file(base: {eq: "profile.jpg"}) {
           childImageSharp {
+              gatsbyImageData(layout: FIXED)
               fluid(maxWidth: 50) {
                   ...GatsbyImageSharpFluid_withWebp
               }
@@ -20,7 +21,7 @@ const Header = () => {
     }
   `);
 
-  const Header = styled.header`
+  const HeaderContainer = styled.header`
     background: ${primaryBlue};
     color: #fff;
   `;
@@ -31,15 +32,19 @@ const Header = () => {
     `;
 
   return (
-    <Header>
+    <HeaderContainer>
       <HeaderWrapper>
         <Link to="/" className="flex md:justify-between content-center">
           <div style={{ borderRadius: '100%', display: 'inline-block' }}>
-            <GatsbyImage style={{ width: 30, height: 30 }} fluid={profile.childImageSharp.fluid} />
+            <GatsbyImage
+              style={{ width: 30, height: 30 }}
+              image={profile.childImageSharp.gatsbyImageData}
+              alt="James R. Williams"
+            />
           </div>
           <span style={{ }} className="ml-4 self-center">James R. Williams</span>
         </Link>
-        <button aria-label="Toggle Menu" className="inline-block md:hidden" onClick={() => toggleMenu(!menuOpen)}>
+        <button type="button" aria-label="Toggle Menu" className="inline-block md:hidden" onClick={() => toggleMenu(!menuOpen)}>
           <span className="text-white ">
             <svg aria-label="menu-toggle-icon" className={`fill-current transition-all transform ${menuOpen ? 'rotate-90' : 'rotate-0'}`} xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
               <path d="M0 0h24v24H0z" fill="none" />
@@ -47,14 +52,14 @@ const Header = () => {
             </svg>
           </span>
         </button>
-        <nav className={'md:flex w-full md:w-auto mt-8 md:mt-0 flex-grow md:flex-grow-0 justify-between content-center' + ` ${menuOpen ? 'block' : 'hidden'}`}>
+        <nav className={` ${menuOpen ? 'block' : 'hidden'}`}>
           <NavLink label="About" url="/about/" />
           <NavLink label="Posts" url="/posts/" />
           <NavLink label="Resources" url="/resources/" />
           <NavLink label="Search" url="/search/" />
         </nav>
       </HeaderWrapper>
-    </Header>
+    </HeaderContainer>
   );
 };
 
