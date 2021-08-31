@@ -30,8 +30,8 @@ const Footer: React.FC<{ buildID: string, buildTime: string }> = ({ buildID, bui
         <code style={{ alignSelf: 'center', opacity: '.5' }} className="opacity-50 self-center" role="img" aria-label="Hip Hip Array " title="Hip Hip Array ">['hip','hip']</code>
         <span style={{ flexGrow: 1 }} />
         <nav style={{ display: 'flex' }} className="mt-6 justify-center md:mt-0 flex">
-          { socialLinks.map((SocialLink, index) => (
-            <div key={index} style={{ marginLeft: '1.25rem' }}>
+          { socialLinks.map((SocialLink) => (
+            <div key={SocialLink.type} style={{ marginLeft: '1.25rem' }}>
               { SocialLink }
             </div>
           ))}

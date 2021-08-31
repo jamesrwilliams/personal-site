@@ -1,13 +1,18 @@
-import React from 'react'
-import Layout from '../components/Layout/Layout'
-import SEO from '../components/utilities/seo'
-import PageHeader from '../components/PageHeader/PageHeader'
-import {PostLink} from '../components'
-import {graphql, useStaticQuery} from 'gatsby'
-import Container from "../components/Container";
+import React from 'react';
+import {graphql, useStaticQuery} from 'gatsby';
+import styled from 'styled-components';
+import Layout from '../components/Layout/Layout';
+import SEO from '../components/utilities/seo';
+import PageHeader from '../components/PageHeader/PageHeader';
+import {PostLink} from '../components';
+import Container from '../components/Container';
 
-const PostsPage = ({ context }) => {
+const PostGrid = styled.div`
+    z-index: 300;
+    position: relative;
+`;
 
+const PostsPage = () => {
   const { posts } = useStaticQuery(graphql`
 {
   posts: allMdx(sort: {fields: frontmatter___date, order: DESC}) {
@@ -25,20 +30,21 @@ const PostsPage = ({ context }) => {
 }
  `);
 
+  console.log(posts);
+
   return (
     <Layout>
       <SEO
         title="Posts"
-        description={"My sporadic thoughts on web development and fun things I find on the internet."} />
+        description="My sporadic thoughts on web development and fun things I find on the internet."
+      />
       <main>
-        <PageHeader title={"All posts"} />
+        <PageHeader title="All posts" />
         <Container>
-            <br />
-          <ul style={{ margin: 0, padding: 0 }} className={'list-none m-0'}>
-            {posts.nodes.map((_post, index) =>
-              <PostLink key={index} post={_post.frontmatter} slug={_post.slug} />
-            )}
-          </ul>
+          <br />
+          <PostGrid>
+            {posts.nodes.map((_post) => <PostLink key={_post.slug} post={_post.frontmatter} slug={_post.slug} />)}
+          </PostGrid>
         </Container>
       </main>
     </Layout>

@@ -1,10 +1,10 @@
-import React from 'react'
-import {graphql, Link, useStaticQuery} from 'gatsby'
-import {Hero, Layout, PostLink} from '../components'
+import React from 'react';
+import {graphql, Link, useStaticQuery} from 'gatsby';
+import styled from 'styled-components';
+import {Hero, Layout, PostLink} from '../components';
 
-import SEO from '../components/utilities/seo'
-import styled from "styled-components";
-import Container from "../components/Container";
+import SEO from '../components/utilities/seo';
+import Container from '../components/Container';
 
 const PostGrid = styled.div`
     display: grid;
@@ -14,7 +14,6 @@ const PostGrid = styled.div`
 `;
 
 const IndexPage = () => {
-
   const { posts } = useStaticQuery(graphql`
     query {
       posts: allMdx(limit: 6, sort: {fields: frontmatter___date, order: DESC}) {
@@ -35,22 +34,25 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO
-        title={''}
+        title=""
         description={"I'm James, a development engineer from Canada. I enjoy building delightfully fast, and engaging digital projects."}
       />
       <Hero />
-        <section className="recent-posts"  style={{ marginTop: '-90px' }}>
-            <Container>
-              <PostGrid>
-                { posts.nodes.map((_post, index) => <>
-                    <PostLink key={index} slug={'/posts/' + _post.slug} post={_post.frontmatter} />
-                </> )}
-              </PostGrid>
-              <p><Link to={'/posts/'}>View all</Link></p>
-            </Container>
-        </section>
+      <section className="recent-posts">
+        <Container>
+          <h2>Recent posts</h2>
+          <PostGrid>
+            { posts.nodes.map((_post) => (
+              <>
+                <PostLink key={_post.slug} slug={`/posts/${_post.slug}`} post={_post.frontmatter} />
+              </>
+            ))}
+          </PostGrid>
+          <p style={{ textAlign: 'center', textDecoration: 'none' }}><Link to="/posts/">View all</Link></p>
+        </Container>
+      </section>
     </Layout>
-  )
-}
+  );
+};
 
 export default IndexPage;

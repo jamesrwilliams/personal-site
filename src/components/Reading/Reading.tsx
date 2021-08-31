@@ -7,17 +7,12 @@ const Reading = ({ book }: { book: BookInterface }) => {
   const linkTitle = `${title} by ${name}, on GoodReads.com`;
 
   return (
-    <span>
-      I'm currently reading: "
-      <a title={linkTitle} href={link}>{title}</a>
-      " by
-      <a
-        href={authorLink}
-      >
-        {name}
-      </a>
-      .
-    </span>
+    <p>
+        <span>I'm currently reading: </span>
+        <a title={linkTitle} href={link}>{title}</a>
+        <span> by </span><a href={authorLink}>{name}</a>
+        <span>.</span>
+    </p>
   );
 };
 

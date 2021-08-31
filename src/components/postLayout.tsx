@@ -5,22 +5,25 @@ import PageHeader from './PageHeader/PageHeader';
 import SEO from './utilities/seo';
 import Container from './Container';
 
-export default function Template({ children, pageContext, ...otherProps }: any) {
+export default function Template({ pageContext }: any) {
   const {
-    body, tableOfContents, frontmatter, excerpt,
+    body,
+    frontmatter,
+    excerpt,
+    timeToRead,
   } = pageContext;
   const { title } = frontmatter;
 
   return (
     <Layout>
       <SEO title={title} description={excerpt} publishedTime="" />
-      <PageHeader title={title} post={frontmatter} />
-      <main className="container">
-        <Container>
-          <article>
+      <main>
+        <article>
+          <PageHeader title={title} post={frontmatter} timeToRead={timeToRead} />
+          <Container>
             <MDXRenderer>{ body }</MDXRenderer>
-          </article>
-        </Container>
+          </Container>
+        </article>
       </main>
     </Layout>
   );

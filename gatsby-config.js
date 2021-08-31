@@ -86,6 +86,13 @@ module.exports = {
             },
           },
           {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              icon: false,
+              isIconAfterHeader: true,
+            },
+          },
+          {
             resolve: 'gatsby-remark-prismjs',
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
@@ -159,8 +166,6 @@ module.exports = {
             },
           },
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-autolink-headers',
-          'gatsby-remark-images',
         ],
       },
     },
@@ -168,6 +173,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-image',
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-google-analytics',

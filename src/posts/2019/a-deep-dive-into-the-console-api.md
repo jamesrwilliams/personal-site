@@ -7,7 +7,7 @@ I will be honest with you. I debug almost all of my Javascript with a million an
 
 > The most effective debugging tool is still careful thought, coupled with judiciously placed print statements.
 
-I'm running with this being relevant for me, even though Kernighan meant this in reference to Unix. Professional admissions aside, I have recently been looking deeper into the web console API I use for every web project I ever work on. It turns out there is a lot more than just `console.log()` in there. So here is a breakdown of some of the other methods and techniques you can use with the API to make your development and debugging life a little easier:
+I'm running with this being relevant for me, even though Kernighan meant this in reference to Unix. Professional admissions aside, I have recently been looking deeper into the web console API I use for every web project I ever work on. It turns out there is a lot more than just `console.log()` in there. So here is a breakdown of some other methods and techniques you can use with the API to make your development and debugging life a little easier:
 
 - [Assert, then log](#assert-then-log)
 - [Computed property names](#computed-property-names)
@@ -16,9 +16,9 @@ I'm running with this being relevant for me, even though Kernighan meant this in
 - [Styling messages](#log-styles)
 - [Timing executions](#timestamps)
 - [Returning traces](#stacktraces)
-- [Better object logging](#console-dir)
+- [Better object logging](#consoledir)
 
-As always, it's good to check up on the [browser support](https://developer.mozilla.org/en-US/docs/Web/API/Console#Browser_compatibility) for some of these as some are non-standard, before using these in anything resembling production. I've also put links in each section linking to the individual features so you don't have to battle with the overall console API comparability table. On with the show!
+As always, it's good to check up on the [browser support](https://developer.mozilla.org/en-US/docs/Web/API/Console#Browser_compatibility) for some of these as some are non-standard, before using these in anything resembling production. I've also put links in each section linking to the individual features, so you don't have to battle with the overall console API comparability table. On with the show!
 
 ## Assert, then log
 
@@ -75,7 +75,7 @@ console.table(books, ["title", "author"]);
 
 This would look something like this:
 
-![Chrome web console.table(); example output.](src/pages/posts/images/console.table-output.jpg)
+![Chrome web console.table(); example output.](./src/posts/images/console.table-output.jpg)
 _Example output of a console.table() running in Chrome._
 
 [See the MDN Documentation for console.table() for more.](https://developer.mozilla.org/en-US/docs/Web/API/Console/table)
@@ -84,7 +84,7 @@ _Example output of a console.table() running in Chrome._
 
 You can group a set of related console messages together with `console.group()`. This will nest the call messages between it's opening and closing pair and then allow you to collapse them in the console.
 
-The string argument in `group()` is used as the title of the group you can collapse. By default these groups are open in the console panel. To close them by default, you can switch the `group()` with `groupCollapsed()` (keeping the `groupEnd()` the same). This will close the group allowing users to open them at their leisure. For example:
+The string argument in `group()` is used as the title of the group you can collapse. By default, these groups are open in the console panel. To close them by default, you can switch the `group()` with `groupCollapsed()` (keeping the `groupEnd()` the same). This will close the group allowing users to open them at their leisure. For example:
 
 ```js
 // Start by creating a group called 'My Group'.
@@ -139,7 +139,7 @@ console.timeLog("foo");
 
 I've set up a demo CodePen that uses a `setTimeout` and a setInterval to showcase these features that you can see here: https://codepen.io/jamesrwilliams/pen/WmepWv
 
-There is also the `timeStamp()` method which is an **experimental** feature at the time of writing. This lets you add markers to the browsers performance metrics, allowing you to mark a point in your execution with others like layout and paint events. Read more on the MDN docs about [`console.timeStamp()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/timeStamp).
+There is also the `timeStamp()` method which is an **experimental** feature at the time of writing. This lets you add markers to the browsers' performance metrics, allowing you to mark a point in your execution with others like layout and paint events. Read more on the MDN docs about [`console.timeStamp()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/timeStamp).
 
 ## Stacktraces
 
@@ -157,7 +157,7 @@ foo();
 
 This would log something like this to your browser console:
 
-![Chrome web console.trace(); output.](src/pages/posts/images/console.stack-output.jpg)
+![Chrome web console.trace(); output.](./src/posts/images/console.stack-output.jpg)
 _Example output of a console.trace() running in Chrome._
 
 ## console.dir()
@@ -166,18 +166,18 @@ _Example output of a console.trace() running in Chrome._
 console.dir(foo);
 ```
 
-This console method outputs a nice user friendly version of things like objects and arrays. Now I thought, "hey this is super like console.log, right?". Turns out to a certain degree it is but there are some differences as occasionally `log()` will return a string representation of the variable, `dir()` will always return an interactive version.
+This console method outputs a nice user-friendly version of things like objects and arrays. Now I thought, "hey this is super like console.log, right?". Turns out to a certain degree it is but there are some differences as occasionally `log()` will return a string representation of the variable, `dir()` will always return an interactive version.
 
-For example when logging regex strings `console.log` prints just the regex string whereas `console.dir` spits out it's properties, things like flags also. Another note is that `console.dir` keeps a reference to the object, as such, you probably don't want to use it extensively in production.
+For example when logging regex strings `console.log` prints just the regex string whereas `console.dir` spits out its properties, things like flags also. Another note is that `console.dir` keeps a reference to the object, as such, you probably don't want to use it extensively in production.
 
-I've put together a little demo of the differences between `dir()` and `log()` for my own understanding that you can checkout here: https://codepen.io/jamesrwilliams/pen/eXOJoW.
+I've put together a little demo of the differences between `dir()` and `log()` for my own understanding that you can check out here: https://codepen.io/jamesrwilliams/pen/eXOJoW.
 
 ## Profiling
 
-You can even start recording a performance profile via `profile()`. To end a profile recording you can call `profileEnd()`. You can also give the profile a name by passing `.profile()` a string argument. Be warned though, this is a non-standard feature and is on the bleeding edge of the API, with implemnations in most modern browsers apart from Safari and Opera (at the time of writing) find out more here: https://developer.mozilla.org/en-US/docs/Web/API/Console/profile.
+You can even start recording a performance profile via `profile()`. To end a profile recording you can call `profileEnd()`. You can also give the profile a name by passing `.profile()` a string argument. Be warned though, this is a non-standard feature and is on the bleeding edge of the API, with implementations in most modern browsers apart from Safari and Opera (at the time of writing) find out more here: https://developer.mozilla.org/en-US/docs/Web/API/Console/profile.
 
 ## Conclusion
 
-The console API is a staple of a developers life, and I think these alternatives to the regular `log()` are a great addition to any workflow, especially if you can remember to use them!
+The console API is a staple of a developers' life, and I think these alternatives to the regular `log()` are a great addition to any workflow, especially if you can remember to use them!
 
-I've setup a CodePen collection of a few demos, showing off these features that can be found here: https://codepen.io/collection/XpwWPL/
+I've set up a CodePen collection of a few demos, showing off these features that can be found here: https://codepen.io/collection/XpwWPL/

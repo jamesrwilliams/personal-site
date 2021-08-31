@@ -19,6 +19,7 @@ exports.createPages = async ({ actions, graphql }) => {
           body
           excerpt
           tableOfContents
+          timeToRead
           frontmatter {
             title
             post_date: date,

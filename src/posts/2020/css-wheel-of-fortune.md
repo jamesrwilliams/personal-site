@@ -28,7 +28,7 @@ What makes one of these wheels recognisable? There are three things I thought of
 
 These wheels have a very distinctive look and feel, iconic almost. The slices or wedges, featuring their alternating colours, the "handles", and the labels on each all centered around the circular board.
 
-Initially I was going to just use a background image for the wheel and PhotoShop the prize wheel together, but that's no fun at all. I opted for a HTML/CSS solution (only featuring a small amount of JavaScript that I will get on to later). I started off by getting some `scss` variables set up with some useful numbers around the area, angle of our wheel. Hope you all paid attention during Math to work out the arc of a circle!
+Initially I was going to just use a background image for the wheel and PhotoShop the prize wheel together, but that's no fun at all. I opted for a refined HTML/CSS solution (only featuring a small amount of JavaScript that I will get on to later). I started off by getting some `scss` variables set up with some useful numbers around the area, angle of our wheel. Hope you all paid attention during Math to work out the arc of a circle!
 
 ```scss
 $diameter: 350px;
@@ -45,7 +45,7 @@ The wedges are where this gets challenging. My example has 12 slices in total, n
 
 ### How To Build A Wedge
 
-With the wheel made up of multiple slices. Each one has a container with the class of `slice` which we use for rotation and positioning. The label is for the, you guessed it, label or the content of that slice.
+With the wheel made up of multiple slices. Each one has a container with the class of `slice` which we use for rotation and positioning. The label is for, you guessed it, the label or the content of that slice.
 
 ```html
 <div class="slice">
@@ -53,9 +53,9 @@ With the wheel made up of multiple slices. Each one has a container with the cla
 </div>
 ```
 
-<span class="img-right">![Before/after pseudo elements creating our wedge](src/pages/posts/images/wheel-of-prizes_slice-structure.png)</span>
+<span class="img-right">![Before/after pseudo-elements creating our wedge](./src/posts/images/wheel-of-prizes_slice-structure.png)</span>
 
-From that we use `:before` and `:after` pseudo elements to blocks before and after our label. Using CSS triangles before and after the label we can create the wedge shape we're after. Like so:
+From that we use `:before` and `:after` pseudo-elements to blocks before and after our label. Using CSS triangles before and after the label we can create the wedge shape we're after. Like so:
 
 Once the first slice was working. We just repeat them for however many slices we want. We set each slice use the tip of the triangles as the transform origin point: `transform-origin: center left;`, this allows us to rotate each slice around our center points. The hidden overflow on the parent `div` then hides everything past the border-radius giving us a curved wedge!
 
@@ -90,7 +90,7 @@ We've got our 12 "slices" we now need to spread them out evenly around the wheel
 }
 ```
 
-![The static wheel](src/pages/posts/images/wheel-of-prizes_static-wheel.png)
+![The static wheel](./src/posts/images/wheel-of-prizes_static-wheel.png)
 _Add a few static bits and buttons, and we're almost there!_
 
 ## Motion
@@ -155,4 +155,4 @@ function updateAnimationNumbers(prizePosition) {
 
 Overall I'm pretty happy with how this turned out. We shall have to wait and see if it helped conversions, but I doubt it! I tried to do this with as little JavaScript as possible, in an effort to reduce complexity, in hindsight however it may have been easier, but we do love a challenge. The only JavaScript in this project shuffles the "slices" on load and then adjusts the rotation number to ensure it always ends on the winning tile!
 
-BrowserSupport is impressive for something this complex. For those older browsers that don't support things like `:psudo` elements and CSS animation/transitions, a graceful fallback is in place that just shows them their prize. Luckily the application the final code went into kicks anyone IE9> to a upgrade page so I didn't have to worry too much about those oldies!
+BrowserSupport is impressive for something this complex. For those older browsers that don't support things like `:psudo` elements and CSS animation/transitions, a graceful fallback is in place that just shows them their prize. Luckily the application the final code went into kicks anyone IE9> to an upgrade page, so I didn't have to worry too much about those oldies!

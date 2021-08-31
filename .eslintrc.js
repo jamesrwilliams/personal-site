@@ -36,8 +36,9 @@ module.exports = {
     'import/extensions': [2, {
       extensions: { json: 'always' },
     }],
-    'import/no-unresolved': "off",
+    'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'no-use-before-define': 'off',
+    'react/jsx-one-expression-per-line': 'off',
   },
 };

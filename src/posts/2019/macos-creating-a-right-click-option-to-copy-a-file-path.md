@@ -6,7 +6,7 @@ slug: "macos-creating-a-right-click-option-to-copy-a-file-path"
 
 Sometimes you just really need a file path. You've got a file open in Finder, and you just need the path. Ideally without going through the usual drag-and-drop into Terminal and/or take note of the file location then `cd` your way back.
 
-![The copy to clipboard action we're searching, shown in the Automator app.](src/pages/posts/images/automator-result.png)
+![The copy to clipboard action we're searching, shown in the Automator app.](./src/posts/images/automator-result.png)
 _The goal. A right click context action copying the path of the selected file._
 
 I initially thought of looking into writing a custom application that offers this functionality through the right click context menu but then I had a brain wave. "Hey there is a way to automate tasks on Mac, is there a way to do this via the right click context menu?" and it turns out there is!
@@ -31,13 +31,13 @@ Now we're ready to start configuring our new right click option. At the top of t
 
 This second dropdown is a little like the context for the menu appearing, with this setting our new menu option will only appear in the Finder application. So your settings panel should look something like this once you're done:
 
-![The configuration panel from the Finder.app showing the fields we should change.](src/pages/posts/images/automator-configuration.png)
+![The configuration panel from the Finder.app showing the fields we should change.](./src/posts/images/automator-configuration.png)
 
 ### Step 4 of 4
 
 Last but not least we need an action to be carried out as part of this Automator workflow. What we'll want to do is search for the "Copy to Clipboard" action from the left-hand menu (make sure you've got the "Actions" button active and not variables).
 
-![The copy to clipboard action we're searching, shown in the Automator app.](src/pages/posts/images/automator-copy-files-to-clipboard.png)
+![The copy to clipboard action we're searching, shown in the Automator app.](./src/posts/images/automator-copy-files-to-clipboard.png)
 
 Once you've found it, drag it over to the space below the configuration panel from step 3. Once that is there we're done. Save your application with a useful name as whatever name you put here will be what appears in the right click menu.
 

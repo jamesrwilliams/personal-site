@@ -15,7 +15,6 @@ interface LayoutProps {
 }
 
 const LayoutContainer = styled.div`
-    background: #eee;
     padding: 0;
 `;
 

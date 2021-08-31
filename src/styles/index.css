@@ -7,6 +7,8 @@ html {
 
 body {
   margin: 0;
+  background: #fcfbff;
+  color: #4a4d70;
 }
 
 /* Fix first line indent issue */
@@ -22,11 +24,20 @@ body {
   overflow: hidden;
 }
 
+article pre {
+  border-radius: .375rem;
+  font-size: .8888889em;
+  line-height: 1.75;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 1em 1.5em;
+}
+
 article h2:before {
   content: '';
   margin-bottom: 1rem;
   width: 64px;
-  height: 2px;
+  height: 1px;
   display: block;
   background: #ccc;
   border-bottom: 1px solid #fff;
@@ -40,7 +51,7 @@ article {
 
 article h2 {
   font-size: 1.6666667em;
-  margin-top: calc(6*1rem);
+  margin-top: calc(5*1rem);
   margin-bottom: 1.0666667em;
   line-height: 1.3333333;
 }
@@ -55,6 +66,30 @@ article h3 {
 .anchor.before {
   position: absolute;
   transform: translateX(calc(-100% - 10px));
+  opacity: .3;
 }
 
-h2 .anchor { display: none; }
+*  {
+  text-rendering: optimizelegibility;
+}
+
+:not(pre) > code[class*="language-"] {
+  white-space: normal;
+  border-radius: .2em;
+  color: #24292e;
+  font-weight: 400;
+  font-size: 85%;
+  padding: .2em .4em !important;
+  background: #f3f3f3;
+}
+
+:not(pre) > code[class*="language-"]::selection {
+  background: #ff0;
+}
+
+
+blockquote {
+  border-left: 5px solid #eee;
+  margin-left: 0;
+  padding-left: 1rem;
+}

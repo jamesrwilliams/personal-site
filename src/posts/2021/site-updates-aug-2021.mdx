@@ -3,13 +3,79 @@ title: "August 2021 site updates: Ditching Tailwind.css and embracing MDX"
 date: 2021-08-19
 ---
 
-I recently did a little refactor of this site where I removed Tailwind CSS and switch my post formatting to MDX.
+In what is becoming somewhat of a tradition of small changes becoming much more complicated I've completed the
+second refactor of the year. A little theme improvement then some changes to the tools powering the build side of the
+site.
+
+## Hello .MDX
+
+The majority of content on this site lives as Markdown, I've recently switched this site to use
+[MDX](https://mdxjs.com/) instead which opens my editing experience up to being able to use other JSX components right
+in the posts. I had a brief introduction to MDX when working with [storybook](https://storybook.js.org/) building
+component docs but the fact you can quickly add components to posts very cool. Not using it much yet but the option is
+there, probably good to image and layout controls.
+
+This setup had some funky setup issues mainly around having my desire to have my post's Markdown files in a different
+folder structure than I want them organised when they are published. In the `/src/posts` directory they're organised
+by year, and on my site I just have them as `/posts/slug` rather than `/posts/YYYY/slug`. to get around this I now
+have my `gatsby-config.js` file dynamically create source nodes for each year like so:
+
+```js
+// In gatsby-config.js
+module.exports = {
+    // [...]
+    plugins: [
+        ...buildSourceCalls(), // Add a spread operator for the array my function returns
+    ]
+    // [...]
+}
+
+/**
+ * This works out the year directories for all my posts
+ * and creates a unique source node call for each directory.
+ *
+ * This approach avoids having the year in the URL but lets me keep my posts organised
+ * in year directories.
+ *
+ * Just using one source of `/src/posts` would be /posts/{YEAR}/{SLUG} rather
+ * than what I want: /posts/{SLUG}
+ */
+function buildSourceCalls(name = 'posts') {
+  const startYear = 2015; // Earliest year I wrote a post
+  const years = new Date().getFullYear() - startYear;
+  const output = [];
+
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < years + 1; i++) {
+    output.push({
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name,
+        path: `${__dirname}/src/posts/${startYear + i}`,
+      },
+    });
+  }
+
+  return output;
+}
+
+```
 
 ## Bye Tailwind
 
-I added Tailwind back [February 2021](https://github.com/jamesrwilliams/personal-site/pull/35) in an attempt make my site easier to maintain. In theory this was a great move. I found it to significantly slow down my builds, increase development time and bloat my markup with its classes. I think this site has a pretty simple design, so maybe it's just overkill.
+I added Tailwind back [February 2021](https://github.com/jamesrwilliams/personal-site/pull/35) in an attempt make my
+site easier to maintain. In theory this was a great move. I found it to significantly slow down my builds, increase
+development time and bloat my markup with its classes. I think this site has a pretty simple design, so maybe it's
+just overkill. My builds were taking upwards of 92s (with a cache) Tailwind and the PostCSS process making it work was not
+worth the cost. Now with Tailwind and all that removed builds are back down to pre-tailwind times.
 
-## Hello MDX
+## Added btford/write-good
 
-The majority of content on this site lives as Markdown, I've recently switched this site to use [MDX](https://mdxjs.com/) instead which opens my editing experience up to being able to use other JSX components right in the posts. I had a brief introduction to MDX when working with [storybook](https://storybook.js.org/) building component docs but the fact you can quickly add components to posts very cool. Not using it much yet but the option is there, probably good to image and layout controls.
-
+`write-good` is a "naive linter for English prose for developers who can't write good and wanna learn to do other stuff
+good too". I'm dyslexic and have never thought of myself a good writer, and part of the reason why I write these posts
+is to improve my writing skills. This little tool now throws errors during my Gatsby site builds to inform me of
+grammatical issues with my post content! Pair this with my ongoing work to complete
+[Google's Tech Writing](https://developers.google.com/tech-writing) course, who knows maybe the quality (and even the
+value) of these posts will go up! You can check out my implementation of this via my
+[gatsby-write-good](https://github.com/jamesrwilliams/gatsby-write-good) plugin and see the source of this wonderful
+linter on [GitHub via btford/write-good](https://github.com/btford/write-good).

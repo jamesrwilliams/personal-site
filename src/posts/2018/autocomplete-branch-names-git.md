@@ -5,7 +5,7 @@ aliases: [/2018/07/23/autocomplete-branch-names-git/]
 slug: "autocomplete-branch-names-on-the-command-line"
 ---
 
-Trying to get over the force of habit that is using tab to auto-complete things on Mac. Well, it does'nt work for git out of the box but here is a way to get it working on the command line. You can use this script as part of your `bash_profile` in order to be able to auto-complete long branch names by pressing `tab`.
+Trying to get over the force of habit that is using tab to auto-complete things on Mac. Well, it doesn't work for git out of the box but here is a way to get it working on the command line. You can use this script as part of your `bash_profile` in order to be able to auto-complete long branch names by pressing `tab`.
 
 First, download the script to your home folder:
 

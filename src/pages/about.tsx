@@ -100,6 +100,8 @@ const AboutPage = () => {
             <li>Mouse / Keyboard: Apple Wireless</li>
             <li>Self-built gaming PC: <Link className={'underline'} to={'/posts/pc-building-part-1'}>Specs</Link></li>
           </ul>
+          <h3>About this site</h3>
+          <p>The source code for my personal portfolio site and blog. It is built with GatsbyJS using MDX for posts and styled-components to handle the design. All deployed via [Netlify]() from it's home on <OutboundLink href={'https://github.com/jamesrwilliams/personal-site'}>jamesrwilliams/personal-site</OutboundLink>, and is a full progressive web app!</p>
         </article>
       </Container>
     </Layout>

@@ -9,7 +9,7 @@ It is a bit like [Storybook](https://storybook.js.org/), but tailored to Points'
 
 ## Some context
 
-In my previous role I was responsible for creating small marketing HTML/CSS/JS things we called "banners". These banners are added to our system console to customise our Partner's storefronts as part of a marketing campaign, such as a call out to a 25% discount promotion.
+In my previous role I was responsible for creating small marketing HTML/CSS/JS things we called "banners". These banners are added to our system console to customise our Partner's storefronts as part of a marketing campaign, such as a call-out to a 25% discount promotion.
 
 When I first joined the team back in 2019, these banners where manually created by writing code directly into our product console. A few weeks into the job I started writing a NodeJS CLI to automate some heavy lifting and making the developer experience less cumbersome. The CLI handled things like file concatenation, css-preprocessor support, some business rule validation, and ES6 transpiling down to our supported browser list. Think webpack but homemade?
 
