@@ -28,8 +28,7 @@ interface SEOProps {
     path?: string;
 }
 
-function SEO({
-  description, lang, meta = [], title, image, publishedTime, path,
+function SEO({description, lang, meta = [], title, image, publishedTime, path,
 }: SEOProps) {
   const { site } = useStaticQuery(
     graphql`
@@ -46,21 +45,25 @@ function SEO({
     `,
   );
 
+  console.log({title});
+
   const {
     description: defaultDescription, title: defaultTitle, twitter, author,
   } = site.siteMetadata;
 
+  const usedTitle = title || defaultTitle;
+
   const metaObject: metaObjectInterface = {
     author,
     description: defaultDescription,
-    'og:title': defaultTitle,
+    'og:title': usedTitle,
     'og:description': defaultDescription,
     'og:type': 'website',
     'og:url': 'https://jamesrwilliams.ca/',
     'og:image': 'https://jamesrwilliams.ca/favicon.png',
     'twitter:card': 'summary',
     'twitter:creator': twitter,
-    'twitter:title': defaultTitle,
+    'twitter:title': usedTitle,
     'twitter:description': defaultDescription,
     'twitter:image:src': 'https://jamesrwilliams.ca/favicon.png',
     'twitter:image:width': '512',

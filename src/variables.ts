@@ -8,3 +8,5 @@ export const textGradient = `
     -webkit-text-fill-color: transparent;
     line-height: 1.2;
 `;
+
+export const mobileBreakpoint = '700px';

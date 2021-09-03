@@ -4,6 +4,7 @@ import Layout from './Layout/Layout';
 import PageHeader from './PageHeader/PageHeader';
 import SEO from './utilities/seo';
 import Container from './Container';
+import Pagination from './Pagination';
 
 export default function Template({ pageContext }: any) {
   const {
@@ -11,8 +12,11 @@ export default function Template({ pageContext }: any) {
     frontmatter,
     excerpt,
     timeToRead,
+    pagination,
   } = pageContext;
   const { title } = frontmatter;
+
+  const { next, previous } = pagination;
 
   return (
     <Layout>
@@ -20,9 +24,10 @@ export default function Template({ pageContext }: any) {
       <main>
         <article>
           <PageHeader title={title} post={frontmatter} timeToRead={timeToRead} />
-          <Container>
+          <Container style={{ paddingBottom: '2rem' }}>
             <MDXRenderer>{ body }</MDXRenderer>
           </Container>
+          <Pagination next={next} previous={previous} />
         </article>
       </main>
     </Layout>

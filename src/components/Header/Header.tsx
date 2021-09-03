@@ -40,7 +40,7 @@ const Header = () => {
 export default Header;
 
 const NavLink = ({ url, label }: { url: string, label: string }) => (
-  <Link activeClassName="active" to={url} style={{ color: '#fff', textDecoration: 'none', marginLeft: '1rem' }}>
+  <Link activeClassName="active" to={url} style={{ color: '#fff', textDecoration: 'none', marginLeft: '3rem' }}>
     { label }
   </Link>
 );

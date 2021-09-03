@@ -34,7 +34,10 @@ module.exports = {
   ],
   rules: {
     'import/extensions': [2, {
-      extensions: { json: 'always' },
+      extensions: {
+        json: 'always',
+        interface: 'never',
+      },
     }],
     'import/no-unresolved': 'off',
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],

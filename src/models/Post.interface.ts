@@ -1,7 +1,13 @@
-interface PostInterface {
+export default interface PostInterface {
+  slug: string;
+  body: string;
+  excerpt: string;
+  tableOfContents: string;
+  timeToRead: string;
+  fileAbsolutePath: string;
+  frontmatter: {
     title: string;
-    date: string;
-    date_readable: string;
-    slug: string;
-    draft?: boolean;
+    postDate: string;
+    postDateTimestamp: string;
+  }
 }

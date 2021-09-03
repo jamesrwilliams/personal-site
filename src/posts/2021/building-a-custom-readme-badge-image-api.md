@@ -148,5 +148,3 @@ The above is telling the `web` process to run the `gunicorn app:app` which, in t
 gunicorn with the app:app which corresponds to: `$(MODULE_NAME):$(VARIABLE_NAME)`. This is all hooked up in Heroku to GitHub it'll automatically deploy the latest commits on my `main` branch.
 You can also use the Heroku git repositories for deployments where you push directly to their servers but having two origins never sat right with me. 
 
-## All in
-

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Container from '../Container';
 import {primaryBlue} from '../../variables';
 
-const PageWrapper = styled.header`
+const PageWrapper = styled.aside`
   padding: 2.5rem 0;
   color: ${primaryBlue};
   position: relative;
@@ -31,8 +31,8 @@ const PageHeader = ({
 }: any) => (
   <PageWrapper>
     <Container>
-      <h1>{title}</h1>
-      {post && post.post_date ? <PageMeta date={post.post_date} timeToRead={timeToRead} /> : ''}
+      <h1 itemProp="name">{title}</h1>
+      {post && post.postDate ? <PageMeta date={post.postDate} timeToRead={timeToRead} /> : ''}
       {children}
     </Container>
   </PageWrapper>
@@ -44,19 +44,22 @@ const PageMetaWrapper = styled.div`
   border-radius: 3px;
   margin-top: 5px;
   display: inline-block;
-  //color: #fff;
-  opacity: .7;
+  opacity: .8;
   padding: 0 5px;
 `;
 
-const PageMeta = ({ date, timeToRead }) => (
+interface PageMetaInterface {
+ date: string;
+ timeToRead: number;
+}
+
+const PageMeta = ({ date, timeToRead }: PageMetaInterface) => (
   <PageMetaWrapper>
+    <span> A { timeToRead } minute read. Posted on </span>
     <time dateTime={new Date(date).toISOString()}>
       { new Date(date).toLocaleDateString('en-CA', {
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
       }) }
     </time>
-    <span> - </span>
-    <span> { timeToRead } { timeToRead === 1 ? 'min' : 'mins' }  read time.</span>
   </PageMetaWrapper>
 );

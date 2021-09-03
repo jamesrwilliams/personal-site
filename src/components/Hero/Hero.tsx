@@ -95,8 +95,9 @@ const Hero = () => (
     <Container>
       <p className="intro">Hello, I'm James!</p>
       <p className="gradient">A development engineer from Canada, Building things for the internet with JavaScript and Python.</p>
-      <p className={'intro'} style={{ fontSize: '24px', marginTop: 0 }}>Currently working with the team at <OutboundLink>Points.com</OutboundLink>. Focusing on developer experience and
-        tooling.</p>
+      <p className="intro" style={{ fontSize: '24px', marginTop: 0 }}>I'm currently working with the team at <OutboundLink>Points.com</OutboundLink>. Focusing on developer experience,
+        tooling, and workflow automation.
+      </p>
     </Container>
   </HeroWrapper>
 );
