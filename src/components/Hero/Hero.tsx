@@ -5,18 +5,19 @@ import Container from '../Container';
 import {primaryBlue, textGradient} from '../../variables';
 
 const HeroWrapper = styled.div`
-    background: ${primaryBlue};
-    padding: 4rem 0 2rem;
-    position: relative;
-    font-weight: 200;
+  background: ${primaryBlue};
+  padding: 4rem 0;
+  position: relative;
+  font-weight: 200;
   color: #fff;
   margin-bottom: 150px;
 
     @media screen and (min-width: 700px) {
-      padding: 8rem 2rem 2rem;
+      padding: 8rem 2rem 0;
     }
 
-    p.intro,
+
+    p.lead,
     p.gradient {
       font-size: 25px;
       font-weight: 400;
@@ -27,13 +28,21 @@ const HeroWrapper = styled.div`
 
     }
 
-    p.intro {
+    p.lead {
       margin-right: .7ch;
-      margin-bottom: 0;
+      font-weight: 200;
+      transition: all 1s ease;
+
+      @media screen and (min-width: 700px) {
+        margin-bottom: 0;
+      }
     }
 
     p.intro {
-      font-weight: 200;
+      margin-bottom: 0;
+      margin-top: 0;
+      font-size: 18px;
+      margin-right: 4rem;
     }
 
     p.gradient {
@@ -93,10 +102,11 @@ const HeroWrapper = styled.div`
 const Hero = () => (
   <HeroWrapper>
     <Container>
-      <p className="intro">Hello, I'm James!</p>
+      <p className="lead">Hello, I&apos;m James!</p>
       <p className="gradient">A development engineer from Canada, Building things for the internet with JavaScript and Python.</p>
-      <p className="intro" style={{ fontSize: '24px', marginTop: 0 }}>I'm currently working with the team at <OutboundLink>Points.com</OutboundLink>. Focusing on developer experience,
-        tooling, and workflow automation.
+      <p className="intro">
+        I have a keen interest in developer experience, tooling, and process automation. I am
+        currently working with the team at <OutboundLink>Points.com</OutboundLink>.
       </p>
     </Container>
   </HeroWrapper>

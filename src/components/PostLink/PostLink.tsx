@@ -1,23 +1,76 @@
 import React from 'react';
 import {Link} from 'gatsby';
 import styled from 'styled-components';
+import PostInterface from '../../models/Post.interface';
 
-const PostLinkContainer = styled.div`
-    margin-bottom: 2rem;
-    position: relative;
+const PostLinkContainer = styled(Link)`
+  margin-bottom: 2rem;
+  display: block;
+  position: relative;
+  border: 1px solid #ccc5;
+  color: #000000d9;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 1s ease;
 
-    a {
-          margin-top: .4rem;
-          text-decoration: none;
-          color: #000;
-    }
+  &:hover {
+    background: #fff;
+  }
+
+  .post-preview-title {
+    padding: 0 12px;
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 2px 2px 0 0;
+    font-size: 14px;
+  }
+
+  .post-preview-title-link {
+    font-weight: 500;
+    color: #000000d9;
+    font-size: 16px;
+    padding: 8px 0;
+    display: block;
+    text-decoration: none;
+  }
+
+  .post-preview-body {
+    padding: 12px;
+    font-weight: 400;
+    opacity: .7;
+  }
+
+  .post-preview-meta {
+    display: flex;
+    margin-right: 2rem;
+  }
+
+  .post-preview-excerpt {
+    margin-bottom: 1rem;
+  }
+
 `;
 
-const PostLink = ({ post, slug }: { post: any, slug: string }) => (
-  <PostLinkContainer>
-    <time style={{ color: '#333'}} dateTime={post.date}>{ post.date_readable }</time>
-    <span> - </span>
-    <Link to={slug}>{post.title}</Link>
+const PostLink = ({ post }: { post: PostInterface }) => (
+  <PostLinkContainer to={`/posts/${post.slug}`}>
+    <div className="post-preview-title">
+      <span className="post-preview-title-link">{post.frontmatter.title}</span>
+    </div>
+    <div className="post-preview-body">
+      <div className="post-preview-excerpt">
+        { post.excerpt }
+      </div>
+      <div className="meta" style={{ display: 'flex' }}>
+        <div className={'post-preview-meta'}>
+          <svg style={{ marginRight: '1rem' }} xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#000000"><path d="M0 0h24v24H0z" fill="none" /><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z" /></svg>
+          <time style={{ color: '#333' }} dateTime={post.frontmatter.date}>{post.frontmatter.dateReadable}</time>
+        </div>
+        <div className={'post-preview-meta'}>
+          <svg style={{ marginRight: '1rem' }} xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#000000"><path d="M0 0h24v24H0z" fill="none" /><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" /><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" /></svg>
+          <time dateTime={`${post.timeToRead}m`}>~{post.timeToRead} min read</time>
+        </div>
+      </div>
+    </div>
   </PostLinkContainer>
 );
 

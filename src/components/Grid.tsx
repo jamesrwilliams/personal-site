@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Grid = () => (
+const Grid = ({ children }: any) => (
   <>
-    <h1>Grid goes here...</h1>
+    <div>
+      { children }
+    </div>
   </>
 );
 

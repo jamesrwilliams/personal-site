@@ -5,6 +5,7 @@ import PageHeader from './PageHeader/PageHeader';
 import SEO from './utilities/seo';
 import Container from './Container';
 import Pagination from './Pagination';
+import {graphql} from "gatsby";
 
 export default function Template({ pageContext }: any) {
   const {
@@ -33,3 +34,17 @@ export default function Template({ pageContext }: any) {
     </Layout>
   );
 }
+
+export const query = graphql`
+  fragment blogFields on Mdx {
+    excerpt(pruneLength: 250)
+    slug
+    timeToRead
+    frontmatter {
+      date
+      dateReadable: date(formatString: "YYYY-MM-DD")
+      title
+      slug
+    }
+  }
+`;
