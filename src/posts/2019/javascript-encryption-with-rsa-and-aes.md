@@ -85,7 +85,7 @@ I settled on the Counter (CTR) mode due to the need to keep the initialisation v
 
 Due to the size of our data payload we can't just use RSA (as I naively thought at the outset). What would work however is a combination of symmetrical encryption and asymmetrical. With my trusty graph editor yEd, I started diagramming an outline of how this would work. See the graph below, outlining my planned approach. Without the private RSA key the transmitted payload is useless.
 
-![Flowchart detailing approach to this system.](./src/posts/images/encryption-graph.png)
+![Flowchart detailing approach to this system.](../images/encryption-graph.png)
 
 ### Encryption
 

@@ -75,7 +75,7 @@ console.table(books, ["title", "author"]);
 
 This would look something like this:
 
-![Chrome web console.table(); example output.](./src/posts/images/console.table-output.jpg)
+![Chrome web console.table(); example output.](../images/console.table-output.jpg)
 _Example output of a console.table() running in Chrome._
 
 [See the MDN Documentation for console.table() for more.](https://developer.mozilla.org/en-US/docs/Web/API/Console/table)
@@ -157,7 +157,7 @@ foo();
 
 This would log something like this to your browser console:
 
-![Chrome web console.trace(); output.](./src/posts/images/console.stack-output.jpg)
+![Chrome web console.trace(); output.](../images/console.stack-output.jpg)
 _Example output of a console.trace() running in Chrome._
 
 ## console.dir()

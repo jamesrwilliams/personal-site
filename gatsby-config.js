@@ -61,7 +61,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/posts/images`,
       },
     },
     {
@@ -171,7 +171,7 @@ module.exports = {
             options: {
               linkImagesToOriginal: true,
               maxWidth: 1200,
-              quality: 90,
+              quality: 100,
             },
           },
           'gatsby-remark-copy-linked-files',

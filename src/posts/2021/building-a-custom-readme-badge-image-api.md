@@ -31,7 +31,7 @@ pipenv shell
 Now we're in our virtual-environment we can install our dependencies, namely Flask and Pillow. Flask is the API framework
 we're going to use for our routing etc, and Pillow being the image library we're going to be using to manipulate our image data.
 
-```jshelllanguage
+```shell
 pipenv install Flask
 ```
 

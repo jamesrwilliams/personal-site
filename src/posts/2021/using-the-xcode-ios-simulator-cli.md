@@ -6,7 +6,7 @@ jira: POST-3
 
 The Apple development application [Xcode](https://developer.apple.com/xcode/) comes with a nifty iOS simulator bundled with it. Most of the time you probably use this for app development activities, but you can also test web things in a native Safari environment without using things like BrowserStack or SauceLabs. While you can use the simulator via the UI, a lot of functionality can be controlled from the command line interface using `xcrun simctl`. You don't even need an [Apple Developer Program](https://developer.apple.com/programs/) membership to use Xcode or the simulator.
 
-![The iOS simulator](./src/posts/images/ios-simulator.png)
+![The iOS simulator](../images/ios-simulator.png)
 
 ## Downloading the simulator
 

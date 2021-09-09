@@ -53,7 +53,7 @@ With the wheel made up of multiple slices. Each one has a container with the cla
 </div>
 ```
 
-<span class="img-right">![Before/after pseudo-elements creating our wedge](./src/posts/images/wheel-of-prizes_slice-structure.png)</span>
+<span class="img-right">![Before/after pseudo-elements creating our wedge](../images/wheel-of-prizes_slice-structure.png)</span>
 
 From that we use `:before` and `:after` pseudo-elements to blocks before and after our label. Using CSS triangles before and after the label we can create the wedge shape we're after. Like so:
 
@@ -90,7 +90,7 @@ We've got our 12 "slices" we now need to spread them out evenly around the wheel
 }
 ```
 
-![The static wheel](./src/posts/images/wheel-of-prizes_static-wheel.png)
+![The static wheel](../images/wheel-of-prizes_static-wheel.png)
 _Add a few static bits and buttons, and we're almost there!_
 
 ## Motion

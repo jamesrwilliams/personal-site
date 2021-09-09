@@ -6,7 +6,7 @@ jira: "POST-24"
 
 With COVID-19 cancelling all my travel plans for the year, and finding myself with a lot more time on my hands I decided it was time to retire my old 2009 27" iMac.
 
-<span class="img-right">![AMD Ryzen 5 3600 CPU and Gigabyte GeForce GTX 1660 SUPER boxes ](./src/posts/images/cpu-gpu.jpg)</span> 
+![AMD Ryzen 5 3600 CPU and Gigabyte GeForce GTX 1660 SUPER boxes ](../images/cpu-gpu.jpg) 
 
 I had already moved all my side project work onto my new Points work laptop (a 13-inch, 2018 MacBook Pro) so the reasons to keep the iMac were getting smaller and smaller. Epically when my new MacBook can out preform my iMac!
 
@@ -42,7 +42,7 @@ The build went well apart from one thing, after spending a few minutes working o
 
 A day or so after I noticed that I had installed the stock CPU fan with the top AMD logo off by 90deg to the right. So while installing my second RAM kit, I took the time to rotate the fan 90deg to keep the AMD logo chunk at the top. Looking quite tidy now I think:
 
-![CPU Fan in the upright position with all four ram slots filled.](./src/posts/images/corrected-cpu-fan.jpg)
+![CPU Fan in the upright position with all four ram slots filled.](../images/corrected-cpu-fan.jpg)
 
 ## Benchmarks
 
