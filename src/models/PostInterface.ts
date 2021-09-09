@@ -1,3 +1,4 @@
+/* eslint semi: 0 */
 export default interface PostInterface {
   slug: string;
   body?: string;
@@ -9,4 +10,4 @@ export default interface PostInterface {
     date: string;
     dateReadable: string;
   }
-};
+}

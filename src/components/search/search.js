@@ -1,6 +1,6 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import {connectHits, connectSearchBox, InstantSearch} from 'react-instantsearch-dom';
+import { connectHits, connectSearchBox, InstantSearch } from 'react-instantsearch-dom';
 import SearchHitList from './search-hit-list';
 import SearchBox from './search-box';
 import Container from '../Container';

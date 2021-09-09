@@ -1,6 +1,6 @@
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
-import {accentPrimary} from '../theme/variables';
+import { accentPrimary } from '../theme/variables';
 
 const StyledLinkElement = styled(Link)`
   line-height: 1.5715;
