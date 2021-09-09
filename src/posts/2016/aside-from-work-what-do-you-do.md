@@ -1,7 +1,6 @@
 ---
 title: Aside from work, what do you do?
 date: 2016-02-11T18:05:26+00:00
-slug: "aside-from-work-what-do-you-do"
 aliases: [/2016/02/11/aside-from-work-what-do-you-do/]
 ---
 

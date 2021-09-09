@@ -2,7 +2,6 @@
 title: Zipping folder contents
 date: 2018-03-13T09:16:09+00:00
 aliases: [/2018/03/13/terminal-zip-folder-contents/]
-slug: "zipping-folder-contents"
 ---
 
 ZIP the contents of the current folder into a zip with it&#8217;s parent directory as it&#8217;s name. Useful for zipping just the contents without the folder parent folder.

@@ -3,7 +3,6 @@ title: Where was I when 2015 turned into 2016? Is that where I wanted to be?
 date: 2016-01-18T21:30:21+00:00
 updated: 2019-12-04
 aliases: [/2016/01/18/where-was-i-when-2015-turned-into-2016/]
-slug: "where-was-i-when-2015-turned-into-2016"
 ---
 
 2015 was an interesting year for me, finally finished my undergraduate degree in Multimedia Web Design, graduating with a 2:1. More of a relief than anything. Other 2015 highlights of mine include:

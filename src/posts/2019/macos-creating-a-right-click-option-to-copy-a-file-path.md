@@ -1,7 +1,6 @@
 ---
 title: "MacOS: Creating a right click option to copy a file path"
 date: 2019-06-04T21:10:32-04:00
-slug: "macos-creating-a-right-click-option-to-copy-a-file-path"
 ---
 
 Sometimes you just really need a file path. You've got a file open in Finder, and you just need the path. Ideally without going through the usual drag-and-drop into Terminal and/or take note of the file location then `cd` your way back.

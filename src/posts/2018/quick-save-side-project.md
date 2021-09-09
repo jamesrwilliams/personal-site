@@ -2,7 +2,6 @@
 title: Quick Save (QS) – Side project
 date: 2018-03-13T08:40:40+00:00
 aliases: [/2018/03/13/quick-save-qs-side-project/]
-slug: "quick-save-side-project"
 jira: POST-31
 ---
 

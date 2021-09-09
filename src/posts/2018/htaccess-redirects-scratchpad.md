@@ -2,7 +2,6 @@
 title: .htaccess redirects scratchpad
 date: 2018-02-27T19:20:00-05:00
 aliases: [/2018/05/03/htaccess-redirects/]
-slug: "htaccess-redirects-scratchpad"
 ---
 
 Redirects are a frequent request for me during my working day. Clients moving their sites around, sandbox projects changing domains and other such reasons often call for legacy URLs to be handled with care. While using `.htaccess` files slows down your Apache http server, I personally don&#8217;t know enough (yet) about `httpd` config to use that instead. So enter my .htaccess redirect scratchpad:

@@ -1,7 +1,6 @@
 ---
 title: Getting started with SSH config
 date: 2018-08-21T10:42:37+00:00
-slug: "getting-started-with-ssh-config"
 ---
 
 This is rough personal reference for getting myself setup correctly for using SSH keys with git. Nothing worse than trying to git pull and it asks you for your password each time. First off, there are two files where SSH is configured depending on the scope you want to effect:

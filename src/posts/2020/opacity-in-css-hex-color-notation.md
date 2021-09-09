@@ -1,7 +1,6 @@
 ---
 title: "Opacity in CSS hex color notation"
 date: 2020-08-04T10:55:56-04:00
-slug: "opacity-in-css-hex-color-notation"
 jira: "POST-1"
 ---
 

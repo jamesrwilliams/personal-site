@@ -1,7 +1,6 @@
 ---
 title: "Building my own PC"
 date: 2020-04-22T10:55:56-04:00
-slug: "pc-building-part-1"
 jira: "POST-24"
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: "Migrating from Hugo to Gatsby"
 date: 2020-07-21
-slug: "migration-to-gatsby"
 jira: "POST-20"
 ---
 

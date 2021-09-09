@@ -1,7 +1,6 @@
 ---
 title: CSS attribute selectors
 date: 2018-08-22T12:13:37+00:00
-slug: "css-attribute-selectors"
 ---
 
 ### Target all images that have an empty `alt` tag
