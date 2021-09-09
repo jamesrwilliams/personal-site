@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import SearchHit from './search-hit';
 
 const SearchHitListElement = styled.ul`
@@ -20,6 +21,10 @@ const SearchHitList = ({ hits }) => (
     ))}
   </SearchHitListElement>
 );
+
+SearchHitList.propTypes = {
+  hits: PropTypes.arrayOf(PropTypes.any),
+};
 
 SearchHitList.defaultProps = {
   hits: [],

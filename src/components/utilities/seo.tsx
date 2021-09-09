@@ -28,7 +28,8 @@ interface SEOProps {
     path?: string;
 }
 
-function SEO({description, lang, meta = [], title, image, publishedTime, path,
+function SEO({
+  description, lang, meta = [], title, image, publishedTime, path,
 }: SEOProps) {
   const { site } = useStaticQuery(
     graphql`

@@ -59,7 +59,7 @@ https://reddit.com/submit?url=[post-url]&title=[post-title]
 ### LinkedIn
 
 ```
-http://www.linkedin.com/shareArticle?url=<URL>&title=<TITLE>&summary=<SUMMARY>&source=<SOURCE_URL>
+https://www.linkedin.com/shareArticle?url=<URL>&title=<TITLE>&summary=<SUMMARY>&source=<SOURCE_URL>
 ```
 
 ## Using with WordPress
@@ -67,7 +67,8 @@ http://www.linkedin.com/shareArticle?url=<URL>&title=<TITLE>&summary=<SUMMARY>&s
 Inside the current page/post loop you can use a combination of WordPress functions [`the_permalink()`](https://developer.wordpress.org/reference/functions/the_permalink/) for the permalink, [`the_title()`](https://developer.wordpress.org/reference/functions/the_title/) for the title, and [`the_excerpt()`](https://developer.wordpress.org/reference/functions/the_excerpt/) and create social share links. For example a LinkedIn share: 
 
 ```php
-$link = 'http://www.linkedin.com/shareArticle?url=' + the_permalink() + '&title=' + the_title() + '&summary=' + the_excerpt();
+$link = 'https://www.linkedin.com/shareArticle?url=' + the_permalink() + '&title=' + the_title() 
++ '&summary=' + the_excerpt();
 <a href="<?php echo $link ?>">Share on Linked In</a>
 ```
 

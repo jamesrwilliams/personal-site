@@ -1,4 +1,5 @@
 import React from 'react';
+import {BookInterface} from '../../models/Book.interface';
 
 const Reading = ({ book }: { book: BookInterface }) => {
   const { author, title, link } = book;
@@ -8,10 +9,10 @@ const Reading = ({ book }: { book: BookInterface }) => {
 
   return (
     <p>
-        <span>I'm currently reading: </span>
-        <a title={linkTitle} href={link}>{title}</a>
-        <span> by </span><a href={authorLink}>{name}</a>
-        <span>.</span>
+      <span>I&apos;m currently reading: </span>
+      <a title={linkTitle} href={link}>{title}</a>
+      <span> by </span><a href={authorLink}>{name}</a>
+      <span>.</span>
     </p>
   );
 };

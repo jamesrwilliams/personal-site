@@ -19,8 +19,10 @@ ExternalLink.defaultProps = {
   children: [],
 };
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-export const StyledExternalLink: React.FC<ExternalLinkProps> = ({ href, children, ...props }) => <ExternalLink href={href} {...props}>{ children }</ExternalLink>;
+export const StyledExternalLink: React.FC<ExternalLinkProps> = (
+  { href, children, ...props },
+  // eslint-disable-next-line react/jsx-props-no-spreading
+) => <ExternalLink href={href} {...props}>{ children }</ExternalLink>;
 
 StyledExternalLink.propTypes = {
   href: PropTypes.string.isRequired,

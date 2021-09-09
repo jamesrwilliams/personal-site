@@ -2,7 +2,7 @@ import React from 'react';
 import {OutboundLink} from 'gatsby-plugin-google-analytics';
 import styled from 'styled-components';
 import Container from '../Container';
-import {mediaQuery, primaryBlue, secondaryBlue, textGradient} from '../../theme/variables';
+import {mediaQuery, primaryBlue, secondaryBlue, textGradient,} from '../../theme/variables';
 
 const heroFill = secondaryBlue;
 

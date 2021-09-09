@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {ExternalLink} from "./utilities/ExternalLink";
-import {accentPrimary, mediaQuery} from "../theme/variables";
+import {ExternalLink} from './utilities/ExternalLink';
+import {accentPrimary, mediaQuery} from '../theme/variables';
 
 interface ProjectInterface {
   title: string;

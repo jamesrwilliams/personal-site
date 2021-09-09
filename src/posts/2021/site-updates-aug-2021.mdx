@@ -51,8 +51,8 @@ function buildSourceCalls(name = 'posts') {
       resolve: 'gatsby-source-filesystem',
       options: {
         name,
-        path: `${__dirname}/src/posts/${startYear + i}`,
-      },
+        path: `${__dirname}/src/posts/${startYear + i}`
+      }
     });
   }
 

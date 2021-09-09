@@ -26,7 +26,7 @@ This will redirect (301) the entire domain while preserving the path:
 RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP_HOST} !new-example.com$ [NC]
-RewriteRule ^(.*)$ http://new-example.com/$1 [L,R=301]
+RewriteRule ^(.*)$ https://new-example.com/$1 [L,R=301]
 ```
 
 ### Wildcard domain to single URL
@@ -37,8 +37,8 @@ Recently had a client close down their site to merge it into another. SEO impact
 RewriteEngine On
 RewriteBase /
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-RewriteRule ^(.*)$ http://{website URL} [R=301]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+RewriteRule ^(.*)$ https://{website URL} [R=301]
 ```
 
 ## WordPress htaccess redirects
