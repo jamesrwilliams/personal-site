@@ -1,6 +1,7 @@
 ---
 title: 'Automate git activities with Node'
 date: 2021-09-02
+draft: true
 ---
 
 - we have CI processes that deploy specific projects in part of a mono repo.

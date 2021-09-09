@@ -1,7 +1,7 @@
 import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import {Helmet} from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';

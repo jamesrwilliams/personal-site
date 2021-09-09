@@ -1,13 +1,13 @@
 import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import {Hero, Layout, PostLink} from '../components';
+import { Hero, Layout, PostLink } from '../components';
 
 import SEO from '../components/utilities/seo';
 import Container from '../components/Container';
 import ProjectTile from '../components/ProjectTile';
 import StyledLink from '../components/StyledLink';
-import {mediaQuery} from '../theme/variables';
+import { mediaQuery } from '../theme/variables';
 
 const { siteDescription } = require('../data/metadata');
 

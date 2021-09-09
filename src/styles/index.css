@@ -1,11 +1,11 @@
 @import './prism-material-oceanic.css';
 
-*  {
-  text-rendering: optimizelegibility;
+* {
+  text-rendering: optimizeLegibility;
 }
 
 html {
-  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   line-height: 1.5;
 }
 
@@ -28,5 +28,5 @@ body {
 .anchor.before {
   position: absolute;
   transform: translateX(calc(-100% - 10px));
-  opacity: .3;
+  opacity: 0.3;
 }

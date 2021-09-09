@@ -1,9 +1,9 @@
 import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/utilities/seo';
 import PageHeader from '../components/PageHeader/PageHeader';
-import {PostLink} from '../components';
+import { PostLink } from '../components';
 import Container from '../components/Container';
 
 const PostsPage = () => {

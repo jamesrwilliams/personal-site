@@ -1,6 +1,7 @@
 ---
 title: Designing APIs with the OpenAPI spec (v3.0)
 date: 2021-09-10
+draft: true
 ---
 
 We've been talking about revamping our entire testing strategy for a core product of ours for some time. We heavily 

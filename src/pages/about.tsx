@@ -1,13 +1,13 @@
 import React from 'react';
-import {graphql, Link, useStaticQuery} from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/utilities/seo';
 import PageHeader from '../components/PageHeader/PageHeader';
-import {Reading} from '../components';
+import { Reading } from '../components';
 import Container from '../components/Container';
 import ProfessionalExperience from '../components/ProfessionalExperience';
-import {ExternalLink, StyledExternalLink} from '../components/utilities/ExternalLink';
-import {resumeUrl} from '../data/urls';
+import { ExternalLink, StyledExternalLink } from '../components/utilities/ExternalLink';
+import { resumeUrl } from '../data/urls';
 import PostContent from '../components/utilities/PostContent';
 
 const AboutPage = () => {

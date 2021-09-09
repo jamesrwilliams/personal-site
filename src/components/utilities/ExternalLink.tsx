@@ -1,5 +1,5 @@
 import React from 'react';
-import {OutboundLink} from 'gatsby-plugin-google-analytics';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import PropTypes from 'prop-types';
 
 interface ExternalLinkProps {

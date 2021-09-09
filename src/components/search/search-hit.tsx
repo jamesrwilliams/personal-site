@@ -1,6 +1,6 @@
 import React from 'react';
 import PostLink from '../PostLink/PostLink';
-import PostInterface from '../../models/Post.interface';
+import PostInterface from '../../models/PostInterface';
 
 const SearchHit = ({ hit }: any) => {
   const PostObject: PostInterface = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import experienceTimeline, {ExperienceItem} from '../data/professional-experience';
+import experienceTimeline, { ExperienceItem } from '../data/professional-experience';
 
 export const ProfessionalExperience = () => (
   <ul>

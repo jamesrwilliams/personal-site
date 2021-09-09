@@ -1,6 +1,7 @@
 ---
 title: Building a README badge image API with Python
 date: 2021-08-20
+draft: true
 ---
 
 The idea here is to have a unique badge for specific information in our mono-repo. Things like individual app version or

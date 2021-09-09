@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Container from '../Container';
 
 const SearchBoxElement = styled.div`
@@ -21,9 +22,13 @@ const SearchBoxElement = styled.div`
 class SearchBox extends React.Component {
   timerId = null;
 
-  state = {
-    value: this.props.currentRefinement,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: props.currentRefinement,
+    };
+  }
 
   onChangeDebounced = (event) => {
     const { refine, delay } = this.props;
@@ -53,5 +58,17 @@ class SearchBox extends React.Component {
     );
   }
 }
+
+SearchBox.propTypes = {
+  currentRefinement: PropTypes.string,
+  refine: PropTypes.func,
+  delay: PropTypes.number,
+};
+
+SearchBox.defaultProps = {
+  currentRefinement: '',
+  refine: '',
+  delay: '',
+};
 
 export default SearchBox;

@@ -11,7 +11,7 @@ import {
   Twitter as TwitterIcon,
 } from '@icons-pack/react-simple-icons';
 
-import {OutboundLink} from 'gatsby-plugin-google-analytics';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import {
   codePenUrl,
   gitHubUrl,

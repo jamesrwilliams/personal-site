@@ -9,4 +9,4 @@ export default interface PostInterface {
     date: string;
     dateReadable: string;
   }
-}
+};

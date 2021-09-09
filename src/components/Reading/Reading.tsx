@@ -1,5 +1,5 @@
 import React from 'react';
-import {BookInterface} from '../../models/Book.interface';
+import { BookInterface } from '../../models/BookInterface';
 
 const Reading = ({ book }: { book: BookInterface }) => {
   const { author, title, link } = book;

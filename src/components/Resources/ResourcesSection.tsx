@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ResourceItem from './ResourcesItem';
+import ResourceItem, { ResourceItemProps } from './ResourcesItem';
 
-const ResourcesSection = ({ title, items }) => (
+const ResourcesSection = ({ title, items }: { title: string, items: [] }) => (
   <>
     <h3 id={title}>{ title }</h3>
     <ul>
-      { items.map(({ link, description, linkText }) => (
+      { items.map(({ link, description, linkText }: ResourceItemProps) => (
         <ResourceItem link={link} description={description} linkText={linkText} />
       )) }
     </ul>

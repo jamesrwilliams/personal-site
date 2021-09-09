@@ -1,6 +1,6 @@
 import React from 'react';
-import {MDXRenderer} from 'gatsby-plugin-mdx';
-import {graphql} from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { graphql } from 'gatsby';
 import Layout from './Layout/Layout';
 import PageHeader from './PageHeader/PageHeader';
 import SEO from './utilities/seo';
@@ -24,7 +24,7 @@ export default function Template({ pageContext }: any) {
 
   return (
     <Layout>
-      <SEO title={title} description={excerpt} publishedTime="" />
+      <SEO title={title} description={excerpt} path={`posts/${slug}`} publishedTime={frontmatter.date} />
       <LinkedData title={title} date={frontmatter.date} excerpt={excerpt} slug={slug} />
       <main>
         <article>
@@ -50,7 +50,6 @@ export const query = graphql`
       date
       dateReadable: date(formatString: "YYYY-MM-DD")
       title
-      slug
     }
   }
 `;

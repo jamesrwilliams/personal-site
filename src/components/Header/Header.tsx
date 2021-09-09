@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
-import {mediaQuery, primaryBlue} from '../../theme/variables';
+import { mediaQuery, primaryBlue } from '../../theme/variables';
 import Container from '../Container';
 import Spacer from '../utilities/general';
 

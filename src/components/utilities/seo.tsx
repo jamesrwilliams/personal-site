@@ -7,8 +7,8 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Helmet} from 'react-helmet';
-import {graphql, useStaticQuery} from 'gatsby';
+import { Helmet } from 'react-helmet';
+import { graphql, useStaticQuery } from 'gatsby';
 
 interface metaObjectInterface {
     [name: string]: string;
@@ -28,9 +28,9 @@ interface SEOProps {
     path?: string;
 }
 
-function SEO({
+const SEO = ({
   description, lang, meta = [], title, image, publishedTime, path,
-}: SEOProps) {
+}: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -50,7 +50,7 @@ function SEO({
     description: defaultDescription, title: defaultTitle, twitter, author,
   } = site.siteMetadata;
 
-  const usedTitle = title || defaultTitle;
+  const usedTitle = `${title} | ${defaultTitle}` || defaultTitle;
 
   const metaObject: metaObjectInterface = {
     author,
@@ -102,12 +102,14 @@ function SEO({
       meta={output.concat(meta)}
     />
   );
-}
+};
 
 SEO.defaultProps = {
   lang: 'en',
   meta: [],
   description: '',
+  publishedTime: '',
+  path: '',
   image: {
     url: 'favicon.png',
     height: 512,
@@ -118,8 +120,9 @@ SEO.defaultProps = {
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
+  publishedTime: PropTypes.string,
+  path: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string,
   image: PropTypes.shape({
     height: PropTypes.number,
     width: PropTypes.number,

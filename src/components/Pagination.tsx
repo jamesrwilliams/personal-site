@@ -1,8 +1,8 @@
-import React, {ReactElement} from 'react';
-import {Link} from 'gatsby';
+import React, { ReactElement } from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
-import PostInterface from '../models/Post.interface';
-import {mediaQuery} from '../theme/variables';
+import PostInterface from '../models/PostInterface';
+import { mediaQuery } from '../theme/variables';
 import Container from './Container';
 
 interface PaginationProps {

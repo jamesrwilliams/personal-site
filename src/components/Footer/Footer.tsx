@@ -1,17 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  GitHub,
-  HackerRank,
-  Instagram,
-  LinkedIn,
-  Pluralsight,
-  StackOverflow,
-  Twitter,
+  GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, Twitter,
 } from '../social/Social';
 import Container from '../Container';
 import HipHipArray from '../HipHipArray';
-import {mediaQuery, primaryBlue} from '../../theme/variables';
+import { mediaQuery, primaryBlue } from '../../theme/variables';
 import Spacer from '../utilities/general';
 
 const socialLinks = [

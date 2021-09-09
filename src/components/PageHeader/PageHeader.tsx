@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
-import {primaryBlue} from '../../theme/variables';
+import { primaryBlue } from '../../theme/variables';
 
 const PageWrapper = styled.aside`
   padding: 2.5rem 0;
