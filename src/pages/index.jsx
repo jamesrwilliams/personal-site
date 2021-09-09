@@ -1,15 +1,25 @@
 import React from 'react';
-import {graphql, Link, useStaticQuery} from 'gatsby';
+import {graphql, useStaticQuery} from 'gatsby';
 import styled from 'styled-components';
 import {Hero, Layout, PostLink} from '../components';
 
 import SEO from '../components/utilities/seo';
 import Container from '../components/Container';
 import ProjectTile from '../components/ProjectTile';
+import StyledLink from '../components/StyledLink';
+import {mediaQuery} from '../theme/variables';
+
+const { siteDescription } = require('../data/metadata');
 
 const PostGrid = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 2rem;
+
+  @media screen and ${mediaQuery.minMd} {
+    flex-direction: row;
+  }
 `;
 
 const IndexPage = () => {
@@ -27,18 +37,17 @@ const IndexPage = () => {
     <Layout>
       <SEO
         title=""
-        description={"I'm James, a development engineer from Canada. I enjoy building delightfully fast, and engaging digital projects."}
+        description={siteDescription}
       />
       <Hero />
 
       <Container>
         <h2>Recent posts</h2>
         { posts.nodes.map((_post) => (
-          <>
-            <PostLink key={_post.slug} slug={`/posts/${_post.slug}`} post={_post} />
-          </>
+          <PostLink key={_post.slug} slug={`/posts/${_post.slug}`} post={_post} />
         ))}
-        <p style={{ textAlign: 'center', textDecoration: 'none' }}><Link to="/posts/">View all</Link></p>
+
+        <p style={{ textAlign: 'center', textDecoration: 'none' }}><StyledLink to="/posts/">View all</StyledLink></p>
 
         <h2>Current projects</h2>
         <PostGrid>

@@ -45,8 +45,6 @@ function SEO({description, lang, meta = [], title, image, publishedTime, path,
     `,
   );
 
-  console.log({title});
-
   const {
     description: defaultDescription, title: defaultTitle, twitter, author,
   } = site.siteMetadata;

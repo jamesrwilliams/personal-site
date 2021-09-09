@@ -1,7 +1,6 @@
 ---
 title: Programmatic text formatting in Google Sheets with Google Apps Script
 date: 2020-10-22
-slug: "programmatic-text-formatting-in-google-sheets"
 jira: "POST-33"
 ---
 

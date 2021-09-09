@@ -1,24 +1,24 @@
 import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
-import PropTypes from 'prop-types';
 
 import {Helmet} from 'react-helmet';
 import styled from 'styled-components';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import GlobalStyles from '../../theme/globalStyles';
 
 import '../../styles/index.css';
 
 interface LayoutProps {
     children: React.ReactNode,
-    footerHidden?: boolean;
 }
 
 const LayoutContainer = styled.div`
-    padding: 0;
+  padding: 0;
+  height: 100%;
 `;
 
-const Layout = ({ children, footerHidden = false }: LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   const data = useStaticQuery(graphql`
       query SiteTitleQuery {
           site {
@@ -43,25 +43,19 @@ const Layout = ({ children, footerHidden = false }: LayoutProps) => {
 
   return (
     <LayoutContainer>
+      <GlobalStyles />
       <Helmet>
-        <meta name="last-deployed" content={data.site.buildTime} />
+        <meta name="netlify-last-deployed" content={data.site.buildTime} />
+        <meta name="netlify-build-id" content={buildID} />
         <script type="application/ld+json">
           { JSON.stringify(globalJSONLD, null, 4) }
         </script>
       </Helmet>
       <Header />
       {children}
-      { !footerHidden ? <Footer buildID={buildID} buildTime={data.site.buildTime} /> : '' }
+      <Footer />
     </LayoutContainer>
   );
-};
-
-Layout.propTypes = {
-  /*
-    Optionally hide the footer on certain pages.
-     */
-  footerHidden: PropTypes.bool,
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

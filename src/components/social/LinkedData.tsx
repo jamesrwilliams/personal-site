@@ -1,16 +1,27 @@
 import React from 'react';
+import {socials} from '../../data/urls';
 
-function JSONLD({
+const { siteDescription } = require('../../data/metadata');
+
+interface JsonLinkedData {
+  date: string;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  wordCount?: string;
+}
+
+const LinkedData = ({
   date,
   title,
   slug,
   excerpt,
   wordCount,
-}: any) {
-  const jsonLD: any = {
+}: JsonLinkedData) => {
+  const jsonLDTemplate: any = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    description: "I'm James, a full-stack development engineer working in Toronto. I enjoy building delightfully fast, and engaging digital projects.",
+    description: siteDescription,
     publisher: 'James R. Williams',
     datePublished: date,
     headline: title,
@@ -24,22 +35,29 @@ function JSONLD({
     author: {
       '@type': 'Person',
       name: 'James R. Williams',
+      sameAs: socials,
     },
   };
 
   if (wordCount) {
-    jsonLD.wordcount = wordCount;
+    jsonLDTemplate.wordcount = wordCount;
   }
 
   if (excerpt) {
-    jsonLD.description = excerpt;
+    jsonLDTemplate.description = excerpt;
   }
 
-  const JSONString = JSON.stringify(jsonLD, null, 4);
+  const JSONString = JSON.stringify(jsonLDTemplate, null, 4);
 
   return (
+    // eslint-disable-next-line react/no-danger
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSONString }} />
   );
-}
+};
 
-export default JSONLD;
+LinkedData.defaultProps = {
+  excerpt: '',
+  wordCount: '',
+};
+
+export default LinkedData;

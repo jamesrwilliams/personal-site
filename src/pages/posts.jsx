@@ -17,8 +17,6 @@ const PostsPage = () => {
 }
  `);
 
-  console.log(posts);
-
   return (
     <Layout>
       <SEO
@@ -28,7 +26,7 @@ const PostsPage = () => {
       <main>
         <PageHeader title="All posts" />
         <Container>
-          {posts.nodes.map((_post) => <PostLink key={_post.slug} post={_post} />)}
+          {posts.nodes.map((_post) => <PostLink key={`archive_${_post.slug}`} post={_post} />)}
         </Container>
       </main>
     </Layout>

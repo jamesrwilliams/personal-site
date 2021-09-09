@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
-import {primaryBlue} from '../../variables';
+import {primaryBlue} from '../../theme/variables';
 
 const PageWrapper = styled.aside`
   padding: 2.5rem 0;
@@ -33,8 +33,8 @@ const PageHeader = ({
     <Container>
       <h1 itemProp="name">{title}</h1>
       {post && post.postDate ? <PageMeta date={post.postDate} timeToRead={timeToRead} /> : ''}
-      {children}
     </Container>
+    {children}
   </PageWrapper>
 );
 
@@ -46,6 +46,7 @@ const PageMetaWrapper = styled.div`
   display: inline-block;
   opacity: .8;
   padding: 0 5px;
+  color: #4a4d70;
 `;
 
 interface PageMetaInterface {

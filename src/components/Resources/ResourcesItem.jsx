@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const ResourceItem = ({ link, description, linkText }) => (
   <li>
-    <OutboundLink href={link}>{ linkText || link }</OutboundLink>
+    <OutboundLink target={'_blank'} rel={'noopener nofollow'} href={link}>{ linkText || link }</OutboundLink>
     { description ? <><span> - </span>{ description }</> : ''}
   </li>
 );

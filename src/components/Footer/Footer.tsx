@@ -1,7 +1,18 @@
 import React from 'react';
-import {GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, Twitter,} from '../social/Social';
+import styled from 'styled-components';
+import {
+  GitHub,
+  HackerRank,
+  Instagram,
+  LinkedIn,
+  Pluralsight,
+  StackOverflow,
+  Twitter,
+} from '../social/Social';
 import Container from '../Container';
-import {primaryBlue} from '../../variables';
+import HipHipArray from '../HipHipArray';
+import {mediaQuery, primaryBlue} from '../../theme/variables';
+import Spacer from '../utilities/general';
 
 const socialLinks = [
   <GitHub />,
@@ -13,32 +24,61 @@ const socialLinks = [
   <StackOverflow />,
 ];
 
-const Footer: React.FC<{ buildID: string, buildTime: string }> = ({ buildID, buildTime }) => (
-  <footer
-    style={{ background: primaryBlue, color: '#fff' }}
-    data-build-id={buildID}
-    data-build-date={buildTime}
-  >
-    <Container>
-      <div style={{ paddingTop: '2rem', paddingBottom: '2rem', display: 'flex' }}>
-        <span style={{ alignSelf: 'center', paddingRight: '1rem' }}>
-          ©
-          {new Date().getFullYear()}
-          {' '}
-          James R. Williams
-        </span>
-        <code style={{ alignSelf: 'center', opacity: '.5' }} className="opacity-50 self-center" role="img" aria-label="Hip Hip Array " title="Hip Hip Array ">['hip','hip']</code>
-        <span style={{ flexGrow: 1 }} />
-        <nav style={{ display: 'flex' }} className="mt-6 justify-center md:mt-0 flex">
-          { socialLinks.map((SocialLink) => (
-            <div key={SocialLink.type} style={{ marginLeft: '1.25rem' }}>
-              { SocialLink }
-            </div>
-          ))}
-        </nav>
-      </div>
-    </Container>
-  </footer>
+const FooterElement = styled.footer`
+  background: ${primaryBlue};
+  color: #fff;
+`;
+
+const FooterWrapper = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem 0;
+
+  @media screen and ${mediaQuery.minMd} {
+    flex-direction: row;
+  }
+`;
+
+const SocialFooterNav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+
+  @media screen and ${mediaQuery.minMd} {
+    justify-content: center;
+    padding: 0 1rem;
+  }
+`;
+
+const SocialFooterNavIconWrapper = styled.div`
+  margin-left: 0;
+
+  @media screen and ${mediaQuery.minMd} {
+    margin-left: 1.25rem;
+  }
+`;
+
+const Footer: React.FC = () => (
+  <FooterElement>
+    <FooterWrapper>
+      <span style={{ alignSelf: 'center', paddingRight: '1rem' }}>
+        ©
+        {new Date().getFullYear()}
+        {' '}
+        James R. Williams
+      </span>
+      <HipHipArray />
+      <Spacer />
+      <SocialFooterNav>
+        { socialLinks.map((SocialLink) => (
+          <SocialFooterNavIconWrapper key={SocialLink.type}>
+            { SocialLink }
+          </SocialFooterNavIconWrapper>
+        ))}
+      </SocialFooterNav>
+    </FooterWrapper>
+  </FooterElement>
 );
 
 export default Footer;

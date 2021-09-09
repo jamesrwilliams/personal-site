@@ -1,5 +1,9 @@
 @import './prism-material-oceanic.css';
 
+*  {
+  text-rendering: optimizelegibility;
+}
+
 html {
   font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   line-height: 1.5;
@@ -11,9 +15,6 @@ body {
   color: #4a4d70;
 }
 
-/* Fix first line indent issue */
-.prose pre code { padding-left: 0 !important; }
-
 .mermaid div {
   line-height: 1!important;
   vertical-align: super;
@@ -24,72 +25,8 @@ body {
   overflow: hidden;
 }
 
-article pre {
-  border-radius: .375rem;
-  font-size: .8888889em;
-  line-height: 1.75;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  padding: 1em 1.5em;
-}
-
-article h2:before {
-  content: '';
-  margin-bottom: 1rem;
-  width: 64px;
-  height: 1px;
-  display: block;
-  background: #ccc;
-  border-bottom: 1px solid #fff;
-}
-
-article {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: #171717;
-}
-
-article h2 {
-  font-size: 1.6666667em;
-  margin-top: calc(5*1rem);
-  margin-bottom: 1.0666667em;
-  line-height: 1.3333333;
-}
-
-article h3 {
-  font-size: 1.3333333em;
-  margin-top: 1.6666667em;
-  margin-bottom: .6666667em;
-  line-height: 1.5;
-}
-
 .anchor.before {
   position: absolute;
   transform: translateX(calc(-100% - 10px));
   opacity: .3;
-}
-
-*  {
-  text-rendering: optimizelegibility;
-}
-
-:not(pre) > code[class*="language-"] {
-  white-space: normal;
-  border-radius: .2em;
-  color: #24292e;
-  font-weight: 400;
-  font-size: 85%;
-  padding: .2em .4em !important;
-  background: #f3f3f3;
-}
-
-:not(pre) > code[class*="language-"]::selection {
-  background: #ff0;
-}
-
-
-blockquote {
-  border-left: 5px solid #eee;
-  margin-left: 0;
-  padding-left: 1rem;
 }

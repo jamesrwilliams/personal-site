@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {OutboundLink} from "gatsby-plugin-google-analytics";
+import {ExternalLink} from "./utilities/ExternalLink";
+import {accentPrimary, mediaQuery} from "../theme/variables";
 
 interface ProjectInterface {
   title: string;
@@ -10,14 +11,19 @@ interface ProjectInterface {
 }
 
 const ProjectTileElm = styled.div`
-  border: 1px solid #ccc4;
-  padding: 12px;
-  border-radius: 4px;
   display: flex;
-  width: 28%;
+  width: 100%;
   flex-direction: column;
-  background: #eee5;
   margin-bottom: 1rem;
+  border: 1px solid #ccc5;
+  color: #000000d9;
+  font-size: 14px;
+  background: #fff;
+
+  @media screen and ${mediaQuery.minMd} {
+    width: 32%;
+    flex-direction: column;
+  }
 
   a {
     text-decoration: none;
@@ -37,26 +43,49 @@ const Tag = styled.span`
   border-radius: 2px;
 `;
 
-const ProjectLink = styled(OutboundLink)`
+const ProjectLink = styled(ExternalLink)`
   text-decoration: none;
   color: #444;
+  transition: all .3s ease;
+
+  &:hover {
+    color: ${accentPrimary};
+  }
 
 `;
 
 const ProjectDescription = styled.p`
   flex-grow: 1;
-`
+  padding: 12px 12px 0;
+  margin: 0;
+`;
+
+const ProjectTitle = styled(ExternalLink)`
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 2px 2px 0 0;
+  font-weight: 500;
+  color: #000000d9;
+  font-size: 14px;
+  display: block;
+  padding: 8px 12px;
+`;
+
+const ProjectTileMeta = styled.div`
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+`;
 
 const ProjectTile = ({
   title, description, language, url,
 }: ProjectInterface) => (
   <ProjectTileElm>
-    <OutboundLink href={url}><h3 style={{ margin: 0 }}>{ title }</h3></OutboundLink>
+    <ProjectTitle href={url}>{ title }</ProjectTitle>
     <ProjectDescription>{ description }</ProjectDescription>
-    <div className="meta" style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <ProjectTileMeta>
       <Tag>{ language }</Tag>
       <ProjectLink href={url}>Read more...</ProjectLink>
-    </div>
+    </ProjectTileMeta>
   </ProjectTileElm>
 );
 

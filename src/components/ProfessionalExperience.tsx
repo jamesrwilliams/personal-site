@@ -5,6 +5,7 @@ export const ProfessionalExperience = () => (
   <ul>
     { experienceTimeline.map((position, index) => (
       <PositionEntry
+        key={position.endDate}
         index={index}
         position={position}
       />

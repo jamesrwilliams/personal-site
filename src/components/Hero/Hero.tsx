@@ -2,27 +2,29 @@ import React from 'react';
 import {OutboundLink} from 'gatsby-plugin-google-analytics';
 import styled from 'styled-components';
 import Container from '../Container';
-import {primaryBlue, textGradient} from '../../variables';
+import {mediaQuery, primaryBlue, secondaryBlue, textGradient} from '../../theme/variables';
+
+const heroFill = secondaryBlue;
 
 const HeroWrapper = styled.div`
-  background: ${primaryBlue};
+  background: linear-gradient(to top, ${heroFill}, ${primaryBlue});
   padding: 4rem 0;
   position: relative;
   font-weight: 200;
   color: #fff;
-  margin-bottom: 150px;
+  margin-bottom: 75px;
 
-    @media screen and (min-width: 700px) {
+  @media screen and ${mediaQuery.minMd} {
       padding: 8rem 2rem 0;
+      margin-bottom: 150px;
     }
-
 
     p.lead,
     p.gradient {
       font-size: 25px;
       font-weight: 400;
 
-      @media screen and (min-width: 700px) {
+      @media screen and ${mediaQuery.minMd} {
         font-size: 45px;
       }
 
@@ -33,7 +35,7 @@ const HeroWrapper = styled.div`
       font-weight: 200;
       transition: all 1s ease;
 
-      @media screen and (min-width: 700px) {
+      @media screen and ${mediaQuery.minMd} {
         margin-bottom: 0;
       }
     }
@@ -42,7 +44,10 @@ const HeroWrapper = styled.div`
       margin-bottom: 0;
       margin-top: 0;
       font-size: 18px;
-      margin-right: 4rem;
+
+      @media screen and ${mediaQuery.minMd} {
+        margin-right: 4rem;
+      }
     }
 
     p.gradient {
@@ -68,7 +73,6 @@ const HeroWrapper = styled.div`
         bottom: 0;
         height: 2px;
         background: linear-gradient(to right, #fff0, #fff0, #0ba7fd, #01d8d1);
-        //background: linear-gradient(to right, #fff0, #fff0, #fff, #fff);
         background-size: 300% 200%;
         transition: all 1s ease;
       }
@@ -87,15 +91,14 @@ const HeroWrapper = styled.div`
       left: 0;
       right: 0;
       display: block;
-      background: ${primaryBlue};
+      background: linear-gradient(to top, #021526, ${heroFill});
       //clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
       clip-path: polygon(0 0, 100% 0, 0 100%);
       height: 20px;
 
-       @media screen and (min-width: 700px) {
+      @media screen and ${mediaQuery.minMd} {
         height: 150px;
        }
-
     }
 `;
 
@@ -105,8 +108,9 @@ const Hero = () => (
       <p className="lead">Hello, I&apos;m James!</p>
       <p className="gradient">A development engineer from Canada, Building things for the internet with JavaScript and Python.</p>
       <p className="intro">
-        I have a keen interest in developer experience, tooling, and process automation. I am
-        currently working with the team at <OutboundLink>Points.com</OutboundLink>.
+        I have a keen interest in developer experience, tooling, and process automation, with a
+        healthy obsession with documentation. I am currently working with the team
+        at <OutboundLink href="https://www.points.com">Points.com.</OutboundLink>
       </p>
     </Container>
   </HeroWrapper>

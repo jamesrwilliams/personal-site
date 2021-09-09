@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'gatsby';
 import styled from 'styled-components';
 import PostInterface from '../../models/Post.interface';
+import {mediaQuery} from '../../theme/variables';
 
 const PostLinkContainer = styled(Link)`
   margin-bottom: 2rem;
@@ -49,29 +50,61 @@ const PostLinkContainer = styled(Link)`
     margin-bottom: 1rem;
   }
 
+  .meta {
+
+    @media ${mediaQuery.maxMd} {
+      > div:first-child {
+        margin-bottom: .5rem;
+      }
+    }
+
+    @media ${mediaQuery.minMd} {
+      display: flex;
+    }
+  }
+
 `;
 
-const PostLink = ({ post }: { post: PostInterface }) => (
+interface PostLinkInterface {
+  post: PostInterface,
+  excerpt?: boolean;
+  timeToRead?: boolean;
+}
+
+const PostLink = ({ post, excerpt, timeToRead }: PostLinkInterface) => (
   <PostLinkContainer to={`/posts/${post.slug}`}>
     <div className="post-preview-title">
       <span className="post-preview-title-link">{post.frontmatter.title}</span>
     </div>
     <div className="post-preview-body">
-      <div className="post-preview-excerpt">
-        { post.excerpt }
-      </div>
-      <div className="meta" style={{ display: 'flex' }}>
-        <div className={'post-preview-meta'}>
+      { excerpt ? (
+        <div className="post-preview-excerpt">
+          { post.excerpt }
+        </div>
+      ) : ''}
+      <div className="meta">
+        <div className="post-preview-meta">
           <svg style={{ marginRight: '1rem' }} xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#000000"><path d="M0 0h24v24H0z" fill="none" /><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z" /></svg>
-          <time style={{ color: '#333' }} dateTime={post.frontmatter.date}>{post.frontmatter.dateReadable}</time>
+          <time style={{ color: '#333' }} dateTime={post.frontmatter.date}>
+            { new Date(post.frontmatter.date).toLocaleDateString('en-CA', {
+              weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+            }) }
+          </time>
         </div>
-        <div className={'post-preview-meta'}>
-          <svg style={{ marginRight: '1rem' }} xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#000000"><path d="M0 0h24v24H0z" fill="none" /><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" /><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" /></svg>
-          <time dateTime={`${post.timeToRead}m`}>~{post.timeToRead} min read</time>
-        </div>
+        { timeToRead ? (
+          <div className="post-preview-meta">
+            <svg style={{ marginRight: '1rem' }} xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#000000"><path d="M0 0h24v24H0z" fill="none" /><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" /><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" /></svg>
+            <time dateTime={`${post.timeToRead}m`}>~{post.timeToRead} min read</time>
+          </div>
+        ) : '' }
       </div>
     </div>
   </PostLinkContainer>
 );
+
+PostLink.defaultProps = {
+  excerpt: true,
+  timeToRead: true,
+};
 
 export default PostLink;

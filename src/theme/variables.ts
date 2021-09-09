@@ -1,5 +1,5 @@
 export const primaryBlue = '#021526';
-export const secondaryBlue = '#021526';
+export const secondaryBlue = '#021220';
 export const accentPrimary = '#0ba7fd';
 export const accentSecondary = '#01d8d1';
 
@@ -12,3 +12,12 @@ export const textGradient = `
 `;
 
 export const mobileBreakpoint = '700px';
+
+const sizes = {
+  md: '700px',
+};
+
+export const mediaQuery = {
+  minMd: `(min-width: ${sizes.md})`,
+  maxMd: `(max-width: ${sizes.md})`,
+};

@@ -76,6 +76,11 @@ const resources = [
         linkText: 'Only One Deliverable Matters',
         description: 'Josh Clark - Oct 16, 2018',
       },
+      {
+        link: 'https://250bpm.com/blog:50/',
+        linkText: 'Finish your stuff',
+        description: 'June 9th, 2015',
+      },
     ],
   },
   {
