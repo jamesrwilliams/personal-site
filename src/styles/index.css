@@ -27,6 +27,11 @@ body {
 
 .anchor.before {
   position: absolute;
-  transform: translateX(calc(-100% - 10px));
-  opacity: 0.3;
+  transform: translateX(calc(-100% - 5px)) translateY(2px);
+  opacity: 0.2;
+  transition: all .3s ease;
+}
+
+.anchor.before:hover {
+  opacity: .5;
 }
