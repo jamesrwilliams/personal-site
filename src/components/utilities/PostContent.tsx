@@ -59,6 +59,46 @@ const PostContent = styled.div`
     margin-bottom: 2em;
     padding: 1em 1.5em;
   }
+
+  table {
+    width: 100%;
+    table-layout: auto;
+    text-align: left;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: .8888889em;
+    line-height: 1.5;
+    border-collapse: collapse;
+    text-indent: 0;
+    border-color: inherit;
+
+  }
+
+  thead {
+    color: #171717;
+    font-weight: 600;
+    border-bottom-width: 1px;
+    border-bottom-color: #d4d4d4;
+    border-bottom-style: solid;
+  }
+
+  thead th {
+    padding-right: .75em;
+    padding-bottom: .75em;
+  }
+
+  tbody tr {
+    border-bottom-width: 1px;
+    border-bottom-color: #e5e5e5;
+    border-bottom-style: solid;
+  }
+
+  tbody td {
+    padding: .75em;
+
+    &:first-child { padding-left: 0; }
+  }
+
 `;
 
 export default PostContent;

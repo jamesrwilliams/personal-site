@@ -5,17 +5,21 @@ require('dotenv').config({
 });
 
 const searchQuery = `{
-   allMarkdownRemark {
+   allMdx {
     nodes {
+      fileAbsolutePath
       excerpt
       frontmatter {
         title
-        slug
         post_date_timestamp: date(formatString: "X")
       }
     }
   }
 }`;
+
+const shouldUpdateSearchIndex = process.env.NETLIFY === true && process.env.CONTEXT === 'production';
+
+console.log(`[SEARCH] ${shouldUpdateSearchIndex ? 'We are' : 'Not'} updating search.`);
 
 /**
  * This works out the year directories for all my posts
@@ -199,14 +203,19 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-        skipIndexing: !process.env.NETLIFY,
+        skipIndexing: shouldUpdateSearchIndex,
         queries: [
           {
             query: searchQuery,
             transformer: ({ data }) => data.allMarkdownRemark.nodes.map((node) => {
               // TODO fix this to remove the disable
+
+              const split = node.fileAbsolutePath.split('/');
+              const indexOfSrc = split.indexOf('src');
+
               // eslint-disable-next-line no-param-reassign
-              node.objectID = node.frontmatter.slug;
+              node.objectID = split.slice(indexOfSrc, split.length).join('-');
+
               const output = { ...node, ...node.frontmatter };
               // Don't make index changes here unless it's not possible
               // using the GraphQL query on #L7.
