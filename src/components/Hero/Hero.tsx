@@ -14,6 +14,7 @@ const HeroWrapper = styled.div`
   position: relative;
   font-weight: 200;
   color: #fff;
+  z-index: 200;
   margin-bottom: 75px;
 
   @media screen and ${mediaQuery.minMd} {
@@ -29,26 +30,23 @@ const HeroWrapper = styled.div`
       @media screen and ${mediaQuery.minMd} {
         font-size: 45px;
       }
-
     }
 
     p.lead {
       margin-right: .7ch;
       font-weight: 200;
       transition: all 1s ease;
-
-      @media screen and ${mediaQuery.minMd} {
-        margin-bottom: 0;
-      }
+      margin-bottom: 0;
     }
 
     p.intro {
       margin-bottom: 0;
       margin-top: 0;
-      font-size: 18px;
+      font-size: 16px;
 
       @media screen and ${mediaQuery.minMd} {
         margin-right: 4rem;
+        font-size: 18px;
       }
     }
 
@@ -108,7 +106,7 @@ const Hero = () => (
   <HeroWrapper>
     <Container>
       <p className="lead">Hello, I&apos;m James!</p>
-      <p className="gradient">A development engineer from Canada, Building things for the internet with JavaScript and Python.</p>
+      <p className="gradient">A development engineer from Canada, building internet things with JavaScript and Python.</p>
       <p className="intro">
         I have a keen interest in developer experience, tooling, and process automation, with a
         healthy obsession with documentation. I am currently working with the team

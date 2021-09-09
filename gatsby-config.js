@@ -19,7 +19,7 @@ const searchQuery = `{
 
 const shouldUpdateSearchIndex = process.env.NETLIFY === true && process.env.CONTEXT === 'production';
 
-console.log(`[SEARCH] ${shouldUpdateSearchIndex ? 'We are' : 'Not'} updating search.`);
+console.log(`[SEARCH] ${shouldUpdateSearchIndex ? 'We are' : 'Not'} updating search index.`);
 
 /**
  * This works out the year directories for all my posts
