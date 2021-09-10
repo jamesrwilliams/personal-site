@@ -5,7 +5,6 @@ import Layout from './Layout';
 import PageHeader from '../PageHeader/PageHeader';
 import SEO from '../utilities/seo';
 import Container from '../Container';
-import Pagination from '../Pagination';
 import LinkedData from '../social/LinkedData';
 import PostContent from '../utilities/PostContent';
 
@@ -16,11 +15,8 @@ export default function Template({ pageContext }: any) {
     frontmatter,
     excerpt,
     timeToRead,
-    pagination,
   } = pageContext;
   const { title } = frontmatter;
-
-  const { next, previous } = pagination;
 
   return (
     <Layout>
@@ -34,7 +30,6 @@ export default function Template({ pageContext }: any) {
               <MDXRenderer>{ body }</MDXRenderer>
             </PostContent>
           </Container>
-          <Pagination next={next} previous={previous} />
         </article>
       </main>
     </Layout>
