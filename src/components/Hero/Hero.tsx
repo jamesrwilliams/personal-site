@@ -18,7 +18,7 @@ const HeroWrapper = styled.div`
   margin-bottom: 75px;
 
   @media screen and ${mediaQuery.minMd} {
-      padding: 8rem 2rem 0;
+      padding: 8rem 0 0;
       margin-bottom: 150px;
     }
 

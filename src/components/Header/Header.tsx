@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
-import { mediaQuery, primaryBlue } from '../../theme/variables';
+import {
+  accentPrimary, mediaQuery, primaryBlue,
+} from '../../theme/variables';
 import Container from '../Container';
 
 const HeaderContainer = styled.header`
@@ -11,28 +13,24 @@ const HeaderContainer = styled.header`
   color: #fff;
   padding: 1rem 0;
   z-index: 500;
+`;
 
-  button {
-    display: inline-block;
-    background: none;
-    border: 0;
-    margin-right: 0;
-    padding-right: 0;
+const HeaderToggleButton = styled.button<{ open: boolean }>`
+  display: inline-block;
+  background: none;
+  border: 0;
+  margin-right: 0;
+  padding-right: 0;
 
-    svg {
-      fill: #fff;
-      transition: all .3s ease;
-    }
-
-    @media screen and ${mediaQuery.minMd} {
-      display: none;
-    }
-
-    &.open {
-      svg { transform: rotate(90deg); }
-    }
+  svg {
+    fill: #fff;
+    transition: all .3s ease;
+    transform: ${(props) => (props.open ? 'rotate(90deg)' : '')};
   }
 
+  @media screen and ${mediaQuery.minMd} {
+    display: none;
+  }
 `;
 
 const HeaderWrapper = styled(Container)`
@@ -65,26 +63,39 @@ const PrimaryNavLink = styled(Link)`
 `;
 
 const PrimaryNav = styled.nav<{ open: boolean }>`
-  margin: 1rem 2rem;
-  opacity: ${(props) => (props.open ? '0' : '1')};
+  opacity: 0;
+  box-sizing: border-box;
   pointer-events: ${(props) => (props.open ? 'all' : 'none')};
   flex-grow: 1;
-  left: 0;
-  right: 0;
   position: absolute;
   transition: all .3s cubic-bezier(.645,.045,.355,1);
-  bottom: 0;
-  transform: translateY(50px);
   z-index: 500;
+  width: 100%;
+  margin: 0;
   display: flex;
+  padding: 0 2rem 1rem;
+  max-width: 100%;
+  bottom: 0;
+  left: 0;
+
+  ${(props) => props.open && css`
+    background: ${accentPrimary};
+    transform: translateY(100%);
+    opacity: 1;
+  `}
 
   @media screen and ${mediaQuery.minMd} {
     display: block;
     margin: 0;
+    pointer-events: all;
     position: relative;
     flex-grow: unset;
     transform: none;
     align-self: center;
+    padding: 0;
+    width: auto;
+    opacity: 1;
+    background: transparent;
   }
 
   a {
@@ -112,7 +123,7 @@ const Header = () => {
             <span>James R. Williams</span>
           </div>
         </PrimaryNavLink>
-        <button className={`${menuClosed ? 'closed' : 'open'}`} type="button" onClick={() => setMenuState(!menuClosed)}>
+        <HeaderToggleButton open={menuClosed} onClick={() => setMenuState(!menuClosed)}>
           <svg
             aria-label="menu-toggle-icon"
             className="fill-current transition-all transform rotate-0"
@@ -124,7 +135,7 @@ const Header = () => {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
           </svg>
-        </button>
+        </HeaderToggleButton>
         <PrimaryNav open={menuClosed}>
           <NavLink label="About" url="/about/" />
           <NavLink label="Posts" url="/posts/" />

@@ -87,10 +87,10 @@ const AboutPage = () => {
 
             <p>
               This site is built with GatsbyJS using MDX for posts and styled-components to handle
-              the design. All deployed via Netlify from its home on
-              <El href={siteRepoLink}>jamesrwilliams/personal-site</El>, and is a full progressive
-              web app! Using Algolia for my search service. This is the natural replacement for my
-              jamesrwilliams.co.uk domain now I am based in Canada!
+              the design. All deployed via Netlify from its home
+              on <El href={siteRepoLink}>jamesrwilliams/personal-site</El>, and is a full
+              progressive web app! Using Algolia for my search service. This is the natural
+              replacement for my jamesrwilliams.co.uk domain now I am based in Canada!
             </p>
 
           </article>
@@ -99,7 +99,7 @@ const AboutPage = () => {
       <section style={{ background: '#eee', padding: '2rem 0' }}>
         <Container>
           <blockquote style={{
-            margin: 0, textAlign: 'left', maxWidth: 570, padding: 0, border: 0,
+            margin: '0 auto', maxWidth: 570, padding: 0, border: 0,
           }}
           >
             <em>

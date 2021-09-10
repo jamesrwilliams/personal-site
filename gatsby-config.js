@@ -19,6 +19,7 @@ const searchQuery = `{
 
 const shouldUpdateSearchIndex = process.env.NETLIFY === true && process.env.CONTEXT === 'production';
 
+// eslint-disable-next-line no-console
 console.log(`[SEARCH] ${shouldUpdateSearchIndex ? 'We are' : 'Not'} updating search index.`);
 
 /**
@@ -186,7 +187,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
-    'gatsby-plugin-offline',
+    // 'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -237,18 +238,18 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'jamesrwilliams.ca',
-        short_name: 'JRW',
-        lang: 'en',
-        start_url: '/',
-        background_color: '#021526',
-        theme_color: '#021526',
-        display: 'minimal-ui',
-        icon: 'static/favicon.png', // This path is relative to the root of the site.
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-manifest',
+    //   options: {
+    //     name: 'jamesrwilliams.ca',
+    //     short_name: 'JRW',
+    //     lang: 'en',
+    //     start_url: '/',
+    //     background_color: '#021526',
+    //     theme_color: '#021526',
+    //     display: 'minimal-ui',
+    //     icon: 'static/favicon.png', // This path is relative to the root of the site.
+    //   },
+    // },
   ],
 };

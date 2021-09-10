@@ -43,7 +43,6 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <LayoutContainer>
-      <GlobalStyles />
       <Helmet>
         <meta name="netlify-last-deployed" content={data.site.buildTime} />
         <meta name="netlify-build-id" content={buildID} />
@@ -54,6 +53,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       {children}
       <Footer />
+      <GlobalStyles />
     </LayoutContainer>
   );
 };

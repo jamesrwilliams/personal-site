@@ -4,7 +4,7 @@ import Container from '../Container';
 import { primaryBlue } from '../../theme/variables';
 
 const PageWrapper = styled.aside`
-  padding: 2.5rem 0;
+  padding: 4rem 0;
   color: ${primaryBlue};
   position: relative;
   margin-bottom: 0;
