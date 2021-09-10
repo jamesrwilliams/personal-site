@@ -3412,17 +3412,7 @@ babel-plugin-remove-graphql-queries@^3.12.0:
   resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-3.12.0.tgz#b27b2536c893bd706534f2d58be8d9c598f60f04"
   integrity sha512-0ZfLBZ3MWJpAOec3x0QqPFOOsHXsSRNtv8OIGE0/bKvG7ke2aUuMldg3REwdN6Aa4S+zYUW02IQfvICsZFryJQ==
 
-"babel-plugin-styled-components@>= 1.12.0":
-  version "1.13.2"
-  resolved "https://registry.npmjs.org/babel-plugin-styled-components/-/babel-plugin-styled-components-1.13.2.tgz"
-  integrity sha512-Vb1R3d4g+MUfPQPVDMCGjm3cDocJEUTR7Xq7QS95JWWeksN1wdFRYpD2kulDgI3Huuaf1CZd+NK4KQmqUFh5dA==
-  dependencies:
-    "@babel/helper-annotate-as-pure" "^7.0.0"
-    "@babel/helper-module-imports" "^7.0.0"
-    babel-plugin-syntax-jsx "^6.18.0"
-    lodash "^4.17.11"
-
-babel-plugin-styled-components@^1.13.2:
+"babel-plugin-styled-components@>= 1.12.0", babel-plugin-styled-components@^1.13.2:
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.13.2.tgz#ebe0e6deff51d7f93fceda1819e9b96aeb88278d"
   integrity sha512-Vb1R3d4g+MUfPQPVDMCGjm3cDocJEUTR7Xq7QS95JWWeksN1wdFRYpD2kulDgI3Huuaf1CZd+NK4KQmqUFh5dA==

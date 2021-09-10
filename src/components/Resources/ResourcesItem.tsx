@@ -1,6 +1,6 @@
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ExternalLink } from '../utilities/ExternalLink';
 
 export interface ResourceItemProps {
   link: string;
@@ -9,8 +9,8 @@ export interface ResourceItemProps {
 }
 
 const ResourceItem = ({ link, description, linkText }: ResourceItemProps) => (
-  <li>
-    <OutboundLink target="_blank" rel="noopener nofollow" href={link}>{ linkText || link }</OutboundLink>
+  <li style={{ marginBottom: '.5rem' }}>
+    <ExternalLink href={link}>{ linkText || link }</ExternalLink>
     { description ? <><span> - </span>{ description }</> : ''}
   </li>
 );
