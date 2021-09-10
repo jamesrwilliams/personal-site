@@ -38,9 +38,11 @@ const SocialFooterNav = styled.nav`
   display: flex;
   justify-content: space-between;
   padding: 0 1rem;
+  margin-top: 1rem;
 
   @media screen and ${mediaQuery.minMd} {
     justify-content: center;
+    margin-top: 0;
     padding: 0 1rem;
   }
 `;
@@ -53,16 +55,28 @@ const SocialFooterNavIconWrapper = styled.div`
   }
 `;
 
+const FooterMeta = styled.span`
+  align-self: center;
+  padding-right: 1rem;
+  font-size: 12px;
+
+  @media screen and ${mediaQuery.minMd} {
+    margin-left: 1.25rem;
+  }
+`;
+
 const Footer: React.FC = () => (
   <FooterElement>
     <FooterWrapper>
-      <span style={{ alignSelf: 'center', paddingRight: '1rem' }}>
-        ©
-        {new Date().getFullYear()}
-        {' '}
-        James R. Williams
-      </span>
-      <HipHipArray />
+      <FooterMeta>
+        <span>
+          ©
+          {new Date().getFullYear()}
+          {' '}
+          James R. Williams
+        </span>
+        <HipHipArray />
+      </FooterMeta>
       <Spacer />
       <SocialFooterNav>
         { socialLinks.map((SocialLink) => (

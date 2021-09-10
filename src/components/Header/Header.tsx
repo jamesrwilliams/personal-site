@@ -11,7 +11,9 @@ const HeaderContainer = styled.header`
   background: ${primaryBlue};
   position: relative;
   color: #fff;
-  padding: 1rem 0;
+  font-size: 14px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   z-index: 500;
 `;
 
@@ -24,7 +26,7 @@ const HeaderToggleButton = styled.button<{ open: boolean }>`
 
   svg {
     fill: #fff;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     transform: ${(props) => (props.open ? 'rotate(90deg)' : '')};
   }
 
@@ -40,10 +42,11 @@ const HeaderWrapper = styled(Container)`
   justify-content: space-between;
 
   .profile {
-    border-radius: 100%;
+    border-radius: 9999px;
     height: 30px;
     width: 30px;
     margin-right: 1rem;
+    overflow: hidden;
   }
 `;
 
@@ -68,7 +71,7 @@ const PrimaryNav = styled.nav<{ open: boolean }>`
   pointer-events: ${(props) => (props.open ? 'all' : 'none')};
   flex-grow: 1;
   position: absolute;
-  transition: all .3s cubic-bezier(.645,.045,.355,1);
+  transition: all 0.3s cubic-bezier(.645,.045,.355,1);
   z-index: 500;
   width: 100%;
   margin: 0;
@@ -105,28 +108,30 @@ const PrimaryNav = styled.nav<{ open: boolean }>`
 `;
 
 const Header = () => {
-  const [menuClosed, setMenuState] = useState(true);
+  const [menuOpen, setMenuState] = useState(false);
 
   return (
     <HeaderContainer>
       <HeaderWrapper>
         <PrimaryNavLink to="/">
           <div>
-            <StaticImage
-              src="../../images/profile.jpg"
-              alt="James R. Williams"
-              placeholder="blurred"
-              className="profile"
-              width={50}
-              height={50}
-            />
+            <div style={{ borderRadius: '100%' }}>
+              <StaticImage
+                src="../../images/profile.png"
+                alt="James R. Williams"
+                placeholder="blurred"
+                className="profile"
+                width={30}
+                quality={100}
+                height={30}
+              />
+            </div>
             <span>James R. Williams</span>
           </div>
         </PrimaryNavLink>
-        <HeaderToggleButton open={menuClosed} onClick={() => setMenuState(!menuClosed)}>
+        <HeaderToggleButton open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
           <svg
             aria-label="menu-toggle-icon"
-            className="fill-current transition-all transform rotate-0"
             xmlns="http://www.w3.org/2000/svg"
             height="24"
             viewBox="0 0 24 24"
@@ -136,7 +141,7 @@ const Header = () => {
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
           </svg>
         </HeaderToggleButton>
-        <PrimaryNav open={menuClosed}>
+        <PrimaryNav open={menuOpen}>
           <NavLink label="About" url="/about/" />
           <NavLink label="Posts" url="/posts/" />
           <NavLink label="Resources" url="/resources/" />

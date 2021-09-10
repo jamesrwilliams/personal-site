@@ -39,6 +39,8 @@ To do this we needed to decouple the banner content from its design and implemen
 
 With that idea, the "mainspring" editor was born and at a high level works like this:
 
+<figure>
+
 ```mermaid
 graph LR
     A[Reusable Logic] --> B
@@ -51,7 +53,7 @@ graph LR
     click B href "./building-a-component-props-editor-with-react#templates"
     click C href "./building-a-component-props-editor-with-react#editor"
 ```
-<figure>
+
 <figcaption>Flowchart showing the rough outline of the application</figcaption>
 </figure>
 

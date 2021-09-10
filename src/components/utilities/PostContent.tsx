@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 const PostContent = styled.div`
-  //max-width: 860px;
   font-size: 1.125rem;
-  //color: #404040;
   line-height: 1.7777778;
   max-width: 65ch;
   color: #171717;
@@ -19,6 +17,28 @@ const PostContent = styled.div`
     margin-top: 1.8666667em;
     margin-bottom: 1.0666667em;
     line-height: 1.3333333;
+  }
+
+  figure {
+    margin: 0;
+    box-sizing: border-box;
+    color: #000000d9;
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum";
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid #f0f0f0;
+    padding: 12px;
+  }
+
+  figcaption {
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+    font-style: italic;
   }
 
   h2:before {

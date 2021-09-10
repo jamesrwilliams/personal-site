@@ -15,10 +15,11 @@ const PostGrid = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 
   @media screen and ${mediaQuery.minMd} {
     flex-direction: row;
+    margin-bottom: 2rem;
   }
 `;
 
