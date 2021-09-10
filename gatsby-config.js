@@ -202,11 +202,11 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-        skipIndexing: shouldUpdateSearchIndex,
+        skipIndexing: !shouldUpdateSearchIndex,
         queries: [
           {
             query: searchQuery,
-            transformer: ({ data }) => data.allMarkdownRemark.nodes.map((node) => {
+            transformer: ({ data }) => data.allMdx.nodes.map((node) => {
               // TODO fix this to remove the disable
 
               const split = node.fileAbsolutePath.split('/');
