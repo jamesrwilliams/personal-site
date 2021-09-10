@@ -96,7 +96,7 @@ const AboutPage = () => {
               (34UM69G-B) using a Dell 3000 USB-C dock, and a wireless Apple mouse and keyboard.
               When I need my headphones I&apos;ve got a set of Bose QC 35s. For fun I&apos;ve got a
               self-built gaming PC, specs for which are outlined in this
-              post: <Link to="/posts/my-first-pc-build">Building my own PC</Link>.
+              post: <Link to="/posts/pc-building-part-1">Building my own PC</Link>.
             </p>
 
             <h2>This site</h2>
