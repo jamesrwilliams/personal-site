@@ -5,6 +5,8 @@ export const secondaryBlue = '#021220';
 export const accentPrimary = '#0ba7fd';
 export const accentSecondary = '#01d8d1';
 
+export const animationTiming = 'cubic-bezier(.645,.045,.355,1)';
+
 export const textGradient = css`
   line-height: 1.2;
   background: linear-gradient(-45deg, #0ba7fd, #01d8d1);
@@ -13,9 +15,9 @@ export const textGradient = css`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  -webkit-animation: HeroTextAnimator 45s cubic-bezier(.645, .045, .355, 1) infinite;
-  -moz-animation: HeroTextAnimator 45s cubic-bezier(.645, .045, .355, 1) infinite;
-  animation: HeroTextAnimator 45s cubic-bezier(.645, .045, .355, 1) infinite;
+  -webkit-animation: HeroTextAnimator 45s ${animationTiming} infinite;
+  -moz-animation: HeroTextAnimator 45s ${animationTiming} infinite;
+  animation: HeroTextAnimator 45s ${animationTiming} infinite;
 
 
   @-webkit-keyframes HeroTextAnimator {

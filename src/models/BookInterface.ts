@@ -4,6 +4,6 @@ export interface BookInterface {
     link: string;
     author: {
         name: string;
-        authorLink: string;
+        link: string;
     }
 }

@@ -6,7 +6,7 @@ import {
 import Container from '../Container';
 import HipHipArray from '../HipHipArray';
 import { mediaQuery, primaryBlue } from '../../theme/variables';
-import Spacer from '../utilities/general';
+import Spacer from '../Spacer';
 
 const socialLinks = [
   <GitHub />,

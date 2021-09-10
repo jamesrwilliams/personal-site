@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Layout from '../components/Layout/Layout.tsx';
+import Layout from '../components/layouts/Layout.tsx';
 import SEO from '../components/utilities/seo.tsx';
 import PageHeader from '../components/PageHeader/PageHeader.tsx';
 import Container from '../components/Container.tsx';

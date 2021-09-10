@@ -10,7 +10,7 @@ const parser = require('xml2json');
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-  const blogPostTemplate = require.resolve('./src/components/postLayout.tsx');
+  const blogPostTemplate = require.resolve('./src/components/layouts/postLayout.tsx');
   const { data } = await graphql(`
     {
       posts: allMdx(limit: 1000) {

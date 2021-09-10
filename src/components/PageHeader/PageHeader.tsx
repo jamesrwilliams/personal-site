@@ -4,7 +4,7 @@ import Container from '../Container';
 import { primaryBlue } from '../../theme/variables';
 
 const PageWrapper = styled.aside`
-  padding: 4rem 0;
+  padding: 2rem 0 1rem;
   color: ${primaryBlue};
   position: relative;
   margin-bottom: 0;
@@ -45,7 +45,6 @@ const PageMetaWrapper = styled.div`
   margin-top: 5px;
   display: inline-block;
   opacity: .8;
-  padding: 0 5px;
   color: #4a4d70;
 `;
 
@@ -56,11 +55,12 @@ interface PageMetaInterface {
 
 const PageMeta = ({ date, timeToRead }: PageMetaInterface) => (
   <PageMetaWrapper>
-    <span> A { timeToRead } minute read. Posted on </span>
+    <span>Posted on </span>
     <time dateTime={new Date(date).toISOString()}>
       { new Date(date).toLocaleDateString('en-CA', {
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
       }) }
     </time>
+    <span> · { timeToRead } min read.</span>
   </PageMetaWrapper>
 );

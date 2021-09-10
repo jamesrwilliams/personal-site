@@ -1,8 +1,9 @@
 import { Link } from 'gatsby';
-import styled from 'styled-components';
-import { accentPrimary } from '../theme/variables';
+import styled, { css } from 'styled-components';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import { accentPrimary, animationTiming } from '../../theme/variables';
 
-const StyledLinkElement = styled(Link)`
+const buttonStyles = css`
   line-height: 1.5715;
   position: relative;
   display: inline-block;
@@ -12,7 +13,7 @@ const StyledLinkElement = styled(Link)`
   border: 1px solid #d9d9d9;
   box-shadow: 0 2px #00000004;
   cursor: pointer;
-  transition: all .3s cubic-bezier(.645,.045,.355,1);
+  transition: all .3s ${animationTiming};
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -31,4 +32,5 @@ const StyledLinkElement = styled(Link)`
   }
 `;
 
-export default StyledLinkElement;
+export const InternalLinkButton = styled(Link)` ${buttonStyles} `;
+export const ExternalLinkButton = styled(OutboundLink)` ${buttonStyles} `;

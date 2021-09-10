@@ -1,8 +1,29 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 import experienceTimeline, { ExperienceItem } from '../data/professional-experience';
+import { accentPrimary } from '../theme/variables';
+
+const ExperienceList = styled.ul`
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin-left: 5px;
+  border-left: 1px solid #eee;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    left: -10px;
+    height: 2px;
+    background: #eee;
+  }
+`;
 
 export const ProfessionalExperience = () => (
-  <ul>
+  <ExperienceList>
     { experienceTimeline.map((position, index) => (
       <PositionEntry
         key={position.endDate}
@@ -10,14 +31,38 @@ export const ProfessionalExperience = () => (
         position={position}
       />
     ))}
-  </ul>
+  </ExperienceList>
 );
 
+const ExperienceListItem = styled.li<{ pos: number }>`
+  list-style: none;
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 9px;
+    border-radius: 5px;
+    background: #ccc;
+    left: -5px;
+  }
+
+  ${(props) => props.pos === 0 && css`
+    &:before {
+      background: ${accentPrimary};
+    }
+  `}
+`;
+
 export const PositionEntry = ({ position, index }: { position: ExperienceItem, index: number }) => (
-  <li key={index}>
-    <h4 style={{ marginBottom: 0 }}>{position.role} @ { position.company }</h4>
-    <span style={{ marginTop: 0 }}>{ position.startDate } - { position.endDate }</span>
-  </li>
+  <ExperienceListItem pos={index} key={index}>
+    <div style={{ fontWeight: 'bold', lineHeight: 1 }}>{position.role} @ { position.company }</div>
+    <div style={{ opacity: 0.7 }}>{ position.startDate } to { position.endDate }</div>
+  </ExperienceListItem>
 );
 
 export default ProfessionalExperience;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ExternalLink } from './utilities/ExternalLink';
+import Link from './Link/Link';
 import { accentPrimary, mediaQuery } from '../theme/variables';
 
 interface ProjectInterface {
@@ -43,7 +43,7 @@ const Tag = styled.span`
   border-radius: 2px;
 `;
 
-const ProjectLink = styled(ExternalLink)`
+const ProjectLink = styled(Link)`
   text-decoration: none;
   color: #444;
   transition: all .3s ease;
@@ -60,7 +60,7 @@ const ProjectDescription = styled.p`
   margin: 0;
 `;
 
-const ProjectTitle = styled(ExternalLink)`
+const ProjectTitle = styled(Link)`
   border-bottom: 1px solid #f0f0f0;
   border-radius: 2px 2px 0 0;
   font-weight: 500;
@@ -80,11 +80,11 @@ const ProjectTile = ({
   title, description, language, url,
 }: ProjectInterface) => (
   <ProjectTileElm>
-    <ProjectTitle href={url}>{ title }</ProjectTitle>
+    <ProjectTitle to={url}>{ title }</ProjectTitle>
     <ProjectDescription>{ description }</ProjectDescription>
     <ProjectTileMeta>
       <Tag>{ language }</Tag>
-      <ProjectLink href={url}>Read more...</ProjectLink>
+      <ProjectLink to={url}>Read more...</ProjectLink>
     </ProjectTileMeta>
   </ProjectTileElm>
 );

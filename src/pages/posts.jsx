@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/layouts/Layout';
 import SEO from '../components/utilities/seo';
 import PageHeader from '../components/PageHeader/PageHeader';
 import { PostLink } from '../components';

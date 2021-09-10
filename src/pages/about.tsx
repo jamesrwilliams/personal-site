@@ -1,12 +1,12 @@
 import React from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import Layout from '../components/Layout/Layout';
+import { graphql, useStaticQuery } from 'gatsby';
+import Layout from '../components/layouts/Layout';
 import SEO from '../components/utilities/seo';
 import PageHeader from '../components/PageHeader/PageHeader';
 import { Reading } from '../components';
+import Link from '../components/Link/Link';
 import Container from '../components/Container';
 import ProfessionalExperience from '../components/ProfessionalExperience';
-import { ExternalLink, StyledExternalLink } from '../components/utilities/ExternalLink';
 import { resumeUrl } from '../data/urls';
 import PostContent from '../components/utilities/PostContent';
 
@@ -27,8 +27,6 @@ const AboutPage = () => {
 
   const siteRepoLink = 'https://github.com/jamesrwilliams/personal-site';
 
-  const El = ExternalLink;
-
   return (
     <Layout>
       <SEO title="About me" />
@@ -46,31 +44,29 @@ const AboutPage = () => {
               dropped it. I then changed my plans for my undergraduate degree from marketing to
               &quot;Multimedia Web Design&quot; at the University of Gloucestershire. My
               professional start was in a few agencies developing bespoke WordPress themes amongst
-              other things like AI powered Chat Bots, and interactive direct-marketing campaigns.
-              Now I&apos;m building the future of loyalty at <El href="https://www.points.com">Points.com</El>.
+              other things like natural language processing powered chat bots, and interactive
+              direct-marketing campaigns. Now I&apos;m building the future of loyalty
+              at <Link to="https://www.points.com">Points.com</Link>.
             </p>
-            <blockquote>
-              <Reading book={book} />
-            </blockquote>
+
+            <Reading book={book} />
 
             <h2>Professional Experience</h2>
             <ProfessionalExperience />
-            <StyledExternalLink href={resumeUrl}>View resume</StyledExternalLink>
+            <Link type="button" to={resumeUrl}>View resume</Link>
 
             <h2>Things I use</h2>
 
             <p>
-              I use <El href="https://www.jetbrains.com/idea/">IntelliJ IDEA Ultimate</El> for major
-              projects and a little bit of <El href="https://www.sublimetext.com/">Sublime Text</El>
-              for other random, non-project files. In both I use
-              <El href="https://github.com/tonsky/FiraCode">FiraCode</El> (with ligatures) as my code
-              typeface of choice, and on the command line I use
-              <El href="https://iterm2.com">iTerm2</El> running with
-              <El href="https://ohmyz.sh/">ohmyz</El>.
+              I use <Link to="https://www.jetbrains.com/idea/">IntelliJ IDEA Ultimate</Link> for major
+              projects and a little bit of <Link to="https://www.sublimetext.com/">Sublime Text</Link>
+              for other random, non-project files. In both I use <Link to="https://github.com/tonsky/FiraCode">FiraCode</Link>
+              (with ligatures) as my code typeface of choice, and on the command line I
+              use <Link to="https://iterm2.com">iTerm2</Link> running with <Link to="https://ohmyz.sh/">ohmyz</Link>.
             </p>
             <p>
               Building things and surfing in general with the help of
-              <El href="https://www.mozilla.org/en-US/firefox/developer/">Firefox Developer Edition</El>
+              <Link to="https://www.mozilla.org/en-US/firefox/developer/">Firefox Developer Edition</Link>
             </p>
 
             <h3>Gear</h3>
@@ -88,7 +84,7 @@ const AboutPage = () => {
             <p>
               This site is built with GatsbyJS using MDX for posts and styled-components to handle
               the design. All deployed via Netlify from its home
-              on <El href={siteRepoLink}>jamesrwilliams/personal-site</El>, and is a full
+              on <Link to={siteRepoLink}>jamesrwilliams/personal-site</Link>, and is a full
               progressive web app! Using Algolia for my search service. This is the natural
               replacement for my jamesrwilliams.co.uk domain now I am based in Canada!
             </p>

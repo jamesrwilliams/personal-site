@@ -1,7 +1,10 @@
 import styled from 'styled-components';
+import {
+  accentPrimary, animationTiming, mediaQuery,
+} from '../../theme/variables';
 
 const PostContent = styled.div`
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.7777778;
   max-width: 65ch;
   color: #171717;
@@ -17,6 +20,40 @@ const PostContent = styled.div`
     margin-top: 1.8666667em;
     margin-bottom: 1.0666667em;
     line-height: 1.3333333;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    /* Change the fill of an active # link */
+    &[id]:target .anchor svg { fill: ${accentPrimary}; }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    .anchor { display: none; }
+  }
+
+  .anchor.before {
+    opacity: 1;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: -2rem;
+    transform: skew(-15deg, 0);
+
+    @media screen and ${mediaQuery.maxMd} {
+      display: none;
+    }
+
+    svg {
+      transition: all .3 ${animationTiming};
+      fill: #ccc;
+    }
   }
 
   figure {
@@ -41,16 +78,6 @@ const PostContent = styled.div`
     font-style: italic;
   }
 
-  h2:before {
-    content: '';
-    margin-bottom: 1rem;
-    width: 64px;
-    height: 1px;
-    display: block;
-    background: #ccc;
-    border-bottom: 1px solid #fff;
-  }
-
   h2 {
     font-size: 1.6666667em;
     margin-top: calc(5*1rem);
@@ -66,57 +93,38 @@ const PostContent = styled.div`
   }
 
   blockquote {
-    border-left: 5px solid #eee;
-    margin-left: 0;
-    padding-left: 1rem;
+    border-left: 2px solid ${accentPrimary};
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background: #eee8;
+    margin: 0;
+    font-style: italic;
+    padding: 1rem;
+
+    > *:first-child { margin-top: 0; }
+    > *:last-child { margin-bottom: 0; }
+
   }
 
   pre {
     border-radius: .375rem;
-    font-size: .8888889em;
-    line-height: 1.75;
+    font-size: .777779em;
     margin-top: 2em;
     margin-bottom: 2em;
     padding: 1em 1.5em;
+
+    @media screen and ${mediaQuery.minMd} {
+      font-size: .8888889em;
+    }
   }
 
-  table {
-    width: 100%;
-    table-layout: auto;
-    text-align: left;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    font-size: .8888889em;
-    line-height: 1.5;
-    border-collapse: collapse;
-    text-indent: 0;
-    border-color: inherit;
+  ul {
+    padding-left: 0.5rem;
+    list-style-position: inside;
 
-  }
-
-  thead {
-    color: #171717;
-    font-weight: 600;
-    border-bottom-width: 1px;
-    border-bottom-color: #d4d4d4;
-    border-bottom-style: solid;
-  }
-
-  thead th {
-    padding-right: .75em;
-    padding-bottom: .75em;
-  }
-
-  tbody tr {
-    border-bottom-width: 1px;
-    border-bottom-color: #e5e5e5;
-    border-bottom-style: solid;
-  }
-
-  tbody td {
-    padding: .75em;
-
-    &:first-child { padding-left: 0; }
+    li {
+      margin-bottom: 1rem;
+    }
   }
 
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ExternalLink } from '../utilities/ExternalLink';
+import Link from '../Link/Link';
 
 export interface ResourceItemProps {
   link: string;
@@ -10,7 +10,7 @@ export interface ResourceItemProps {
 
 const ResourceItem = ({ link, description, linkText }: ResourceItemProps) => (
   <li style={{ marginBottom: '.5rem' }}>
-    <ExternalLink href={link}>{ linkText || link }</ExternalLink>
+    <Link to={link}>{ linkText || link }</Link>
     { description ? <><span> - </span>{ description }</> : ''}
   </li>
 );

@@ -6,7 +6,7 @@ import { Hero, Layout, PostLink } from '../components';
 import SEO from '../components/utilities/seo';
 import Container from '../components/Container';
 import ProjectTile from '../components/ProjectTile';
-import StyledLink from '../components/StyledLink';
+import Link from '../components/Link/Link';
 import { mediaQuery } from '../theme/variables';
 
 const { siteDescription } = require('../data/metadata');
@@ -48,7 +48,7 @@ const IndexPage = () => {
           <PostLink key={_post.slug} slug={`/posts/${_post.slug}`} post={_post} />
         ))}
 
-        <p style={{ textAlign: 'center', textDecoration: 'none' }}><StyledLink to="/posts/">View all</StyledLink></p>
+        <p style={{ textAlign: 'center', textDecoration: 'none' }}><Link type="button" to="/posts/">View all</Link></p>
 
         <h2>Current projects</h2>
         <PostGrid>

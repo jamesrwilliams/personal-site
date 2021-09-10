@@ -3,11 +3,11 @@ import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import {
-  accentPrimary, mediaQuery, primaryBlue,
+  accentPrimary, animationTiming, mediaQuery, primaryBlue,
 } from '../../theme/variables';
 import Container from '../Container';
 
-const HeaderContainer = styled.header`
+const HeaderContainer = styled.header<{ open: boolean }>`
   background: ${primaryBlue};
   position: relative;
   color: #fff;
@@ -15,6 +15,14 @@ const HeaderContainer = styled.header`
   padding-top: 1rem;
   padding-bottom: 1rem;
   z-index: 500;
+  transition: all .3s ${animationTiming};
+  border-bottom-style: solid;
+  border-bottom-color: ${accentPrimary};
+  border-bottom-width: ${(props) => (props.open ? '48px' : '0')};
+
+  @media screen and ${mediaQuery.minMd} {
+    border-bottom-width: 0;
+  }
 `;
 
 const HeaderToggleButton = styled.button<{ open: boolean }>`
@@ -71,18 +79,17 @@ const PrimaryNav = styled.nav<{ open: boolean }>`
   pointer-events: ${(props) => (props.open ? 'all' : 'none')};
   flex-grow: 1;
   position: absolute;
-  transition: all 0.3s cubic-bezier(.645,.045,.355,1);
+  transition: all 0.3s ${animationTiming};
   z-index: 500;
   width: 100%;
   margin: 0;
   display: flex;
-  padding: 0 2rem 1rem;
+  padding: .8rem 1rem 1rem;
   max-width: 100%;
   bottom: 0;
   left: 0;
 
   ${(props) => props.open && css`
-    background: ${accentPrimary};
     transform: translateY(100%);
     opacity: 1;
   `}
@@ -111,7 +118,7 @@ const Header = () => {
   const [menuOpen, setMenuState] = useState(false);
 
   return (
-    <HeaderContainer>
+    <HeaderContainer open={menuOpen}>
       <HeaderWrapper>
         <PrimaryNavLink to="/">
           <div>
@@ -158,12 +165,10 @@ const NavLinkElement = styled(Link)`
   color: inherit;
   text-decoration: none;
   margin-right: 1rem;
-  margin-top: 1rem;
 
   @media screen and ${mediaQuery.minMd} {
     margin-left: 3rem;
     margin-right: 0;
-    margin-top: 0;
   }
 `;
 

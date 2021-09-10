@@ -15,7 +15,7 @@ const StyledOutboundLink = styled(OutboundLink)`
 `;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-export const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children, ...props }) => <StyledOutboundLink href={href} target="_blank" rel="noopener nofollow" {...props}>{ children }</StyledOutboundLink>;
+const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children, ...props }) => <StyledOutboundLink href={href} target="_blank" rel="noopener nofollow" {...props}>{ children }</StyledOutboundLink>;
 
 ExternalLink.propTypes = {
   href: PropTypes.string.isRequired,
@@ -26,16 +26,4 @@ ExternalLink.defaultProps = {
   children: [],
 };
 
-export const StyledExternalLink: React.FC<ExternalLinkProps> = (
-  { href, children, ...props },
-  // eslint-disable-next-line react/jsx-props-no-spreading
-) => <ExternalLink href={href} {...props}>{ children }</ExternalLink>;
-
-StyledExternalLink.propTypes = {
-  href: PropTypes.string.isRequired,
-  children: PropTypes.element,
-};
-
-StyledExternalLink.defaultProps = {
-  children: [],
-};
+export default ExternalLink;
