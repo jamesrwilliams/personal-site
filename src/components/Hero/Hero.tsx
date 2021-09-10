@@ -10,7 +10,7 @@ const heroFill = secondaryBlue;
 
 const HeroWrapper = styled.div`
   background: linear-gradient(to top, ${heroFill}, ${primaryBlue});
-  padding: 4rem 0;
+  padding: 4rem 0 2rem;
   position: relative;
   font-weight: 200;
   color: #fff;
@@ -36,7 +36,7 @@ const HeroWrapper = styled.div`
       margin-right: .7ch;
       font-weight: 200;
       transition: all 1s ease;
-      margin-bottom: 0;
+      margin-bottom: 1rem;
     }
 
     p.intro {
@@ -54,8 +54,12 @@ const HeroWrapper = styled.div`
       display: block;
       margin-top: 0;
       text-decoration: none;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
       ${textGradient}
+
+      @media screen and ${mediaQuery.minMd} {
+        margin-bottom: 3rem;
+      }
     }
 
     a {
@@ -94,10 +98,11 @@ const HeroWrapper = styled.div`
       background: linear-gradient(to top, #021526, ${heroFill});
       //clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
       clip-path: polygon(0 0, 100% 0, 0 100%);
-      height: 20px;
+      height: 50px;
 
       @media screen and ${mediaQuery.minMd} {
-        height: 150px;
+        height: 15vw;
+        max-height: 150px;
        }
     }
 `;

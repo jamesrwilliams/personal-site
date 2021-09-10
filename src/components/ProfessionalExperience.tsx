@@ -9,15 +9,16 @@ const ExperienceList = styled.ul`
   padding: 0;
   margin-left: 5px;
   border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 
   &:before {
     content: '';
     display: block;
     position: absolute;
-    bottom: 0;
-    width: 20px;
+    bottom: -1px;
+    width: 10px;
     left: -10px;
-    height: 2px;
+    height: 1px;
     background: #eee;
   }
 `;

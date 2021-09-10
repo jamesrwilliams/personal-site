@@ -8,6 +8,7 @@ const PostContent = styled.div`
   line-height: 1.7777778;
   max-width: 65ch;
   color: #171717;
+  margin: 0 auto;
 
   p {
     margin-bottom: 1.3333333em;
@@ -20,6 +21,22 @@ const PostContent = styled.div`
     margin-top: 1.8666667em;
     margin-bottom: 1.0666667em;
     line-height: 1.3333333;
+  }
+
+  a {
+    color: ${accentPrimary};
+  }
+
+  hr {
+    margin-top: 3.1111111em;
+    margin-bottom: 3.1111111em;
+    border: 0 solid #e5e5e5;
+    border-top-width: 1px;
+    height: 0;
+  }
+
+  a:link {
+    color: ${accentPrimary};
   }
 
   h1,
