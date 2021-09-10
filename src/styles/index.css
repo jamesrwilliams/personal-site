@@ -59,3 +59,22 @@ tbody tr {
 
 tbody td { padding: .75em; }
 tbody td:first-child { padding-left: 0; }
+
+pre[class*="language-"].line-numbers .line-numbers-rows {
+  font-family: Roboto Mono, monospace;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1em;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  margin-left: 0.75rem;
+  border-right-color: #ccc1;
+}
+
+.gatsby-highlight-code-line {
+  background-color: #feb;
+}
+
+.gatsby-highlight-code-line {
+  background-color: #fff3;
+}
