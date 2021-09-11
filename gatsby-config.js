@@ -160,7 +160,7 @@ module.exports = {
               // Customize the prompt used in shell output
               // Values below are default
               prompt: {
-                user: 'root',
+                user: 'usr',
                 host: 'localhost',
                 global: false,
               },
