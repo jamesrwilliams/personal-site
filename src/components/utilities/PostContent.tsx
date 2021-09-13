@@ -8,7 +8,7 @@ const PostContent = styled.div`
   line-height: 1.7777778;
   max-width: 65ch;
   color: #171717;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
 
   p {
     margin-bottom: 1.3333333em;

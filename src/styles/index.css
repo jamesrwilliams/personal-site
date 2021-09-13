@@ -31,7 +31,7 @@ table {
   text-align: left;
   margin-top: 2em;
   margin-bottom: 2em;
-  font-size: .8888889em;
+  font-size: 0.8888889em;
   line-height: 1.5;
   border-collapse: collapse;
   text-indent: 0;
@@ -47,8 +47,8 @@ thead {
 }
 
 thead th {
-  padding-right: .75em;
-  padding-bottom: .75em;
+  padding-right: 0.75em;
+  padding-bottom: 0.75em;
 }
 
 tbody tr {
@@ -57,7 +57,7 @@ tbody tr {
   border-bottom-style: solid;
 }
 
-tbody td { padding: .75em; }
+tbody td { padding: 0.75em; }
 tbody td:first-child { padding-left: 0; }
 
 pre[class*="language-"].line-numbers .line-numbers-rows {
@@ -69,10 +69,6 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
   line-height: 1.5em;
   margin-left: 0.75rem;
   border-right-color: #ccc1;
-}
-
-.gatsby-highlight-code-line {
-  background-color: #feb;
 }
 
 .gatsby-highlight-code-line {

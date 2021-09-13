@@ -61,10 +61,8 @@ const AboutPage = () => {
               I&apos;ve been a professional developer for { activeYears } years, working in a
               variety of environments including non-profits, creative agencies, and product
               development settings. Working on a diverse range of web based projects both for B2B
-              and consumer facing audiences.
+              and consumer facing audiences. My professional journey so far:
             </p>
-
-            <p>My journey so far:</p>
 
             <ProfessionalExperience />
 

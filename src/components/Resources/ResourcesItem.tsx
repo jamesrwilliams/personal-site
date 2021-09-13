@@ -9,7 +9,7 @@ export interface ResourceItemProps {
 }
 
 const ResourceItem = ({ link, description, linkText }: ResourceItemProps) => (
-  <li style={{ marginBottom: '.5rem' }}>
+  <li key={link} style={{ marginBottom: '.5rem' }}>
     <Link to={link}>{ linkText || link }</Link>
     { description ? <><span> - </span>{ description }</> : ''}
   </li>
