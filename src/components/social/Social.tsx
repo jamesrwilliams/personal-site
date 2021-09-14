@@ -9,6 +9,7 @@ import {
   Pluralsight as PluralsightIcon,
   Stackoverflow as StackoverflowIcon,
   Twitter as TwitterIcon,
+  Salesforce as SalesforceIcon,
 } from '@icons-pack/react-simple-icons';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
@@ -18,7 +19,7 @@ import {
   hackerRankUrl,
   instagramUrl,
   linkedInUrl as linkedinUrl,
-  pluralsightUrl,
+  pluralsightUrl, salesforceTrailBlazerUrl,
   stackOverflowUrl as stackoverflowUrl,
   twitterUrl,
 } from '../../data/urls';
@@ -95,6 +96,12 @@ const Pluralsight: React.FC = () => (
   </SocialIcon>
 );
 
+const TrailBlazer: React.FC = () => (
+  <SocialIcon href={salesforceTrailBlazerUrl} title="Salesforce Trailblazer">
+    <SalesforceIcon />
+  </SocialIcon>
+);
+
 export {
   GitHub,
   Twitter,
@@ -104,6 +111,7 @@ export {
   HackerRank,
   Instagram,
   Pluralsight,
+  TrailBlazer,
 };
 
 interface socialIconInterface {

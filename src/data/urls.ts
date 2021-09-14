@@ -7,6 +7,7 @@ export const stackOverflowUrl = 'https://stackoverflow.com/users/1958764/james-w
 export const hackerRankUrl = 'https://www.hackerrank.com/jamesrwilliams';
 export const instagramUrl = 'https://instagram.com/thejamesrwilliams';
 export const pluralsightUrl = 'https://app.pluralsight.com/profile/jamesrwilliams';
+export const salesforceTrailBlazerUrl = 'https://trailblazer.me/id/jamesrwilliams';
 
 // Other
 export const resumeUrl = 'https://docs.google.com/document/d/1T1Ohlnh0rdVUGVhlCK3H4n6h2Nr_MxqMuLz92wJI4bg';

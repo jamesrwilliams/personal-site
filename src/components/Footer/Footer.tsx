@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, Twitter,
+  GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, TrailBlazer, Twitter,
 } from '../social/Social';
 import Container from '../Container';
 import HipHipArray from '../HipHipArray';
@@ -16,6 +16,7 @@ const socialLinks = [
   <Pluralsight />,
   <HackerRank />,
   <StackOverflow />,
+  <TrailBlazer />,
 ];
 
 const FooterElement = styled.footer`
