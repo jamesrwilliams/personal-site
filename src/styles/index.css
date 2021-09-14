@@ -74,3 +74,7 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
 .gatsby-highlight-code-line {
   background-color: #fff3;
 }
+
+::selection {
+  background: #ff05;
+}

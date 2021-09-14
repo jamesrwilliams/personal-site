@@ -97,12 +97,9 @@ that adds the OpenAPI spec to the sites GraphQL instance.
 ### Mock Servers
 
 Another cool feature of these files is they can be used to spin up cheap and quick mock servers using the example data 
-/ responses included in them. I've had a go with [API Sprout](https://github.com/danielgtaylor/apisprout) and it's as 
-easy as providing a CLI tool with the path to your spec file and there you go! 
+/ responses included in them. [Prism](https://github.com/stoplightio/prism) is a nifty little tool from the folks at [Stoplight](https://stoplight.io/) that does some cool things like mock servers.
 
-https://github.com/stoplightio/prism
-
-You can install the script on your machine via the global install command:
+You can install the script on your machine via the global installation command:
 
 ```bash
 yarn global add @stoplight/prism-cli
@@ -114,10 +111,9 @@ Once that has downloaded you simply pass the API spec path as a parameter:
 prism mock specs/example-one.json
 ```
 
-![](../images/openapi/open-api-prism-mock.png)
+![](../images/openapi/open-api-prism-output-screenshot.png)
 
-- <mark>Error states</mark>
-- <mark>How to use</mark>
+You can see the server being hit here and the validators running against the provided spec
 
 ## Contact tests
 
