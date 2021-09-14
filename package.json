@@ -64,6 +64,7 @@
     "gatsby-plugin-styled-components": "^4.13.0",
     "gatsby-plugin-webpack-size": "^2.0.1",
     "gatsby-remark-autolink-headers": "^4.9.0",
+    "gatsby-remark-code-titles": "^1.1.0",
     "gatsby-remark-copy-linked-files": "^4.9.0",
     "gatsby-remark-images": "^5.9.0",
     "gatsby-remark-mermaid": "^2.1.0",

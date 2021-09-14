@@ -84,6 +84,7 @@ module.exports = {
           default: require.resolve('./src/components/layouts/postLayout.tsx'),
         },
         gatsbyRemarkPlugins: [
+          'gatsby-remark-code-titles',
           {
             resolve: 'gatsby-remark-mermaid',
             options: {

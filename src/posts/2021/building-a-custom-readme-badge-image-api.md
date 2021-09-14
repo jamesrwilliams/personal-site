@@ -1,41 +1,53 @@
 ---
 title: Building a README badge image API with Python
 date: 2021-08-20
-draft: true
 ---
 
-The idea here is to have a unique badge for specific information in our mono-repo. Things like individual app version or
-specific metrics developers can glance at when looking at the sub-project READMEs. Think those images at the top of 
-READMEs on GitHub, but with custom text, design and connected to a custom data source / API.
+README badges are great convenient way to display important information and links about a project. 
+Showcasing things like your builds passing, or the number of downloads a project has. Here is an
+example of some README badges from my [Flagpole WordPress plugin](https://github.com/jamesrwilliams/flagpole) project on GitHub:
 
-I have written a fair amount JavaScript in my career and felt it was time for a change up. Time I branch out and learn 
-some more Python. One of the major projects I work with at Points is a Flask API server so thought what better way to 
-learn more about the framework than try my hand at making my own.
+![](../images/readme-badge-image-example.png)
+
+One of our newer projects at work is a mono-repository with configuration and settings spread out over a few other repos,
+which can make getting a high-level view of a single app's setup difficult. A co-worker and I were discussing building a quick
+status dashboard experience to resolve this problem, that quickly morphed into creating an API that renders a summary image for
+each app distribution we could put in the README. The more we thought about it, we realised that it would work better as a styled badge.
+
+The plan was to have a unique badge for specific information in our mono-repo, showing things like 
+individual app version or specific metrics developers can glance at when looking at the sub-directory
+README for each brand. 
+
+## Choosing Python
+
+I have written a fair amount JavaScript in my career and felt it was time for a change up, and learn 
+more Python. One of the major projects I work with at Points is a Flask API server so thought what
+better way to learn more about the framework than try my hand at making my own.
+
+One of the most confusing things for me about Python is the environmental setup. I understand the need for virtual
+environments just gets a little confusing between running things like [pip](https://pypi.org/project/pip/) inside or
+outside an env, alongside the difference between a `Pipfile` and a `requirements.txt` file[^1]. This was my first python project
+I completed end-to-end, set up, testing and deployed so plenty of room for personal growth here and certainly learnt
+a lot deploying this app.
 
 ## Setup
 
-One of the most confusing things for me about Python is the environmental setup. I understand the need for virtual 
-environments just gets a little confusing between running things like [pip](https://pypi.org/project/pip/) inside or 
-outside an env. And the difference between a `Pipfile` and a `requirements.txt` file. This was my first python project 
-I completed end-to-end, set up, testing and deployed so plenty of room for personal growth here and certainly learnt 
-a lot deploying this app.
-
-One of our main projects at Points is written with the Flask python framework. This was a perfect opportunity to start 
-my own, albeit, much more basic. We've set up a virtual environment using `pipenv` and then we're going access the 
+To get started we set up a virtual environment using `pipenv` and then we're going access the 
 python shell using `pipenv shell`. 
 
 ```
 pipenv shell
 ```
 
-Now we're in our virtual-environment we can install our dependencies, namely Flask and Pillow. Flask is the API framework
-we're going to use for our routing etc, and Pillow being the image library we're going to be using to manipulate our image data.
+Now we're in our virtual-environment we can install our dependencies, namely Flask, Gunicorn, and Pillow. Flask is the API framework
+we're going to use for our routing etc. Pillow being the image library we're going to be using to manipulate our image data, and 
+gunicorn is our web server.
 
 ```shell
 pipenv install Flask
 ```
 
-This command will install Flask into our pipenv virtual environment and update our Pipfile and Pipfile.lock. Now Flask 
+This command will install Flask into our pipenv virtual environment and update our `Pipfile` and `Pipfile.lock`. Now Flask 
 is installed we can go ahead and install our other dependencies:
 
 - `pipenv install gunicorn` - For our web server we're going to use [gunicorn](https://gunicorn.org/) 
@@ -46,7 +58,8 @@ is installed we can go ahead and install our other dependencies:
 In our `app.py` file we're going to spin up a quick application and keep things as simple as possible. Here we just 
 have two routes, first our actual API route for the badge endpoint, the second a catch-all fallback HTML page. With the
 first route we're using route parameters to capture `<project>`, this is then passed into our function as a dynamic 
-value based on the URL. The idea you can pass the specific `project` that you want this badge to represent here.
+value based on the URL. The idea you can pass the specific `project` that you want this badge to represent via the 
+image SRC url.
 
 ```python
 from flask import Flask, render_template
@@ -83,9 +96,9 @@ feature set.
 To get started we're going to use a base PNG image as our background graphic that we're going to add text to, and 
 load in a font file for said text. You can skip the font file but the default font used is super retro!
 
-```python
-@app.route('/api/badge')
-def route_func():
+```python:title=app.py {numberLines: 10}
+@app.route('/api/badge/<project>')
+def route_func(project):
     # This reads the PNG into `im` for us to use
     with Image.open("./assets/base-images/base-single.png") as im: 
 
@@ -105,20 +118,24 @@ depending on your needs. Either way you'll need the X/Y coordinates next, for th
 origin in the upper left origin corner. Then you can assign the font you want the text to be rendered, and it's fill 
 color in RGB.
 
-```python
+```python:title=app.py {numberLines: 18}
     # Make our local font file available 
     font_regular_bold = ImageFont.truetype("./assets/fonts/Roboto-Bold.ttf", 16)
 
-    d.multiline_text((115, 2), "Hello", font=font, fill=(255, 255, 255))
-    d.multiline_text((115, 20), "World", font=font, fill=(255, 255, 255))
+    d.multiline_text((115, 2), "Hello", font=font_regular_bold, fill=(255, 255, 255))
+    d.multiline_text((115, 20), "World", font=font_regular_bold, fill=(255, 255, 255))
 ```
 
-### Make it work in a HTML IMG tag
+We've got the text writing to the image at a specific place we can wire up how we get the content.
+For us, we are reading a from a few internal APIs using the `project` argument as the project
+identifier.
 
-To make the image be delivered as an image we need to set up Pillow and Flask to return the information in the correct 
-encoding. We can do this by using a little utility function I wrote:
+### Make it work in an HTML IMG tag
 
-```python
+To make the image be delivered as an image we need to set up Pillow and Flask to return the data in
+the correct encoding. We can do this by using a little utility function we used to do just that: 
+
+```python:title=app.py {numberLines: true}
 def serve_pil_image(pil_img):
     # First we create a new BytesIO object (bytes stored in memory)
     img_io = BytesIO()
@@ -131,6 +148,15 @@ def serve_pil_image(pil_img):
     
     # Return the image bytyes as an image/png format.
     return send_file(img_io, mimetype='image/png')
+```
+
+Then in the endpoint function we just return the value from this function like so:
+
+```python:title=app.py {numberLines: 21}
+    d.multiline_text((115, 2), "Hello", font=font_regular_bold, fill=(255, 255, 255))
+    d.multiline_text((115, 20), "World", font=font_regular_bold, fill=(255, 255, 255))
+    
+    return serve_pil_image(image)
 ```
 
 ## Deploying to Heroku
@@ -149,3 +175,4 @@ The above is telling the `web` process to run the `gunicorn app:app` which, in t
 gunicorn with the app:app which corresponds to: `$(MODULE_NAME):$(VARIABLE_NAME)`. This is all hooked up in Heroku to GitHub it'll automatically deploy the latest commits on my `main` branch.
 You can also use the Heroku git repositories for deployments where you push directly to their servers but having two origins never sat right with me. 
 
+[^1]: The `Pipfile` and `Pipfile.lock` that Pipenv uses are designed to replace requirements.txt.

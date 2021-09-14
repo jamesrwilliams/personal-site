@@ -75,24 +75,16 @@ const PostContent = styled.div`
 
   figure {
     margin: 0;
-    box-sizing: border-box;
-    color: #000000d9;
-    font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5715;
-    list-style: none;
-    font-feature-settings: "tnum";
-    position: relative;
-    background: #fff;
-    border-radius: 2px;
-    border: 1px solid #f0f0f0;
-    padding: 12px;
+
+    > *:first-child { margin-top: 0; }
+    > *:last-child { margin-bottom: 0; }
   }
 
   figcaption {
-    padding-top: 8px;
-    border-top: 1px solid #f0f0f0;
     font-style: italic;
+
+    > *:first-child { margin-top: 0; }
+    > *:last-child { margin-bottom: 0; }
   }
 
   h2 {

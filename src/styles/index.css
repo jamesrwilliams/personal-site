@@ -78,3 +78,60 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
 ::selection {
   background: #ff05;
 }
+
+.footnotes {
+
+}
+
+.footnotes ol {
+  padding-left: 1.5rem;
+}
+
+.footnote-backref {
+  font-family: initial;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
+  margin-left: .5rem;
+}
+
+.footnote-ref {
+  text-decoration: none;
+  display: inline-block;
+  margin-left: .2rem;
+}
+
+.footnotes ol li:target {
+  background: #ff03;
+}
+
+.footnote-ref::before {
+  content: '[';
+}
+
+.footnote-ref::after {
+  content: ']';
+}
+
+.gatsby-code-title + .gatsby-highlight pre {
+  margin-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.gatsby-code-title {
+  padding: 0.5em 1em;
+  font-size: 90%;
+  font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console',
+  'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
+  'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier,
+  monospace;
+
+  background-color: #263238;
+  border-bottom: 1px solid #ccc1;
+  color: white;
+  z-index: 0;
+
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+}
