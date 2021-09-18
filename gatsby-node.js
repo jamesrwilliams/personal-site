@@ -16,16 +16,6 @@ exports.createPages = async ({ actions, graphql }) => {
       posts: allMdx(limit: 1000) {
         nodes {
           slug
-          body
-          excerpt
-          tableOfContents
-          timeToRead
-          fileAbsolutePath
-          frontmatter {
-            title
-            postDate: date,
-            postDateTimestamp: date(formatString: "X")
-          }
         }
       }
     }
@@ -33,30 +23,14 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const posts = data.posts.nodes;
 
-  posts.forEach((post, index) => {
-    // Work out the next/previous posts (chronologically)
-    const nextNode = (index === 0 ? null : posts[index - 1]);
-    const previousNode = (index === posts.length - 1 ? null : posts[index + 1]);
-
-    // Don't create pages for MDX files not in the /posts/ directory.
-    const pathSplit = post.fileAbsolutePath.split('src/posts');
-
-    if (pathSplit.length !== 2) {
-      // eslint-disable-next-line no-console
-      console.log(`Non-post MDX page: ${post.fileAbsolutePath}`);
-    } else {
-      createPage({
-        path: `/posts/${post.slug}`,
-        component: blogPostTemplate,
-        context: {
-          ...post,
-          pagination: {
-            previous: previousNode,
-            next: nextNode,
-          },
-        },
-      });
-    }
+  posts.forEach((post) => {
+    createPage({
+      path: `/posts/${post.slug}`,
+      component: blogPostTemplate,
+      context: {
+        ...post,
+      },
+    });
   });
 
   const { createRedirect } = actions;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from './Layout';
 import PageHeader from '../PageHeader/PageHeader';
 import SEO from '../utilities/seo';
@@ -8,19 +8,39 @@ import Container from '../Container';
 import LinkedData from '../social/LinkedData';
 import PostContent from '../utilities/PostContent';
 
-export default function Template({ pageContext }: any) {
+export default function Template() {
+  const { mdx } = useStaticQuery(graphql`
+    query mdxPost($slug: String) {
+      mdx(slug: {eq: $slug }) {
+        body
+        excerpt
+        timeToRead
+        frontmatter {
+          title
+          postDate: date,
+          postDateTimestamp: date(formatString: "X")
+        }
+      }
+    }
+  `);
+
   const {
-    body,
     slug,
     frontmatter,
     excerpt,
     timeToRead,
-  } = pageContext;
+    body,
+  } = mdx;
   const { title } = frontmatter;
 
   return (
     <Layout>
-      <SEO title={title} description={excerpt} path={`posts/${slug}`} publishedTime={frontmatter.date} />
+      <SEO
+        title={title}
+        description={excerpt}
+        path={`posts/${slug}`}
+        publishedTime={frontmatter.date}
+      />
       <LinkedData title={title} date={frontmatter.date} excerpt={excerpt} slug={slug} />
       <main>
         <article>
