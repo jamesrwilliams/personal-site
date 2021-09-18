@@ -24,11 +24,11 @@ I have written a fair amount JavaScript in my career and felt it was time for a 
 more Python. One of the major projects I work with at Points is a Flask API server so thought what
 better way to learn more about the framework than try my hand at making my own.
 
-One of the most confusing things for me about Python is the environmental setup. I understand the need for virtual
+One of the most confusing things about Python, for me, is the environment setup. I understand the need for virtual
 environments just gets a little confusing between running things like [pip](https://pypi.org/project/pip/) inside or
-outside an env, alongside the difference between a `Pipfile` and a `requirements.txt` file[^1]. This was my first python project
+outside a virtual env, alongside the difference between a `Pipfile` and a `requirements.txt` file[^1]. This was my first python project
 I completed end-to-end, set up, testing and deployed so plenty of room for personal growth here and certainly learnt
-a lot deploying this app.
+a lot deploying this.
 
 ## Setup
 
@@ -81,7 +81,8 @@ def fallback(dummy=None):
     return render_template('index.html')
 ```
 
-Then to run this you can either run Flask directly or you can run things with gunicorn by running `gunicorn app:app` which represents a sort of `gunicorn file:func` sytax. So if your 
+Then to run this you can either run Flask directly or you can run things with gunicorn by running 
+`gunicorn app:app` which represents a sort of `gunicorn file:func` syntax. So if your 
 Flask file is called `app.py` and your flask instance is `app = Flask(...`.
 
 ## Images with Python Pillow
@@ -93,7 +94,7 @@ feature set.
  
 ### Loading a base image
 
-To get started we're going to use a base PNG image as our background graphic that we're going to add text to, and 
+To get started we're going to use a base PNG image as our background that we're going to add text to, and 
 load in a font file for said text. You can skip the font file but the default font used is super retro!
 
 ```python:title=app.py {numberLines: 10}
@@ -140,7 +141,7 @@ def serve_pil_image(pil_img):
     # First we create a new BytesIO object (bytes stored in memory)
     img_io = BytesIO()
     
-    # We then save the provided Pillow image to that BytesIO  variable 
+    # We then save the provided Pillow image to that BytesIO variable 
     pil_img.save(img_io, 'PNG', quality=100)
     
     # Reset the IO stream position back to zero
@@ -161,18 +162,19 @@ Then in the endpoint function we just return the value from this function like s
 
 ## Deploying to Heroku
 
-It had been a while since I had used [Heroku Dynos](https://www.heroku.com/dynos), but it is my go-to service for Netlify esk app deployments. This was the
-first time deploying a new python application into the wild. One of my main stumbling blocks with this wsa not 
-realising I needed a web server to power flask. For python apps you need to use [gunicorn](https://gunicorn.org/) 
-server to get all the parts to click. Inside your [`Procfile`](https://devcenter.heroku.com/articles/procfile) (the Heroku config file) you specify the 
-commands that each Heroku process runs each time the dyno starts. So ours looks like this for a web server to run our Flask app:
+It had been a while since I had used [Heroku Dynos](https://www.heroku.com/dynos), but it is my go-to service 
+for Netlify esk app deployments. This was the first time deploying a new python application into the wild. 
+One of my main stumbling blocks with this wsa not realising I needed a web server to power Flask. For python 
+apps you can use [gunicorn](https://gunicorn.org/) server to get all the parts to click. Inside your 
+[`Procfile`](https://devcenter.heroku.com/articles/procfile) (the Heroku config file) you specify the commands 
+that each Heroku process runs each time the dyno starts. So ours looks like this for a web server to run our Flask app:
 
 ```
 web: gunicorn app:app
 ```
 
-The above is telling the `web` process to run the `gunicorn app:app` which, in turn, is the startup command for 
-gunicorn with the app:app which corresponds to: `$(MODULE_NAME):$(VARIABLE_NAME)`. This is all hooked up in Heroku to GitHub it'll automatically deploy the latest commits on my `main` branch.
+The above is telling the Heroku `web` process to run the `gunicorn app:app` which, in turn, is the startup command for 
+gunicorn with the app:app which corresponds to: `$(MODULE_NAME):$(VARIABLE_NAME)`. This is all hooked up in Heroku via GitHub, so it will automatically deploy the latest commits on my `main` branch.
 You can also use the Heroku git repositories for deployments where you push directly to their servers but having two origins never sat right with me. 
 
 [^1]: The `Pipfile` and `Pipfile.lock` that Pipenv uses are designed to replace requirements.txt.
