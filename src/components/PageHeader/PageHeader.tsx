@@ -8,7 +8,6 @@ const PageWrapper = styled.aside`
   color: ${primaryBlue};
   position: relative;
   margin-bottom: 0;
-  text-align: center;
   background: linear-gradient(to bottom, #0ba7fd55, #fff0);
 
   @media screen and (min-width: 700px) {

@@ -1,6 +1,6 @@
 ---
 title: Designing APIs with the OpenAPI spec (v3.0)
-date: 2021-09-10
+date: 2021-09-14
 draft: true
 ---
 

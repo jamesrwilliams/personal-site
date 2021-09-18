@@ -4,11 +4,11 @@ import {
 } from '../../theme/variables';
 
 const PostContent = styled.div`
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.7777778;
   max-width: 65ch;
   color: #171717;
-  margin: 0 auto 2rem;
+  margin: 0 0 2rem;
 
   p {
     margin-bottom: 1.3333333em;
@@ -128,8 +128,7 @@ const PostContent = styled.div`
   }
 
   ul {
-    padding-left: 0.5rem;
-    list-style-position: inside;
+    padding-left: 1rem;
 
     li {
       margin-bottom: 1rem;
