@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from './Layout';
 import PageHeader from '../PageHeader/PageHeader';
 import SEO from '../utilities/seo';
@@ -8,29 +8,14 @@ import Container from '../Container';
 import LinkedData from '../social/LinkedData';
 import PostContent from '../utilities/PostContent';
 
-export default function Template() {
-  const { mdx } = useStaticQuery(graphql`
-    query mdxPost($slug: String) {
-      mdx(slug: {eq: $slug }) {
-        body
-        excerpt
-        timeToRead
-        frontmatter {
-          title
-          postDate: date,
-          postDateTimestamp: date(formatString: "X")
-        }
-      }
-    }
-  `);
-
+export default function Template({ data }: any) {
   const {
     slug,
     frontmatter,
     excerpt,
     timeToRead,
     body,
-  } = mdx;
+  } = data.mdx;
   const { title } = frontmatter;
 
   return (
@@ -57,6 +42,18 @@ export default function Template() {
 }
 
 export const query = graphql`
+  query MdxBlogPost($slug: String!) {
+    mdx(slug: {eq: $slug}) {
+      body
+      excerpt
+      timeToRead
+      frontmatter {
+        title
+        postDate: date,
+        postDateTimestamp: date(formatString: "X")
+      }
+    }
+  }
   fragment blogFields on Mdx {
     excerpt(pruneLength: 250)
     slug

@@ -115,7 +115,7 @@ prism mock specs/example-one.json
 
 ![](../images/openapi/open-api-prism-output-screenshot.png)
 
-You can see the server being hit here and the validators running against the provided spec
+You can see the server being hit here and the validators running against the provided spec file `example-one.json`.
 
 ### But now I need to maintain the spec as well as the source code?
 
