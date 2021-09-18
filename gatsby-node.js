@@ -7,6 +7,12 @@
 const axios = require('axios');
 const crypto = require('crypto');
 const parser = require('xml2json');
+const { shouldUpdateSearch } = require('./src/lib/update-search');
+
+exports.onPreInit = async ({ reporter }) => {
+  const shouldUpdateSearchIndex = shouldUpdateSearch();
+  reporter.info(`${shouldUpdateSearchIndex ? 'We are' : 'Not'} updating search index.`);
+};
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;

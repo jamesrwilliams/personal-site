@@ -1,8 +1,5 @@
 const { siteDescription } = require('./src/data/metadata');
-
-require('dotenv').config({
-  path: '.env',
-});
+const { shouldUpdateSearch } = require('./src/lib/update-search');
 
 const searchQuery = `{
    allMdx {
@@ -17,10 +14,7 @@ const searchQuery = `{
   }
 }`;
 
-const shouldUpdateSearchIndex = process.env.NETLIFY === true && process.env.CONTEXT === 'production';
-
-// eslint-disable-next-line no-console
-console.log(`[SEARCH] ${shouldUpdateSearchIndex ? 'We are' : 'Not'} updating search index.`);
+const shouldUpdateSearchIndex = shouldUpdateSearch();
 
 /**
  * This works out the year directories for all my posts
