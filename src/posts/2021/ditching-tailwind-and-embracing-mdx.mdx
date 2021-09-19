@@ -1,0 +1,75 @@
+---
+title: "Ditching Tailwind.css and embracing MDX"
+date: 2021-09-09
+---
+
+What started as a minor tweak to this site turned into quite a large refactor! I've added a little theme improvement
+and some changes to the tooling around the site build. Along with the headliner changes detailed below:
+
+## Added MDX support
+
+The majority of content on this site lives as Markdown, I've recently switched this site to use
+[MDX](https://mdxjs.com/) as well which has opened up my editing experience up to being able to use other JSX components right
+in the posts. I had a brief introduction to MDX when working with [storybook](https://storybook.js.org/) building
+component docs but the fact you can quickly add components to posts very cool. Not using it much yet but the option is
+there, probably good to image and layout controls.
+
+I've had to do some funky setup things as I wanted to store the Markdown files in a different
+folder structure than the way they are when published. In the `/src/posts` directory they're organised
+by year, and on my site I just have them as `/posts/slug` rather than `/posts/YYYY/slug`. to get around this I now
+have my `gatsby-config.js` file dynamically create source nodes for each year like so:
+
+```js
+// In gatsby-config.js
+module.exports = {
+    // [...]
+    plugins: [
+        ...buildSourceCalls(), // Add a spread operator for the array my function returns
+    ]
+    // [...]
+}
+
+/**
+ * This works out the year directories for all my posts
+ * and creates a unique source node call for each directory.
+ *
+ * This approach avoids having the year in the URL but lets me keep my posts organised
+ * in year directories.
+ *
+ * Just using one source of `/src/posts` would be /posts/{YEAR}/{SLUG} rather
+ * than what I want: /posts/{SLUG}
+ */
+function buildSourceCalls(name = 'posts') {
+  const startYear = 2015; // Earliest year I wrote a post
+  const years = new Date().getFullYear() - startYear;
+  const output = [];
+
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < years + 1; i++) {
+    output.push({
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name,
+        path: `${__dirname}/src/posts/${startYear + i}`
+      }
+    });
+  }
+
+  return output;
+}
+
+```
+
+## Removed Tailwind
+
+I added Tailwind CSS back [February 2021](https://github.com/jamesrwilliams/personal-site/pull/35) in an attempt make my
+site easier to maintain. In theory this was a great move, but I found it to _significantly_ slow down my builds and local development.
+I think this site has a pretty simple design, so maybe it's just overkill. My builds were taking upwards of 92s (with a cache) Tailwind
+and the PostCSS process making it work was not worth the cost. Now with Tailwind and all that removed builds are back down to pre-tailwind times!
+
+## Scheduled builds with Google Cloud Scheduler
+
+I've also set up a Google Cloud scheduler job to trigger a fresh rebuild of this site each week to check for any build
+issues if I don't push an update to my site that often. This simple cron job fires every wednesday to rebuild the site.
+
+As always you can check out this site's source code and development activity on GitHub: [jamesrwilliams/personal-site](https://github.com/jamesrwilliams/personal-site).

@@ -1,16 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { BookInterface } from '../../models/BookInterface';
+import Link from '../Link/Link';
 
-const Reading = ({book}: { book: BookInterface }) => {
-
+const Reading = ({ book }: { book: BookInterface }) => {
   const { author, title, link } = book;
-  const { name, authorLink } = author;
-
-  const linkTitle = `${title} by ${name}, on GoodReads.com`;
+  const { name } = author;
 
   return (
-      <span>I'm currently reading: "<a title={linkTitle} href={link}>{title}</a>" by <a
-          href={authorLink}>{name}</a>.</span>
-  )
-}
+    <p>I&apos;m currently reading <Link to={link}>&quot;{title}&quot;</Link> by {name}.</p>
+  );
+};
 
 export default Reading;

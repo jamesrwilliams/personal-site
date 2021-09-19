@@ -1,19 +1,23 @@
 import React from 'react';
-import PostLink from "../PostLink/PostLink";
+import PostLink from '../PostLink/PostLink';
+import PostInterface from '../../models/PostInterface';
 
 const SearchHit = ({ hit }: any) => {
-
   const PostObject: PostInterface = {
-      date: new Date(( hit.post_date_timestamp * 1000)).toISOString(),
+    slug: hit.slug,
+    excerpt: hit.excerpt,
+    fileAbsolutePath: '',
+    timeToRead: '0',
+    frontmatter: {
       title: hit.title,
-      slug: hit.slug
-  }
+      date: new Date((hit.post_date_timestamp * 1000)).toISOString(),
+      dateReadable: '',
+    },
+  };
 
   return (
-    <ul className="search-hit">
-      <PostLink post={PostObject} />
-    </ul>
-  )
-}
+    <PostLink timeToRead={false} post={PostObject} />
+  );
+};
 
-export default SearchHit
+export default SearchHit;

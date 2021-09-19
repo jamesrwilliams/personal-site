@@ -5,10 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import {Helmet} from 'react-helmet'
-import {graphql, useStaticQuery} from 'gatsby'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { graphql, useStaticQuery } from 'gatsby';
 
 interface metaObjectInterface {
     [name: string]: string;
@@ -24,12 +24,13 @@ interface SEOProps {
         height: string;
         width: string;
     };
-    published_time?: string;
+    publishedTime?: string;
     path?: string;
 }
 
-function SEO({ description, lang, meta = [], title, image, published_time, path }: SEOProps) {
-
+const SEO = ({
+  description, lang, meta = [], title, image, publishedTime, path,
+}: SEOProps) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -42,51 +43,53 @@ function SEO({ description, lang, meta = [], title, image, published_time, path 
           }
         }
       }
-    `
+    `,
   );
 
-  const { description: defaultDescription, title: defaultTitle, twitter, author } = site.siteMetadata;
+  const {
+    description: defaultDescription, title: defaultTitle, twitter, author,
+  } = site.siteMetadata;
 
-    const metaObject: metaObjectInterface = {
-        'author': author,
-        'description': defaultDescription,
-        'og:title': defaultTitle,
-        'og:description': defaultDescription,
-        'og:type': 'website',
-        'og:url': 'https://jamesrwilliams.ca/',
-        'og:image': 'https://jamesrwilliams.ca/favicon.png',
-        'twitter:card': 'summary',
-        'twitter:creator': twitter,
-        'twitter:title': defaultTitle,
-        'twitter:description': defaultDescription,
-        'twitter:image:src': 'https://jamesrwilliams.ca/favicon.png',
-        'twitter:image:width': '512',
-        'twitter:image:height': '512',
-    }
+  const usedTitle = `${title} | ${defaultTitle}` || defaultTitle;
 
-    if(image) {
-        metaObject['twitter:image:width'] = image.width;
-        metaObject['twitter:image:height'] = image.height;
-        metaObject['twitter:image:src'] = `https://jamesrwilliams.ca/` + image.url;
-    }
+  const metaObject: metaObjectInterface = {
+    author,
+    description: defaultDescription,
+    'og:title': usedTitle,
+    'og:description': defaultDescription,
+    'og:type': 'website',
+    'og:url': 'https://jamesrwilliams.ca/',
+    'og:image': 'https://jamesrwilliams.ca/favicon.png',
+    'twitter:card': 'summary',
+    'twitter:creator': twitter,
+    'twitter:title': usedTitle,
+    'twitter:description': defaultDescription,
+    'twitter:image:src': 'https://jamesrwilliams.ca/favicon.png',
+    'twitter:image:width': '512',
+    'twitter:image:height': '512',
+  };
 
-    if(description) {
-        metaObject['description'] = description;
-        metaObject['og:description'] = description;
-        metaObject['twitter:description'] = description;
-    }
+  if (image) {
+    metaObject['twitter:image:width'] = image.width;
+    metaObject['twitter:image:height'] = image.height;
+    metaObject['twitter:image:src'] = `https://jamesrwilliams.ca/${image.url}`;
+  }
 
-    if(path) {
-        metaObject['og:url'] = 'https://jamesrwilliams.ca/' + path;
-    }
+  if (description) {
+    metaObject.description = description;
+    metaObject['og:description'] = description;
+    metaObject['twitter:description'] = description;
+  }
 
-    if(published_time) {
-        metaObject['article:published_time'] = published_time;
-    }
+  if (path) {
+    metaObject['og:url'] = `https://jamesrwilliams.ca/${path}`;
+  }
 
-  const output = Object.entries(metaObject).map(([key, value]) => {
-      return { name: key, content: value };
-  });
+  if (publishedTime) {
+    metaObject['article:published_time'] = publishedTime;
+  }
+
+  const output = Object.entries(metaObject).map(([key, value]) => ({ name: key, content: value }));
 
   return (
     <Helmet
@@ -99,28 +102,31 @@ function SEO({ description, lang, meta = [], title, image, published_time, path 
       meta={output.concat(meta)}
     />
   );
-}
+};
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: 'en',
   meta: [],
   description: '',
+  publishedTime: '',
+  path: '',
   image: {
     url: 'favicon.png',
     height: 512,
-    width: 512
-  }
+    width: 512,
+  },
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
+  publishedTime: PropTypes.string,
+  path: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string,
   image: PropTypes.shape({
     height: PropTypes.number,
     width: PropTypes.number,
-    url: PropTypes.string
+    url: PropTypes.string,
   }),
 };
 

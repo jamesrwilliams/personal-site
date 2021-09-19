@@ -1,52 +1,177 @@
-import React, {useState} from 'react'
-import {graphql, Link, useStaticQuery} from 'gatsby'
-import GatsbyImage from 'gatsby-image'
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
+import styled, { css } from 'styled-components';
+import { StaticImage } from 'gatsby-plugin-image';
+import {
+  accentPrimary, animationTiming, mediaQuery, primaryBlue,
+} from '../../theme/variables';
+import Container from '../Container';
+
+const HeaderContainer = styled.header<{ open: boolean }>`
+  background: ${primaryBlue};
+  position: relative;
+  color: #fff;
+  font-size: 14px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  z-index: 500;
+  transition: all .3s ${animationTiming};
+  border-bottom-style: solid;
+  border-bottom-color: ${accentPrimary};
+  border-bottom-width: ${(props) => (props.open ? '48px' : '0')};
+
+  @media screen and ${mediaQuery.minMd} {
+    border-bottom-width: 0;
+  }
+`;
+
+const HeaderToggleButton = styled.button<{ open: boolean }>`
+  display: inline-block;
+  background: none;
+  border: 0;
+  margin-right: 0;
+  padding-right: 0;
+
+  svg {
+    fill: #fff;
+    transition: all 0.3s ease;
+    transform: ${(props) => (props.open ? 'rotate(90deg)' : '')};
+  }
+
+  @media screen and ${mediaQuery.minMd} {
+    display: none;
+  }
+`;
+
+const HeaderWrapper = styled(Container)`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .profile {
+    border-radius: 9999px;
+    height: 30px;
+    width: 30px;
+    margin-right: 1rem;
+    overflow: hidden;
+  }
+`;
+
+const PrimaryNavLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+
+  div {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+  }
+
+  span {
+    align-self: center;
+  }
+`;
+
+const PrimaryNav = styled.nav<{ open: boolean }>`
+  opacity: 0;
+  box-sizing: border-box;
+  pointer-events: ${(props) => (props.open ? 'all' : 'none')};
+  flex-grow: 1;
+  position: absolute;
+  transition: all 0.3s ${animationTiming};
+  z-index: 500;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  padding: .8rem 1rem 1rem;
+  max-width: 100%;
+  bottom: 0;
+  left: 0;
+
+  ${(props) => props.open && css`
+    transform: translateY(100%);
+    opacity: 1;
+  `}
+
+  @media screen and ${mediaQuery.minMd} {
+    display: block;
+    margin: 0;
+    pointer-events: all;
+    position: relative;
+    flex-grow: unset;
+    transform: none;
+    align-self: center;
+    padding: 0;
+    width: auto;
+    opacity: 1;
+    background: transparent;
+  }
+
+  a {
+    vertical-align: middle;
+  }
+
+`;
 
 const Header = () => {
-
-    const [menuOpen, toggleMenu ] = useState(false);
-
-  const { profile } = useStaticQuery(graphql`
-    query {
-      profile: file(base: {eq: "profile.jpg"}) {
-          childImageSharp {
-              fluid(maxWidth: 50) {
-                  ...GatsbyImageSharpFluid_withWebp
-              }
-          }
-      }
-    }
-  `);
+  const [menuOpen, setMenuState] = useState(false);
 
   return (
-        <header className={'bg-blue text-white'}>
-          <div className={'container py-8 align-middle content-center flex flex-wrap content-evenly justify-between justify-items-end'}>
-            <Link to="/" className={'flex md:justify-between content-center'}>
-              <GatsbyImage className={'rounded-full self-center inline-block'} style={{ width: 30, height: 30 }} fluid={profile.childImageSharp.fluid} />
-              <span className={'ml-4 self-center'}>James R. Williams</span>
-            </Link>
-            <button aria-label={'Toggle Menu'} className={'inline-block md:hidden'} onClick={() => toggleMenu(!menuOpen) }>
-                <span className={`text-white `}>
-                    <svg aria-label={'menu-toggle-icon'} className={`fill-current transition-all transform ${ menuOpen ? 'rotate-90' : 'rotate-0' }`} xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-                </span>
-            </button>
-            <nav className={'md:flex w-full md:w-auto mt-8 md:mt-0 flex-grow md:flex-grow-0 justify-between content-center' + ` ${ menuOpen ? 'block' : 'hidden'  }` }>
-              <NavLink label={'About'} url={'/about/'} />
-              <NavLink label={'Posts'} url={'/posts/'} />
-              <NavLink label={'Resources'} url={'/resources/'} />
-              <NavLink label={'Search'} url={'/search/'} />
-            </nav>
+    <HeaderContainer open={menuOpen}>
+      <HeaderWrapper>
+        <PrimaryNavLink to="/">
+          <div>
+            <div style={{ borderRadius: '100%' }}>
+              <StaticImage
+                src="../../images/profile.png"
+                alt="James R. Williams"
+                placeholder="blurred"
+                className="profile"
+                width={30}
+                quality={100}
+                height={30}
+              />
+            </div>
+            <span>James R. Williams</span>
           </div>
-        </header>
+        </PrimaryNavLink>
+        <HeaderToggleButton open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
+          <svg
+            aria-label="menu-toggle-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </HeaderToggleButton>
+        <PrimaryNav open={menuOpen}>
+          <NavLink label="About" url="/about/" />
+          <NavLink label="Posts" url="/posts/" />
+          <NavLink label="Resources" url="/resources/" />
+          <NavLink label="Search" url="/search/" />
+        </PrimaryNav>
+      </HeaderWrapper>
+    </HeaderContainer>
   );
-
-}
+};
 
 export default Header;
 
-const NavLink = ({ url, label }: { url: string, label: string } ) => {
-    return <Link
-        className={'transition inline-block font-medium mr-2 md:mr-4 self-center py-1 px-2 md:px-4 md:py-2 rounded-md hover:bg-white hover:bg-opacity-50 hover:text-blue'}
-        activeClassName={'bg-white text-blue hover:bg-opacity-100'}
-        to={url}>{ label }</Link>
-}
+const NavLinkElement = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+  margin-right: 1rem;
+
+  @media screen and ${mediaQuery.minMd} {
+    margin-left: 3rem;
+    margin-right: 0;
+  }
+`;
+
+const NavLink = ({ url, label }: { url: string, label: string }) => (
+  <NavLinkElement activeClassName="active" to={url}>{ label }</NavLinkElement>
+);

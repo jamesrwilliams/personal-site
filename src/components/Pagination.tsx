@@ -1,38 +1,59 @@
-import React from "react";
-import {Link} from "gatsby";
+import React, { ReactElement } from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+import PostInterface from '../models/PostInterface';
+import { mediaQuery } from '../theme/variables';
+import Container from './Container';
 
-interface PaginationData {
-    previous: PaginationLink;
-    next: PaginationLink;
+interface PaginationProps {
+    previous: PostInterface;
+    next: PostInterface;
 }
 
-interface PaginationLink {
-    slug: string;
-    title: string;
-    post_date: string;
-    post_date_timestamp: string;
+interface PaginationLinkProps {
+  post: PostInterface;
+  prefix?: string | ReactElement;
+  suffix?: string | ReactElement;
 }
 
-const Pagination = ({data} : { data: PaginationData }) => {
+const PaginationLinkElm = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
 
-    const {previous, next} = data;
+const PaginationLink = ({ post, prefix, suffix }: PaginationLinkProps) => (
+  <PaginationLinkElm to={`/posts/${post.slug}`}>
+    { prefix ? <span className="link" style={{ marginRight: '1rem' }}>{ prefix }</span> : '' }
+    <span className="title">{ post.frontmatter.title }</span>
+    { suffix ? <span className="link" style={{ marginLeft: '1rem' }}>{ suffix }</span> : '' }
+  </PaginationLinkElm>
+);
 
-    return (
-        <ul className={'md:flex text-center md:text-auto justify-between'} style={{ borderTop: '1px solid #eee'}}>
-            {next ? <PaginationLink prefix={<>&#8592;</>} post={next}/> : <span /> }
-            {previous ? <PaginationLink suffix={<>&#8594;</>} post={previous}/> : ''}
-        </ul>
-    )
-}
+PaginationLink.defaultProps = {
+  prefix: '',
+  suffix: '',
+};
 
-const PaginationLink = ({ post, prefix, suffix }: { prefix?: any, suffix?: any, post: PaginationLink }) => (
-    <li>
-        <Link to={`/posts/${post.slug}`} className={'text-center py-6 flex justify-between'}>
-            { prefix ? <span className={'mr-2'}>{ prefix }</span> : '' }
-            <span>{ post.title }</span>
-            { suffix ? <span className={'ml-2'}>{ suffix }</span> : '' }
-        </Link>
-    </li>
-)
+const PaginationElm = styled.nav`
+  border-top: 1px solid #eee;
+  display: flex;
+  padding: 2rem 0;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+
+  @media screen and ${mediaQuery.minMd} {
+    flex-direction: row;
+  }
+`;
+
+const Pagination = ({ previous, next } : PaginationProps) => (
+  <Container>
+    <PaginationElm>
+      {next ? <PaginationLink prefix={<>&#8592;</>} post={next} /> : <span /> }
+      {previous ? <PaginationLink suffix={<>&#8594;</>} post={previous} /> : ''}
+    </PaginationElm>
+  </Container>
+);
 
 export default Pagination;
