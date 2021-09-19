@@ -1,7 +1,6 @@
 ---
 title: Designing APIs with the OpenAPI spec (v3.0)
 date: 2021-09-14
-draft: true
 ---
 
 My team has been talking about revamping our testing strategy for a core service for some time. We heavily 
@@ -39,7 +38,7 @@ format of messages etc. Think Infrastructure as code but for APIs.
 
 Here is a very simple YAML sample file for `my-resturants` API:
 
-```yaml{numberLines: true}
+```yaml:title=example-api.yaml {numberLines: true}
 openapi: 3.0.0
 info:
   version: 0.0.0

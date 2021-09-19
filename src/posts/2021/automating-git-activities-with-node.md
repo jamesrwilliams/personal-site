@@ -1,7 +1,6 @@
 ---
 title: 'Automate git activities with Node'
 date: 2021-09-02
-draft: true
 ---
 
 Turns out you can automate Git commands and processes with node, and interact with any other 
