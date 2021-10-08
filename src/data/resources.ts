@@ -31,7 +31,10 @@ export const sites = [
     link: 'https://free-for.dev',
     description: 'A list of software (SaaS, PaaS, IaaS, etc.) and other offerings that have free tiers for developers.',
   },
-
+  {
+    link: 'https://perf.link/',
+    description: 'a web app that lets you compare the performance of different javascript snippets in the browser',
+  },
 ];
 export const githubProjects = [
   {
@@ -48,6 +51,16 @@ export const githubProjects = [
     link: 'https://github.com/priyankavergadia/google-cloud-4-words',
     linkText: 'priyankavergadia/google-cloud-4-words',
     description: 'Google Cloud Developer\'s Cheat Sheet',
+  },
+  {
+    link: 'https://github.com/minimaxir/big-list-of-naughty-strings',
+    linkText: 'minimaxir/big-list-of-naughty-strings',
+    description: 'The Big List of Naughty Strings is a list of strings which have a high probability of causing issues when used as user-input data.',
+  },
+  {
+    link: 'https://github.com/felixrieseberg/macintosh.js',
+    linkText: 'felixrieseberg/macintosh.js',
+    description: 'A virtual Apple Macintosh with System 8, running in Electron. Yes, that electron...',
   },
 ];
 export const articlesAndPosts = [
