@@ -62,6 +62,11 @@ export const githubProjects = [
     linkText: 'felixrieseberg/macintosh.js',
     description: 'A virtual Apple Macintosh with System 8, running in Electron. Yes, that electron...',
   },
+  {
+    link: 'https://github.com/dominikbraun/timetrace',
+    linkText: 'dominikbraun/timetrace',
+    description: 'Simple time tracking CLI ',
+  },
 ];
 export const articlesAndPosts = [
   {
@@ -87,6 +92,10 @@ export const blogs = [
   {
     link: 'https://neverworkintheory.org/',
     description: 'Short summaries of recent results in empirical software engineering research',
+  },
+  {
+    link: 'https://www.buildthestage.com/',
+    description: 'Thoughts on leading creative teams',
   },
 ];
 export const random = [
