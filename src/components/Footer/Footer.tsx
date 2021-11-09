@@ -60,10 +60,6 @@ const FooterMeta = styled.span`
   align-self: center;
   padding-right: 1rem;
   font-size: 12px;
-
-  @media screen and ${mediaQuery.minMd} {
-    margin-left: 1.25rem;
-  }
 `;
 
 const Footer: React.FC = () => (
