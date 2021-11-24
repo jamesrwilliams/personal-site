@@ -72,7 +72,7 @@ To support Gatsby's static builds, we needed to ensure Firebase's client functio
 - `src/firebase/FirebaseProvider.js` - our provider component passes our Firebase objects to components that are descendants of the provider.
 - `src/firebase/FirebaseContext.js` - our React context we import in our page templates.
 
-> We're also configuring some values for use with the [Firebase Emulators](https://firebase.google.com/docs/emulator-suite) which makes local Firebase development so much easier.
+> We're also configuring some values for use with the [Firebase Emulators](https://firebase.google.com/docs/emulator-suite) which makes local Firebase development much easier.
 
 
 ### Firebase Context & Provider
@@ -238,20 +238,22 @@ exports.createPages = async ({ actions, graphql }) => {
   // Replace this query with a Sanity one...
   const { data } = await graphql(`
     {
-      posts: allMdx {
+      pages: allSanityPages {
         nodes {
+          _id
+          title
           slug
         }
       }
     }
   `);
 
-  data.posts.nodes.forEach((post) => {
+  data.pages.nodes.forEach((page) => {
     createPage({
-      path: `/posts/${post.slug}`,
-      component: require.resolve('./src/components/layouts/postLayout.tsx'),
+      path: `/page/${page.slug}`,
+      component: require.resolve('./src/components/layouts/pageLayout.tsx'),
       context: {
-        ...post,
+        ...page,
       },
     });
   });
@@ -263,8 +265,6 @@ them via context. You can read more about why this is in their docs:
 ["Trade-offs of querying for all fields in the context object of gatsby-node.js"](https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#trade-offs-of-querying-for-all-fields-in-the-context-object-of-gatsby-nodejs)
 
 ### Firebase Cloud Functions access Sanity 
-
-> To use Firebase Cloud Functions you need to be on the paid [Blaze Plan](https://firebase.google.com/pricing)
 
 Back to our original project, we're using Firestore to manage our player data and keeping our content and game configuration in Sanity. The next part of the puzzle is to create a back-end service to validate answers and issue players points and badges.
 
@@ -295,7 +295,7 @@ We now have our answers from Sanity, all that is left is to make sure we've got 
 results and points to the user in the DB if their attempt at the quiz is correct. To do this we need
 to verify ID tokens.
 
-> Many other use cases for verifying ID tokens on the server can be accomplished by using Firestore Security Rules
+> Many other use cases for verifying ID tokens on the server can be accomplished by using Firestore Security Rules, but this isn't really one of them.
 
 To get started, prior to calling our back-end function, we need to generate a token for our current 
 user on the client application. We can do this by doing the following:
@@ -319,4 +319,4 @@ services and technologies together and see what I could learn, and learn I did.
 
 Once you get past some challenges with static builds and understand the lifecycle of what Firebase is trying to behind the scenes you're away! Certainly inspired to try more of my random app ideas now I know I can use these technologies together! I also think I've found my headless CMS of choice! Sanity and Sanity Studio are solid products, and I will be using them again in the future. 
 
-Oh, and we didn't win the hackathon in the end, no one even signed in for our live demo!
+Oh, and we didn't win the hackathon in the end, no one even signed up for our working demo!
