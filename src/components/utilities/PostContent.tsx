@@ -76,12 +76,22 @@ const PostContent = styled.div`
   figure {
     margin: 0;
 
+    > p {
+      margin-bottom: 0;
+    }
+
     > *:first-child { margin-top: 0; }
-    > *:last-child { margin-bottom: 0; }
+    > *:last-child { margin-bottom: 0 !important; }
   }
 
   figcaption {
-    font-style: italic;
+    padding: calc(1rem + 15px) 1rem 1rem;
+    background: #eee8;
+    border: 1px solid #eee;
+    font-size: 90%;
+    margin-top: -15px;
+    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
 
     > *:first-child { margin-top: 0; }
     > *:last-child { margin-bottom: 0; }
@@ -112,7 +122,6 @@ const PostContent = styled.div`
 
     > *:first-child { margin-top: 0; }
     > *:last-child { margin-bottom: 0; }
-
   }
 
   pre {
@@ -131,8 +140,35 @@ const PostContent = styled.div`
     padding-left: 1rem;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: .3rem;
     }
+  }
+
+  figure > .mermaid {
+    background: #fff;
+    border: 1px solid #eee5;
+    padding: 1rem;
+  }
+
+  figure > .mermaid + figcaption {
+    margin-top: 0!important;
+    padding: 1rem;
+  }
+
+  details {
+    background: #fff;
+    border: 1px solid #eee;
+    margin: 1rem 0;
+  }
+
+  details[open] summary {
+    border-bottom: 1px solid #eee;
+  }
+
+  details summary {
+    cursor: pointer;
+    background: #fff;
+    padding: .5rem;
   }
 
 `;
