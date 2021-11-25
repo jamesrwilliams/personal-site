@@ -68,18 +68,6 @@ export const githubProjects = [
     description: 'Simple time tracking CLI ',
   },
 ];
-export const articlesAndPosts = [
-  {
-    link: 'https://bigmedium.com/ideas/only-one-deliverable-matters.html',
-    linkText: 'Only One Deliverable Matters',
-    description: 'Josh Clark - Oct 16, 2018',
-  },
-  {
-    link: 'https://250bpm.com/blog:50/',
-    linkText: 'Finish your stuff',
-    description: 'June 9th, 2015',
-  },
-];
 export const blogs = [
   {
     link: 'https://slack.engineering/',
