@@ -7,7 +7,7 @@ import Container from '../components/Container.tsx';
 import ResourcesSection from '../components/Resources/ResourcesSection';
 
 import {
-  articlesAndPosts, blogs, githubProjects, sites, random,
+  blogs, githubProjects, sites, random,
 } from '../data/resources';
 
 const sections = [
@@ -18,10 +18,6 @@ const sections = [
   {
     title: 'GitHub Projects',
     items: githubProjects,
-  },
-  {
-    title: 'Posts & Articles',
-    items: articlesAndPosts,
   },
   {
     title: 'Blogs',

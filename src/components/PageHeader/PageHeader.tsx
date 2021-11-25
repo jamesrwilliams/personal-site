@@ -31,8 +31,8 @@ const PageHeader = ({
 }: any) => (
   <PageWrapper>
     <Container>
-      <h1 itemProp="name">{title}</h1>
       {post && post.postDate ? <PageMeta date={post.postDate} timeToRead={timeToRead} /> : ''}
+      <h1 itemProp="name">{title}</h1>
     </Container>
     {children}
   </PageWrapper>

@@ -9,6 +9,21 @@
 [context.branch-deploy]
   NODE_ENV = "development"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    referrer-policy = "strict-origin"
+    X-XSS-Protection = "1; mode=block"
+    #  Multi-value headers are expressed with multi-line strings
+    Permissions-Policy = ""
+    cache-control = '''
+      max-age=0,
+      no-cache,
+      no-store,
+      must-revalidate'''
+
 
 
 

@@ -24,7 +24,7 @@ const PostsPage = () => {
         description="My sporadic thoughts on web development and fun things I find on the internet."
       />
       <main>
-        <PageHeader title="All posts" />
+        <PageHeader title="Posts" />
         <Container>
           {posts.nodes.map((_post) => <PostLink key={`archive_${_post.slug}`} post={_post} />)}
         </Container>
