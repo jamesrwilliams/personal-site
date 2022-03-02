@@ -4,9 +4,7 @@ import {
   GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, TrailBlazer, Twitter,
 } from '../social/Social';
 import Container from '../Container';
-import HipHipArray from '../HipHipArray';
 import { mediaQuery, primaryBlue } from '../../theme/variables';
-import Spacer from '../Spacer';
 
 const socialLinks = [
   <GitHub />,
@@ -22,6 +20,19 @@ const socialLinks = [
 const FooterElement = styled.footer`
   background: ${primaryBlue};
   color: #fff;
+  position: relative;
+
+  &:after {
+    content: '';
+    z-index: -5;
+    position: absolute;
+    //transform: translateY(calc(100% - 1px));
+    left: 0;
+    right: 0;
+    display: block;
+    background: linear-gradient(to right, #0ba7fd, #01d8d1);
+    height: 4px;
+  }
 `;
 
 const FooterWrapper = styled(Container)`
@@ -87,3 +98,11 @@ const Footer: React.FC = () => (
 );
 
 export default Footer;
+
+const HipHipArray: React.FC = () => (
+  <code style={{ alignSelf: 'center', opacity: '.5' }} role="img" aria-label="Hip Hip Array..." title="Hip Hip Array...">
+    [&apos;hip&apos;,&apos;hip&apos;]
+  </code>
+);
+
+export const Spacer = () => <span style={{ flexGrow: 1 }} />;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {
+  accentLinkColor,
   accentPrimary, animationTiming, mediaQuery,
 } from '../../theme/variables';
 
@@ -23,10 +24,6 @@ const PostContent = styled.div`
     line-height: 1.3333333;
   }
 
-  a {
-    color: ${accentPrimary};
-  }
-
   hr {
     margin-top: 3.1111111em;
     margin-bottom: 3.1111111em;
@@ -35,8 +32,10 @@ const PostContent = styled.div`
     height: 0;
   }
 
-  a:link {
-    color: ${accentPrimary};
+  a,
+  a:link{
+    color: ${accentLinkColor};
+    text-decoration: none;
   }
 
   h1,
@@ -112,13 +111,24 @@ const PostContent = styled.div`
   }
 
   blockquote {
-    border-left: 2px solid ${accentPrimary};
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     background: #eee8;
     margin: 0;
     font-style: italic;
+    position: relative;
     padding: 1rem;
+
+    &:before {
+      position: absolute;
+      content: '';
+      z-index: 200;
+      left: 0;
+      top: 0;
+      width: 3px;
+      bottom: 0;
+      background: linear-gradient(to bottom, #0ba7fd, #01d8d1);
+    }
 
     > *:first-child { margin-top: 0; }
     > *:last-child { margin-bottom: 0; }

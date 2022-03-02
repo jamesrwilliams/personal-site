@@ -11,7 +11,7 @@ html {
 
 body {
   margin: 0;
-  background: #fcfbff;
+  background: #f5f7f9;
   color: #4a4d70;
 }
 
@@ -125,4 +125,11 @@ pre[class*="language-"].line-numbers .line-numbers-rows {
   z-index: 0;
   border-top-left-radius: 0.3em;
   border-top-right-radius: 0.3em;
+}
+
+hr {
+  border: 0;
+  background: linear-gradient(to right, #0ba7fd, #01d8d1);
+  background: #ccc;
+  height: 1px;
 }

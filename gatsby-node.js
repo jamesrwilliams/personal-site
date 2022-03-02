@@ -7,21 +7,26 @@
 const axios = require('axios');
 const crypto = require('crypto');
 const parser = require('xml2json');
-const { shouldUpdateSearch } = require('./src/lib/update-search');
-
-exports.onPreInit = async ({ reporter }) => {
-  const shouldUpdateSearchIndex = shouldUpdateSearch();
-  reporter.info(`${shouldUpdateSearchIndex ? 'We are' : 'Not'} updating search index.`);
-};
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-  const blogPostTemplate = require.resolve('./src/components/layouts/postLayout.tsx');
+
+  /* Blog Post Pages */
+  const blogPostTemplate = require.resolve('./src/templates/BlogPostTemplate.tsx');
   const { data } = await graphql(`
     {
       posts: allMdx(limit: 1000) {
         nodes {
           slug
+        }
+      },
+       github {
+        repository(name: "personal-reading-list", owner: "jamesrwilliams") {
+          issues(first: 100) {
+            nodes {
+              number
+            }
+          }
         }
       }
     }
@@ -35,6 +40,20 @@ exports.createPages = async ({ actions, graphql }) => {
       component: blogPostTemplate,
       context: {
         ...post,
+      },
+    });
+  });
+
+  /* Reading List Entries */
+  const readingListEntryTemplate = require.resolve('./src/templates/ReadingListEntryTemplate.tsx');
+  const entries = data.github.repository.issues.nodes;
+
+  entries.forEach((entry) => {
+    createPage({
+      path: `/resources/reading/${entry.number}`,
+      component: readingListEntryTemplate,
+      context: {
+        ...entry,
       },
     });
   });
@@ -55,7 +74,13 @@ exports.sourceNodes = async ({ actions }) => {
 
   const { GoodreadsResponse } = parser.toJson(res.data, { object: true });
 
-  const { book } = GoodreadsResponse.reviews.review[0];
+  let book;
+
+  if (GoodreadsResponse.reviews.total === '1') {
+    book = GoodreadsResponse.reviews.review.book;
+  } else {
+    book = GoodreadsResponse.reviews.review[0].book;
+  }
 
   const { name, link } = book.authors.author;
 

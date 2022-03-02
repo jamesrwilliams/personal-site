@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
 import { primaryBlue } from '../../theme/variables';
+import formatDate from '../../lib/formatDate';
 
 const PageWrapper = styled.aside`
   padding: 2rem 0 1rem;
@@ -56,11 +57,7 @@ interface PageMetaInterface {
 const PageMeta = ({ date, timeToRead }: PageMetaInterface) => (
   <PageMetaWrapper>
     <span>Posted on </span>
-    <time dateTime={new Date(date).toISOString()}>
-      { new Date(date).toLocaleDateString('en-CA', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-      }) }
-    </time>
-    <span> · { timeToRead } min read.</span>
+    <time dateTime={new Date(date).toISOString()}>{ formatDate(date) }</time>
+    <span> · { timeToRead } min read</span>
   </PageMetaWrapper>
 );

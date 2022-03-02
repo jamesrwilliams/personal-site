@@ -1,12 +1,12 @@
 import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { graphql } from 'gatsby';
-import Layout from './Layout';
-import PageHeader from '../PageHeader/PageHeader';
-import SEO from '../utilities/seo';
-import Container from '../Container';
-import LinkedData from '../social/LinkedData';
-import PostContent from '../utilities/PostContent';
+import Layout from '../components/layouts/Layout';
+import PageHeader from '../components/PageHeader/PageHeader';
+import SEO from '../components/utilities/seo';
+import Container from '../components/Container';
+import LinkedData from '../components/social/LinkedData';
+import PostContent from '../components/utilities/PostContent';
 
 export default function Template({ data }: any) {
   const {

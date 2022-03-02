@@ -26,7 +26,7 @@ const PostsPage = () => {
       <main>
         <PageHeader title="Posts" />
         <Container>
-          {posts.nodes.map((_post) => <PostLink key={`archive_${_post.slug}`} post={_post} />)}
+          {posts.nodes.map((_post: any) => <PostLink key={`archive_${_post.slug}`} post={_post} />)}
         </Container>
       </main>
     </Layout>
