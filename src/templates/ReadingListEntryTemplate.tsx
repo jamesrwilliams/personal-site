@@ -28,6 +28,7 @@ const ReadingListEntryTemplate = ({ data }: any) => {
           <span>Updated { formatDate(updatedAt, 'numeric') }</span>
         </p>
         <Link to={url}>{ url }</Link>
+        {/* eslint-disable-next-line react/no-danger */}
         <div dangerouslySetInnerHTML={{ __html: description }} />
         <nav>
           <Link type="button" to={`${BASE_URL}issues/${entry.number}`}>View on Github</Link>
