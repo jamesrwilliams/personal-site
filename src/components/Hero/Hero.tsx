@@ -100,8 +100,10 @@ const Hero = () => (
       <p className="lead">Hey, I&apos;m James!</p>
       <h1 className="gradient">A development engineer from Canada, building internet things with JavaScript.</h1>
       <div className="intro">
-        <p>I have over { yearsOfExperience } years of experience building digital experiences, with
-          a keen interest in developer experience, process automation and documentation. <CurrentPositionNode position={currentPosition} />
+        <p>
+          I have over { yearsOfExperience } years of experience building digital experiences, with
+          a keen interest in developer experience, process automation and documentation.
+          {' '}<CurrentPositionNode position={currentPosition} />
         </p>
       </div>
     </Container>
@@ -111,9 +113,11 @@ const Hero = () => (
 export default Hero;
 
 const CurrentPositionNode = ({ position }: {position: ExperienceItem}) => {
-  const { url } = position.company;
+  const { role, summary, company: { name, url } } = position;
 
-  const companyFragment = url ? <OutboundLink href={position.company.url}>{position.company.name}</OutboundLink> : position.company.name;
+  const companyLinkElm = <OutboundLink href={url}>{name}</OutboundLink>;
 
-  return <>I am currently a {position.role} working with the folks at {companyFragment} {position.summary}.</>;
+  const companyFragment = url ? companyLinkElm : position.company.name;
+
+  return <>I am currently a {role} working with the folks at {companyFragment}, {summary}.</>;
 };
