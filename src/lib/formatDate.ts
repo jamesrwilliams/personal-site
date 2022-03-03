@@ -1,5 +1,5 @@
 const formatDate = (dateString: string, preset: string = 'full') => {
-  const presets = {
+  const presets: { [index: string]: object; } = {
     full: {
       weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
     },
@@ -8,8 +8,8 @@ const formatDate = (dateString: string, preset: string = 'full') => {
     },
   };
 
-  // @ts-ignore
-  const options = (presets[preset] ?? presets.full);
+  const validPresetProvided = Object.prototype.hasOwnProperty.call(presets, preset);
+  const options = validPresetProvided ? presets[preset] : presets.full;
 
   return new Date(dateString).toLocaleDateString('en-CA', options);
 };
