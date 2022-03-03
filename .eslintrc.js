@@ -44,6 +44,6 @@ module.exports = {
     'no-use-before-define': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/function-component-definition': 'off',
-    'prefer-destructuring': ['error', { object: true, array: false }],
+    'prefer-destructuring': [1, { object: true, array: false }],
   },
 };
