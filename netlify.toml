@@ -3,7 +3,7 @@
   publish = "public"
 
 [build.environment]
-  NODE_VERSION = "12.18.3"
+  NODE_VERSION = "16"
 
 [context.branch-deploy]
   NODE_ENV = "development"
