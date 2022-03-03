@@ -33,7 +33,7 @@ export const sites = [
   },
   {
     link: 'https://perf.link/',
-    description: 'a web app that lets you compare the performance of different javascript snippets in the browser',
+    description: 'A web app that lets you compare the performance of different javascript snippets in the browser',
   },
 ];
 export const githubProjects = [

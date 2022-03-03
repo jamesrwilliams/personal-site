@@ -23,6 +23,19 @@ const HeaderContainer = styled.header<{ open: boolean }>`
   @media screen and ${mediaQuery.minMd} {
     border-bottom-width: 0;
   }
+
+  &:after {
+    content: '';
+    z-index: -5;
+    position: absolute;
+    //transform: translateY(calc(100% - 1px));
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    display: block;
+    background: linear-gradient(to right, #0ba7fd, #01d8d1);
+    height: 4px;
+  }
 `;
 
 const HeaderToggleButton = styled.button<{ open: boolean }>`
@@ -48,6 +61,7 @@ const HeaderWrapper = styled(Container)`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: unset;
 
   .profile {
     border-radius: 9999px;
@@ -152,7 +166,6 @@ const Header = () => {
           <NavLink label="About" url="/about/" />
           <NavLink label="Posts" url="/posts/" />
           <NavLink label="Resources" url="/resources/" />
-          <NavLink label="Search" url="/search/" />
         </PrimaryNav>
       </HeaderWrapper>
     </HeaderContainer>

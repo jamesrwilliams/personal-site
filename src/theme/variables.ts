@@ -4,6 +4,7 @@ export const primaryBlue = '#021526';
 export const secondaryBlue = '#021220';
 export const accentPrimary = '#0ba7fd';
 export const accentSecondary = '#01d8d1';
+export const accentLinkColor = '#016eaa';
 
 export const animationTiming = 'cubic-bezier(.645,.045,.355,1)';
 

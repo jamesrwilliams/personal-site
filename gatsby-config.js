@@ -1,20 +1,8 @@
 const { siteDescription } = require('./src/data/metadata');
-const { shouldUpdateSearch } = require('./src/lib/update-search');
 
-const searchQuery = `{
-   allMdx {
-    nodes {
-      fileAbsolutePath
-      excerpt
-      frontmatter {
-        title
-        post_date_timestamp: date(formatString: "X")
-      }
-    }
-  }
-}`;
-
-const shouldUpdateSearchIndex = shouldUpdateSearch();
+require('dotenv').config({
+  path: '.env',
+});
 
 /**
  * This works out the year directories for all my posts
@@ -75,7 +63,7 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         defaultLayouts: {
-          default: require.resolve('./src/components/layouts/postLayout.tsx'),
+          default: require.resolve('./src/templates/BlogPostTemplate.tsx'),
         },
         gatsbyRemarkPlugins: [
           'gatsby-remark-code-titles',
@@ -198,35 +186,6 @@ module.exports = {
         head: true,
         defer: true,
         anonymize: true,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-algolia',
-      options: {
-        appId: process.env.GATSBY_ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-        skipIndexing: !shouldUpdateSearchIndex,
-        queries: [
-          {
-            query: searchQuery,
-            transformer: ({ data }) => data.allMdx.nodes.map((node) => {
-              // TODO fix this to remove the disable
-
-              const split = node.fileAbsolutePath.split('/');
-              const indexOfSrc = split.indexOf('src');
-
-              // eslint-disable-next-line no-param-reassign
-              node.objectID = split.slice(indexOfSrc, split.length).join('-');
-
-              const output = { ...node, ...node.frontmatter };
-              // Don't make index changes here unless it's not possible
-              // using the GraphQL query on #L7.
-              delete output.frontmatter;
-              return output;
-            }),
-          },
-        ],
       },
     },
     {

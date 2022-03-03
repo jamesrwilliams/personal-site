@@ -259,7 +259,7 @@ exports.createPages = async ({ actions, graphql }) => {
   });
 ```
 
-We can then query using `pageContext` in the `postLayout.tsx` template to grab the individual page
+We can then query using `pageContext` in the `BlogPostTemplate.tsx` template to grab the individual page
 content. This is more effective than querying for all page props in `gatsby-node.js` and then passing 
 them via context. You can read more about why this is in their docs: 
 ["Trade-offs of querying for all fields in the context object of gatsby-node.js"](https://www.gatsbyjs.com/docs/creating-and-modifying-pages/#trade-offs-of-querying-for-all-fields-in-the-context-object-of-gatsby-nodejs)

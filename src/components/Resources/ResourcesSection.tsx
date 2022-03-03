@@ -2,14 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ResourceItem, { ResourceItemProps } from './ResourcesItem';
 
-const ResourcesSection = ({ title, items }: { title: string, items: [] }) => (
+const ResourcesSection = ({ title, items }: { title: string, items: any[] }) => (
   <>
-    <h3 id={title}>{ title }</h3>
-    <ul>
-      { items.map(({ link, description, linkText }: ResourceItemProps) => (
-        <ResourceItem link={link} description={description} linkText={linkText} />
-      )) }
-    </ul>
+    <details id={title}>
+      <summary>{ title }</summary>
+      <ul>
+        { items.map(({ link, description, linkText }: ResourceItemProps) => (
+          <ResourceItem link={link} description={description} linkText={linkText} />
+        )) }
+      </ul>
+    </details>
   </>
 );
 

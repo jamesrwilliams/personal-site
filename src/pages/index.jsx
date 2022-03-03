@@ -48,9 +48,9 @@ const IndexPage = () => {
           <PostLink key={_post.slug} slug={`/posts/${_post.slug}`} post={_post} />
         ))}
 
-        <p style={{ textAlign: 'center', textDecoration: 'none' }}><Link type="button" to="/posts/">View all</Link></p>
+        <p style={{ textAlign: 'center', textDecoration: 'none' }}><Link type="button" to="/posts/">View all posts</Link></p>
 
-        <h2>Current projects</h2>
+        <h2>Side projects</h2>
         <PostGrid>
           <ProjectTile
             title="Flagpole"
@@ -71,6 +71,7 @@ const IndexPage = () => {
             url="https://github.com/jamesrwilliams/batch-commit"
           />
         </PostGrid>
+        <p>You can see more of what I have been working on (publicly) on my Github profile: <Link to="https://jamesrwilliams.github.io">https://jamesrwilliams.github.io</Link></p>
       </Container>
     </Layout>
   );

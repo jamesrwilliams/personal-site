@@ -1,14 +1,15 @@
 import React from 'react';
 
-import Layout from '../components/layouts/Layout.tsx';
-import SEO from '../components/utilities/seo.tsx';
-import PageHeader from '../components/PageHeader/PageHeader.tsx';
-import Container from '../components/Container.tsx';
-import ResourcesSection from '../components/Resources/ResourcesSection';
+import Link from '../../components/Link/Link';
+import Layout from '../../components/layouts/Layout';
+import SEO from '../../components/utilities/seo';
+import PageHeader from '../../components/PageHeader/PageHeader';
+import Container from '../../components/Container';
+import ResourcesSection from '../../components/Resources/ResourcesSection';
 
 import {
   blogs, githubProjects, sites, random,
-} from '../data/resources';
+} from '../../data/resources';
 
 const sections = [
   {
@@ -34,8 +35,10 @@ const ResourcesPage = () => (
     <SEO title="Resources" />
     <PageHeader title="Resources" />
     <Container>
+      <Link type="button" to="./reading">What I am reading</Link>
       <p>Here you can find a collection of cool and useful tools and resources I have found:</p>
       { sections.map(({ title, items }) => <ResourcesSection title={title} items={items} />)}
+      <br />
     </Container>
   </Layout>
 );
