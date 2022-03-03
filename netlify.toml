@@ -1,10 +1,9 @@
 [build]
-  command = "yarn run build"
+  command = "npm run build"
   publish = "public"
 
 [build.environment]
-  NODE_VERSION = "10.13.0"
-  YARN_VERSION = "1.22.4"
+  NODE_VERSION = "16.13.2"
 
 [context.branch-deploy]
   NODE_ENV = "development"
@@ -16,7 +15,6 @@
     X-Content-Type-Options = "nosniff"
     referrer-policy = "strict-origin"
     X-XSS-Protection = "1; mode=block"
-    #  Multi-value headers are expressed with multi-line strings
     Permissions-Policy = ""
     cache-control = '''
       max-age=0,
