@@ -54,10 +54,19 @@ interface PageMetaInterface {
  timeToRead: number;
 }
 
+const ReadingTime = ({ timeToRead }: {timeToRead: Number}) => {
+  let message = 'A quick read.';
+
+  if (timeToRead > 1) {
+    message = `${timeToRead} min read.`;
+  }
+  return <span> · {message}</span>;
+};
+
 const PageMeta = ({ date, timeToRead }: PageMetaInterface) => (
   <PageMetaWrapper>
     <span>Posted on </span>
     <time dateTime={new Date(date).toISOString()}>{ formatDate(date) }</time>
-    <span> · { timeToRead } min read</span>
+    <ReadingTime timeToRead={timeToRead} />
   </PageMetaWrapper>
 );
