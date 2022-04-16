@@ -15,3 +15,22 @@ remember to install and pull down images before trying to run a fresh build. You
 ```bash
 git lfs fetch
 ```
+
+## Code Fence Syntax
+
+This site uses [gatsby-remark-prismjs](https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/) 
+as our highlighting engine for Markdown.
+
+### Line Numbers
+
+Line numbers can be added using: 
+
+```markdown
+```js{numberLines: 1}
+```
+
+Code file name:
+
+```markdown
+```python:title=app.py {numberLines: 10}
+```
