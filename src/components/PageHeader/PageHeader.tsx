@@ -10,6 +10,7 @@ const PageWrapper = styled.aside`
   position: relative;
   margin-bottom: 0;
   background: linear-gradient(to bottom, #0ba7fd55, #fff0);
+  background: ${(props) => props.theme.pageHeaderBackground};
 
   @media screen and (min-width: 700px) {
     padding: 8rem 0 2.5rem;
@@ -20,6 +21,7 @@ const PageWrapper = styled.aside`
     font-size: 25px;
     font-weight: 400;
     line-height: 1.4;
+    color: ${(props) => props.theme.headingColor};
 
     @media screen and (min-width: 700px) {
       font-size: 38px;

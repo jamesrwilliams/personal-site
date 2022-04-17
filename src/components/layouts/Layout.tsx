@@ -2,23 +2,19 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import GlobalStyles from '../../theme/globalStyles';
-
-import '../../styles/index.css';
-
-interface LayoutProps {
-    children: React.ReactNode,
-}
+import ThemeContext from '../../context/ThemeContext';
+import { themes } from '../../theme/themes';
 
 const LayoutContainer = styled.div`
   padding: 0;
   height: 100%;
 `;
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
       query SiteTitleQuery {
           site {
@@ -42,19 +38,25 @@ const Layout = ({ children }: LayoutProps) => {
   };
 
   return (
-    <LayoutContainer>
-      <Helmet>
-        <meta name="netlify-last-deployed" content={data.site.buildTime} />
-        <meta name="netlify-build-id" content={buildID} />
-        <script type="application/ld+json">
-          { JSON.stringify(globalJSONLD, null, 4) }
-        </script>
-      </Helmet>
-      <Header />
-      {children}
-      <Footer />
-      <GlobalStyles />
-    </LayoutContainer>
+    <ThemeContext.Consumer>
+      {(theme) => (
+        <ThemeProvider theme={themes[theme.dark ? 'dark' : 'light']}>
+          <LayoutContainer>
+            <Helmet>
+              <meta name="netlify-last-deployed" content={data.site.buildTime} />
+              <meta name="netlify-build-id" content={buildID} />
+              <script type="application/ld+json">
+                { JSON.stringify(globalJSONLD, null, 4) }
+              </script>
+            </Helmet>
+            <Header />
+            {children}
+            <Footer />
+            <GlobalStyles />
+          </LayoutContainer>
+        </ThemeProvider>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

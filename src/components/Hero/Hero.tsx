@@ -2,13 +2,11 @@ import React from 'react';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import styled from 'styled-components';
 import Container from '../Container';
-import { mediaQuery, primaryBlue, textGradient } from '../../theme/variables';
+import { mediaQuery, textGradient } from '../../theme/variables';
 import { yearsOfExperience, currentPosition, ExperienceItem } from '../../data/experience';
 
-const heroFill = '#021220';
-
 const HeroWrapper = styled.div`
-  background: linear-gradient(to top, ${heroFill}, ${primaryBlue});
+  background: ${(props) => props.theme.heroBackground};
   padding: 4rem 0 2rem;
   position: relative;
   font-weight: 200;
@@ -84,13 +82,12 @@ const HeroWrapper = styled.div`
       content: '';
       z-index: -5;
       position: absolute;
-      //transform: translateY(calc(100% - 1px));
       bottom: -2px;
       left: 0;
       right: 0;
       display: block;
       background: linear-gradient(to right, #0ba7fd, #01d8d1);
-      height: 4px;
+      height: ${(props) => props.theme.accentHeight};
     }
 `;
 

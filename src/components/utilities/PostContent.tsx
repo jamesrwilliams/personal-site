@@ -8,14 +8,14 @@ const PostContent = styled.div`
   font-size: 16px;
   line-height: 1.7777778;
   max-width: 65ch;
-  color: #171717;
+  color: ${(props) => props.theme.textColor};
   margin: 0 0 2rem;
 
   p {
     margin-bottom: 1.3333333em;
   }
 
-  h1,h2 { color: #171717; }
+  h1,h2 { color: ${(props) => props.theme.headingColor}; }
 
   h2 {
     font-size: 1.6666667em;

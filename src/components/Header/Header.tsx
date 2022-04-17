@@ -6,6 +6,7 @@ import {
   accentPrimary, animationTiming, mediaQuery, primaryBlue,
 } from '../../theme/variables';
 import Container from '../Container';
+import { DarkModeToggle } from '../DarkModeToggle';
 
 const HeaderContainer = styled.header<{ open: boolean }>`
   background: ${primaryBlue};
@@ -28,13 +29,13 @@ const HeaderContainer = styled.header<{ open: boolean }>`
     content: '';
     z-index: -5;
     position: absolute;
-    //transform: translateY(calc(100% - 1px));
     bottom: -2px;
     left: 0;
     right: 0;
     display: block;
     background: linear-gradient(to right, #0ba7fd, #01d8d1);
-    height: 4px;
+    transition: height .6s ease;
+    height: ${(props) => props.theme.accentHeight};
   }
 `;
 
@@ -166,6 +167,7 @@ const Header = () => {
           <NavLink label="About" url="/about/" />
           <NavLink label="Posts" url="/posts/" />
           <NavLink label="Resources" url="/resources/" />
+          <DarkModeToggle />
         </PrimaryNav>
       </HeaderWrapper>
     </HeaderContainer>

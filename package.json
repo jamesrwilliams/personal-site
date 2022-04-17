@@ -27,6 +27,7 @@
     "@babel/core": "^7.15.0",
     "@types/react-helmet": "^6.1.2",
     "@types/styled-components": "^5.1.12",
+    "@types/styled-theming": "^2.2.5",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
     "babel-loader": "^8.2.2",
@@ -82,6 +83,7 @@
     "react-helmet": "^6.0.0",
     "react-instantsearch-dom": "^6.12.1",
     "styled-components": "^5.3.1",
+    "styled-theming": "^2.2.0",
     "typescript": "4.4.3",
     "xml2json": "^0.12.0"
   }
