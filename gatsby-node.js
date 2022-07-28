@@ -53,7 +53,6 @@ exports.createPages = async ({ actions, graphql }) => {
 };
 
 exports.sourceNodes = async ({ actions }) => {
-  console.log('Fired');
   const { createNode } = actions;
   const request = `https://www.goodreads.com/review/list/108722272.xml?key=${process.env.GOODREADS_KEY}&v=2&shelf=currently-reading&sort=date_updated`;
   const getCurrentBookFromGoodreads = () => axios.get(request);
