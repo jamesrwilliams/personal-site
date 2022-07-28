@@ -16,7 +16,7 @@ interface metaObjectInterface {
 
 interface SEOProps {
     description: string;
-    title: string;
+    title?: string;
     lang?: string;
     meta?: [];
     image?: {

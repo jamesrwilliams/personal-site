@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
-import { primaryBlue } from '../../theme/variables';
 import formatDate from '../../lib/formatDate';
 
 const PageWrapper = styled.aside`
   padding: 2rem 0 1rem;
-  color: ${primaryBlue};
+  color: ${(props) => props.theme.headingColor};
   position: relative;
   margin-bottom: 0;
-  background: linear-gradient(to bottom, #0ba7fd55, #fff0);
+  background: ${(props) => props.theme.pageHeaderBackground};
 
   @media screen and (min-width: 700px) {
     padding: 8rem 0 2.5rem;
@@ -45,8 +44,8 @@ const PageMetaWrapper = styled.div`
   border-radius: 3px;
   margin-top: 5px;
   display: inline-block;
-  opacity: .8;
-  color: #4a4d70;
+  opacity: .5;
+  color: ${(props) => props.theme.headingColor};
 `;
 
 interface PageMetaInterface {
@@ -60,12 +59,11 @@ const ReadingTime = ({ timeToRead }: {timeToRead: Number}) => {
   if (timeToRead > 1) {
     message = `${timeToRead} min read.`;
   }
-  return <span> · {message}</span>;
+  return <> · <span style={{ whiteSpace: "break-spaces" }}>{message}</span></>;
 };
 
 const PageMeta = ({ date, timeToRead }: PageMetaInterface) => (
   <PageMetaWrapper>
-    <span>Posted on </span>
     <time dateTime={new Date(date).toISOString()}>{ formatDate(date) }</time>
     <ReadingTime timeToRead={timeToRead} />
   </PageMetaWrapper>

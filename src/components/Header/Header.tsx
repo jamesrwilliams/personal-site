@@ -2,39 +2,28 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
-import {
-  accentPrimary, animationTiming, mediaQuery, primaryBlue,
-} from '../../theme/variables';
+import {accentPrimary, animationTiming, mediaQuery, primaryBlue} from '../../theme/variables';
 import Container from '../Container';
+import { ThemeToggle } from '../ThemeToggle';
+import { GitHub, LinkedIn } from "../social/Social";
 
 const HeaderContainer = styled.header<{ open: boolean }>`
   background: ${primaryBlue};
-  position: relative;
+  position: fixed;
   color: #fff;
+  z-index: 600;
+  width: 100%;
   font-size: 14px;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  z-index: 500;
   transition: all .3s ${animationTiming};
-  border-bottom-style: solid;
-  border-bottom-color: ${accentPrimary};
-  border-bottom-width: ${(props) => (props.open ? '48px' : '0')};
+
+  a,a:visited {
+    color: #fff;
+  }
 
   @media screen and ${mediaQuery.minMd} {
     border-bottom-width: 0;
-  }
-
-  &:after {
-    content: '';
-    z-index: -5;
-    position: absolute;
-    //transform: translateY(calc(100% - 1px));
-    bottom: -2px;
-    left: 0;
-    right: 0;
-    display: block;
-    background: linear-gradient(to right, #0ba7fd, #01d8d1);
-    height: 4px;
   }
 `;
 
@@ -44,6 +33,7 @@ const HeaderToggleButton = styled.button<{ open: boolean }>`
   border: 0;
   margin-right: 0;
   padding-right: 0;
+  margin-left: 1rem;
 
   svg {
     fill: #fff;
@@ -98,18 +88,29 @@ const PrimaryNav = styled.nav<{ open: boolean }>`
   width: 100%;
   margin: 0;
   display: flex;
-  padding: .8rem 1rem 1rem;
+  padding: .8rem 2rem 1rem;
   max-width: 100%;
   bottom: 0;
   left: 0;
+  background: ${accentPrimary};
 
   ${(props) => props.open && css`
     transform: translateY(100%);
     opacity: 1;
   `}
 
+  a {
+    text-decoration: none;
+    margin-right: 1rem;
+    transform: translateY(2px);
+
+    @media screen and ${mediaQuery.minMd} {
+      margin-left: 3rem;
+      margin-right: 0;
+    }
+  }
+
   @media screen and ${mediaQuery.minMd} {
-    display: block;
     margin: 0;
     pointer-events: all;
     position: relative;
@@ -128,6 +129,19 @@ const PrimaryNav = styled.nav<{ open: boolean }>`
 
 `;
 
+const CollapsableNavigation = styled.div`
+  display: flex;
+  flex-direction: initial;
+
+  @media screen and ${mediaQuery.minMd} {
+    flex-direction: row-reverse;
+  }
+`;
+
+const NavLink = ({ url, label }: { url: string, label: string|JSX.Element }) => (
+  <Link activeClassName="active" to={url}>{ label }</Link>
+);
+
 const Header = () => {
   const [menuOpen, setMenuState] = useState(false);
 
@@ -142,31 +156,36 @@ const Header = () => {
                 alt="James R. Williams"
                 placeholder="blurred"
                 className="profile"
-                width={30}
+                width={60}
                 quality={100}
-                height={30}
+                height={60}
               />
             </div>
             <span>James R. Williams</span>
           </div>
         </PrimaryNavLink>
-        <HeaderToggleButton open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
-          <svg
-            aria-label="menu-toggle-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-          </svg>
-        </HeaderToggleButton>
-        <PrimaryNav open={menuOpen}>
-          <NavLink label="About" url="/about/" />
-          <NavLink label="Posts" url="/posts/" />
-          <NavLink label="Resources" url="/resources/" />
-        </PrimaryNav>
+        <CollapsableNavigation>
+          <ThemeToggle />
+          <HeaderToggleButton open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
+            <svg
+              aria-label="menu-toggle-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+            </svg>
+          </HeaderToggleButton>
+          <PrimaryNav open={menuOpen}>
+            <NavLink label="About" url="/about/" />
+            <NavLink label="Posts" url="/posts/" />
+            <NavLink label={"CV"} url={'/cv'} />
+            <GitHub />
+            <LinkedIn />
+          </PrimaryNav>
+        </CollapsableNavigation>
       </HeaderWrapper>
     </HeaderContainer>
   );
@@ -174,17 +193,4 @@ const Header = () => {
 
 export default Header;
 
-const NavLinkElement = styled(Link)`
-  color: inherit;
-  text-decoration: none;
-  margin-right: 1rem;
 
-  @media screen and ${mediaQuery.minMd} {
-    margin-left: 3rem;
-    margin-right: 0;
-  }
-`;
-
-const NavLink = ({ url, label }: { url: string, label: string }) => (
-  <NavLinkElement activeClassName="active" to={url}>{ label }</NavLinkElement>
-);

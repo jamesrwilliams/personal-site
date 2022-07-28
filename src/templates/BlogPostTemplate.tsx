@@ -60,7 +60,7 @@ export const query = graphql`
     timeToRead
     frontmatter {
       date
-      dateReadable: date(formatString: "YYYY-MM-DD")
+      dateReadable: date(formatString: "DD MMMM, YYYY")
       title
     }
   }

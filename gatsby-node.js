@@ -15,7 +15,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const blogPostTemplate = require.resolve('./src/templates/BlogPostTemplate.tsx');
   const { data } = await graphql(`
     {
-      posts: allMdx(limit: 1000) {
+      posts: allMdx(limit: 1000, filter: {fileAbsolutePath: {regex: "/posts/"}}) {
         nodes {
           slug
         }
@@ -44,20 +44,6 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 
-  /* Reading List Entries */
-  const readingListEntryTemplate = require.resolve('./src/templates/ReadingListEntryTemplate.tsx');
-  const entries = data.github.repository.issues.nodes;
-
-  entries.forEach((entry) => {
-    createPage({
-      path: `/resources/reading/${entry.number}`,
-      component: readingListEntryTemplate,
-      context: {
-        ...entry,
-      },
-    });
-  });
-
   const { createRedirect } = actions;
   createRedirect({
     fromPath: '/cv',
@@ -67,6 +53,7 @@ exports.createPages = async ({ actions, graphql }) => {
 };
 
 exports.sourceNodes = async ({ actions }) => {
+  console.log('Fired');
   const { createNode } = actions;
   const request = `https://www.goodreads.com/review/list/108722272.xml?key=${process.env.GOODREADS_KEY}&v=2&shelf=currently-reading&sort=date_updated`;
   const getCurrentBookFromGoodreads = () => axios.get(request);

@@ -3,18 +3,18 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layouts/Layout';
 import SEO from '../components/utilities/seo';
 import PageHeader from '../components/PageHeader/PageHeader';
-import { PostLink } from '../components';
 import Container from '../components/Container';
+import { PostList } from "../components/PostPreview";
 
 const PostsPage = () => {
   const { posts } = useStaticQuery(graphql`
-{
-  posts: allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-    nodes {
-      ...blogFields
+  {
+    posts: allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+      nodes {
+        ...blogFields
+      }
     }
   }
-}
  `);
 
   return (
@@ -26,7 +26,7 @@ const PostsPage = () => {
       <main>
         <PageHeader title="Posts" />
         <Container>
-          {posts.nodes.map((_post: any) => <PostLink key={`archive_${_post.slug}`} post={_post} />)}
+          <PostList posts={posts.nodes} />
         </Container>
       </main>
     </Layout>

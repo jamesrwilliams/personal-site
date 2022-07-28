@@ -35,8 +35,10 @@ const ResourcesPage = () => (
     <SEO title="Resources" />
     <PageHeader title="Resources" />
     <Container>
-      <Link type="button" to="./reading">What I am reading</Link>
-      <p>Here you can find a collection of cool and useful tools and resources I have found:</p>
+      <p>
+        Here you can find a collection of cool and useful tools and resources I have found.
+        I also have a full list of articles/posts I've found interesting available on <Link to="./reading">my reading list</Link>.
+      </p>
       { sections.map(({ title, items }) => <ResourcesSection title={title} items={items} />)}
       <br />
     </Container>

@@ -5,29 +5,20 @@ import PageHeader from '../../components/PageHeader/PageHeader';
 import Container from '../../components/Container';
 import SEO from '../../components/utilities/seo';
 import Link from '../../components/Link/Link';
-import ReadingEntryInline from '../../components/ReadingEntryInline';
 import { ReadingListEntry } from '../../models/ReadingListEntry';
+import PostContent from "../../components/utilities/PostContent";
 
 const Reading = () => {
   const data = useStaticQuery(graphql`
     query {
-      book: booksBeingRead {
-        link
-        title
-        year
-        author {
-          link
-          name
-        }
-      }
       github {
         repository(name: "reading-list", owner: "jamesrwilliams") {
-          issues(first: 100) {
+          issues(first: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
             nodes {
               number
+              bodyHTML
               title
               createdAt
-              closed
             }
           }
         }
@@ -35,47 +26,60 @@ const Reading = () => {
     }
   `);
 
-  const { github: { repository: { issues: { nodes: issues } } }, book } = data;
-
-  const unreadItems = issues.filter((item: any) => !item.closed);
-  const readItems = issues.filter((item: any) => item.closed === true);
-
-  const { author, title, link } = book;
-  const { name } = author;
+  const { github: { repository: { issues: { nodes: issues } } }} = data;
 
   return (
     <Layout>
-      <PageHeader title="Reading" />
       <SEO title="Reading" />
-      <Container>
+      <main>
+        <PageHeader title="Reading" />
+        <Container>
+        <PostContent>
         <p>
-          To keep track of the books I am reading with <Link to="https://www.goodreads.com/review/list/108722272?shelf=read&sort=date_read">Goodreads</Link>.
-          I&apos;m currently reading <Link to={link}>&quot;{title}&quot;</Link> by <em>{name}</em>.
-          Below you can find a list of various blog posts and articles I have found and am
-          in the process of reading or have already read:
-        </p>
-        <details id="unread">
-          <summary>Unread ({ unreadItems.length })</summary>
-          <ul>
-            { unreadItems.map((entry: ReadingListEntry) => <ReadingEntryInline entry={entry} />) }
-          </ul>
-        </details>
-
-        <details id="read">
-          <summary>Read ({ readItems.length })</summary>
-          <ul>
-            { readItems.map((entry: ReadingListEntry) => <ReadingEntryInline entry={entry} />)}
-          </ul>
-        </details>
-
-        <p>
-          This page is powered by Github issues, which you can read about
+          This page is periodically updated from my reading list of blog posts and other resources I
+          find online. This page is powered by Github issues, which you can read about
           in this post: <Link to="/posts/using-github-issues-as-a-cms">Using Github Issues as a CMS</Link>.
+          Due to the 100 item limit on the GitHub GraphQL API, this page is limited to the 100 most
+          recent items I've added.
         </p>
-        <br />
+        </PostContent>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Post</th>
+            </tr>
+          </thead>
+          <tbody>
+            { issues.map((entry: ReadingListEntry, index: number) => {
+              const { number, title, createdAt, bodyHTML } = entry;
+
+              return (
+                <tr key={number} id={`item-${number}`}>
+                  <td style={{verticalAlign: "top"}}>#{ number }</td>
+                  <td>
+                    <Link to={extractUrl(bodyHTML)}>{ title }</Link><br/>
+                    <span>{ new Date(createdAt).toLocaleDateString() }</span>
+                  </td>
+                </tr>
+              )
+            }) }
+          </tbody>
+        </table>
       </Container>
+      </main>
     </Layout>
   );
 };
 
 export default Reading;
+
+const extractUrl = (content: string) => {
+  const regexString = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
+  const result = content.match(regexString);
+  if(result) {
+    return result[0];
+  } else {
+    return '';
+  }
+}
