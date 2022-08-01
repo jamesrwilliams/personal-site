@@ -33,7 +33,7 @@ export const PostTags = ({ tags }) => {
     <PostTagsWrapper>
       <span style={{ marginRight: '.5rem', transform: 'translateY(2px)' }}><BsTagsFill /></span>
       { tags.map((tag: string) =>
-        <><Link key={tag} to={getTagLink(tag)}>#{ _.kebabCase(tag) }</Link></>
+        <Link key={tag} to={getTagLink(tag)}>#{ _.kebabCase(tag) }</Link>
       )}
     </PostTagsWrapper>
   )
