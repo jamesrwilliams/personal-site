@@ -169,7 +169,7 @@ const Header = () => {
         </PrimaryNavLink>
         <CollapsableNavigation>
           <ThemeToggle />
-          <HeaderToggleButton open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
+          <HeaderToggleButton aria-label={"Toggle theme"} open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
             <BiMenu size={'2rem'} />
           </HeaderToggleButton>
           <PrimaryNav open={menuOpen}>

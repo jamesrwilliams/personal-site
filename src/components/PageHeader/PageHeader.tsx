@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
 import formatDate from '../../lib/formatDate';
+import {textGradient} from "../../theme/variables";
 
 const PageWrapper = styled.aside`
   padding: 2rem 0 1rem;
@@ -23,6 +24,7 @@ const PageWrapper = styled.aside`
     font-size: 25px;
     font-weight: 400;
     line-height: 1.4;
+    ${textGradient}
 
     @media screen and (min-width: 700px) {
       font-size: 38px;

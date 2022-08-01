@@ -7,7 +7,6 @@ import Container from '../components/Container';
 import { ProfessionalExperienceTimeline } from '../components/ProfessionalExperience';
 import { linkedInUrl, resumeUrl } from '../data/urls';
 import PostContent from '../components/utilities/PostContent';
-import { primaryBlue } from '../theme/variables';
 import {YearsActive} from "../components/utilities/YearsActive";
 import {CurrentlyReading} from "../components/CurrentlyReading";
 
