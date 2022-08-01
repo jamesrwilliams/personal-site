@@ -6,6 +6,7 @@ import {accentPrimary, animationTiming, mediaQuery, primaryBlue} from '../../the
 import Container from '../Container';
 import { ThemeToggle } from '../ThemeToggle';
 import { GitHub, LinkedIn } from "../social/Social";
+import {BiMenu} from "react-icons/all";
 
 const HeaderContainer = styled.header<{ open: boolean }>`
   background: ${primaryBlue};
@@ -17,8 +18,10 @@ const HeaderContainer = styled.header<{ open: boolean }>`
   padding-top: 1rem;
   padding-bottom: 1rem;
   transition: all .3s ${animationTiming};
+  max-height: 58px;
 
-  a,a:visited {
+  a:link,
+  a:visited {
     color: #fff;
   }
 
@@ -33,10 +36,10 @@ const HeaderToggleButton = styled.button<{ open: boolean }>`
   border: 0;
   margin-right: 0;
   padding-right: 0;
-  margin-left: 1rem;
+  color: inherit;
+  transform: translateY(2px);
 
   svg {
-    fill: #fff;
     transition: all 0.3s ease;
     transform: ${(props) => (props.open ? 'rotate(90deg)' : '')};
   }
@@ -167,16 +170,7 @@ const Header = () => {
         <CollapsableNavigation>
           <ThemeToggle />
           <HeaderToggleButton open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
-            <svg
-              aria-label="menu-toggle-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-            </svg>
+            <BiMenu size={'2rem'} />
           </HeaderToggleButton>
           <PrimaryNav open={menuOpen}>
             <NavLink label="About" url="/about/" />

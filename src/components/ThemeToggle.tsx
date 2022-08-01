@@ -8,7 +8,7 @@ const ThemeToggleButton = styled.button`
   background: none;
   font-size: 18px;
   color: #fff;
-  transform: translateY(0px);
+  transform: translateY(-0px);
   border-radius: 30px;
   position: relative;
   display: flex;
@@ -19,6 +19,8 @@ const ThemeToggleButton = styled.button`
   padding-left: 1.5rem;
 
   @media screen and (${mediaQuery.minMd}) {
+    transform: translateY(0px);
+
     &:before {
       content: '';
       display: block;

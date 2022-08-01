@@ -2,15 +2,6 @@ import styled from 'styled-components';
 import { animationTiming, mediaQuery} from '../../theme/variables';
 
 const PostContent = styled.div`
-  font-size: 16px;
-  line-height: 1.7777778;
-  margin: 0 0 2rem;
-
-  p {
-    margin-bottom: 1.3333333em;
-    max-width: 65ch;
-  }
-
   h1,
   h2,
   h3,
@@ -63,8 +54,7 @@ const PostContent = styled.div`
 
   figcaption {
     font-size: 90%;
-    font-style: italic;
-    margin-top: -15px;
+    font-style: italic;e
     border-bottom-right-radius: 0.375rem;
     border-bottom-left-radius: 0.375rem;
 

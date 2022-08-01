@@ -129,7 +129,7 @@ const SocialIcon = ({
     title={title}
     rel="noopener noreferrer"
     href={href}
-    style={{ color: '#fff', height: 18, width: 18 }}
+    style={{ height: 18, width: 18 }}
   >
     { children }
   </OutboundLink>

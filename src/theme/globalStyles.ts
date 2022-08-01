@@ -34,13 +34,14 @@ const GlobalStyles = createGlobalStyle`
     background: ${({theme}) => theme.pageBackground};
     color: ${({theme}) => theme.textColor};
     transition: background-color 1s ease;
+    font-size: 16px;
   }
 
   main {
     border-top: 4rem solid ${({theme}) => theme.navigation.overscroll};
     margin-bottom: 2rem;
+    min-height: calc(100vh - 145px);
   }
-
 
   a,
   a:link {
@@ -78,6 +79,15 @@ const GlobalStyles = createGlobalStyle`
     border-collapse: collapse;
     text-indent: 0;
     border-color: inherit;
+  }
+
+  article {
+    line-height: 1.7777778;
+
+    p {
+      margin-bottom: 1.3333333em;
+      max-width: 65ch;
+    }
   }
 
   thead {

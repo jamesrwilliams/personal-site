@@ -22,3 +22,7 @@ export const socials = [
   instagramUrl,
   pluralsightUrl,
 ];
+
+export const siteConfig = {
+  tagBaseUrl: '/posts/-/tags/'
+}

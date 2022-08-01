@@ -50,7 +50,7 @@ const SEO = ({
     description: defaultDescription, title: defaultTitle, twitter, author,
   } = site.siteMetadata;
 
-  const usedTitle = `${title} | ${defaultTitle}` || defaultTitle;
+  const usedTitle = title ? `${title} | ${defaultTitle}`: defaultTitle;
 
   const metaObject: metaObjectInterface = {
     author,

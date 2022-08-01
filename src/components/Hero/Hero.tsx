@@ -8,46 +8,50 @@ import { yearsOfExperience, currentPosition, ExperienceItem } from '../../data/e
 const HeroWrapper = styled.div`
   position: relative;
   font-weight: 200;
-  height: calc(100vh - 55px);
+  height: calc(100vh - 85px);
   display: flex;
   color: ${({theme}) => theme.headingColor};
   align-items: center;
-  max-height: 1100px;
+  background: ${({theme}) => theme.hero.background};
 
-    .lead,
-    .gradient {
-      font-size: 25px;
-      font-weight: 400;
+  @media screen and ${mediaQuery.minMd} {
+    height: calc(100vh - 55px);
+  }
 
-      @media screen and ${mediaQuery.minMd} {
-        font-size: 45px;
-      }
+  .lead,
+  .gradient {
+    font-size: 25px;
+    font-weight: 400;
+
+    @media screen and ${mediaQuery.minMd} {
+      font-size: 45px;
     }
+  }
 
-    .lead {
-      margin-right: .7ch;
-      font-weight: 200;
-      transition: all 1s ease;
-      margin-bottom: 1rem;
+  .lead {
+    margin-right: .7ch;
+    font-weight: 200;
+    transition: all 1s ease;
+    margin-bottom: 1rem;
+  }
+
+  .intro {
+    font-size: 16px;
+
+    @media screen and ${mediaQuery.minMd} {
+      max-width: 650px;
+      font-size: 18px;
+      padding-bottom: 2rem;
     }
+  }
 
-    .intro {
-      font-size: 16px;
-
-      @media screen and ${mediaQuery.minMd} {
-        max-width: 650px;
-        font-size: 18px;
-        padding-bottom: 2rem;
-      }
-    }
-
-    .gradient {
-      display: block;
-      margin-top: 0;
-      text-decoration: none;
-      margin-bottom: 2rem;
-      ${textGradient}
-    }
+  .gradient {
+    display: block;
+    margin-top: 0;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    ${textGradient}
+  }
 `;
 
 const Hero = () => (

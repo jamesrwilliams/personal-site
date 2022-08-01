@@ -20,7 +20,10 @@ export const themes = {
       regular: '#016eaa',
     },
     inlineCodeTextColor: '#24292e',
-    blockquoteBackground: 'transparent'
+    blockquoteBackground: 'transparent',
+    hero: {
+      background: 'linear-gradient(to bottom, #eee, #fff)'
+    }
   },
   dark: {
     textColor: '#A0AEC0',
@@ -37,6 +40,9 @@ export const themes = {
     navigation: {
       overscroll: '#031C33',
       background: ''
+    },
+    hero: {
+      background: 'linear-gradient(to bottom, #fff0, #fff0)'
     },
     pageBackground: '#031C33',
     pageHeaderBackground: 'transparent',

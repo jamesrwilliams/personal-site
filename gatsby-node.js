@@ -7,6 +7,7 @@
 const axios = require('axios');
 const crypto = require('crypto');
 const parser = require('xml2json');
+const _ = require("lodash")
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -18,6 +19,11 @@ exports.createPages = async ({ actions, graphql }) => {
       posts: allMdx(limit: 1000, filter: {fileAbsolutePath: {regex: "/posts/"}}) {
         nodes {
           slug
+        }
+      },
+      tagsGroup: allMdx(limit: 2000, filter: {fileAbsolutePath: {regex: "/posts/"}}) {
+        group(field: frontmatter___tags) {
+          fieldValue
         }
       },
        github {
@@ -50,6 +56,23 @@ exports.createPages = async ({ actions, graphql }) => {
     toPath: '/resume',
     isPermanent: true,
   });
+
+  /**
+   * Create Tag Archive and singles
+   */
+  const tagTemplate = require.resolve('./src/templates/Tags.tsx');
+  const tags = data.tagsGroup.group;
+
+  tags.forEach(tag => {
+    createPage({
+      path: `posts/-/tags/${_.kebabCase(tag.fieldValue)}`,
+      component: tagTemplate,
+      context: {
+        tag: tag.fieldValue,
+      },
+    })
+  })
+
 };
 
 exports.sourceNodes = async ({ actions }) => {
