@@ -19,8 +19,6 @@ export default function Template({ data }: any) {
   } = data.mdx;
   const { title, tags } = frontmatter;
 
-  console.log(data.mdx);
-
   return (
     <Layout>
       <SEO
