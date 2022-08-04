@@ -10,17 +10,14 @@ export const animationTiming = 'cubic-bezier(.645,.045,.355,1)';
 
 export const textGradient = css`
   line-height: 1.2;
-  background: linear-gradient(-45deg, #0ba7fd, #01d8d1);
+  background: ${({theme}) => theme.textGradient};
   background-size: 100% 200%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
   -webkit-animation: HeroTextAnimator 45s ${animationTiming} infinite;
   -moz-animation: HeroTextAnimator 45s ${animationTiming} infinite;
   animation: HeroTextAnimator 45s ${animationTiming} infinite;
-
-
   @-webkit-keyframes HeroTextAnimator {
     0% {
       background-position: 51% 0

@@ -4,14 +4,12 @@ import ResourceItem, { ResourceItemProps } from './ResourcesItem';
 
 const ResourcesSection = ({ title, items }: { title: string, items: any[] }) => (
   <>
-    <details id={title}>
-      <summary>{ title }</summary>
-      <ul>
-        { items.map(({ link, description, linkText }: ResourceItemProps) => (
-          <ResourceItem link={link} description={description} linkText={linkText} />
-        )) }
-      </ul>
-    </details>
+    <h2 id={title}>{ title }</h2>
+    <ul>
+      { items.map(({ link, description, linkText }: ResourceItemProps) => (
+        <ResourceItem link={link} description={description} linkText={linkText} />
+      )) }
+    </ul>
   </>
 );
 

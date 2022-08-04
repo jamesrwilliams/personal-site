@@ -1,10 +1,17 @@
 const formatDate = (dateString: string, preset: string = 'full') => {
   const presets: { [index: string]: object; } = {
     full: {
-      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      timeZone: 'UTC'
     },
     numeric: {
-      year: 'numeric', month: 'numeric', day: 'numeric',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      timeZone: 'UTC'
     },
   };
 

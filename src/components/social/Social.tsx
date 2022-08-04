@@ -29,7 +29,7 @@ const GitHub: React.FC = () => (
     href={gitHubUrl}
     title="Follow me on GitHub github.com/jamesrwilliams"
   >
-    <GitHubIcon />
+    <GitHubIcon size={18} />
   </SocialIcon>
 );
 
@@ -38,7 +38,7 @@ const Twitter: React.FC = () => (
     href={twitterUrl}
     title="Follow me on twitter @James_RWilliams"
   >
-    <TwitterIcon />
+    <TwitterIcon size={18} />
   </SocialIcon>
 );
 
@@ -47,7 +47,7 @@ const LinkedIn: React.FC = () => (
     href={linkedinUrl}
     title="Find me on LinkedIn @thejamesrwilliams"
   >
-    <LinkedinIcon />
+    <LinkedinIcon size={18} />
   </SocialIcon>
 );
 
@@ -56,7 +56,7 @@ const CodePen: React.FC = () => (
     href={codePenUrl}
     title="Find me on Codepen @thejamesrwilliams"
   >
-    <CodepenIcon />
+    <CodepenIcon size={18}  />
   </SocialIcon>
 );
 
@@ -65,7 +65,7 @@ const StackOverflow: React.FC = () => (
     href={stackoverflowUrl}
     title="Find me on stackoverflow"
   >
-    <StackoverflowIcon />
+    <StackoverflowIcon size={18}  />
   </SocialIcon>
 );
 
@@ -74,7 +74,7 @@ const HackerRank: React.FC = () => (
     href={hackerRankUrl}
     title="Find me on HackerRank"
   >
-    <HackerrankIcon />
+    <HackerrankIcon size={18}  />
   </SocialIcon>
 );
 
@@ -83,7 +83,7 @@ const Instagram: React.FC = () => (
     title="Find me on Instagram"
     href={instagramUrl}
   >
-    <InstagramIcon />
+    <InstagramIcon size={18}  />
   </SocialIcon>
 );
 
@@ -92,13 +92,13 @@ const Pluralsight: React.FC = () => (
     title="Find me on Pluralsight"
     href={pluralsightUrl}
   >
-    <PluralsightIcon />
+    <PluralsightIcon size={18}  />
   </SocialIcon>
 );
 
 const TrailBlazer: React.FC = () => (
   <SocialIcon href={salesforceTrailBlazerUrl} title="Salesforce Trailblazer">
-    <SalesforceIcon />
+    <SalesforceIcon size={18}  />
   </SocialIcon>
 );
 
@@ -129,7 +129,7 @@ const SocialIcon = ({
     title={title}
     rel="noopener noreferrer"
     href={href}
-    style={{ color: '#fff', display: 'block' }}
+    style={{ height: 18, width: 18 }}
   >
     { children }
   </OutboundLink>

@@ -1,15 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
-import { primaryBlue } from '../../theme/variables';
 import formatDate from '../../lib/formatDate';
+import {textGradient} from "../../theme/variables";
 
 const PageWrapper = styled.aside`
   padding: 2rem 0 1rem;
-  color: ${primaryBlue};
+  color: ${(props) => props.theme.headingColor};
   position: relative;
   margin-bottom: 0;
-  background: linear-gradient(to bottom, #0ba7fd55, #fff0);
+  background: ${(props) => props.theme.pageHeaderBackground};
+
+  a {
+    text-decoration: underline;
+  }
 
   @media screen and (min-width: 700px) {
     padding: 8rem 0 2.5rem;
@@ -20,6 +24,7 @@ const PageWrapper = styled.aside`
     font-size: 25px;
     font-weight: 400;
     line-height: 1.4;
+    ${textGradient}
 
     @media screen and (min-width: 700px) {
       font-size: 38px;
@@ -27,15 +32,28 @@ const PageWrapper = styled.aside`
   }
 `;
 
+interface PostMetaInterface {
+  date: string;
+  timeToRead: number;
+}
+
+const PostMetaData = ({ date, timeToRead }: PostMetaInterface) => (
+  <PageMetaWrapper>
+    <time dateTime={new Date(date).toISOString()}>{ formatDate(date) }</time>
+    <ReadingTime timeToRead={timeToRead} />
+  </PageMetaWrapper>
+);
+
+
 const PageHeader = ({
   title, post, timeToRead, children,
 }: any) => (
   <PageWrapper>
     <Container>
-      {post && post.postDate ? <PageMeta date={post.postDate} timeToRead={timeToRead} /> : ''}
+      {post && post.postDate ? <PostMetaData date={post.postDate} timeToRead={timeToRead} /> : ''}
       <h1 itemProp="name">{title}</h1>
     </Container>
-    {children}
+    { children ? <Container>{children}</Container> : '' }
   </PageWrapper>
 );
 
@@ -45,14 +63,9 @@ const PageMetaWrapper = styled.div`
   border-radius: 3px;
   margin-top: 5px;
   display: inline-block;
-  opacity: .8;
-  color: #4a4d70;
+  opacity: .5;
+  color: ${(props) => props.theme.headingColor};
 `;
-
-interface PageMetaInterface {
- date: string;
- timeToRead: number;
-}
 
 const ReadingTime = ({ timeToRead }: {timeToRead: Number}) => {
   let message = 'A quick read.';
@@ -60,13 +73,6 @@ const ReadingTime = ({ timeToRead }: {timeToRead: Number}) => {
   if (timeToRead > 1) {
     message = `${timeToRead} min read.`;
   }
-  return <span> · {message}</span>;
+  return <> · <span style={{ whiteSpace: "break-spaces" }}>{message}</span> </>;
 };
 
-const PageMeta = ({ date, timeToRead }: PageMetaInterface) => (
-  <PageMetaWrapper>
-    <span>Posted on </span>
-    <time dateTime={new Date(date).toISOString()}>{ formatDate(date) }</time>
-    <ReadingTime timeToRead={timeToRead} />
-  </PageMetaWrapper>
-);

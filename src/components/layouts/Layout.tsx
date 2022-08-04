@@ -2,12 +2,13 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import GlobalStyles from '../../theme/globalStyles';
+import ThemeContext from '../../context/ThemeContext';
 
-import '../../styles/index.css';
+import { themes } from '../../theme/themes';
 
 interface LayoutProps {
     children: React.ReactNode,
@@ -42,19 +43,25 @@ const Layout = ({ children }: LayoutProps) => {
   };
 
   return (
-    <LayoutContainer>
-      <Helmet>
-        <meta name="netlify-last-deployed" content={data.site.buildTime} />
-        <meta name="netlify-build-id" content={buildID} />
-        <script type="application/ld+json">
-          { JSON.stringify(globalJSONLD, null, 4) }
-        </script>
-      </Helmet>
-      <Header />
-      {children}
-      <Footer />
-      <GlobalStyles />
-    </LayoutContainer>
+    <ThemeContext.Consumer>
+      {({darkModeActive}) => (
+        <ThemeProvider theme={themes[darkModeActive ? 'dark' : 'light']}>
+          <LayoutContainer>
+            <Helmet>
+              <meta name="netlify-last-deployed" content={data.site.buildTime} />
+              <meta name="netlify-build-id" content={buildID} />
+              <script type="application/ld+json">
+                { JSON.stringify(globalJSONLD, null, 4) }
+              </script>
+            </Helmet>
+            <Header />
+            {children}
+            <Footer />
+            <GlobalStyles />
+          </LayoutContainer>
+        </ThemeProvider>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

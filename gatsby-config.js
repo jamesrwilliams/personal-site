@@ -63,7 +63,8 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         defaultLayouts: {
-          default: require.resolve('./src/templates/BlogPostTemplate.tsx'),
+          posts: require.resolve('./src/templates/BlogPostTemplate.tsx'),
+          pages: require.resolve('./src/templates/MarkdownPage.tsx'),
         },
         gatsbyRemarkPlugins: [
           'gatsby-remark-code-titles',
@@ -71,13 +72,12 @@ module.exports = {
             resolve: 'gatsby-remark-mermaid',
             options: {
               language: 'mermaid',
-              theme: 'neutral',
+              currentTheme: 'neutral',
               viewport: {
-                width: 650,
+                width: 840,
                 height: 400,
               },
               mermaidOptions: {
-                themeCSS: '.node rect { fill: #fff; }',
                 fontSize: 12,
               },
             },
@@ -85,7 +85,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              icon: '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M20,10V8h-4V4h-2v4h-4V4H8v4H4v2h4v4H4v2h4v4h2v-4h4v4h2v-4h4v-2h-4v-4H20z M14,14h-4v-4h4V14z"/></g></svg>',
+              isIconAfterHeader: true,
             },
           },
           {

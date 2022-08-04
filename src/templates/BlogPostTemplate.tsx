@@ -7,6 +7,7 @@ import SEO from '../components/utilities/seo';
 import Container from '../components/Container';
 import LinkedData from '../components/social/LinkedData';
 import PostContent from '../components/utilities/PostContent';
+import {PostTags} from "../components/PostTags";
 
 export default function Template({ data }: any) {
   const {
@@ -16,7 +17,7 @@ export default function Template({ data }: any) {
     timeToRead,
     body,
   } = data.mdx;
-  const { title } = frontmatter;
+  const { title, tags } = frontmatter;
 
   return (
     <Layout>
@@ -34,6 +35,7 @@ export default function Template({ data }: any) {
             <PostContent>
               <MDXRenderer>{ body }</MDXRenderer>
             </PostContent>
+            <PostTags tags={tags} />
           </Container>
         </article>
       </main>
@@ -45,13 +47,7 @@ export const query = graphql`
   query MdxBlogPost($slug: String!) {
     mdx(slug: {eq: $slug}) {
       body
-      excerpt
-      timeToRead
-      frontmatter {
-        title
-        postDate: date,
-        postDateTimestamp: date(formatString: "X")
-      }
+      ...blogFields
     }
   }
   fragment blogFields on Mdx {
@@ -60,7 +56,9 @@ export const query = graphql`
     timeToRead
     frontmatter {
       date
-      dateReadable: date(formatString: "YYYY-MM-DD")
+      tags
+      postDate: date,
+      dateReadable: date(formatString: "DD MMMM, YYYY")
       title
     }
   }

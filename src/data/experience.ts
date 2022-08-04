@@ -39,26 +39,26 @@ const experienceTimeline: ExperienceItem[] = [
   {
     company: organisations.points,
     role: 'Development Engineer',
-    startDate: '2021 March',
+    startDate: '2021 Mar',
     endDate: '2022 Jan',
   },
   {
     company: organisations.points,
     role: 'Web Developer',
-    startDate: '2019 March',
-    endDate: '2021 March',
+    startDate: '2019 Mar',
+    endDate: '2021 Mar',
   },
   {
     company: organisations.silver,
     role: 'Web Developer',
-    startDate: '2016 October',
-    endDate: '2018 November',
+    startDate: '2016 Oct',
+    endDate: '2018 Nov',
   },
   {
     company: organisations.fusion,
     role: 'Web developer',
-    startDate: '2016 March',
-    endDate: '2016 October',
+    startDate: '2016 Mar',
+    endDate: '2016 Oct',
   },
 ];
 

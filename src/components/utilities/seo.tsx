@@ -16,7 +16,7 @@ interface metaObjectInterface {
 
 interface SEOProps {
     description: string;
-    title: string;
+    title?: string;
     lang?: string;
     meta?: [];
     image?: {
@@ -50,7 +50,7 @@ const SEO = ({
     description: defaultDescription, title: defaultTitle, twitter, author,
   } = site.siteMetadata;
 
-  const usedTitle = `${title} | ${defaultTitle}` || defaultTitle;
+  const usedTitle = title ? `${title} | ${defaultTitle}`: defaultTitle;
 
   const metaObject: metaObjectInterface = {
     author,

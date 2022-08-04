@@ -7,29 +7,26 @@ const ExperienceList = styled.ul`
   list-style: none;
   position: relative;
   padding: 0;
+  margin-top: 4rem;
   margin-left: 5px;
-  border-left: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-left: 1px solid ${({theme}) => theme.textColor}20;
+
+  &:after,
+  &:before {
+    content: '';
+    bottom: -1px;
+    position: absolute;
+    background: ${({theme}) => theme.textColor}20;
+    width: 10px;
+    height: 1px;
+  }
 
   &:after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    height: 1px;
     left: 0;
-    right: 0;
-    background: linear-gradient(to top right, #0ba7fd, #0ba7fd00);
   }
 
   &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -1px;
-    width: 10px;
     left: -10px;
-    height: 1px;
-    background: #0ba7fd;
   }
 `;
 
@@ -58,22 +55,36 @@ const ExperienceListItem = styled.li<{ pos: number }>`
     height: 9px;
     width: 9px;
     border-radius: 5px;
-    background: #ccc;
+    background: ${({theme}) => theme.textColor}50;
     left: -5px;
+  }
+
+  .title {
+    line-height: 1;
+
+    &.current {
+      font-weight: 600;
+      color: ${({theme}) => theme.headingColor};
+    }
   }
 
   ${(props) => props.pos === 0 && css`
     &:before {
+      border-color: transparent !important;
       background: ${accentPrimary};
-      background: linear-gradient(to top right, #0ba7fd, #01d8d1);
+      background: linear-gradient(to top right, ${accentPrimary}, #01d8d1);
     }
   `}
 `;
 
+const PositionEntryLine = () => {
+  return
+}
+
 export const PositionEntry = ({ position, index }: { position: ExperienceItem, index: number }) => (
   <ExperienceListItem pos={index} key={`pos-${index}`}>
-    <div style={{ fontWeight: 'bold', lineHeight: 1 }}>{position.role} @ { position.company.name }, { position.company.location }</div>
-    <div style={{ opacity: 0.7 }}>{ position.startDate } to { position.endDate }</div>
+    <div className={`title ${index === 0 ? 'current' : ''}`}>{position.role} @ { position.company.name }</div>
+    <div style={{ opacity: 0.7, fontSize: '90%' }}>{ position.company.location } &bull; { position.startDate } to { position.endDate }</div>
   </ExperienceListItem>
 );
 
