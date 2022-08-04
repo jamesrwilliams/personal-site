@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { animationTiming, mediaQuery} from '../../theme/variables';
 
 const PostContent = styled.div`
+  margin-bottom: 2rem;
+
   h1,
   h2,
   h3,

@@ -26,9 +26,9 @@ const TagsPage = ({ data }) => {
   const tags = data.allMdx.group.sort((a, b) => parseFloat(b.totalCount) - parseFloat(a.totalCount));
 
   return (<Layout>
-    <SEO title="Post tags" />
+    <SEO title="Tags" />
     <main>
-      <PageHeader title="Post tags" />
+      <PageHeader title="Tags" />
       <Container>
         <TagColumns>
         { tags.map((tag: PostTag) => (

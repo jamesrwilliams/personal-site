@@ -6,6 +6,9 @@ import _ from "lodash";
 import styled from "styled-components";
 
 const PostTagsWrapper = styled.span`
+  display: inline-block;
+  margin: .5rem 0;
+
   a,
   a:link {
     color: ${({theme}) => theme.textColor};

@@ -1,7 +1,7 @@
 ---
 title: Feature flags in a React app with GitLab's feature toggles
 date: 2022-08-01
-tags: ["gitlab", "feature flags"]
+tags: ["gitlab", "feature flags", "react"]
 ---
 
 I've been taking a deeper look at GitLab's full DevOps platform and their feature
@@ -17,7 +17,7 @@ to the development activities rather than another app.
 ## What is a feature toggle?
 
 At its most basic form a feature toggle is a boolean that tells an application to do one thing or
-another based on it's value:
+another based on its value:
 
 ```js
 if(is_my_feature_enabled) {
@@ -42,12 +42,11 @@ toggle behavior without redeploying an application, or enabling a feature for a 
 of users at a time, what is known as an _activation strategy_, which we will look at once our
 React app is connected.
 
-Behind the scenes GitLab uses [Unleash](https://www.getunleash.io) which is an open source
-feature management solution.
-
 ## Working with GitLab
 
-But how to we use GitLab's feature toggles in a React app? There are three components we need to
+Behind the scenes GitLab uses [Unleash](https://www.getunleash.io) which is an open source
+feature management solution, but how to we use GitLab's feature toggles in a React app? There
+are three components we need to
 work on, these are:
 
 1. _A GitLab project_ - Where we're going to manage our feature flags
@@ -64,10 +63,9 @@ setting up our GitLab project...
 We're assuming you already have a GitLab repository/project (possibly home to your React app)
 that you want to use feature toggles with. If not you
 can [register for a _free_ account](https://gitlab.com/users/sign_up/) or checkout
-their [pricing page](https://about.gitlab.com/pricing/#gitlab-com).
-
-Once logged in to GitLab and while viewing your project (assuming you have the right permissions),
-under "Deployments" you should see an option titled _Feature Flags_.
+their [pricing page](https://about.gitlab.com/pricing/#gitlab-com). Once logged in to GitLab and
+while viewing your project (assuming you have the right permissions), under "Deployments" you
+should see an option titled _Feature Flags_.
 
 ![](../images/gitlab-feature-toggle/gitlab-feature-toggles__MenuOptions.png)
 
@@ -86,8 +84,8 @@ _Configure feature flags_ dialog:
 ![](../images/gitlab-feature-toggle/gitlab-feature-toggles__SetupDialog.png)
 
 We don't need to do anything other than save both the `API URL` and `Instance ID` values as we
-will need these two values in a moment when we configure our proxy service. Last bit of
-preparation work will be to create a GitLab Access token.
+will need these in a moment when we configure our proxy. One last bit of preparation work will
+be to create a GitLab Access token.
 
 ### GitLab Access Token
 
@@ -99,13 +97,15 @@ token somewhere safe we will need it in a moment.
 
 ## The proxy server
 
-Now we have our `API Token`, our `Instance ID` and our `API URL` we're ready to configure our
-proxy service. The proxy application sits between GitLab and our React app (the client). It
-provides some security and performance benefits as it doesn't expose direct access to
-GitLab ensuring the internal feature toggle configuration isn't exposed to the world!
+Now we have our `API Token` (your Gitlab Access token), our `Instance ID` and our `API URL` we're
+ready to configure our proxy service. The proxy application sits between GitLab and our React
+app (the client), this structure provides some security and performance benefits as it doesn't
+expose direct access to GitLab ensuring the internal feature toggle configuration isn't exposed
+to the world!
 
 Unleash does offer a free tier "hosted" option instead of having to run your own proxy which you
-can find details about on their [pricing page](https://www.getunleash.io/plans).
+can find details about on their [pricing page](https://www.getunleash.io/plans) which also
+allows you to skip the need for Gitlab too if you want.
 
 <figure>
 
@@ -140,25 +140,24 @@ docker run -d \
 _Wait where did these values come from?_ Let's recap what each of these variables is doing and
 where we got their values:
 
-- `UNLEASH_PROXY_SECRETS` - This secret is used in both the client and proxy, and is
-used to authorize calls to the proxy from the client app. This can be a comma separated list of
-secrets but in this example we're passing a single string `RANDOM_STRING_9vZBzCd2jeqE7JY`.
+- `UNLEASH_PROXY_SECRETS` - This is a randomly chosen secret is used in both the client and proxy,
+and is used to authorize calls to the proxy from the client app. This can be a comma separated
+list of secrets but in this example we're passing a single string `RANDOM_STRING_9vZBzCd2jeqE7JY`.
 _Please use a sensible secret in production!_
 - `UNLEASH_URL` - This is our API URL from the GitLab configuration dialog.
-- `UNLEASH_INSTANCE_ID` - This was the `Instnce ID` from the configuration dialog.
+- `UNLEASH_INSTANCE_ID` - This is the `Instnce ID` from the same configuration dialog.
 - `UNLEASH_API_TOKEN` - This is our GitLab project access token (in this example I am passing in
 an exported variable `GITLAB_PROJECT_ACCESS_TOKEN` to the `Docker` run command.)
 
-All but the `UNLEASH_PROXY_SECRETS` are only used by the proxy with `UNLEASH_PROXY_SECRETS`
-being used by both the proxy and the client app. You can find a more detailed breakdown of the
-configuration details, their defaults and what they're used for on
+Only the `UNLEASH_PROXY_SECRETS` value is shared with the client app and you can find a more
+detailed breakdown of the configuration details, their defaults and what they're used for on
 the [Unleash proxy configuration documentation](https://docs.getunleash.io/sdks/unleash-proxy#configuration).
 
 Once the container is running you can cURL the service to verify its connected successfully:
 
 ```bash
 curl -H "Content-Type: application/json" \
-     -H "Authorization: [YOUR SECRET SET IN THE PROXY]" \
+     -H "Authorization: [One of your UNLEASH_PROXY_SECRETS values]" \
      -X GET \
      http://localhost:3000/proxy
 ```
@@ -176,17 +175,18 @@ If the proxy is working you can expect something like the following as a JSON re
 Now we've got the proxy setup and have verified its connected, time for the React app.
 We're going to use [Create React App](https://create-react-app.dev/docs/getting-started) and the
 official [Unleash React client](https://docs.getunleash.io/sdks/proxy-react) for this, which we
-can install by running the following in our (already set up) React project:
+can install by running the following in our (assumed to be already set up) React project:
 
 ```shell
 npm install @unleash/proxy-client-react
 ```
 
-With the client installed we can now adjust the app root to add our Provider. With the Unleash
-client we pass a `config` property, allowing it can connect to the proxy and
-ultimately out GitLab instance. The following snippet shows how we're doing this using
-environment variables. We're using [create-react-app](https://create-react-app.dev/docs/adding-custom-environment-variables/) in the following example it will pull our
-values from our `.env` file.
+With the client installed we can now adjust the app root to add
+our [context provider](https://reactjs.org/docs/context.html#contextprovider). With the Unleash
+client we pass a `config` property, allowing it can connect to the proxy and ultimately out
+GitLab instance. The following snippet shows how we're doing this using environment variables.
+We're using [create-react-app](https://create-react-app.dev/docs/adding-custom-environment-variables/) in the following example it will pull our
+values from our `.env` file in the project's root directory.
 
 ```jsx:title=src/index.jsx
 import { FlagProvider } from '@unleash/proxy-client-react';
@@ -223,7 +223,7 @@ You can find out more about the configuration options in the `@unleash/proxy-cli
 library in the
 [React SDK Initialization](https://docs.getunleash.io/sdks/proxy-react#initialization) docs.
 
-Now we have the Provider configured we can start making use of the feature toggles inside our
+Now we have the provider configured we can start making use of the feature toggles inside our
 application's components. Here is a simple example that returns a paragraph tag with either the
 word "Enabled" or "Disabled" depending on the state of the toggle.
 
@@ -236,47 +236,48 @@ export const ExampleComponent = () => {
 }
 ```
 
-Running this you will see that `example_flag_key` is `false`. Which would be true as we've not
-enabled a flag with that name. We don't even have a flag with that name. The `useFlag` function
-will always return `false` if a flag is known and disabled, or unknown. To get this component to
-show "Enabled" we'll need to create and activate the toggle.
+Running this you will see that `example_flag_key` is `false`. Which is correct as we have not
+enabled a flag with that name, moreover we don't even have a flag with that name. The `useFlag`
+function will always return `false` if a flag is known and disabled, or unknown. To get this
+component to show "Enabled" we'll need to create, and activate the toggle.
 
 ## Adding a feature toggle
 
-Let's add our flag and activate it to see this component go from "Disabled" to "Enabled". Back
-in your project's "Feature Flags" dashboard (via `Deployments` / `Feature Flags` ) use the button
-in the top right labeled "New Feature flag"
+Let's add our flag and activate it to see this component go from "Disabled" to "Enabled". Let us
+head back to Gitlab and to you project's "Feature Flags" dashboard (via `Deployments` / `Feature Flags` ) use the button
+in the top right labeled "New Feature flag", where you should be presented with a screen like this:
 
 ![](../images/gitlab-feature-toggle/gitlab-feature-toggles__NewTogglePage.png)
 
 For the `Name` add `example_flag_key` or if you changed it add your flag's name. You will have to
 ensure is a valid "slug" format, the name can contain lowercase letters, digits, "\_" and "-".
+Once you've added the name lets skip over the rest of the config and press "Create feature flag".
 
 ![](../images/gitlab-feature-toggle/gitlab-feature-toggles__ActiveToggle.png)
 
-Your feature toggle is set to active by default after creating it. Now you can go back
-to your React app and once the `refreshInterval` triggers a new fetch, the SDK should show your
-new flag as 'Enabled'!
+Once you create your flag you should be sent back to the list of flags with your new feature
+toggle set to active by default. Now you can go back to your React app and once the
+`refreshInterval` triggers a new fetch, the SDK should show your new flag as 'Enabled'!
 
 ## Activation strategies
 
-Now we already know how to activate toggles for the app as a whole in the admin. A more powerful
-feature of GitLab/Unleash comes in the form of activating features for specific users
+Now we already know how to activate toggles for the app as a whole in the Gitlab admin. A more
+powerful feature of GitLab/Unleash comes in the form of activating features for specific users
 or enable it for a small group of users. Unleash call these "activation strategies" and offers four
 different ways to activate feature toggles these include:
 
-- `Standard` Active for everyone
-- `UserIDs` Active for users with a userId defined in the userIds list
-- `IPs` The remote address strategy activates a feature toggle for remote addresses defined in
+- `Standard` - Active for everyone
+- `UserIDs` - Active for users with a userId defined in the userIds list
+- `IPs` - The remote address strategy activates a feature toggle for remote addresses defined in
 the IP list.
-- `Hostnames` The application hostname strategy activates a feature toggle for client instances
+- `Hostnames` - The application hostname strategy activates a feature toggle for client instances
 with a hostName in the hostNames list.
 
 Unleash does a much better job of detailing your options when it comes to activation strategies,
 I'd recommend checking out
 their [Activation Strategies](https://docs.getunleash.io/user_guide/activation_strategy) page.
 
-## `UserId` example
+## An example using the `UserId` activation strategy
 
 One of the activation strategies is using `UserIDs`. In the Gitlab UI we can target a specific
 toggle to activate for specific values by configuring a User List and adding our `newUserId`
@@ -305,4 +306,12 @@ export const UserActivation = () => {
 }
 
 ```
+
+Be sure to check out
+the [Activation Strategies](https://docs.getunleash.io/user_guide/activation_strategy) page on the
+Unleash documentation along
+with [GitLab's own docs](https://docs.gitlab.com/ee/operations/feature_flags.html) for its feature
+toggle offering and the activation strategy that are supported out of the box.
+
+With that we've now set up a React app to use a Gitlab feature flags!
 
