@@ -1,7 +1,7 @@
 import React from 'react';
 import { socials } from '../../data/urls';
 
-const { siteDescription } = require('../../data/metadata');
+import { siteDescription } from '../../data/metadata';
 
 interface JsonLinkedData {
   date: string;

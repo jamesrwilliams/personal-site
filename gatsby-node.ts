@@ -3,18 +3,21 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+import {GatsbyNode} from "gatsby";
+import PostInterface from "./src/models/PostInterface";
+import path from "path";
 
 const axios = require('axios');
 const crypto = require('crypto');
 const parser = require('xml2json');
 const _ = require("lodash")
 
-exports.createPages = async ({ actions, graphql }) => {
+export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
   /* Blog Post Pages */
-  const blogPostTemplate = require.resolve('./src/templates/BlogPostTemplate.tsx');
-  const { data } = await graphql(`
+  const blogPostTemplate = path.resolve('./src/templates/BlogPostTemplate.tsx');
+  const queryResponse = await graphql(`
     {
       posts: allMdx(limit: 1000, filter: {fileAbsolutePath: {regex: "/posts/"}}) {
         nodes {
@@ -38,17 +41,19 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  const posts = data.posts.nodes;
+  const posts: PostInterface[] = queryResponse.data.posts.nodes;
 
-  posts.forEach((post) => {
-    createPage({
-      path: `/posts/${post.slug}`,
-      component: blogPostTemplate,
-      context: {
-        ...post,
-      },
+  if(posts) {
+    posts.forEach((post) => {
+      createPage({
+        path: `/posts/${post.slug}`,
+        component: blogPostTemplate,
+        context: {
+          ...post,
+        },
+      });
     });
-  });
+  }
 
   const { createRedirect } = actions;
   createRedirect({
@@ -60,10 +65,11 @@ exports.createPages = async ({ actions, graphql }) => {
   /**
    * Create Tag Archive and singles
    */
-  const tagTemplate = require.resolve('./src/templates/Tags.tsx');
-  const tags = data.tagsGroup.group;
+  const tagTemplate = path.resolve('./src/templates/Tags.tsx');
+  // @ts-ignore
+  const tags = queryResponse.data.tagsGroup.group;
 
-  tags.forEach(tag => {
+  tags.forEach((tag: any) => {
     createPage({
       path: `posts/-/tags/${_.kebabCase(tag.fieldValue)}`,
       component: tagTemplate,
@@ -75,7 +81,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
 };
 
-exports.sourceNodes = async ({ actions }) => {
+export const sourceNodes: GatsbyNode["sourceNodes"] = async ({ actions }) => {
   const { createNode } = actions;
   const request = `https://www.goodreads.com/review/list/108722272.xml?key=${process.env.GOODREADS_KEY}&v=2&shelf=currently-reading&sort=date_updated`;
   const getCurrentBookFromGoodreads = () => axios.get(request);
