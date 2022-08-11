@@ -84,11 +84,15 @@ const GlobalStyles = createGlobalStyle`
   article {
     line-height: 1.7777778;
 
-    p {
+    p,
+    ul,
+    ol {
       margin-bottom: 1.3333333em;
       max-width: 65ch;
     }
   }
+
+  ol,ul {box-sizing: border-box;}
 
   thead {
     color: ${({theme}) => theme.headingColor};
