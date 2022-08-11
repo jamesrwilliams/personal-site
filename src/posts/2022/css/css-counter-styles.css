@@ -1,0 +1,29 @@
+#padded,
+#fruit,
+#fruit-cycle {
+  padding-left: 2rem;
+}
+
+/* Fruit Example */
+@counter-style fruit {
+  system: fixed;
+  symbols: "🍎" "🍊" "🍐";
+  suffix: " ";
+}
+
+#fruit { list-style: fruit; }
+
+@counter-style fruitCycle {
+  system: cyclic;
+  symbols: "🍎" "🍊" "🍐";
+  suffix: " ";
+}
+
+#fruit-cycle { list-style: fruitCycle; }
+
+/* Example #0 Leading/padded zeros */
+@counter-style padded {
+  system: extends decimal;
+  pad: 2 "0";
+}
+#padded { list-style: padded; }

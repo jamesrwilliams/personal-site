@@ -1,0 +1,109 @@
+---
+title: Custom list styles with the css @counter-style rule
+date: 2022-08-10
+tags: ['css']
+---
+
+import './css/css-counter-styles.css';
+
+You want emojis for your list markers? Well you got it with the `@counter-style` at-rule. On the
+surface it can be could be seen as a general expansion on the
+[`list-style-*`](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style) CSS property but
+it is so much more! While seemingly powerful, sadly it isn't ready for production systems just,
+yet it is in Editor's draft status with the W3C spec but no Safari support.
+
+**FYI - If you're using an iOS device or Safari - the examples below will probably not
+work as these features are not yet currently supported in either**
+
+At-rules are CSS statements that tells CSS how to behave, and this is just one of many you
+probably have heard of joining the likes of `@media`, `@font-face`, `@keyframes` and the many
+others. Here is a basic `@counter-style` rule that sets up an emoji fruit list element:
+
+```css{numberLines: 1}
+@counter-style fruit {
+  system: fixed;
+  symbols: "🍎" "🍊" "🍐";
+  suffix: " ";
+}
+
+#fruit { list-style: fruit; }
+```
+
+You can see on line 3 above we're providing a list of strings that will act as our list symbols:
+
+<ul id={"fruit"}>
+  <li>Apple</li>
+  <li>Orange</li>
+  <li>Pear</li>
+</ul>
+
+If you don't see it you're probably on an iOS device or using Safari. If not, note how we only
+have 3 options, what happens if we have a list that is longer? That is where the system comes
+into play, the above example used `fixed`, this says that we have a finite set of symbols and
+once they are exhausted, fallback to a default value, like so:
+
+<ul id={"fruit"}>
+  <li>Apple</li>
+  <li>Orange</li>
+  <li>Pear</li>
+  <li>Pineapple?</li>
+</ul>
+
+We can opt to use the `system: cyclic` property as well, our list will cycle through the values once
+it's reached the end. The astute amongst you might also notice we're using the `suffix`
+property here to add an extra space character as a spacer.
+
+<ul id={"fruit-cycle"}>
+  <li>Apple</li>
+  <li>Orange</li>
+  <li>Pear</li>
+  <li>Pineapple</li>
+  <li>Grape</li>
+  <li>Ancient Fruit</li>
+</ul>
+
+### Padding numbers with leading zeros
+
+Now the possibilities with this rule are vast. The first example use case that came to mind was a
+leading zero list. We can do this by using the `decimal` system and then extends it by adding
+padding.
+
+```css
+@counter-style padded {
+  system: extends decimal;
+  pad: 2 "0";
+}
+```
+
+Which then would show the following:
+
+<ol id={"padded"}>
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+</ol>
+
+This `pad` descriptor, is made up of two values. the first is the minimum length the marker
+should reach, in this example we want a minimum length of 2 characters. If the minimum is not
+met the value is padded with the second value, here a string "0". Now, you could do this with a
+pseudo-element like
+this [example Codepen](https://codepen.io/maddesigns/pen/JGQejg) but this actually hides the list
+marker and replaces it with the pseudo-element.
+
+There are a lot more properties and even more combinations properties you can specify
+here. One important one of note is the `speak-as` property, this instructs screen-readers how the
+value should be spoken. You can specify this as a word, number or as something like `numbers`.
+
+```css
+@counter-style fruit {
+  system: fixed;
+  symbols: "🍎" "🍊" "🍐";
+  suffix: " ";
+  speak-as: numbers;
+}
+```
+
+For the many other options, such as `negative` that specifies symbols when the counter value is
+infinitive, or `range` that allows you to define symbols for a range of values. For the
+many others I will leave the descriptions and explanation to the better technical writers of MDN:
+https://developer.mozilla.org/en-US/docs/Web/CSS/@counter-style
