@@ -1,4 +1,8 @@
-const { siteDescription } = require('./src/data/metadata');
+import path from "path";
+
+import { siteDescription } from './src/data/metadata';
+
+import type { GatsbyConfig } from "gatsby"
 
 require('dotenv').config({
   path: '.env',
@@ -33,7 +37,7 @@ function buildSourceCalls(name = 'posts') {
   return output;
 }
 
-module.exports = {
+const config: GatsbyConfig = {
   siteMetadata: {
     title: 'James R. Williams',
     siteUrl: 'https://jamesrwilliams.ca',
@@ -63,8 +67,8 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         defaultLayouts: {
-          posts: require.resolve('./src/templates/BlogPostTemplate.tsx'),
-          pages: require.resolve('./src/templates/MarkdownPage.tsx'),
+          posts: path.resolve('./src/templates/BlogPostTemplate.tsx'),
+          pages: path.resolve('./src/templates/MarkdownPage.tsx'),
         },
         gatsbyRemarkPlugins: [
           'gatsby-remark-code-titles',
@@ -215,3 +219,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
