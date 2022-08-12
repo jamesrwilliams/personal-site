@@ -29,7 +29,8 @@ others. Here is a basic `@counter-style` rule that sets up an emoji fruit list e
 #fruit { list-style: fruit; }
 ```
 
-You can see on line 3 above we're providing a list of strings that will act as our list symbols:
+You'll see we've declared a new list-style option called `fruit`. On line 3 above we're
+providing a list of strings that will act as our list marker symbols:
 
 <ul id={"fruit"}>
   <li>Apple</li>
@@ -37,10 +38,10 @@ You can see on line 3 above we're providing a list of strings that will act as o
   <li>Pear</li>
 </ul>
 
-If you don't see it you're probably on an iOS device or using Safari. If not, note how we only
-have 3 options, what happens if we have a list that is longer? That is where the system comes
-into play, the above example used `fixed`, this says that we have a finite set of symbols and
-once they are exhausted, fallback to a default value, like so:
+_If you don't see it you're probably on an iOS device or using Safari._ If you do see our fruity
+list, note how we only have 3 options, what happens if we have a list that is longer? That is
+where the system comes into play, the above example used `fixed`, this says that we have a
+finite set of symbols and once they are exhausted, fallback to a default value, like so:
 
 <ul id={"fruit"}>
   <li>Apple</li>
@@ -49,8 +50,8 @@ once they are exhausted, fallback to a default value, like so:
   <li>Pineapple?</li>
 </ul>
 
-We can opt to use the `system: cyclic` property as well, our list will cycle through the values once
-it's reached the end. The astute amongst you might also notice we're using the `suffix`
+We can change this to use the `system: cyclic` property as well, our list will cycle through the
+values once it's reached the end. The astute amongst you might also notice we're using the `suffix`
 property here to add an extra space character as a spacer.
 
 <ul id={"fruit-cycle"}>
