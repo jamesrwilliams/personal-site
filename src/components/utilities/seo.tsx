@@ -50,6 +50,10 @@ const SEO = ({
     description: defaultDescription, title: defaultTitle, twitter, author,
   } = site.siteMetadata;
 
+  const baseUrl = 'https://jamesrwilliams.ca';
+
+  const usedPath = path ? `${baseUrl}/${path}` : baseUrl;
+
   const usedTitle = title ? `${title} | ${defaultTitle}`: defaultTitle;
 
   const metaObject: metaObjectInterface = {
@@ -58,7 +62,7 @@ const SEO = ({
     'og:title': usedTitle,
     'og:description': defaultDescription,
     'og:type': 'website',
-    'og:url': 'https://jamesrwilliams.ca/',
+    'og:url': usedPath,
     'og:image': 'https://jamesrwilliams.ca/favicon.png',
     'twitter:card': 'summary',
     'twitter:creator': twitter,
@@ -82,7 +86,7 @@ const SEO = ({
   }
 
   if (path) {
-    metaObject['og:url'] = `https://jamesrwilliams.ca/${path}`;
+    metaObject['og:url'] = usedPath;
   }
 
   if (publishedTime) {
@@ -96,6 +100,9 @@ const SEO = ({
       htmlAttributes={{
         lang,
       }}
+      link={[
+        { rel: 'canonical', href: usedPath }
+      ]}
       title={title}
       defaultTitle={site.siteMetadata.title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}

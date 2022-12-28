@@ -35,17 +35,21 @@ const PostListItem = styled.li`
 
   h3 {
     margin-bottom: 0;
+    font-size: 1.25rem;
   }
-  span {
 
+  span {
+    font-size: .875rem;
+    color: #475569;
+    font-variant: tabular-nums;
   }
 `;
 
 export const PostPreview: React.FC<PostPreview> = ({ post }) => {
   return <PostListItem>
     <Link to={'/posts/' + post.slug}>
-      <h3 style={{ fontSize: '1.25rem' }}>{post.frontmatter.title}</h3>
-      <span style={{ fontSize: '.875rem', color: '#475569', fontVariant: 'tabular-nums' }}>{ post.frontmatter.dateReadable }</span>
+      <h3>{post.frontmatter.title}</h3>
+      <span>{ post.frontmatter.dateReadable }</span>
     </Link>
   </PostListItem>
 }

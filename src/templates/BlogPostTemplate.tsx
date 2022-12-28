@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { graphql } from 'gatsby';
-import Layout from '../components/layouts/Layout';
+import Layout from '../components/layout/Layout';
 import PageHeader from '../components/PageHeader/PageHeader';
 import SEO from '../components/utilities/seo';
 import Container from '../components/Container';

@@ -13,7 +13,11 @@ const Reading = () => {
     query {
       github {
         repository(name: "reading-list", owner: "jamesrwilliams") {
-          issues(first: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
+          issues(
+            first: 100
+            orderBy: {field: CREATED_AT, direction: DESC}
+            filterBy: {states: OPEN}
+          ) {
             nodes {
               number
               bodyHTML

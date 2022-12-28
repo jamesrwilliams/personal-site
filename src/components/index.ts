@@ -1,7 +1,7 @@
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import Hero from './Hero/Hero';
-import Layout from './layouts/Layout';
+import Layout from './layout/Layout';
 
 export {
   Footer,

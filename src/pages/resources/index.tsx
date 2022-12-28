@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Link from '../../components/Link/Link';
-import Layout from '../../components/layouts/Layout';
+import Layout from '../../components/layout/Layout';
 import SEO from '../../components/utilities/seo';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import Container from '../../components/Container';

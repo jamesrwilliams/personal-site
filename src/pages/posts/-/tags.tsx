@@ -22,7 +22,7 @@ const TagColumns = styled.ol`
 const TagsPage = ({ data }) => {
 
   // Sort our tags by their totalCount
-  const tags = data.allMdx.group.sort((a, b) => parseFloat(b.totalCount) - parseFloat(a.totalCount));
+  const tags = data.allMdx.group.sort((a: any, b: any) => parseFloat(b.totalCount) - parseFloat(a.totalCount));
 
   return (<Layout>
     <SEO title="Tags" />
