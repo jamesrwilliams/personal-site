@@ -17,7 +17,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
 
   /* Blog Post Pages */
   const blogPostTemplate = path.resolve('./src/templates/BlogPostTemplate.tsx');
-  const queryResponse = await graphql(`
+  const queryResponse: any = await graphql(`
     {
       posts: allMdx(limit: 1000, filter: {fileAbsolutePath: {regex: "/posts/"}}) {
         nodes {
@@ -104,6 +104,7 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async ({ actions }) => {
     parent: '__SOURCE__',
     internal: {
       type: 'BooksBeingRead',
+      contentDigest: '',
     },
     children: [],
     year: book.publication_year,
@@ -122,4 +123,30 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = async ({ actions }) => {
     .digest('hex');
 
   createNode(bookNode);
+
+  // Create carbonFootprint
+  const carbonRequest = 'https://api.websitecarbon.com/site?url=https://jamesrwilliams.ca';
+  const carbonFootprintResponse = await axios.get(carbonRequest);
+
+  if(carbonFootprintResponse.data) {
+
+    const carbonFootprintData = carbonFootprintResponse.data;
+
+    const carbonNode = {
+      id: 'carbonFootprint',
+      parent: '__SOURCE__',
+      internal: {
+        type: 'CarbonFootprint',
+      },
+      children: [],
+      ...carbonFootprintData
+    };
+
+    carbonNode.internal.contentDigest = crypto
+      .createHash('md5')
+      .update(JSON.stringify(carbonNode))
+      .digest('hex');
+
+    createNode(carbonNode);
+  }
 };

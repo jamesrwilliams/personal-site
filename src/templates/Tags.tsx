@@ -4,11 +4,11 @@ import {PostList} from "../components/PostPreview";
 import Container from "../components/Container";
 import PageHeader from "../components/PageHeader/PageHeader";
 import SEO from "../components/utilities/seo";
-import Layout from "../components/layouts/Layout";
+import Layout from "../components/layout/Layout";
 import {getTagLink} from "../components/utilities";
 import {BiArrowBack} from "react-icons/all";
 
-const TagsPage = ({pageContext, data}) => {
+const TagsPage = ({pageContext, data}: any) => {
 
   const {tag} = pageContext;
   const {nodes, totalCount} = data.allMdx;
@@ -19,7 +19,9 @@ const TagsPage = ({pageContext, data}) => {
     <main>
       <PageHeader title={tagHeader}>
         <br/>
-        <Link to={getTagLink()}><BiArrowBack /> View all tags</Link>
+        <Link to={getTagLink()}>
+          <BiArrowBack /> View all tags
+        </Link>
       </PageHeader>
       <Container>
         <PostList posts={nodes}/>

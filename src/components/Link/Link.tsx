@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { InternalLinkButton, ExternalLinkButton } from './_buttons';
 import { accentLinkColor } from '../../theme/variables';
 
-interface LinkProps {
-  type?: 'button' | 'link';
-  children: React.ReactNode;
+interface LinkProps extends PropsWithChildren {
   to: string;
+  type?: 'button' | 'link';
 }
 
 const ExternalLink = styled(OutboundLink)`
@@ -22,9 +21,7 @@ const StyledInternalLink = styled(GatsbyLink)`
   text-decoration: none;
 `;
 
-const Link = ({
-  type, to, children, ...props
-}: LinkProps) => {
+const Link: FC<LinkProps> = ({type, to, children, ...props}: LinkProps) => {
   const external = (to.indexOf('http://') === 0 || to.indexOf('https://') === 0);
 
   if (external) {

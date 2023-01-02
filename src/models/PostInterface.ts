@@ -1,4 +1,3 @@
-/* eslint semi: 0 */
 export default interface PostInterface {
   slug: string;
   body?: string;

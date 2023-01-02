@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, TrailBlazer, Twitter,
+  GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, TrailBlazer, Twitter, CodePen,
 } from '../social/Social';
 import { mediaQuery } from '../../theme/variables';
+import {HipHipArray} from "../HipHipArray/HipHipArray";
 
 const socialLinks = [
   <GitHub />,
   <LinkedIn />,
   <Twitter />,
   <Instagram />,
+  <CodePen />,
   <Pluralsight />,
   <HackerRank />,
   <StackOverflow />,
@@ -83,7 +85,7 @@ const Footer: React.FC = () => (
         </span>
         <HipHipArray />
       </FooterMeta>
-      <Spacer />
+      <span style={{ flexGrow: 1 }} />
       <SocialFooterNav>
         { socialLinks.map((SocialLink) => (
           <SocialFooterNavIconWrapper key={SocialLink.type}>
@@ -96,11 +98,3 @@ const Footer: React.FC = () => (
 );
 
 export default Footer;
-
-const HipHipArray: React.FC = () => (
-  <code style={{ alignSelf: 'center', opacity: '.5', marginLeft: '1rem' }} role="img" aria-label="Hip Hip Array..." title="Hip Hip Array...">
-    [&apos;hip&apos;,&apos;hip&apos;]
-  </code>
-);
-
-export const Spacer = () => <span style={{ flexGrow: 1 }} />;

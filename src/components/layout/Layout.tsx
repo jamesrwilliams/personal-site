@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC, PropsWithChildren} from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
@@ -10,16 +10,12 @@ import ThemeContext from '../../context/ThemeContext';
 
 import { themes } from '../../theme/themes';
 
-interface LayoutProps {
-    children: React.ReactNode,
-}
-
 const LayoutContainer = styled.div`
   padding: 0;
   height: 100%;
 `;
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
   const data = useStaticQuery(graphql`
       query SiteTitleQuery {
           site {

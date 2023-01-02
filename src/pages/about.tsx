@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../components/layouts/Layout';
+import Layout from '../components/layout/Layout';
 import SEO from '../components/utilities/seo';
 import PageHeader from '../components/PageHeader/PageHeader';
 import Link from '../components/Link/Link';
@@ -9,13 +9,14 @@ import { linkedInUrl, resumeUrl } from '../data/urls';
 import PostContent from '../components/utilities/PostContent';
 import {YearsActive} from "../components/utilities/YearsActive";
 import {CurrentlyReading} from "../components/CurrentlyReading";
+import { CarbonFootprint } from '../components/CarbonFootprint';
 
 const AboutPage = () => {
   const siteRepoLink = 'https://github.com/jamesrwilliams/personal-site';
 
   return (
     <Layout>
-      <SEO title="About me" />
+      <SEO title="About me" path={'posts'} />
       <main>
         <PageHeader title="A little about me" />
         <Container>
@@ -81,6 +82,8 @@ const AboutPage = () => {
               design. All deployed via <Link to={"https://www.netlify.com/"}>Netlify</Link> from
               its home on <Link to={siteRepoLink}>GitHub</Link>.
             </p>
+
+            <CarbonFootprint />
 
             <h2 id={"reading"}>Currently reading</h2>
 

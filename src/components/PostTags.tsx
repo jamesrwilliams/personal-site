@@ -1,6 +1,6 @@
 import Link from "./Link/Link";
 import {getTagLink} from "./utilities";
-import React from "react";
+import React, { FC } from "react";
 import { BsTagsFill } from "react-icons/bs";
 import _ from "lodash";
 import styled from "styled-components";
@@ -26,11 +26,11 @@ const PostTagsWrapper = styled.span`
   }
 `;
 
+export const PostTags: FC<{ tags: string[] }> = ({ tags }) => {
 
-// @ts-ignore
-export const PostTags = ({ tags }) => {
-
-  if(!tags) return <></>;
+  if(!tags) {
+    return <></>;
+  }
 
   return (
     <PostTagsWrapper>

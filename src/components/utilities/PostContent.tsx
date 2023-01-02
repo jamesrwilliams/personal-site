@@ -56,7 +56,7 @@ const PostContent = styled.div`
 
   figcaption {
     font-size: 90%;
-    font-style: italic;e
+    font-style: italic;
     border-bottom-right-radius: 0.375rem;
     border-bottom-left-radius: 0.375rem;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Link } from 'gatsby';
-import Layout from '../components/layouts/Layout';
+import Layout from '../components/layout/Layout';
 import SEO from '../components/utilities/seo';
 import styled from "styled-components";
 const FourOhFourCard = styled.div`
