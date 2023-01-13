@@ -9,19 +9,19 @@ React application that uses Salesforce Commerce Cloud as a quasi-headless CMS. W
 Designer to provide our React app with a JSON representation of our pages set up in the Page 
 Designer GUI. 
 
-Sadly with this approach, we've lost a few of the powerful features of Page 
-Designer, one of those being the drag-and-drop and click to edit features. However, this turned out
-to be merely an implementation issue, and is very salvageable with some minor, quite straight 
-forward changes.
+Sadly with this approach, we've lost a powerful feature of Page Designer, that being the 
+drag-and-drop / click to edit features. However, this turned out to be merely an implementation 
+issue, and is very salvageable with some minor, quite straight forward changes.
 
 That being said, I am not aware of any documentation around this drag-and-drop behavior, and the 
 following is purely based on my experience, digging through the SFRA pages in Page Designer, coupled
-with a lot of trial and error.
+with a lot of trial and error. Tread carefully...
 
 ## Some sample data
 
-With just a few new HTML data attributes on our components and regions we have this working again. 
-Let's walk through the required code, using this sample serialized page structure as an example:
+I've found to get this working again we need a few new HTML data attributes on our components and
+regions we have this working again. Let's walk through the required code, using this sample 
+serialized page structure as an example:
 
 ```json:title=serialized-page.json
 {

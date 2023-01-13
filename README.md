@@ -23,6 +23,12 @@ as our highlighting engine for Markdown.
 
 ### Line Numbers
 
+Highlighting lines can be done like so:
+
+```markdown
+```js{1,4-6}
+```
+
 Line numbers can be added using: 
 
 ```markdown
