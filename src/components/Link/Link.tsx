@@ -4,7 +4,6 @@ import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { InternalLinkButton, ExternalLinkButton } from './_buttons';
-import { accentLinkColor } from '../../theme/variables';
 
 interface LinkProps extends PropsWithChildren {
   to: string;
@@ -12,12 +11,12 @@ interface LinkProps extends PropsWithChildren {
 }
 
 const ExternalLink = styled(OutboundLink)`
-  color: ${accentLinkColor};
+  color: var(--brand-accentLinkColor);
   text-decoration: none;
 `;
 
 const StyledInternalLink = styled(GatsbyLink)`
-  color: ${accentLinkColor};
+  color: var(--brand-accentLinkColor);
   text-decoration: none;
 `;
 

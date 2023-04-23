@@ -7,9 +7,8 @@ export const HeroWrapper = styled.div`
   font-weight: 200;
   height: calc(100vh - 85px);
   display: flex;
-  color: ${({theme}) => theme.headingColor};
+  color: var(--typography-primary);
   align-items: center;
-  background: ${({theme}) => theme.hero.background};
 
   @media screen and ${mediaQuery.minMd} {
     height: calc(100vh - 55px);

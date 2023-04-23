@@ -19,8 +19,8 @@ const socialLinks = [
 ];
 
 const FooterElement = styled.footer`
-  background: ${({theme}) => theme.footer.background};
-  color: ${({theme}) => theme.footer.color};
+  background: var(--brand-darker);
+  color: var(--typography-link-color);
   position: relative;
 
   &:after {
@@ -30,7 +30,7 @@ const FooterElement = styled.footer`
     left: 0;
     right: 0;
     display: block;
-    background: ${({theme}) => theme.textGradient};
+    background: var(--text-gradient);
     height: 4px;
   }
 `;

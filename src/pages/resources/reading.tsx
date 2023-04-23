@@ -5,7 +5,7 @@ import PageHeader from '../../components/PageHeader/PageHeader';
 import Container from '../../components/Container';
 import SEO from '../../components/utilities/seo';
 import Link from '../../components/Link/Link';
-import { ReadingListEntry } from '../../models/ReadingListEntry';
+import { ReadingListEntryInterface } from '../../types/ReadingListEntry.interface';
 import PostContent from "../../components/utilities/PostContent";
 
 const Reading = () => {
@@ -55,7 +55,7 @@ const Reading = () => {
             </tr>
           </thead>
           <tbody>
-            { issues.map((entry: ReadingListEntry, index: number) => {
+            { issues.map((entry: ReadingListEntryInterface, index: number) => {
               const { number, title, createdAt, bodyHTML } = entry;
 
               return (

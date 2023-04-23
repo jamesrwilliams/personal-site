@@ -11,12 +11,12 @@ const PostTagsWrapper = styled.span`
 
   a,
   a:link {
-    color: ${({theme}) => theme.textColor};
+    color: var(--typography-secondary);
     margin-right: 1rem;
   }
 
   a:hover {
-    color: ${({theme}) => theme.headingColor};
+    color: var(--typography-primary);
   }
 
   span {

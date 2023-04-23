@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
-import {accentPrimary, animationTiming, mediaQuery, primaryBlue} from '../../theme/variables';
+import {mediaQuery} from '../../theme/variables';
 import Container from '../Container';
-import { ThemeToggle } from '../ThemeToggle';
 import { GitHub, LinkedIn } from "../social/Social";
 import {BiMenu} from "react-icons/all";
 
 const HeaderContainer = styled.header<{ open: boolean }>`
-  background: ${primaryBlue};
+  background: var(--brand-primaryBlue);
   position: fixed;
   color: #fff;
   z-index: 600;
@@ -17,7 +16,7 @@ const HeaderContainer = styled.header<{ open: boolean }>`
   font-size: 14px;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  transition: all .3s ${animationTiming};
+  transition: all .3s var(--animation-timing);
   max-height: 58px;
 
   a:link,
@@ -86,7 +85,7 @@ const PrimaryNav = styled.nav<{ open: boolean }>`
   pointer-events: ${(props) => (props.open ? 'all' : 'none')};
   flex-grow: 1;
   position: absolute;
-  transition: all 0.3s ${animationTiming};
+  transition: all 0.3s var(--animation-timing);
   z-index: 500;
   width: 100%;
   margin: 0;
@@ -95,7 +94,7 @@ const PrimaryNav = styled.nav<{ open: boolean }>`
   max-width: 100%;
   bottom: 0;
   left: 0;
-  background: ${accentPrimary};
+  background: var(--brand-accentPrimary);
 
   ${(props) => props.open && css`
     transform: translateY(100%);
@@ -168,7 +167,6 @@ const Header = () => {
           </div>
         </PrimaryNavLink>
         <CollapsableNavigation>
-          <ThemeToggle />
           <HeaderToggleButton aria-label={"Toggle theme"} open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
             <BiMenu size={'2rem'} />
           </HeaderToggleButton>

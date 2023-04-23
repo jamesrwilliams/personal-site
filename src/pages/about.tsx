@@ -8,7 +8,6 @@ import { ProfessionalExperienceTimeline } from '../components/ProfessionalExperi
 import { linkedInUrl, resumeUrl } from '../data/urls';
 import PostContent from '../components/utilities/PostContent';
 import {YearsActive} from "../components/utilities/YearsActive";
-import {CurrentlyReading} from "../components/CurrentlyReading";
 import { CarbonFootprint } from '../components/CarbonFootprint';
 
 const AboutPage = () => {
@@ -90,7 +89,7 @@ const AboutPage = () => {
             <p>
               To keep track of the books I am reading
               with <Link to="https://www.goodreads.com/review/list/108722272?shelf=read&sort=date_read">Goodreads</Link>
-              . I&apos;m currently reading <CurrentlyReading />.
+              .
             </p>
             <p>
               I also keep a list of all the blog posts I've found and have read which you can see on

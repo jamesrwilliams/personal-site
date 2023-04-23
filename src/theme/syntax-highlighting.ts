@@ -65,12 +65,12 @@ const syntaxHighlighting = css`
   :not(pre) > code[class*="language-"] {
     white-space: normal;
     border-radius: .2em;
-    color: ${({theme}) => theme.inlineCodeTextColor};
+    color: var(--typography-code-color);
     font-weight: 400;
     font-size: 85%;
     overflow-wrap: break-word;
     padding: .125rem .25rem !important;
-    background: ${({theme}) => theme.inlineCodeBackground};
+    background: var(--typography-code-background);
   }
 
   :not(pre) > code[class*="language-"]::selection {

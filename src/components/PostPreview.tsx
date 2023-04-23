@@ -1,5 +1,5 @@
 import React from "react";
-import PostInterface from "../models/PostInterface";
+import PostInterface from "../types/Post.interface";
 import {Link} from "gatsby";
 import styled from "styled-components";
 

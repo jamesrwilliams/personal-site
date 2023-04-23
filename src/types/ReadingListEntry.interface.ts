@@ -1,4 +1,4 @@
-export interface ReadingListEntry {
+export interface ReadingListEntryInterface {
   number: number;
   title: string;
   bodyHTML: string;

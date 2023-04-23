@@ -1,10 +1,9 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import styled from 'styled-components';
-import { accentPrimary } from '../../theme/variables';
 
 const StyledOutboundLink = styled(OutboundLink)`
-  color: ${accentPrimary};
+  color: var(--brand-accentPrimary);
   text-decoration: none;
 `;
 

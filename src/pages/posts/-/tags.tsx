@@ -29,6 +29,7 @@ const TagsPage = ({ data }) => {
     <main>
       <PageHeader title="Tags" />
       <Container>
+        <p>All tags</p>
         <TagColumns>
         { tags.map((tag: PostTag) => (
           <li><Link to={getTagLink(tag.fieldValue)}>

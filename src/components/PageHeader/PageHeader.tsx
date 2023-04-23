@@ -6,10 +6,10 @@ import {textGradient} from "../../theme/variables";
 
 const PageWrapper = styled.aside`
   padding: 2rem 0 1rem;
-  color: ${(props) => props.theme.headingColor};
+  color: var(--typography-primary);
   position: relative;
   margin-bottom: 0;
-  background: ${(props) => props.theme.pageHeaderBackground};
+  background: var(--brand-darker);
 
   a {
     text-decoration: underline;
@@ -64,7 +64,7 @@ const PageMetaWrapper = styled.div`
   margin-top: 5px;
   display: inline-block;
   opacity: .5;
-  color: ${(props) => props.theme.headingColor};
+  color: var(--typography-primary);
 `;
 
 const ReadingTime = ({ timeToRead }: {timeToRead: Number}) => {

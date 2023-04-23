@@ -4,9 +4,29 @@ import footnoteStyles from './partials/footnotes';
 
 const GlobalStyles = createGlobalStyle`
 
+  :root {
+    --animation-timing: cubic-bezier(.645,.045,.355,1);
+    --brand-accentLinkColor: #016eaa;
+    --brand-accentPrimary: #0ba7fd;
+    --brand-accentSecondary: #01d8d1;
+    --brand-darker: #031C33;
+    --brand-primary: #031C33;
+    --brand-primaryBlue: #021526;
+    --brand-secondaryBlue: #021220;
+    --divider-color: #0005;
+    --text-color: #171717;
+    --text-gradient: linear-gradient(-45deg, #0ba7fd, #01d8d1);
+    --typography-blockquote-background: #0002;
+    --typography-code-background: #263238;
+    --typography-code-color: #eee;
+    --typography-link-color: #fff;
+    --typography-primary: #edf2f7;
+    --typography-secondary: #A0AEC0;
+    --typography-visited-link-color: #fff5;
+  }
+
   * {
     text-rendering: optimizeLegibility;
-    transition: all .7s ease;
   }
 
   html,
@@ -31,26 +51,26 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     margin: 0;
-    background: ${({theme}) => theme.pageBackground};
-    color: ${({theme}) => theme.textColor};
-    transition: background-color 1s ease;
+    background: var(--brand-darker);
+    color: var(--typography-secondary);
     font-size: 16px;
   }
 
   main {
-    border-top: 4rem solid ${({theme}) => theme.navigation.overscroll};
+    border-top: 4rem solid var(--brand-primary);
     margin-bottom: 2rem;
     min-height: calc(100vh - 145px);
   }
 
   a,
   a:link {
-    color: ${({theme}) => theme.link.regular};
+    color: var(--typography-link-color);
     text-decoration: none;
+    word-break: break-all;
   }
 
   a:visited {
-    color: ${({theme}) => theme.link.visited}
+    color: var(--typography-visited-link-color);
   }
 
   // Partials
@@ -95,10 +115,10 @@ const GlobalStyles = createGlobalStyle`
   ol,ul {box-sizing: border-box;}
 
   thead {
-    color: ${({theme}) => theme.headingColor};
+    color: var(--typography-primary);
     font-weight: 600;
     border-bottom-width: 1px;
-    border-bottom-color: ${({theme}) => theme.dividerColor};
+    border-bottom-color: var(--divider-color);
     border-bottom-style: solid;
   }
 
@@ -113,7 +133,7 @@ const GlobalStyles = createGlobalStyle`
 
   tbody tr {
     border-bottom-width: 1px;
-    border-bottom-color: ${({theme}) => theme.dividerColor};
+    border-bottom-color: var(--divider-color);
     border-bottom-style: solid;
   }
 
@@ -127,7 +147,7 @@ const GlobalStyles = createGlobalStyle`
   hr {
     margin-top: 3.1111111em;
     margin-bottom: 3.1111111em;
-    border: 0 solid ${({theme}) => theme.dividerColor};
+    border: 0 solid var(--divider-color);
     border-top-width: 1px;
     height: 0;
   }
@@ -137,7 +157,7 @@ const GlobalStyles = createGlobalStyle`
     border-bottom-right-radius: 4px;
     margin: 0;
     line-height: 1.5;
-    color: ${({theme}) => theme.headingColor};
+    color: var(--typography-primary);
     font-size: 110%;
     position: relative;
     padding: 0 1rem;
@@ -150,7 +170,7 @@ const GlobalStyles = createGlobalStyle`
       top: 0;
       width: 2px;
       bottom: 0;
-      background: ${({theme}) => theme.textGradient};
+      background: var(--text-gradient);
     }
 
     > *:first-child { margin-top: 0; }
@@ -163,7 +183,7 @@ const GlobalStyles = createGlobalStyle`
 
   details summary {
     cursor: pointer;
-    color: ${({theme}) => theme.headingColor};
+    color: var(--typography-primary);
   }
 
   figure > .mermaid {
@@ -175,7 +195,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   svg[id^=mermaid] {
-    background: ${({theme}) => theme.blockquoteBackground};
+    background: var(--typography-blockquote-background);
 
     &:not(> figure) {
       padding: 1rem 0;
@@ -183,16 +203,16 @@ const GlobalStyles = createGlobalStyle`
     }
 
     rect.actor {
-      fill: ${({theme}) => theme.pageBackground} !important;
+      fill: var(--brand-darker);
     }
 
     text.actor tspan {
       font-family: sans-serif;
-      fill: ${({theme}) => theme.textColor} !important;
+      fill: var(--typography-secondary) !important;
     }
 
     text.messageText {
-      fill: ${({theme}) => theme.textColor} !important;
+      fill: var(--typography-secondary) !important;
       stroke: none !important;
     }
   }

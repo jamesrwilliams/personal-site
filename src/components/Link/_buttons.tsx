@@ -1,10 +1,9 @@
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
-import { accentPrimary, primaryBlue } from '../../theme/variables';
 
 const buttonStyles = css`
-  background: ${primaryBlue};
+  background: var(--brand-primaryBlue);
   color: #fff;
   padding: 8px 15px;
   font-size: 14px;
@@ -14,8 +13,8 @@ const buttonStyles = css`
   text-decoration: none;
 
   &:hover {
-    border-color: ${accentPrimary};
-    color: ${accentPrimary};
+    border-color: var(--brand-accentPrimary);
+    color: var(--brand-accentPrimary);
   }
 `;
 

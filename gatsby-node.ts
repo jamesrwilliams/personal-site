@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 import {GatsbyNode} from "gatsby";
-import PostInterface from "./src/models/PostInterface";
+import PostInterface from "./src/types/Post.interface";
 import path from "path";
 
 const axios = require('axios');
@@ -83,46 +83,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
 
 export const sourceNodes: GatsbyNode["sourceNodes"] = async ({ actions }) => {
   const { createNode } = actions;
-  const request = `https://www.goodreads.com/review/list/108722272.xml?key=${process.env.GOODREADS_KEY}&v=2&shelf=currently-reading&sort=date_updated`;
-  const getCurrentBookFromGoodreads = () => axios.get(request);
-  const res = await getCurrentBookFromGoodreads();
-
-  const { GoodreadsResponse } = parser.toJson(res.data, { object: true });
-
-  let book;
-
-  if (GoodreadsResponse.reviews.total === '1') {
-    book = GoodreadsResponse.reviews.review.book;
-  } else {
-    book = GoodreadsResponse.reviews.review[0].book;
-  }
-
-  const { name, link } = book.authors.author;
-
-  const bookNode = {
-    id: book.isbn13,
-    parent: '__SOURCE__',
-    internal: {
-      type: 'BooksBeingRead',
-      contentDigest: '',
-    },
-    children: [],
-    year: book.publication_year,
-    title: book.title,
-    link: book.link,
-    author: {
-      name,
-      link,
-    },
-    description: book.description,
-  };
-
-  bookNode.internal.contentDigest = crypto
-    .createHash('md5')
-    .update(JSON.stringify(bookNode))
-    .digest('hex');
-
-  createNode(bookNode);
 
   // Create carbonFootprint
   const carbonRequest = 'https://api.websitecarbon.com/site?url=https://jamesrwilliams.ca';

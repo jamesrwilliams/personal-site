@@ -13,7 +13,7 @@ const FourOhFourCard = styled.div`
   &:after {
     content: '';
     display: block;
-    background: ${({theme}) => theme.textGradient};
+    background: var(--text-gradient);
     border-radius: 5px;
     position: absolute;
     top: -1px;
@@ -25,11 +25,11 @@ const FourOhFourCard = styled.div`
   .inner {
     position: relative;
     z-index: 50;
-    background: ${({theme}) => theme.pageBackground};
+    background: var(--brand-darker);
     padding: 1rem;
     border-radius: 5px;
     font-size: 14px;
-    color: ${({theme}) => theme.headingColor};
+    color: var(--typography-primary);
 
     @media screen and ${mediaQuery.minMd} {
       font-size: 16px;
