@@ -76,13 +76,10 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-remark-mermaid',
             options: {
               language: 'mermaid',
-              currentTheme: 'neutral',
+              currentTheme: 'dark',
               viewport: {
                 width: 840,
                 height: 400,
-              },
-              mermaidOptions: {
-                fontSize: 12,
               },
             },
           },

@@ -1,5 +1,5 @@
 ---
-title: Salesforce Commerce Cloud - Using React in Custom Attribute Editors
+title: Salesforce Commerce Cloud - React powered Custom Attribute Editors
 date: 2023-04-23
 tags: ['salesforce', 'salesforce-commerce-cloud', 'sfcc-with-react']
 ---
@@ -17,36 +17,35 @@ tags: ['salesforce', 'salesforce-commerce-cloud', 'sfcc-with-react']
     * [1.4 - Custom editor client script](#14---custom-editor-client-script)
     * [1.5 - Talking to Page Designer](#15---talking-to-page-designer)
     * [1.6 - Review](#16---review)
-  * [2.0 - Add a React app to the mix](#20---add-a-react-app-to-the-mix)
+  * [2.0 - Adding React to the mix](#20---adding-react-to-the-mix)
     * [2.1 - Required files](#21---required-files)
     * [2.2 - Basic SFCC events](#22---basic-sfcc-events)
   * [3.0 - One React App, many custom editors](#30---one-react-app-many-custom-editors)
-    * [Add React Router](#add-react-router)
+    * [3.1 - Passing configuration into the app](#31---passing-configuration-into-the-app)
+    * [3.1 - Add React Router](#31---add-react-router)
+    * [3.2 - SFCC Event Client](#32---sfcc-event-client)
   * [4.0 - Adding support for breakout editors](#40---adding-support-for-breakout-editors)
     * [4.1 - Second round of editor definition files](#41---second-round-of-editor-definition-files)
-    * [4.2 - Abstracting page designer events](#42---abstracting-page-designer-events)
-  * [Half way pit-stop](#half-way-pit-stop)
   * [Resources](#resources)
 <!-- TOC -->
-
 ## Introduction
 
-Salesforce Commerce Cloud offers a lot of data (attribute) types and corresponding UI controls, but
-sometimes you need something different. Maybe a little extra validation or a particular input UI to
-really make the user experience great. 
+Salesforce Commerce Cloud offers a lot of data types and corresponding UI controls for their custom
+attributes, but sometimes you need something different. Maybe a little extra validation or a 
+particular input UI to really make the user experience great. 
 
 This is where the Custom Attribute Editor feature really shines. These custom editors gives you fine
 grain control over the UI input and behavior for a particular attribute, and even lets you save JSON
 as an attribute value. 
 
-It does this by allowing you to build a custom form with HTML/CSS/Javascript 
-to interact with a particular attribute value via an iFrame embedded directly in the Page Designer 
-interface. Normally these Custom Attribute Editors are plain HTML/CSS/JS forms however there are 
-some scenarios when it may be beneficial to use a small React app to power these editor experiences.
+It does this by allowing you to build a custom form with HTML/CSS/Javascript to interact with a 
+particular attribute value via an iFrame embedded directly in the Page Designer interface. Normally
+these Custom Attribute Editors are plain HTML/CSS/JS forms however there are some scenarios when it
+may be beneficial to use a small React app to power these editor experiences.
 
 We're going to break this guide down into a few sections and tackle each task one at a time:
 
-1. Register a plain custom attribute editor
+1. Register a regular custom attribute editor
 2. Add our React app
 3. Expanding our app to support any number of editors
 4. Adding support for breakout editors
@@ -74,13 +73,16 @@ manager extensions, in which Custom Attribute Editors fall, so let's create one.
 
 To get us started we are going to need a few files.
 
-Let's start by setting up a debug component we can use to see things working as we're building this out.
+Let's start by setting up a debug component we can use to see things working as we're building this 
+out.
 
 In our new cartridge lets create two new files in the following locations:
 
 ```js:title=app_custom_bm_extensions/cartridge/cartridge/experience/components/customAttributeEditor.js
-// Placeholder
+// Placeholder - No extra content at the moment.
 ```
+
+Next up the component meta definition JSON file:
 
 ```json:title=app_custom_bm_extensions/cartridge/experience/components/customAttributeEditor.json
 {
@@ -147,7 +149,7 @@ some supplementary information but most importantly we are adding a reference to
 ```
 
 With our meda definition file created lets move on to the Custom Attribute Editor script file. The
-script file has the same name as the corresponding meta definition file but with a .js extension. 
+script file has the same name as the corresponding meta definition file but with a `.js` extension. 
 In the script file, you can optionally implement the init function to initialize the custom 
 attribute editor with server-side logic or resources.
 
@@ -172,22 +174,22 @@ module.exports.init = function (editor) {
 
 ### 1.4 - Custom editor client script
 
-Our last step for part 1 is to create the `customEditorClient.js` file we added to the resources
-of our custom attribute editor definition JSON file. This file is inserted into the iFrame of our 
-custom attribute editor in page designer and is the one where lifecycle events are emitted to
-Page Designer in order to communicate interactions and updates to the values.
+Our last step for Part 1 is to create the `customEditorClient.js` file we added to the resources
+of our custom attribute editor definition JSON file. 
+
+This file is inserted into the iFrame of our custom attribute editor in page designer and is the one
+where lifecycle events are emitted to Page Designer in order to communicate interactions and updates
+to the values.
 
 Note the change in file path here as this file needs to live in the `static` directory and not the 
 experience directories like our previous files.
 
-Typically, this is where we add an HTML form (via Javascript) to edit our attribute and report back.
+Typically, this is where we add an HTML form (via JavaScript) to edit our attribute and report back.
 For now lets just use the basic scaffold to ensure everything is wired up:
 
 ```js:title=app_custom_bm_extensions/cartridge/static/default/experience/editors/com/acme/customEditorClient.js
 () => {
-  subscribe('sfcc:ready', async (
-    {value, config, isDisabled, isRequired, dataLocale, displayLocale}
-  ) => {
+  subscribe('sfcc:ready', async () => {
     console.log('sfcc:ready', dataLocale, displayLocale, value, config);
     let tempElement = document.createElement('h1');
     tempElement.innerText='Hello from customEditorClient.js';
@@ -203,21 +205,26 @@ emitted the callback function is executed, this even is one of a series of "Cust
 Events". There are a series of other events that we can use to communicate with Page Designer to
 emit events and instruct it to do certain things.
 
-- `sfcc:interacted` - Indicates that the user has interacted with the custom attribute editor.
-- `sfcc:valid` - Indicates whether the value of the attribute is valid. Can include an error message.
-- `sfcc:value`- The value of the attribute. Sent when the value changes inside the editor.
+| Event             | Description                                                                          |
+|-------------------|--------------------------------------------------------------------------------------|
+| `sfcc:interacted` | Indicates that the user has interacted with the custom attribute editor.             |
+| `sfcc:valid`      | Indicates whether the value of the attribute is valid. Can include an error message. |
+| `sfcc:value`      | The value of the attribute. Sent when the value changes inside the editor.           |
+
+You can
+find full information and examples for each of these in the SFCC documentation site
+for ["Custom Attribute Editor Events"](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_host_events_custom_attr_editor.html).
 
 We can transmit these events to Page Designer by using the `window.emit` function and will be using 
-them when we start adding our React app, however for now keep these in your back pocket. You can
-find full information and examples for each of these in the SFCC docs page 
-for ["Custom Attribute Editor Events"](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_host_events_custom_attr_editor.html). 
+them in a moment after we add our React app, however for now keep these in your back 
+pocket.
 
 ### 1.6 - Review
 
 Now clicking on our `Custom Attribute Editor` component we added to Page Designer we should see our
 custom attribute editor and in the place of a textarea component we saw earlier we should now see a
 `<h1 />` saying `Hello from customEditorClient.js` and in the browser console we should see the
-"sfcc:ready" message.
+`"sfcc:ready"` message.
 
 ![](./images/react-custom-attribute-editors/custom-attribute-editor-registered.png)
 
@@ -246,9 +253,9 @@ app_custom_bm_extensions
                             └── customEditorClient.js
 ```
 
-## 2.0 - Add a React app to the mix
+## 2.0 - Adding React to the mix
 
-Now we have our vanilla custom attribute editor we can move on to replacing it with a React app! We
+Now we have our plain custom attribute editor we can move on to replacing it with a React app! We
 will assume you've got a React app ready to go for this, if not check out 
 the [create-react-app](https://create-react-app.dev/docs/getting-started) tutorial.
 
@@ -266,17 +273,18 @@ If you're looking to keep the React app source code close to the cartridge code 
 using something like [NX](https://nx.dev) to manage your mono-repo.
 
 I use NX and one of the things I've setup for my NX build is disabled the usual cache busting hashes
-present in the file names along with removing chunks. This leaves me with four JS files for the 
-whole of my React app:
+present in the file names along with removing chunks. This leaves me with four JS files and one CSS
+for the whole of my React app:
 
-- `vendor.js`
-- `polyfills.js`
-- `main.js`
-- `runtime.js`
+1. `vendor.js`
+2. `polyfills.js`
+3. `main.js`
+4. `runtime.js`
+5. `styles.css`
 
 Now we have our `dist` files we can update the `cusotmEditorClient.js` code (the file SFCC initially
-loads into our iFrame) to inject our React app. We can do this by replacing the JavaScript we added
-as part of step 1.4 with the following:
+loads into our iFrame that we added in step 1.4) to inject our React app. We can do this by 
+replacing the JavaScript with the following:
 
 ```js:title=app_custom_bm_extensions/cartridge/static/default/experience/editors/com/acme/customEditorClient.js
 (() => {
@@ -286,20 +294,7 @@ as part of step 1.4 with the following:
    *
    * @see https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_host_events_custom_attr_editor.html
    */
-  subscribe('sfcc:ready', async ({ value, config, isDisabled, isRequired, dataLocale, displayLocale }) => {
-
-    /**
-     * Attach the existing value (if available) for the component and some other
-     * data for the React app to consume later.
-     */
-    window.amce = {
-      originalValue: value,
-      config,
-      isDisabled,
-      isRequired,
-      dataLocale,
-      displayLocale,
-    }
+  subscribe('sfcc:ready', async () => {
 
     // This is the path to the editor app's dist assets in our static/default directory.
     const EDITOR_APP_PATH = 'apps/custom-editors/';
@@ -374,7 +369,8 @@ Our build files should be in the right places also:
                                 └── customEditorClient.js
 ```
 
-Loading the Custom Attribute Editor now should look like so:
+Loading the Custom Attribute Editor now should look like the following if you're using the 
+quick-start React app or your own if you had a pre-built one:
 
 ![](./images/react-custom-attribute-editors/custom-attribute-editor-react-install.png)
 
@@ -383,12 +379,13 @@ save a value.
 
 ### 2.2 - Basic SFCC events
 
-To start with lets get a button to save a value to page designer and then view that in the 
-serialized page output.
+To start with lets add a button that saves the current date as a value to Page Designer and then 
+view that in the serialized page output. 
 
-To my React app I am going to write a quick component that has a button that when clicked, calls
+To my React app I am going to add a component that has a simple button that when clicked, calls a
+handler function that calls the `window.emit` we discussed earlier:
 
-```jsx
+```jsx:title=SimpleCustomAttributeEditorEvents.jsx
 const SimpleCustomAttributeEditorEvents = () => {
   
   const handleOnClick = () => {
@@ -408,35 +405,43 @@ const SimpleCustomAttributeEditorEvents = () => {
 }
 ```
 
-After clicking the "test me" button you'll notice the "Unpublish" button in the top right becomes 
+After clicking the "Test me" button you'll notice the "Unpublish" button in the top right becomes 
 greyed out signifying there is an unsaved change on the page. 
 
 ![](./images/react-custom-attribute-editors/custom-attribute-editor-value-interacted.png)
 
-Then after clicking save I see the confirmation window and the "Unpublish" button be enabled:
+Then after clicking save in the bottom right of the sidebar, I see the confirmation alert pop-in and
+the "Unpublish" button go back to being enabled:
 
 ![](./images/react-custom-attribute-editors/custom-attribute-editor-value-saved.png)
 
-Then viewing a JSON representation of the page via a controller 
+Viewing a JSON representation of the page via a controller 
 using [`PageMgr.serializePage()`](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_experience_PageMgr.html#dw_experience_PageMgr_renderPage_String_String_DetailAnchor) we 
-can see the new value in the data.
+can see the new value in the data:
 
 ![](./images/react-custom-attribute-editors/custom-attribute-editor-value-json.png)
 
 ## 3.0 - One React App, many custom editors
 
-Currently, we've registered a single custom editor called `customEditor`. However, as we're
-injecting a React app here we can make this app multipurpose and use it for many inputs, saving us
-the hassle and challenge of setting up a separate editor declaration for every custom attribute
-editor experience we implement. We can do this through the `configration` property we set 
-to `{}` earlier in our JSON:
+As things stand right now we've registered a single custom editor called `customEditor`, which we
+can trigger by setting any component to use by setting the `editor_definition` property like so:
+
+```json
+ {
+  "editor_definition": {
+    "type": "com.acme.customEditor",
+    "configuration": {}
+  } 
+}
+```
+
+However, as we're injecting a React app here we can make this app multipurpose and use it for many
+inputs, saving us the hassle and challenge of setting up a separate editor declaration for every 
+custom attribute editor experience we implement. We can do this by using the `configration` property
+we set to `{}` earlier in our JSON:
 
 ```diff
   {
-    "id": "playground",
-    "name": "Playground",
-    "type": "custom",
-    "required": false,
     "editor_definition": {
       "type": "com.acme.customEditor",
 -     "configuration": {}
@@ -447,10 +452,280 @@ to `{}` earlier in our JSON:
   }
 ```
 
-This configuration value then ends up as the `config` parameter passed to our 
-`customEditorClient.js` in the `sfcc:ready` callback.
+This `configuration` proper gets passed to our `customEditorClient.js` as the `config` parameter 
+passed to our  in the `sfcc:ready` callback from [Step 1.4](#14---custom-editor-client-script) 
+above!
 
-### Add React Router
+### 3.1 - Passing configuration into the app
+
+Now we've got access to anything we've set on the component definition file we've got plenty of ways
+we can pass this to the React app in the iFrame. One of the easiest ways and the way I like to do 
+this is to attach the configuration to a `window` global.
+
+We can do this in the `customEditorClient.js` file by expanding what we added 
+in [1.4](#14---custom-editor-client-script):
+
+```diff:title=app_custom_bm_extensions/cartridge/static/default/experience/editors/com/acme/customEditorClient.js
+ (() => {
+   /**
+    * This file is what SFCC initially loads into the custom editor iFrame.
+    * From here we inject our React bundle and, do some rudimentary data handling.
+    *
+    * @see https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_host_events_custom_attr_editor.html
+    */
+-   subscribe('sfcc:ready', async () => {
++   subscribe('sfcc:ready', async ({ value, config, isDisabled, isRequired, dataLocale, displayLocale }) => {
+ 
++    /**
++     * Attach the existing value (if available) for the component and some other
++     * data for the React app to consume later.
++     */
++    window.amce = {
++      originalValue: value,
++      config,
++      isDisabled,
++      isRequired,
++      dataLocale,
++      displayLocale,
++    }
++ 
+     // This is the path to the editor app's dist assets in our static/default directory.
+     const EDITOR_APP_PATH = 'apps/custom-editors/';
+ 
+     /**
+      * Start our React injection logic.
+      *
+      * Essentialy we're mimicing what is normally in the index.html file of the dist, but
+      * as we don't have any template we need to inject the scripts using JS.
+      */
+ 
+     // Create our React root element.
+     var reactRoot = document.createElement('div');
+     reactRoot.id = "root";
+     document.body.appendChild(reactRoot);
+ 
+     // React critical scripts
+     var scripts = ['runtime', 'polyfills', 'vendor', 'main'];
+ 
+     // Iterate over our predefined JS files and insert them one after the other. 
+     for (var i = 0; i < scripts.length; i++) {
+       var scriptName = scripts[i];
+       var reactScriptElm = document.createElement('script');
+       reactScriptElm.setAttribute('type', 'text/javascript');
+       reactScriptElm.setAttribute('src', config.baseUrl + EDITOR_APP_PATH + scriptName + '.js');
+       document.head.appendChild(reactScriptElm);
+     }
+ 
+     var reactStyles = document.createElement('link');
+     reactStyles.setAttribute('rel', 'stylesheet');
+     reactStyles.setAttribute('href', config.baseUrl + EDITOR_APP_PATH + 'styles.css');
+ 
+     document.body.appendChild(reactStyles);
+   });
+ })();
+```
+
+From here you can handle the React app however you see fit. The following apart will showcase how I 
+use React Router to handle multiple editors but if you want to skip ahead the next implementation agnostic section is 
+
+### 3.1 - Add React Router
+
+Inside my App.jsx file I set up a basic router to navigate to various routes based on 
+the `config.editorType` property we set in the component definition JSON file.
+
+For example:
+
+```jsx:title=App.jsx
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+
+export function App() {
+
+  const location = useLocation();
+  const definition = window.sfcc;
+  const requestedRoute = '/editor/' + definition.editorType;
+  
+  if (!definition || !requestedRoute) {
+    return <ErrorPage message={'Missing editor/page configuration'} />;
+  }
+
+  if (requestedRoute && requestedRoute !== location.pathname) {
+    return <Navigate to={requestedRoute} />;
+  }
+
+  return (
+    <Routes>
+      <Route path={'/'} element={<HomePage />} />
+      <Route path={'/editor/:editorId'} element={<EditorComponent definition={definition} />} />
+      <Route path={'*'} element={<ErrorPage message={'Page not found'} />} />
+    </Routes>
+  )
+}
+```
+
+With the above component, we're first checking we've got a `editorType` property on the config and
+redirecting to the page as required on initial load, we're then deferring to our
+`<EditorComponent />` component to handle the rendering of the specific editor.
+
+In the `EditorComponent` we use a mapping pattern to dynamically map components to their 
+`editorType` names:
+
+```jsx
+// Set up a map of editorTypes string to a specific component.
+const availableEditors = {
+  'example': ExampleEditor,
+}
+
+export const EditorWrapper = ({ definition }) => {
+
+  // Grabs the editorType from the URL parameters we set in App.jsx
+  const { editorType } = useParams();
+  
+  // Grab the config from our definition.
+  const { config } = definition;
+
+  // Presense checks
+  if(!editorType || !availableEditors[editorType]) {
+    return (
+      <FourOhFourPage
+        message={`
+          Unsupported editor requested with id: "${editorType}". Please check the
+          [component].json file to be one of our supported editors.
+        `}
+      />
+    );
+  }
+
+  // Map to component
+  const EditorComponent = availableEditors[editorType];
+
+  return (
+      <EditorComponent config={config} />
+  )
+}
+```
+
+Build and deploy to your sandbox, and we now have a way to dynamically change the React app that is 
+rendered based on the value configured in the component definition JSON!
+
+### 3.2 - SFCC Event Client
+
+As we briefly mentioned above and in [Part 1.5](#15---talking-to-page-designer), there are a series
+of Custom Attribute Editor Events we can use to communicate between Page Designer and our custom 
+attribute editor. Now we support any number of editors in a single application it is probably a good
+idea to standardize the communication between the editor and Page Designer to avoid repeating the 
+various `window.emit` calls we will be making.
+
+To do this I like to build out an "SFCC Editor Client" of sorts. A simple JS library that 
+facilitates communication between our React app and Page Designer. Into your React app copy the 
+following JavaScript into a library/script directory:
+
+```js
+/**
+ * Events Emitted by the Custom Attribute Editor
+ *
+ * The vendor specified event names for the various events we emit to
+ * Page Designer.
+ *
+ * @see https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fpage_designer%2Fb2c_custom_attr_editor.html&cp=0_7_7_4
+ */
+export const SFCC_EVENT_TYPES = {
+  EDITOR_INTERACTED: 'sfcc:interacted',
+  VALUE_VALID: 'sfcc:valid',
+  VALUE_APPLY: 'sfcc:value'
+}
+
+/**
+ * Communicate updates to Page Designer
+ *
+ * @param {Object} newValue - The new/existing data value for this attribute.
+ * @param {boolean} [isValid=true] - Update the current validity state of the attribute in Page Designer.
+ * @param {String} validityMessage - (Optional) A message to pass to Page Designer that will render as the error message.
+ */
+export const handleChangeEvent = (newValue, isValid = true, validityMessage) => {
+  handleInteraction();
+  handleValidity(isValid, validityMessage);
+  if (isValid) {
+    handleUpdate(newValue);
+  }
+};
+
+/**
+ * Indicates that the user has interacted with the custom attribute editor. The editor is implicitly
+ * marked as interacted when it is blurred, for example, when the editor's contentWindow loses
+ * focus. Page Designer supports an interacted (or touched) state for form elements.
+ * This state marks a field that a user already interacted with, for example, by tabbing through it.
+ * Being able to mark a field as touched allows for error messages in forms to be hidden initially
+ * and only display for fields with which a user has interacted.
+ */
+const handleInteraction = () => {
+  window.emit({
+    type: SFCC_EVENT_TYPES.EDITOR_INTERACTED
+  });
+};
+
+/**
+ * Indicates whether the value of the attribute is valid. Can include an error message.
+ *
+ * @param {boolean} validity - If the field is valid or not
+ * @param {string} message - The error message passed to override the default
+ */
+const handleValidity = (validity, message) => {
+  window.emit({
+    type: SFCC_EVENT_TYPES.VALUE_VALID,
+    payload: {
+      valid: validity,
+      message: message
+    }
+  });
+};
+
+/**
+ * The value of the attribute. Sent when the value changes inside the editor.
+ * Page Designer requires that the value be a plain JavaScript object.
+ *
+ * Please note: This event will mark the sidebar as having changed, clicking save
+ * on the sidebar will trigger a rerender of the editor.
+ *
+ * @param {object} newValue - The new value to be passed to SFCC.
+ */
+const handleUpdate = (newValue) => {
+  window.emit({
+    type: SFCC_EVENT_TYPES.VALUE_APPLY,
+    payload: newValue
+  });
+};
+```
+
+Now lets breakdown what we've got here in these exported functions: 
+
+you'll see of the three different events we mentioned earlier that you can emit from an editor we've
+combined them into a single `handleChangeEvent` function that we can use in our components to 
+communicate all changes with. The rest of the file is more scaffolding and ensuring the 
+`handleChangeEvent` does what we need it to.
+
+We can emit a change event by calling `handleChange` passing our current data or state, followed by 
+a boolean flag for the validity state that (in this example) defaults to `true`, following by an
+optional message to display in the UI. For example, we can refactor our previous simple example from 
+[Step 2.2](#22---basic-sfcc-events) to use the client like so:
+
+```jsx:title=SimpleCustomAttributeEditorEvents.jsx
+import { handleChangeEvent } from "../lib/custom-attribute-editor-client";
+
+const SimpleCustomAttributeEditorEvents = () => {
+  
+  const handleOnClick = () => {
+    handleChangeEvent({
+      newValue: new Date()
+    });
+  }
+  
+  return (
+    <div>
+      <button onClick={() => handleOnClick()}>Test me</button>
+    </div>
+  )
+}
+```
 
 ## 4.0 - Adding support for breakout editors
 
@@ -459,9 +734,49 @@ editor "breaks out" of the sidebar and takes over the entire screen. This is a g
 complex user experiences where you need that additional screen real-estate to craft the data we're
 storing in Page Designer.
 
-A word about event flow first.
+Before we dive in to how we can implement this I want to mention how the management of breakout 
+editors work. First the editor in the sidebar (what I refer to as the inline editor) opens, from 
+that editor, we emit a new event type requesting a breakout editor. SFCC Page Designer then handles 
+the modal control. The communication between the breakout editor and page designer is routed through
+the sidebar editor.
+
+
+<details>
+<summary>Sequence Diagram</summary>
+
+
+
+```mermaid
+sequenceDiagram
+    actor user as User;
+    participant page as Page Designer;
+    participant inline as Inline Editor;
+    participant breakout as Breakout Editor;
+
+    user->>+page: Clicks on component
+    page->>+inline: Opens sidebar editor
+    inline->>user: Editor loads
+    user->>inline: Click in editor to request breakout
+    inline->>page: Request Breakout editor
+    page->>+breakout: Opens breakout editor
+    breakout->>user: Modal shown
+    user->>breakout: Close breakout 
+    alt on Apply
+        breakout->>inline: Emit close event
+        inline->>page: Emit save event
+    else on Cancel
+        breakout->>inline: Emit close event
+    end
+    user->>page: Close sidebar
+```
+
+</details>
+
+With that said lets get started adding support for breakout editors.
 
 ### 4.1 - Second round of editor definition files
+
+Like we did for our custom editors back in step XXXX we need to add some other editor definition files.
 
 First up we need to make the required changes to our editor declaration to support breakout editors.
 
@@ -530,38 +845,17 @@ original `customEditor.js` file also:
  };
 ```
 
-### 4.2 - Abstracting page designer events
-
-As we briefly mentioned above and in part 1.5, there are a series of Custom Attribute Editor Events
-we can use to communicate between Page Designer and our custom attribute editor.
-
-To communicate back with the Attribute editor in the Page Designer sidebar (what I call an "inline")
-editor we use a series of SFCC `window.emit` calls.
-
-```ts
-export const SFCC_EVENT_TYPES = {
-  EDITOR_INTERACTED: 'sfcc:interacted',
-  VALUE_VALID: 'sfcc:valid',
-  VALUE_APPLY: 'sfcc:value'
-}
-```
-
-- Wrote a straight forward typescript wrapper around this API so that I can call it from my various
-  components in a standardized way.
-
-```ts
-const handleInteraction = () => {
-  window.emit({
-    type: SFCC_EVENT_TYPES.EDITOR_INTERACTED
-  });
-};
-```
-
-CLIENT
-
-Then expanding on the client calls I added above we add three new event types:
+### 4.2 - Client Updates for Breakout editor
 
 ```diff
+ /**
+  * Events Emitted by the Custom Attribute Editor
+  *
+  * The vendor specified event names for the various events we emit to
+  * Page Designer.
+  *
+  * @see https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fpage_designer%2Fb2c_custom_attr_editor.html&cp=0_7_7_4
+  */
  export const SFCC_EVENT_TYPES = {
 +  BREAKOUT_OPEN: 'sfcc:breakout',
 +  BREAKOUT_APPLY: 'sfcc:breakoutApply',
@@ -570,20 +864,124 @@ Then expanding on the client calls I added above we add three new event types:
    VALUE_VALID: 'sfcc:valid',
    VALUE_APPLY: 'sfcc:value'
  }
+ 
++/**
++ * BREAKOUT EDITOR
++ *
++ * This is the editor name as defined in the editor_definition files
++ * in the `app_custom_bm_extensions` cartridge.
++ *
++ * This value should match the breakout editor file name(s).
++ *
++ * @see cartridges/app_custom_bm_extensions/cartridge/experience/editors/com/acme/customEditorBreakout.js
++ */
++const SFCC_CUSTOM_EDITOR_KEY = 'customEditorBreakout';
++
++/* LocalStorage key for breakout editors */
++export const BREAKOUT_EDITOR_STORAGE_KEY = 'acme-breakout-editor-type';
+ 
+ /**
+  * Communicate updates to Page Designer
+  *
+  * @param {Object} newValue - The new/existing data value for this attribute.
+  * @param {boolean} [isValid=true] - Update the current validity state of the attribute in Page Designer.
+  * @param {String} validityMessage - (Optional) A message to pass to Page Designer that will render as the error message.
+  */
+ export const handleChangeEvent = (newValue, isValid = true, validityMessage) => {
+   handleInteraction();
+   handleValidity(isValid, validityMessage);
+   handleUpdate(newValue);
+ };
+ 
+ /**
+  * Indicates that the user has interacted with the custom attribute editor. The editor is implicitly
+  * marked as interacted when it is blurred, for example, when the editor's contentWindow loses
+  * focus. Page Designer supports an interacted (or touched) state for form elements.
+  * This state marks a field that a user already interacted with, for example, by tabbing through it.
+  * Being able to mark a field as touched allows for error messages in forms to be hidden initially
+  * and only display for fields with which a user has interacted.
+  */
+ const handleInteraction = () => {
+   window.emit({
+     type: SFCC_EVENT_TYPES.EDITOR_INTERACTED
+   });
+ };
+ 
++/**
++ * Trigger a breakout event for the editor app.
++ *
++ * @see https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_client_side_breakout_cae.html?resultof=%22%62%72%65%61%6b%6f%75%74%22%20
++ */
++export const handleBreakoutRequest = (title, editorType, onApply, onCancel) => {
++
++  // Before we trigger the breakout we need to set a localstorage value to
++  // communicate which editor it should be displaying in the pop-up.
++  window.localStorage.setItem(BREAKOUT_EDITOR_STORAGE_KEY, editorType);
++
++  const breakoutCloseCallback = ({ type, value }) => {
++    if (type === SFCC_EVENT_TYPES.BREAKOUT_APPLY) {
++      console.log(`Breakout editor "${editorType}" has been closed with: APPLY.`);
++      window.emit({
++        type: SFCC_EVENT_TYPES.VALUE_APPLY,
++        payload: value
++      });
++      if (onApply) {
++        onApply(value);
++      }
++    } else {
++      console.log(`Breakout editor "${editorType}" has been closed with: CANCEL/CLOSE.`);
++      if (onCancel) {
++        onCancel();
++      }
++    }
++    window.localStorage.removeItem(BREAKOUT_EDITOR_STORAGE_KEY);
++  }
++
++  // Begin the SFCC window.emit call to tell Page Designer to open the Breakout
++  // Editor
++  window.emit({
++    type: SFCC_EVENT_TYPES.BREAKOUT_OPEN,
++    payload: {
++      id: SFCC_CUSTOM_EDITOR_KEY,
++      title: title
++    }
++  }, breakoutCloseCallback);
++
++
++};
+ 
+ /**
+  * Indicates whether the value of the attribute is valid. Can include an error message.
+  *
+  * @param {boolean} validity - If the field is valid or not
+  * @param {string} message - The error message passed to override the default
+  */
+ const handleValidity = (validity, message) => {
+   window.emit({
+     type: SFCC_EVENT_TYPES.VALUE_VALID,
+     payload: {
+       valid: validity,
+       message: message
+     }
+   });
+ };
+ 
+ /**
+  * The value of the attribute. Sent when the value changes inside the editor.
+  * Page Designer requires that the value be a plain JavaScript object.
+  *
+  * Please note: This event will mark the sidebar as having changed, clicking save
+  * on the sidebar will trigger a rerender of the editor.
+  *
+  * @param {object} newValue - The new value to be passed to SFCC.
+  */
+ const handleUpdate = (newValue) => {
+   window.emit({
+     type: SFCC_EVENT_TYPES.VALUE_APPLY,
+     payload: newValue
+   });
+ };
 ```
-
-## Half way pit-stop
-
-Using our new `app_custom_bm_extensions` cartridge, we've registered a new custom editor called 
-`com.acme.customEditor`. We've set up all the required files for this in the corresponding directory
-structure `/com/acme/customEditor.js(on)` for both the `/static/default/experience/editors/` and
-`/experience/editors/com/acme/customEditor.js`.
-
-- You can also register these as part of your page 
-- Cool feature is this editor is available to your site components as well. No need to implement them in the same cartridge.
-
-Opening page designer you won't see anything too exciting happen yet, but a blank space should have
-replaced the textarea box we were seeing previously.
 
 ## Resources
 

@@ -12,8 +12,9 @@ const Hero = () => (
       <div className="intro">
         <p>
           I have over { yearsOfExperience } years of experience building digital experiences and products, with
-          a keen interest in developer experience, process automation and documentation. <CurrentPositionNode position={currentPosition} />
+          a keen interest in developer experience, process automation and documentation.
         </p>
+        <p><CurrentPositionNode position={currentPosition} /></p>
       </div>
     </Container>
   </HeroWrapper>
