@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../components/layout/Layout';
-import SEO from '../components/utilities/seo';
 import PageHeader from '../components/PageHeader/PageHeader';
 import Link from '../components/Link/Link';
 import Container from '../components/Container';
@@ -9,13 +8,13 @@ import { linkedInUrl, resumeUrl } from '../data/urls';
 import PostContent from '../components/utilities/PostContent';
 import {YearsActive} from "../components/utilities/YearsActive";
 import { CarbonFootprint } from '../components/CarbonFootprint';
+import {Meta} from "../components/utilities/Meta";
 
 const AboutPage = () => {
   const siteRepoLink = 'https://github.com/jamesrwilliams/personal-site';
 
   return (
     <Layout>
-      <SEO title="About me" path={'posts'} />
       <main>
         <PageHeader title="A little about me" />
         <Container>
@@ -95,6 +94,7 @@ const AboutPage = () => {
               I also keep a list of all the blog posts I've found and have read which you can see on
               my <Link to={'/resources/reading'}>reading list</Link>.
             </p>
+
             <hr/>
             <blockquote>
               <em>
@@ -110,5 +110,7 @@ const AboutPage = () => {
     </Layout>
   );
 };
+
+export const Head = () => <Meta title={'About me'} />
 
 export default AboutPage;

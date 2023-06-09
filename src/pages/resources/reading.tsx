@@ -3,10 +3,10 @@ import React from 'react';
 import { Layout } from '../../components';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import Container from '../../components/Container';
-import SEO from '../../components/utilities/seo';
 import Link from '../../components/Link/Link';
 import { ReadingListEntryInterface } from '../../types/ReadingListEntry.interface';
 import PostContent from "../../components/utilities/PostContent";
+import {Meta} from "../../components/utilities/Meta";
 
 const Reading = () => {
   const data = useStaticQuery(graphql`
@@ -34,7 +34,6 @@ const Reading = () => {
 
   return (
     <Layout>
-      <SEO title="Reading" />
       <main>
         <PageHeader title="Reading" />
         <Container>
@@ -55,7 +54,7 @@ const Reading = () => {
             </tr>
           </thead>
           <tbody>
-            { issues.map((entry: ReadingListEntryInterface, index: number) => {
+            { issues.map((entry: ReadingListEntryInterface) => {
               const { number, title, createdAt, bodyHTML } = entry;
 
               return (
@@ -78,8 +77,10 @@ const Reading = () => {
 
 export default Reading;
 
+export const Head = () => <Meta title={"Reading"} />
+
 const extractUrl = (content: string) => {
-  const regexString = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
+  const regexString = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www\.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w\-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[.!/\\\w]*))?)/
   const result = content.match(regexString);
   if(result) {
     return result[0];

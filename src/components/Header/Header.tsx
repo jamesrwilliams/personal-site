@@ -5,7 +5,6 @@ import { StaticImage } from 'gatsby-plugin-image';
 import {mediaQuery} from '../../theme/variables';
 import Container from '../Container';
 import { GitHub, LinkedIn } from "../social/Social";
-import {BiMenu} from "react-icons/all";
 
 const HeaderContainer = styled.header<{ open: boolean }>`
   background: var(--brand-primaryBlue);
@@ -168,7 +167,7 @@ const Header = () => {
         </PrimaryNavLink>
         <CollapsableNavigation>
           <HeaderToggleButton aria-label={"Toggle theme"} open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
-            <BiMenu size={'2rem'} />
+            Menu
           </HeaderToggleButton>
           <PrimaryNav open={menuOpen}>
             <NavLink label="About" url="/about/" />

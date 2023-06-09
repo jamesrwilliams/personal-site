@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { Link } from 'gatsby';
 import Layout from '../components/layout/Layout';
-import SEO from '../components/utilities/seo';
 import styled from "styled-components";
 const FourOhFourCard = styled.div`
   max-width: 450px;
@@ -49,10 +47,10 @@ const FourOhFourCard = styled.div`
 `;
 
 import {mediaQuery, textGradient} from "../theme/variables";
+import {Meta} from "../components/utilities/Meta";
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404 Not found" path="404" />
     <main style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <FourOhFourCard>
         <div className="inner">
@@ -66,5 +64,7 @@ const NotFoundPage = () => (
     </main>
   </Layout>
 );
+
+export const Head = () => <Meta title={'404 Not Found'} />
 
 export default NotFoundPage;

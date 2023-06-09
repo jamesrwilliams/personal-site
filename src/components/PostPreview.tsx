@@ -1,10 +1,10 @@
 import React from "react";
-import PostInterface from "../types/Post.interface";
 import {Link} from "gatsby";
 import styled from "styled-components";
+import {BlogFields} from "../templates/BlogPostTemplate";
 
 type PostPreview = {
-  post: PostInterface
+  post: BlogFields;
 }
 
 const PostListOrderedList = styled.ol`
@@ -13,13 +13,13 @@ const PostListOrderedList = styled.ol`
 `;
 
 type PostList = {
-  posts: PostInterface[]
+  posts: BlogFields[]
 }
 
 export const PostList: React.FC<PostList> = ({ posts }) => {
   return <PostListOrderedList>
     { posts.map((post) => (
-      <PostPreview key={post.slug} post={post} />
+      <PostPreview key={post.fields.slug} post={post} />
     ))}
   </PostListOrderedList>
 }
@@ -47,7 +47,7 @@ const PostListItem = styled.li`
 
 export const PostPreview: React.FC<PostPreview> = ({ post }) => {
   return <PostListItem>
-    <Link to={'/posts/' + post.slug}>
+    <Link to={'/posts/' + post.fields.slug}>
       <h3>{post.frontmatter.title}</h3>
       <span>{ post.frontmatter.dateReadable }</span>
     </Link>

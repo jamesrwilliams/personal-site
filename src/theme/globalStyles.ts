@@ -104,15 +104,20 @@ const GlobalStyles = createGlobalStyle`
   article {
     line-height: 1.7777778;
 
+    p,ul:not(> ul), ol:not(>ol) {
+      margin-bottom: 1.3333333em;
+    }
+
     p,
     ul,
     ol {
-      margin-bottom: 1.3333333em;
       max-width: 65ch;
     }
   }
 
-  ol,ul {box-sizing: border-box;}
+  ol,ul {
+    box-sizing: border-box;
+  }
 
   thead {
     color: var(--typography-primary);
@@ -192,43 +197,6 @@ const GlobalStyles = createGlobalStyle`
 
   figure > .mermaid + figcaption {
     margin-top: 1rem;
-  }
-
-  svg[id^=mermaid] {
-    //background: var(--typography-blockquote-background);
-    //
-    //.line {
-    //  stroke: red !important;
-    //  fill: blue !important;
-    //}
-    //
-    //&:not(> figure) {
-    //  padding: 1rem 0;
-    //  border-radius: 5px;
-    //}
-    //
-    //rect.actor {
-    //  fill: #02101e !important;
-    //}
-    //
-    //.messageLine0 {
-    //  stroke: #fff !important;
-    //}
-    //
-    //.loopText,
-    //.loopText > tspan {
-    //  fill: #fff !important;
-    //}
-    //
-    //text.actor tspan {
-    //  font-family: sans-serif;
-    //  fill: var(--typography-secondary) !important;
-    //}
-    //
-    //text.messageText {
-    //  fill: var(--typography-secondary) !important;
-    //  stroke: none !important;
-    //}
   }
 
 `;

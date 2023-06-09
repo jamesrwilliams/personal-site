@@ -4,50 +4,64 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 import {GatsbyNode} from "gatsby";
-import PostInterface from "./src/types/Post.interface";
+import readingTime from 'reading-time';
 import path from "path";
 
-const axios = require('axios');
-const crypto = require('crypto');
-const parser = require('xml2json');
-const _ = require("lodash")
+import axios from 'axios';
+import crypto from 'crypto';
+
+interface BlogPostInterface {
+  id: string;
+  internal: {
+    contentFilePath: string;
+  }
+  fields: {
+    slug: string;
+  }
+}
+
+interface TagGroupsInterface {
+  fieldValue: string;
+}
 
 export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  /* Blog Post Pages */
   const blogPostTemplate = path.resolve('./src/templates/BlogPostTemplate.tsx');
-  const queryResponse: any = await graphql(`
+  const queryResponse = await graphql(`
     {
-      posts: allMdx(limit: 1000, filter: {fileAbsolutePath: {regex: "/posts/"}}) {
+      posts: allMdx(
+        limit: 1000
+        filter: { internal: {contentFilePath: {regex: "/posts/"}}}
+      ) {
         nodes {
-          slug
-        }
-      },
-      tagsGroup: allMdx(limit: 2000, filter: {fileAbsolutePath: {regex: "/posts/"}}) {
-        group(field: frontmatter___tags) {
-          fieldValue
-        }
-      },
-       github {
-        repository(name: "personal-reading-list", owner: "jamesrwilliams") {
-          issues(first: 100) {
-            nodes {
-              number
-            }
+          id
+          internal {
+            contentFilePath
           }
+          fields {
+            slug
+          }
+        }
+      },
+      tagsGroup: allMdx(
+        limit: 1000,
+        filter: { internal: {contentFilePath: {regex: "/posts/"}}}
+      ) {
+        group(field: { frontmatter: { tags: SELECT } }) {
+          fieldValue
         }
       }
     }
   `);
 
-  const posts: PostInterface[] = queryResponse.data.posts.nodes;
+  const posts = queryResponse?.data?.posts?.nodes;
 
   if(posts) {
-    posts.forEach((post) => {
+    posts.forEach((post: BlogPostInterface) => {
       createPage({
-        path: `/posts/${post.slug}`,
-        component: blogPostTemplate,
+        path: `/posts/${post.fields.slug}`,
+        component: `${blogPostTemplate}?__contentFilePath=${post.internal.contentFilePath}`,
         context: {
           ...post,
         },
@@ -62,24 +76,55 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     isPermanent: true,
   });
 
+  // WARNING: This is not a drop in replacement solution and
+  // it might not work for some edge cases. Test your code!
+  // Regex explained: https://regexr.com/5c55v
+  const re = /([0-9]+|([A-Z][a-z]+)|[a-z]+|([A-Z]+)(?![a-z]))/g
+
+  const kebabCase = (str: string) =>
+    (String(str ?? '').match(re) || []).map(x => x.toLowerCase()).join('-')
+
+
   /**
    * Create Tag Archive and singles
    */
   const tagTemplate = path.resolve('./src/templates/Tags.tsx');
-  // @ts-ignore
-  const tags = queryResponse.data.tagsGroup.group;
+  const tags = queryResponse?.data?.tagsGroup?.group;
 
-  tags.forEach((tag: any) => {
+  tags.forEach((tag: TagGroupsInterface) => {
     createPage({
-      path: `posts/-/tags/${_.kebabCase(tag.fieldValue)}`,
+      path: `posts/-/tags/${kebabCase(tag.fieldValue)}`,
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
       },
-    })
-  })
-
+    });
+  });
 };
+
+export const onCreateNode: GatsbyNode['onCreateNode'] = async ({ node, actions }) => {
+  const {createNodeField} = actions;
+
+  if (node.internal.type === `Mdx`) {
+    if(!node.internal.contentFilePath) {
+      console.warn(`MDX Node missing contentFilePath unable to generate slug`);
+      return;
+    }
+    createNodeField({
+      node,
+      name: `slug`,
+      value: `${node.internal.contentFilePath.split('/posts/')[1].split('.')[0].split('/')[1]}`
+    });
+
+    if(node.body) {
+      createNodeField({
+        node,
+        name: `timeToRead`,
+        value: readingTime(node.body.toString())
+      })
+    }
+  }
+}
 
 export const sourceNodes: GatsbyNode["sourceNodes"] = async ({ actions }) => {
   const { createNode } = actions;

@@ -1,7 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  GitHub, HackerRank, Instagram, LinkedIn, Pluralsight, StackOverflow, TrailBlazer, Twitter, CodePen,
+  GitHub,
+  HackerRank,
+  Instagram,
+  LinkedIn,
+  Pluralsight,
+  StackOverflow,
+  TrailBlazer,
+  CodePen,
+  Mastodon, Keybase,
 } from '../social/Social';
 import { mediaQuery } from '../../theme/variables';
 import {HipHipArray} from "../HipHipArray/HipHipArray";
@@ -9,13 +17,14 @@ import {HipHipArray} from "../HipHipArray/HipHipArray";
 const socialLinks = [
   <GitHub />,
   <LinkedIn />,
-  <Twitter />,
+  <Mastodon/>,
   <Instagram />,
   <CodePen />,
   <Pluralsight />,
   <HackerRank />,
   <StackOverflow />,
   <TrailBlazer />,
+  <Keybase />
 ];
 
 const FooterElement = styled.footer`

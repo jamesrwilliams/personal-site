@@ -2,7 +2,13 @@ import React from "react"
 import _ from "lodash";
 import {siteConfig} from "../../data/urls";
 
-export const Debug = ({ data, details = false, detailsTitle = 'JSON' }: any) => {
+interface DebugProps {
+  data: unknown;
+  details: boolean;
+  detailsTitle: string;
+}
+
+export const Debug = ({ data, details = false, detailsTitle = 'JSON' }: DebugProps) => {
 
   const wrapper = <pre>{ JSON.stringify(data, null, 2) }</pre>;
 

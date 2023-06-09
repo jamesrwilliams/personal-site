@@ -39,7 +39,7 @@ $sliceHeight: ($circumfrance / $numberOfSlices);
 $sliceOffeset: ($sliceHeight / 2);
 ```
 
-The wheel, in essence, is just a rotating `div` element with a border radius of 50% with `overflow` set to `hidden` to cut it into a circle. 
+The wheel, in essence, is just a rotating `div` element with a border radius of 50% with `overflow` set to `hidden` to cut it into a circle.
 
 The wedges are where this gets challenging. My example has 12 slices in total, nice and even. As all the wedges are the same, I focused my attention on creating one something that could repeat Nth number of times and that are adaptable so if I need to reduce my wedge count or something like that I don't have to throw out the entire project!
 
@@ -62,7 +62,7 @@ Once the first slice was working. We just repeat them for however many slices we
 All put together we have something that looks like this:
 
 ```html
-    <div class="spinner-table"> 
+    <div class="spinner-table">
         <div class="dial">
             <div class="slice"><div class="label">01</div></div>
             <div class="slice"><div class="label">02</div></div>
@@ -76,7 +76,7 @@ All put together we have something that looks like this:
 ## Putting the slices together.
 
 We've got our 12 "slices" we now need to spread them out evenly around the wheel. Before we start, each slice needs its transform origin moved to the middle-left point to replace the motion of it pivoting around the center point of the circle.
- 
+
  We've got 12 slices in this example we need to work out how many degrees to rotate each one to cover the wheel. Which is `360 / 12 = 30` So each slice needs to be rotated 30&deg; from the previous slice which would fan out the slices over the wheel. This can be done with a tactful use of the `nth-child` selector in CSS, like so:
 
 ```scss
@@ -95,7 +95,7 @@ _Add a few static bits and buttons, and we're almost there!_
 
 ## Motion
 
-Now we'ge got the board put together it is time to bring it to life. The real challenge here was the animation timing. After watching a few episodes of wheel of fortune as "research", I noticed a few people trying to build momentum by pulling the wheel back before throwing it forwards, then the wheel slowly decreasing in speed, until the force of the arrow pulls it back slightly. 
+Now we'ge got the board put together it is time to bring it to life. The real challenge here was the animation timing. After watching a few episodes of wheel of fortune as "research", I noticed a few people trying to build momentum by pulling the wheel back before throwing it forwards, then the wheel slowly decreasing in speed, until the force of the arrow pulls it back slightly.
 
 Without this pull-back animation the wheel just abruptly starts spinning and then stops, while using the default keywords like `ease` and `ease-in` didn't have quite the right feel.
 
@@ -146,7 +146,7 @@ function updateAnimationNumbers(prizePosition) {
 
 ## Results
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="jamesrwilliams" data-slug-hash="LYExEmY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Spinner Banner Element PoC">
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="jamesrwilliams" data-slug-hash="LYExEmY" style={{ height: "265px", boxSizing: "border-box", display: "flex", alignItems: "center", justifyContent: "center", border: "2px solid", margin: "1em 0", padding: "1em"}} data-pen-title="Spinner Banner Element PoC">
   <span>See the Pen <a href="https://codepen.io/jamesrwilliams/pen/LYExEmY">
   Spinner Banner Element PoC</a> by James R. Williams (<a href="https://codepen.io/jamesrwilliams">@jamesrwilliams</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>

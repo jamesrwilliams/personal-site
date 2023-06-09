@@ -1,39 +1,39 @@
 import React from 'react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout/Layout';
 import PageHeader from '../components/PageHeader/PageHeader';
-import SEO from '../components/utilities/seo';
 import Container from '../components/Container';
 import LinkedData from '../components/social/LinkedData';
 import PostContent from '../components/utilities/PostContent';
 import {PostTags} from "../components/PostTags";
+import { Meta } from '../components/utilities/Meta';
 
-export default function Template({ data }: any) {
+interface PageQuery {
+  data: {
+    mdx: BlogFields
+  }
+  children: React.ReactNode,
+}
+
+export default function Template({ data: { mdx }, children }: PageQuery) {
+
   const {
-    slug,
     frontmatter,
     excerpt,
-    timeToRead,
-    body,
-  } = data.mdx;
-  const { title, tags } = frontmatter;
+    fields: { timeToRead, slug },
+  } = mdx;
+
+  const { title, tags, date } = frontmatter;
 
   return (
     <Layout>
-      <SEO
-        title={title}
-        description={excerpt}
-        path={`posts/${slug}`}
-        publishedTime={frontmatter.date}
-      />
-      <LinkedData title={title} date={frontmatter.date} excerpt={excerpt} slug={slug} />
+      <LinkedData title={title} date={date} excerpt={excerpt} slug={slug} />
       <main>
         <article>
-          <PageHeader title={title} post={frontmatter} timeToRead={timeToRead} />
+          <PageHeader title={title} date={date} timeToRead={timeToRead.text} />
           <Container>
             <PostContent>
-              <MDXRenderer>{ body }</MDXRenderer>
+              { children }
             </PostContent>
             <PostTags tags={tags} />
           </Container>
@@ -43,17 +43,45 @@ export default function Template({ data }: any) {
   );
 }
 
+export const Head = ({ data }: PageQuery) => (
+  <Meta
+    title={data.mdx.frontmatter.title}
+    description={data.mdx.excerpt}
+    date={data.mdx.frontmatter.date}
+  />
+)
+
+export interface BlogFields {
+  excerpt: string;
+  fields: {
+    slug: string;
+    timeToRead: {
+      text: string;
+    }
+  }
+  frontmatter: {
+    date: string;
+    tags: string[];
+    postDate: string;
+    dateReadable: string;
+    title: string;
+  }
+}
+
 export const query = graphql`
-  query MdxBlogPost($slug: String!) {
-    mdx(slug: {eq: $slug}) {
-      body
+  query MdxBlogPost($id: String!) {
+    mdx(id: {eq: $id}) {
       ...blogFields
     }
   }
   fragment blogFields on Mdx {
     excerpt(pruneLength: 250)
-    slug
-    timeToRead
+    fields {
+      slug
+      timeToRead {
+        text
+      }
+    }
     frontmatter {
       date
       tags

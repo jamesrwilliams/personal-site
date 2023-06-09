@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import styled from 'styled-components';
 import Container from '../Container';
 import formatDate from '../../lib/formatDate';
@@ -34,23 +34,29 @@ const PageWrapper = styled.aside`
 
 interface PostMetaInterface {
   date: string;
-  timeToRead: number;
+  timeToRead?: string;
 }
 
 const PostMetaData = ({ date, timeToRead }: PostMetaInterface) => (
   <PageMetaWrapper>
     <time dateTime={new Date(date).toISOString()}>{ formatDate(date) }</time>
-    <ReadingTime timeToRead={timeToRead} />
+    { timeToRead && <ReadingTime timeToRead={timeToRead} /> }
   </PageMetaWrapper>
 );
 
+interface PageHeaderProps {
+  title: string;
+  date?: string;
+  timeToRead?: string;
+  children?: ReactNode;
+}
 
 const PageHeader = ({
-  title, post, timeToRead, children,
-}: any) => (
+  title, date, timeToRead, children,
+}: PageHeaderProps) => (
   <PageWrapper>
     <Container>
-      {post && post.postDate ? <PostMetaData date={post.postDate} timeToRead={timeToRead} /> : ''}
+      {date && <PostMetaData date={date} timeToRead={timeToRead} /> }
       <h1 itemProp="name">{title}</h1>
     </Container>
     { children ? <Container>{children}</Container> : '' }
@@ -67,12 +73,11 @@ const PageMetaWrapper = styled.div`
   color: var(--typography-primary);
 `;
 
-const ReadingTime = ({ timeToRead }: {timeToRead: Number}) => {
-  let message = 'A quick read.';
-
-  if (timeToRead > 1) {
-    message = `${timeToRead} min read.`;
-  }
-  return <> · <span style={{ whiteSpace: "break-spaces" }}>{message}</span> </>;
+const ReadingTime = ({ timeToRead }: {timeToRead: string}) => {
+  return (
+    <> · <span style={{ whiteSpace: "break-spaces" }}>
+    { timeToRead }</span>
+  </>
+  );
 };
 

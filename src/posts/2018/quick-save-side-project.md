@@ -15,7 +15,5 @@ The library also features a few options for changing its behaviour including thi
 
 ## Links
 
-- <https://github.com/jamesrwilliams/quick-save-forms>
-- <https://github.com/krasimir/webpack-library-starter>
-
-[1]: https://github.com/krasimir/webpack-library-starter
+- https://github.com/jamesrwilliams/quick-save-forms
+- https://github.com/krasimir/webpack-library-starter

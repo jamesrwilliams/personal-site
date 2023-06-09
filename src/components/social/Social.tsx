@@ -1,15 +1,14 @@
 import React from 'react';
 
 import {
-  Codepen as CodepenIcon,
-  Github as GitHubIcon,
-  Hackerrank as HackerrankIcon,
-  Instagram as InstagramIcon,
-  Linkedin as LinkedinIcon,
-  Pluralsight as PluralsightIcon,
-  Stackoverflow as StackoverflowIcon,
-  Twitter as TwitterIcon,
-  Salesforce as SalesforceIcon,
+  SiCodepen as CodepenIcon,
+  SiGithub as GitHubIcon,
+  SiHackerrank as HackerrankIcon,
+  SiInstagram as InstagramIcon,
+  SiLinkedin as LinkedinIcon,
+  SiPluralsight as PluralsightIcon,
+  SiStackoverflow as StackoverflowIcon,
+  SiSalesforce as SalesforceIcon, SiMastodon,
 } from '@icons-pack/react-simple-icons';
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
@@ -21,10 +20,17 @@ import {
   linkedInUrl as linkedinUrl,
   pluralsightUrl, salesforceTrailBlazerUrl,
   stackOverflowUrl as stackoverflowUrl,
-  twitterUrl,
+  mastodonUrl,
 } from '../../data/urls';
+import {FaKeybase} from "react-icons/fa";
 
-const GitHub: React.FC = () => (
+export const Mastodon: React.FC = () => (
+  <SocialIcon href={mastodonUrl} title={'Chat with me on Mastodon'}>
+    <SiMastodon size={18} />
+  </SocialIcon>
+)
+
+export const GitHub: React.FC = () => (
   <SocialIcon
     href={gitHubUrl}
     title="Follow me on GitHub github.com/jamesrwilliams"
@@ -33,16 +39,7 @@ const GitHub: React.FC = () => (
   </SocialIcon>
 );
 
-const Twitter: React.FC = () => (
-  <SocialIcon
-    href={twitterUrl}
-    title="Follow me on twitter @James_RWilliams"
-  >
-    <TwitterIcon size={18} />
-  </SocialIcon>
-);
-
-const LinkedIn: React.FC = () => (
+export const LinkedIn: React.FC = () => (
   <SocialIcon
     href={linkedinUrl}
     title="Find me on LinkedIn @thejamesrwilliams"
@@ -51,7 +48,7 @@ const LinkedIn: React.FC = () => (
   </SocialIcon>
 );
 
-const CodePen: React.FC = () => (
+export const CodePen: React.FC = () => (
   <SocialIcon
     href={codePenUrl}
     title="Find me on Codepen @thejamesrwilliams"
@@ -60,7 +57,7 @@ const CodePen: React.FC = () => (
   </SocialIcon>
 );
 
-const StackOverflow: React.FC = () => (
+export const StackOverflow: React.FC = () => (
   <SocialIcon
     href={stackoverflowUrl}
     title="Find me on stackoverflow"
@@ -69,7 +66,7 @@ const StackOverflow: React.FC = () => (
   </SocialIcon>
 );
 
-const HackerRank: React.FC = () => (
+export const HackerRank: React.FC = () => (
   <SocialIcon
     href={hackerRankUrl}
     title="Find me on HackerRank"
@@ -78,47 +75,41 @@ const HackerRank: React.FC = () => (
   </SocialIcon>
 );
 
-const Instagram: React.FC = () => (
+export const Instagram: React.FC = () => (
   <SocialIcon
     title="Find me on Instagram"
     href={instagramUrl}
   >
-    <InstagramIcon size={18}  />
+    <InstagramIcon size={18} />
   </SocialIcon>
 );
 
-const Pluralsight: React.FC = () => (
+export const Pluralsight: React.FC = () => (
   <SocialIcon
     title="Find me on Pluralsight"
     href={pluralsightUrl}
   >
-    <PluralsightIcon size={18}  />
+    <PluralsightIcon size={18} />
   </SocialIcon>
 );
 
-const TrailBlazer: React.FC = () => (
+export const TrailBlazer: React.FC = () => (
   <SocialIcon href={salesforceTrailBlazerUrl} title="Salesforce Trailblazer">
     <SalesforceIcon size={18}  />
   </SocialIcon>
 );
 
-export {
-  GitHub,
-  Twitter,
-  LinkedIn,
-  CodePen,
-  StackOverflow,
-  HackerRank,
-  Instagram,
-  Pluralsight,
-  TrailBlazer,
-};
+export const Keybase: React.FC = () => (
+  <SocialIcon href={""} title={"James on keybase.io"}>
+    <FaKeybase size={18} />
+  </SocialIcon>
+)
 
 interface socialIconInterface {
   target?: string;
   href: string;
   title: string;
-  children: any;
+  children: React.ReactNode;
 }
 
 const SocialIcon = ({
@@ -127,7 +118,7 @@ const SocialIcon = ({
   <OutboundLink
     target={target}
     title={title}
-    rel="noopener noreferrer"
+    rel="noopener noreferrer me"
     href={href}
     style={{ height: 18, width: 18 }}
   >

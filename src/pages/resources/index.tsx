@@ -2,7 +2,6 @@ import React from 'react';
 
 import Link from '../../components/Link/Link';
 import Layout from '../../components/layout/Layout';
-import SEO from '../../components/utilities/seo';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import Container from '../../components/Container';
 import ResourcesSection from '../../components/Resources/ResourcesSection';
@@ -10,6 +9,7 @@ import ResourcesSection from '../../components/Resources/ResourcesSection';
 import {
   blogs, githubProjects, sites, random,
 } from '../../data/resources';
+import {Meta} from "../../components/utilities/Meta";
 
 const sections = [
   {
@@ -32,7 +32,6 @@ const sections = [
 
 const ResourcesPage = () => (
   <Layout>
-    <SEO title="Resources" />
     <PageHeader title="Resources" />
     <Container>
       <p>
@@ -44,5 +43,7 @@ const ResourcesPage = () => (
     </Container>
   </Layout>
 );
+
+export const Head = () => <Meta title={'Resources'} />
 
 export default ResourcesPage;

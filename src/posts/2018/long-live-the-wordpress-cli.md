@@ -14,7 +14,7 @@ Our build stack at Silver, heavily relied upon ACF for dynamic page builder elem
 
 After doing some digging looking into the what and why behind this. I discovered my find-replace action was corrupting the PHP serialized data that the links where saved as. The solution using the **wp cli**. A php based CLI for preforming actions on a WordPress install, some not possible via the UI. One of the best features in my opinion is the search/replace feature.
 
-> Search/replace intelligently handles PHP serialized data, and does not change primary key values.
+> Search / replace intelligently handles PHP serialized data, and does not change primary key values.
 
 In one simple command you can find and replace the current database for URLs and other strings. It also has a handy output flag allowing a database file to be exported to the file system rather than preforming the action directly on the current database. For example:
 
@@ -24,5 +24,5 @@ In one simple command you can find and replace the current database for URLs and
 
 The `--dry-run` flag is also a personal favourite for avoiding nasty surprises while running these commands.
 
-- Read more about the CLI here: <https://wp-cli.org/>
-- Full info on the commands: <https://developer.wordpress.org/cli/commands/>
+- Read more about the CLI here: https://wp-cli.org/
+- Full info on the commands: https://developer.wordpress.org/cli/commands/

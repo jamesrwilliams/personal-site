@@ -1,8 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ResourceItem, { ResourceItemProps } from './ResourcesItem';
 
-const ResourcesSection = ({ title, items }: { title: string, items: any[] }) => (
+interface ResourceSelectionProps {
+  title: string;
+  items: {
+    link: string;
+    description: string;
+    linkText: string;
+  }[]
+}
+
+const ResourcesSection = ({ title, items }: ResourceSelectionProps) => (
   <>
     <h2 id={title}>{ title }</h2>
     <ul>
@@ -12,14 +20,5 @@ const ResourcesSection = ({ title, items }: { title: string, items: any[] }) => 
     </ul>
   </>
 );
-
-ResourcesSection.propTypes = {
-  title: PropTypes.string.isRequired,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    link: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    linkText: PropTypes.string,
-  })).isRequired,
-};
 
 export default ResourcesSection;

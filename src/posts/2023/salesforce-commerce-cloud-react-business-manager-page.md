@@ -155,11 +155,11 @@ As for most of the things I've done with react apps in Commerce Cloud we are goi
 already have a React app ready to go and luckily for us this is a super simple final step.
 
 Once you have a built your React app you can upload the build files to the static directory in the
-cartridge, I normally keep all the react apps in an `/apps/` directory within the static folder to
+cartridge, I normally keep all the React apps in an `/apps/` directory within the static folder to
 keep things organised. Once the build files are uploaded, we can make some minor changes to 
 our `home.isml` template, and we're finished:
 
-```html:title=home.isml
+```html:title=app_custom_bm/cartridge/templates/default/core/home.isml
 <isdecorate template="application/MenuFrame">
 <iscontent type="text/html" charset="UTF-8">
     <link href="${URLUtils.staticURL('/apps/bm_app/styles.css')}" rel="stylesheet" />
@@ -186,5 +186,5 @@ a new menu and menu item to. Then added a corresponding controller and ISML temp
 items. Then our final step was to add a React app to this extension page.
 
 A full copy of the code used here is available in my sample repository on 
-itHub: https://github.com/jamesrwilliams/sfcc-react-business-manager-extension
+GitHub: https://github.com/jamesrwilliams/sfcc-react-business-manager-extension
 

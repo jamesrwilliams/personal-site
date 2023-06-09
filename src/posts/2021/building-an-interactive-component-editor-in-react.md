@@ -49,9 +49,6 @@ graph LR
     C[Editor Web App] --> G
     D[Translations] --> C
     G[Points' Systems]
-    click A href "./building-a-component-props-editor-with-react#reusable-logic"
-    click B href "./building-a-component-props-editor-with-react#templates"
-    click C href "./building-a-component-props-editor-with-react#editor"
 ```
 
 <figcaption>Flowchart showing the rough outline of the application</figcaption>

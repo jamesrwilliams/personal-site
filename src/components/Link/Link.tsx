@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, {FC, PropsWithChildren} from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import styled from 'styled-components';

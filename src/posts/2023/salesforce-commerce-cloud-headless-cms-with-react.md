@@ -1,5 +1,5 @@
 ---
-title: Salesforce Commerce Cloud - A headless CMS with React
+title: "Salesforce Commerce Cloud - A headless CMS with React"
 date: 2023-01-04
 tags: ['salesforce', 'salesforce-commerce-cloud', 'sfcc-with-react']
 ---

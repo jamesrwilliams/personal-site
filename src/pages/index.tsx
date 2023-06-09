@@ -1,16 +1,17 @@
 import React from 'react';
 import { Hero, Layout } from '../components';
-import SEO from '../components/utilities/seo';
-
-import { siteDescription } from '../data/metadata';
+import {Meta} from "../components/utilities/Meta";
 
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO description={siteDescription} />
       <Hero />
     </Layout>
   );
 };
+
+export const Head = () => (
+  <Meta />
+)
 
 export default IndexPage;

@@ -3,6 +3,9 @@ import prismTheme from './partials/prismTheme';
 
 const syntaxHighlighting = css`
 
+  // Allow overrides of base prism theme by having this first.
+  ${prismTheme}
+
   .command-line-prompt > span:before {
     color: #999;
     content: " ";
@@ -35,14 +38,9 @@ const syntaxHighlighting = css`
     border-right-color: #ccc1;
   }
 
-  .gatsby-code-title + .gatsby-highlight pre {
-    margin-top: 0;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-  }
-
   .gatsby-highlight {
     font-size: 14px;
+    margin-top: 0;
   }
 
   .gatsby-highlight-code-line {
@@ -51,14 +49,16 @@ const syntaxHighlighting = css`
 
   .gatsby-code-title {
     padding: 0.5em 1em;
-    font-size: 90%;
+    font-size: 80%;
     font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
-    background-color: #263238;
-    border-bottom: 1px solid #ccc1;
+    background-color: #1a2327;
+    border-bottom: 1px solid #0002;
     color: white;
-    z-index: 0;
     border-top-left-radius: 0.3em;
     border-top-right-radius: 0.3em;
+    margin-bottom: -15px;
+    position: relative;
+    z-index: 500;
   }
 
   // Inline code references
@@ -76,8 +76,6 @@ const syntaxHighlighting = css`
   :not(pre) > code[class*="language-"]::selection {
     background: #ff0;
   }
-
-  ${prismTheme}
 
 `;
 

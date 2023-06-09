@@ -4,6 +4,26 @@ import { socials } from '../../data/urls';
 import { siteDescription } from '../../data/metadata';
 
 interface JsonLinkedData {
+  '@context': string;
+  '@type': string;
+  description: string;
+  publisher: string;
+  datePublished: string;
+  headline: string;
+  image: string[];
+  wordcount?: string;
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': string;
+  },
+  author: {
+    '@type': string;
+    name: string;
+    sameAs: string[],
+  },
+}
+
+interface LinkedDataProps {
   date: string;
   title: string;
   slug: string;
@@ -17,8 +37,8 @@ const LinkedData = ({
   slug,
   excerpt,
   wordCount,
-}: JsonLinkedData) => {
-  const jsonLDTemplate: any = {
+}: LinkedDataProps) => {
+  const jsonLDTemplate: JsonLinkedData = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     description: siteDescription,
@@ -47,11 +67,8 @@ const LinkedData = ({
     jsonLDTemplate.description = excerpt;
   }
 
-  const JSONString = JSON.stringify(jsonLDTemplate, null, 4);
-
   return (
-    // eslint-disable-next-line react/no-danger
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSONString }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLDTemplate, null, 4) }} />
   );
 };
 
