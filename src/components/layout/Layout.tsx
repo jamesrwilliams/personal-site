@@ -1,7 +1,6 @@
 import React, {FC, PropsWithChildren} from 'react';
 import styled from 'styled-components';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import { Header, Footer } from '../../components';
 import GlobalStyles from '../../theme/globalStyles';
 
 const LayoutContainer = styled.div`
@@ -9,7 +8,7 @@ const LayoutContainer = styled.div`
   height: 100%;
 `;
 
-const Layout: FC<PropsWithChildren> = ({children}) => (
+export const Layout: FC<PropsWithChildren> = ({children}) => (
   <LayoutContainer>
     <Header/>
     {children}
@@ -17,5 +16,3 @@ const Layout: FC<PropsWithChildren> = ({children}) => (
     <GlobalStyles/>
   </LayoutContainer>
 );
-
-export default Layout;

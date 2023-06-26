@@ -1,8 +1,8 @@
 // Socials
 export const gitHubUrl = 'https://github.com/jamesrwilliams';
 export const twitterUrl = 'https://www.twitter.com/James_RWilliams';
-export const linkedInUrl = 'https://www.linkedin.com/in/thejamesrwilliams/';
-export const codePenUrl = 'https://codepen.io/jamesrwilliams/';
+export const linkedInUrl = 'https://www.linkedin.com/in/thejamesrwilliams';
+export const codePenUrl = 'https://codepen.io/jamesrwilliams';
 export const stackOverflowUrl = 'https://stackoverflow.com/users/1958764/james-w?tab=profile';
 export const hackerRankUrl = 'https://www.hackerrank.com/jamesrwilliams';
 export const instagramUrl = 'https://instagram.com/thejamesrwilliams';

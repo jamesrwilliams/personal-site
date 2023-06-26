@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import syntaxHighlighting from './syntax-highlighting';
+import syntaxHighlighting from './partials/syntax-highlighting';
 import footnoteStyles from './partials/footnotes';
 
 const GlobalStyles = createGlobalStyle`

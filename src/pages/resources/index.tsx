@@ -1,10 +1,6 @@
 import React from 'react';
 
-import Link from '../../components/Link/Link';
-import Layout from '../../components/layout/Layout';
-import PageHeader from '../../components/PageHeader/PageHeader';
-import Container from '../../components/Container';
-import ResourcesSection from '../../components/Resources/ResourcesSection';
+import { Container, Layout, PageHeader, Link, ResourcesSection } from '../../components';
 
 import {
   blogs, githubProjects, sites, random,
@@ -15,18 +11,22 @@ const sections = [
   {
     title: 'Sites / Products / Services',
     items: sites,
+    linkText: ''
   },
   {
     title: 'GitHub Projects',
     items: githubProjects,
+    linkText: ''
   },
   {
     title: 'Blogs',
     items: blogs,
+    linkText: ''
   },
   {
     title: 'Random',
     items: random,
+    linkText: ''
   },
 ];
 

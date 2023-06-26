@@ -1,13 +1,9 @@
 import React from 'react';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/PageHeader/PageHeader';
-import Link from '../components/Link/Link';
-import Container from '../components/Container';
+import { Layout, Container, PageHeader, Link, CarbonFootprint } from '../components';
 import { ProfessionalExperienceTimeline } from '../components/ProfessionalExperience';
 import { linkedInUrl, resumeUrl } from '../data/urls';
 import PostContent from '../components/utilities/PostContent';
 import {YearsActive} from "../components/utilities/YearsActive";
-import { CarbonFootprint } from '../components/CarbonFootprint';
 import {Meta} from "../components/utilities/Meta";
 
 const AboutPage = () => {

@@ -1,17 +1,15 @@
 import React from "react";
 import {FC, PropsWithChildren} from "react";
 import {useSiteMetadata} from "../../hooks/use-site-metadata";
+import {BlogFields} from "../../templates/BlogPostTemplate";
+import {socials} from "../../data/urls";
 
 export interface MetaAttributes {
   title?: string;
   description?: string;
   pathname?: string;
   date?: string;
-  post?: {
-    date: string;
-    excerpt: string;
-    slug: string;
-  };
+  post?: BlogFields;
 }
 
 /**
@@ -25,7 +23,8 @@ export const Meta: FC<PropsWithChildren<MetaAttributes>> = (
     title,
     description,
     pathname,
-    children
+    children,
+    post
   }) => {
 
     const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername, buildTime, buildId } = useSiteMetadata();
@@ -38,11 +37,10 @@ export const Meta: FC<PropsWithChildren<MetaAttributes>> = (
       twitterUsername,
     }
 
-
     const globalJSONLD = {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: seo.title,
+      name: defaultTitle,
       url: seo.url,
       logo: 'https://jamesrwilliams.ca/favicon.png',
     };
@@ -72,9 +70,48 @@ export const Meta: FC<PropsWithChildren<MetaAttributes>> = (
           {JSON.stringify(globalJSONLD, null, 4)}
         </script>
 
+        { post && <PostLinkedData post={post} /> }
+
         <a rel="me" href="https://mastodon.social/@jamesrwilliams">Mastodon</a>
 
         {children}
       </>
     )
+}
+
+interface PostLinkedData {
+  post: BlogFields;
+}
+
+const PostLinkedData: FC<PostLinkedData> = ({post }) => {
+
+  const { excerpt, frontmatter, fields } = post;
+
+  const postJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    description: excerpt,
+    wordcount: fields.timeToRead.words,
+    publisher: 'James R. Williams',
+    datePublished: frontmatter.date,
+    headline: frontmatter.title,
+    image: [
+      'https://www.gravatar.com/avatar/b2623db89a42dd363c33d1d4df39654a?s=500',
+    ],
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://jamesrwilliams.ca/posts/${fields.slug}`,
+    },
+    author: {
+      '@type': 'Person',
+      name: 'James R. Williams',
+      sameAs: socials,
+    },
+  };
+
+  return (
+    <script type={'application/ld+json'}>
+      { JSON.stringify(postJsonLd, null, 4) }
+    </script>
+  )
 }

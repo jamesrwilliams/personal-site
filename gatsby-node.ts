@@ -9,6 +9,7 @@ import path from "path";
 
 import axios from 'axios';
 import crypto from 'crypto';
+import {toKebabCase} from "./src/lib/toKebabCase";
 
 interface BlogPostInterface {
   id: string;
@@ -76,13 +77,6 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
     isPermanent: true,
   });
 
-  // WARNING: This is not a drop in replacement solution and
-  // it might not work for some edge cases. Test your code!
-  // Regex explained: https://regexr.com/5c55v
-  const re = /([0-9]+|([A-Z][a-z]+)|[a-z]+|([A-Z]+)(?![a-z]))/g
-
-  const kebabCase = (str: string) =>
-    (String(str ?? '').match(re) || []).map(x => x.toLowerCase()).join('-')
 
 
   /**
@@ -93,7 +87,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ actions, graphql 
 
   tags.forEach((tag: TagGroupsInterface) => {
     createPage({
-      path: `posts/-/tags/${kebabCase(tag.fieldValue)}`,
+      path: `posts/-/tags/${toKebabCase(tag.fieldValue)}`,
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,

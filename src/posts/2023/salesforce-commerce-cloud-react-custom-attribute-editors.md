@@ -46,9 +46,12 @@ As this post is quite long you can find a table of contents listed in the detail
     * [3.1 - Add React Router](#31---add-react-router)
     * [3.2 - SFCC Event Client](#32---sfcc-event-client)
   * [4.0 - Adding support for breakout editors](#40---adding-support-for-breakout-editors)
-    * [4.1 - Second round of editor definition files](#41---second-round-of-editor-definition-files)
+    * [4.1 - Additional definition files to support breakout editors](#41---additional-definition-files-to-support-breakout-editors)
     * [4.2 - Client Updates for Breakout editor](#42---client-updates-for-breakout-editor)
-  * [Resources](#resources)
+    * [4.3 - Augmenting our React components to support breakout editors](#43---augmenting-our-react-components-to-support-breakout-editors)
+    * [4.4 - Challenges using the same `customEditorClient.js` for both editors](#44---challenges-using-the-same-customeditorclientjs-for-both-editors)
+  * [4.5 - A note about iFrame sandboxes](#45---a-note-about-iframe-sandboxes)
+  * [5.0 - Resources](#50---resources)
 {/* <!-- TOC --> */}
 
 </details>
@@ -571,7 +574,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 export function App() {
 
   const location = useLocation();
-  const definition = window.sfcc;
+  const definition = window.acme;
   const requestedRoute = '/editor/' + definition.editorType;
 
   if (!definition || !requestedRoute) {
@@ -762,7 +765,8 @@ editor "breaks out" of the sidebar and takes over the entire screen. This is a g
 complex user experiences where you need that additional screen real-estate to craft the data we're
 storing in Page Designer.
 
-_Note you do not need to add support for breakout editors if you don't need it._
+_**Note**: this is an optional addition to a custom attribute editor, you do not need to add support for
+breakout editors if it doesn't work for your use case._
 
 ![](./images/react-custom-attribute-editors/custom-attribute-editor-breakout.png)
 
@@ -850,7 +854,7 @@ And same again with the JSON file, again with identical content:
 ```
 
 Note how we're using the same `customEditorClient.js` in both the `customEditorBreakout.json` and
-`customEditor.json` files. This is deliberate as we want the same react app to be mounted in both
+`customEditor.json` files. This is deliberate as we want the same React app to be mounted in both
 our "inline" and "breakout" editors. We need to make the following additions to our
 original `customEditor.js` file also:
 
@@ -864,7 +868,7 @@ original `customEditor.js` file also:
  /**
   * Init the ACME Custom Editor (inline)
   * @param editor
-  *
+
   * @see https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fpage_designer%2Fb2c_custom_attr_editor.html&cp=0_7_7_4
   */
  module.exports.init = function (editor) {
@@ -880,11 +884,21 @@ original `customEditor.js` file also:
 ```
 
 With that the definition files are updated, last step is to update the Page Designer client we
-set up during [Step 3.2](#32---sfcc-event-client) to ensure the breakout editor can work.
+set up during [Step 3.2](#32---sfcc-event-client) to ensure the breakout editor can work which we
+will look at next.
 
 ### 4.2 - Client Updates for Breakout editor
 
 When adding breakout editor support we add support for three new event types we didn't add earlier.
+These are the `open`, `apply`, and `cancel` which do the following:
+
+- Open requests Page Designer to open the specified editor in a modal
+- Apply which closes the breakout editor and apply the changes made in the breakout editor to
+the _inline editor_.
+- Cancel which closes the breakout editor and discard the changes made in the breakout editor.
+
+Taking what we added to the file we set up in [Step 3.2](#32---sfcc-event-client) we can expand our
+client to use these new breakout methods like so:
 
 ```diff
  /**
@@ -1022,17 +1036,13 @@ When adding breakout editor support we add support for three new event types we 
  };
 ```
 
-To summarize the changes above:
+That was a lot of code but, we've added client functionality for our three new event types, and we've
+added a new `handleBreakoutRequest` method to abstract the behavior to make opening breakout editors
+easier for any number of editors.
 
-1. Three new event types have been added for breakout editors open, apply, and cancel.
-   - Open - requests Page Designer to open the specified editor in a modal
-   - Apply - Close the breakout editor and apply the change from the breakout editor to the _inline editor_.
-   - Cancel - Close the breakout editor and discard the change from the breakout editor.
-2. We've added a new `handleBreakoutRequest` method to abstract this behavior.
-
-We use a localstorage key to keep a reference to an open breakout editor, as in theory you could
-have more than one Custom Attribute Editor for a single component this ensures we can keep track of
-which editor should be presented in the breakout editor.
+We use a `localStorage` key to keep a reference to an open breakout editor, as in theory you could
+have more than one Custom Attribute Editor active at any one time for a single component in Page
+Designer, this ensures we can keep track of which editor should be presented in the breakout editor.
 
 ### 4.3 - Augmenting our React components to support breakout editors
 
@@ -1041,54 +1051,40 @@ breakout editor. As this changes the viewport of an application from a narrow si
 modal I would recommend taking care when designing your components to maximise this additional
 screen space.
 
-What follows is a sample of how I have built these kinds of apps in the past. You can open the
-disclosure below to see the type definitions:
+For my set-up I wrap my editors in a generic component like so with the definition being our config
+object being passed from the component definition, predominantly being the `editorId`, and as a
+reminder the `defintiion` we're passing here is simply a reference to the `window.acme` object we
+set up back in [Step 3.1](#31---passing-configuration-into-the-app).
 
+```jsx
+export const EditorWrapper = ({definition}) => {
 
-```typescript
-interface EditorProps {
-  isDisabled: boolean;
-  isRequired: boolean;
-  dataLocale: string;
-  displayLocale: string;
+  const {editorId} = useParams();
+
+  const {config} = definition;
+
+  if (!editorId || !availableEditors[editorId]) {
+    return <ErrorPage />
+  }
+
+  const EditorComponent = availableEditors[editorId];
+  const isBreakoutEditor = !config.editorType;
+
+  return (
+    <EditorComponent
+      isBreakoutEditor={isBreakoutEditor}
+      editorType={config.editorType}
+      onChange={handleChangeEvent} // Our API client method
+      onTriggerBreakoutEditor={handleBreakoutRequest}
+      originalValue={definition.originalValue}
+      {...config}
+    />
+  )
 }
-
-export type BreakoutCloseArgs = {
-  type: string;
-  value: unknown;
-}
-
-export type HandleBreakoutRequestArgs = (title: string, editorType: string, onApply?: (value: unknown) => void, onCancel?: () => void) => void;
-
-export type CustomEditorChangeEvent = (newValue: object, isValid?: boolean, validityMessage?: string) => void;
-
-
-/**
- * This defines the shape of our editor config as passed from our editor specification.
- * Each editor's specification should implement the following object as the
- * `editor_definition.configuration` in the component's `attribute_definition`.
- */
-export interface EditorDefinition extends EditorProps {
-  originalValue: unknown;
-  route: string;
-  config: {
-    editorType: string;
-  },
-}
-
-interface AttributeEditor<D> extends EditorProps {
-  onChange: CustomEditorChangeEvent,
-  editorType: string;
-  isBreakoutEditor: boolean;
-  onTriggerBreakoutEditor: HandleBreakoutRequestArgs;
-  originalValue: D;
-}
-
-export type CustomAttributeEditor<D> = FC<AttributeEditor<D>>;
 ```
 
-1. Wrapper element
-2. React and Typescript implementation sample.
+Doing this allows me to have a standard set of I/O for my editors and easily trigger breakout
+editors and save events as required.
 
 ### 4.4 - Challenges using the same `customEditorClient.js` for both editors
 
@@ -1104,7 +1100,7 @@ during the initial set up:
 
 ```tsx
 // Grab the window object we set in customEditorClient.js.
-const definition = window.sfcc;
+const definition = window.acme;
 
 // The inline scenario this value will be what we add to our component editor config
 // The breakout scenario this is undefined.
@@ -1117,21 +1113,20 @@ const editorTypeFromStorage = window.localStorage.getItem('example-ls-key');
 if(requestedRoute === '/editor/undefined' && editorTypeFromStorage) {
   requestedRoute = `/editor/${editorTypeFromStorage}`;
 }
-
-// Requested route is now either the inline value or breakout one.
 ```
 
 During the `breakoutCloseCallback` we added as part of our client above, we then remove the
-LS key.
+`localStorage` key.
 
-## 4.4 A note about iFrame sandboxes
+## 4.5 - A note about iFrame sandboxes
 
 Your custom attribute editor will be added via an iFrame that has both the `allow-scripts` and the
 `allow-same-origin` sandbox attributes. Without the `allow-forms` using forms funnily enough doesn't
 work, even things like `react-hook-form`'s example makes use of the `<form onSubmit={() => {}} />`
 and without the `allow-forms` sandbox rule, the iFrame stops any forms submitting.
 
-The best way around this is to adjust the react-hook-form example to the following:
+The best way around this is to adjust the react-hook-form example to the following and note the
+handle submit on a normal, non-submit type button:
 
 ```tsx
 <form>
@@ -1147,8 +1142,8 @@ The best way around this is to adjust the react-hook-form example to the followi
 </form>
 ```
 
-Note the handle submit on a normal, non-submit type button.
+## 5.0 - Resources
 
-## 5.0 Resources
-
-- [Component Attribute Types and UI Controls](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fpage_designer%2Fb2c_comp_attr_types.html&resultof=%22%65%6e%75%6d%22%20) (Salesforce B2C Commerce Docs - accessed Apr 4, 2023).
+- [Component Attribute Types and UI Controls](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fpage_designer%2Fb2c_comp_attr_types.html&resultof=%22%65%6e%75%6d%22%20) (Salesforce B2C Commerce Docs - accessed June 25, 2023).
+- [Develop a Custom Attribute Editor](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_custom_attr_editor.html) (Salesforce B2C Commerce Docs - accessed June 25, 2023).
+- ["Creating a Breakout Custom Attribute Editor in Page Designer for Salesforce Commerce Cloud"](https://beeit.io/blog/creating-a-breakout-custom-attribute-editor-in-page-designer-for-salesforce-commerce-cloud-sfcc) - a post from Bee IT which helped me in my background reading for this post. 

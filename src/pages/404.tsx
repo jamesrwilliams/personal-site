@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Layout from '../components/layout/Layout';
+import { Layout } from '../components';
 import styled from "styled-components";
 const FourOhFourCard = styled.div`
   max-width: 450px;

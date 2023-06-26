@@ -67,7 +67,7 @@ const PostContent = styled.div`
   pre {
     border-radius: .375rem;
     font-size: .777779em;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 2em;
     padding: 1em 1.5em;
 

@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import prismTheme from './partials/prismTheme';
+import prismTheme from './prismTheme';
 
 const syntaxHighlighting = css`
 

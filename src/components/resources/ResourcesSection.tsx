@@ -1,5 +1,5 @@
 import React from 'react';
-import ResourceItem, { ResourceItemProps } from './ResourcesItem';
+import { ResourceItem, ResourceItemProps } from './ResourcesItem';
 
 interface ResourceSelectionProps {
   title: string;
@@ -10,7 +10,7 @@ interface ResourceSelectionProps {
   }[]
 }
 
-const ResourcesSection = ({ title, items }: ResourceSelectionProps) => (
+export const ResourcesSection = ({ title, items }: ResourceSelectionProps) => (
   <>
     <h2 id={title}>{ title }</h2>
     <ul>
@@ -20,5 +20,3 @@ const ResourcesSection = ({ title, items }: ResourceSelectionProps) => (
     </ul>
   </>
 );
-
-export default ResourcesSection;

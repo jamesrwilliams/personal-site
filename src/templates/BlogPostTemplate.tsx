@@ -1,11 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/PageHeader/PageHeader';
-import Container from '../components/Container';
-import LinkedData from '../components/social/LinkedData';
+import { Layout, PageHeader, Container, PostTags } from '../components';
 import PostContent from '../components/utilities/PostContent';
-import {PostTags} from "../components/PostTags";
 import { Meta } from '../components/utilities/Meta';
 
 interface PageQuery {
@@ -19,15 +15,13 @@ export default function Template({ data: { mdx }, children }: PageQuery) {
 
   const {
     frontmatter,
-    excerpt,
-    fields: { timeToRead, slug },
+    fields: { timeToRead },
   } = mdx;
 
   const { title, tags, date } = frontmatter;
 
   return (
     <Layout>
-      <LinkedData title={title} date={date} excerpt={excerpt} slug={slug} />
       <main>
         <article>
           <PageHeader title={title} date={date} timeToRead={timeToRead.text} />
@@ -48,6 +42,7 @@ export const Head = ({ data }: PageQuery) => (
     title={data.mdx.frontmatter.title}
     description={data.mdx.excerpt}
     date={data.mdx.frontmatter.date}
+    post={data.mdx}
   />
 )
 
@@ -57,6 +52,7 @@ export interface BlogFields {
     slug: string;
     timeToRead: {
       text: string;
+      words: string;
     }
   }
   frontmatter: {
@@ -80,6 +76,7 @@ export const query = graphql`
       slug
       timeToRead {
         text
+        words
       }
     }
     frontmatter {

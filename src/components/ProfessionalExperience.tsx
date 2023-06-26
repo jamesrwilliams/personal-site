@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { ExperienceItem, experienceTimeline } from '../data/experience';
+import {StyledEmployerLink} from "./hero/Hero.styled";
 
 const ExperienceList = styled.ul`
   list-style: none;
@@ -84,3 +85,13 @@ export const PositionEntry = ({ position, index }: { position: ExperienceItem, i
 );
 
 export default ProfessionalExperienceTimeline;
+
+export const CurrentPositionNode = ({ position }: {position: ExperienceItem}) => {
+  const { role, summary, company: { name, url } } = position;
+
+  const companyLinkElm = <StyledEmployerLink href={url}>{name}</StyledEmployerLink>;
+
+  const companyFragment = url ? companyLinkElm : position.company.name;
+
+  return <>I am currently a {role}, working with the folks at {companyFragment}, {summary}.</>;
+};

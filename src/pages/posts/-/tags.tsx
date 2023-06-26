@@ -1,11 +1,9 @@
 import {graphql, Link} from "gatsby";
 import React from "react";
-import {Layout} from "../../../components";
-import PageHeader from "../../../components/PageHeader/PageHeader";
-import Container from "../../../components/Container";
-import {getTagLink} from "../../../components/utilities";
+import {Layout, PageHeader, Container} from "../../../components";
 import styled from "styled-components";
 import {Meta} from "../../../components/utilities/Meta";
+import {getTagLink} from "../../../lib/getTagLink";
 
 const TagColumns = styled.ol`
   columns: 1;

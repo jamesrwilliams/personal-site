@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import { Link } from 'gatsby';
-import styled, { css } from 'styled-components';
-import { StaticImage } from 'gatsby-plugin-image';
-import {mediaQuery} from '../../theme/variables';
-import Container from '../Container';
-import { GitHub, LinkedIn } from "../social/Social";
+import React from 'react';
+import styled, {css} from "styled-components";
+import {mediaQuery} from "../../theme/variables";
+import {Link} from "gatsby";
 
-const HeaderContainer = styled.header<{ open: boolean }>`
+export const HeaderContainer = styled.header<{ open: boolean }>`
   background: var(--brand-primaryBlue);
   position: fixed;
   color: #fff;
@@ -28,7 +25,7 @@ const HeaderContainer = styled.header<{ open: boolean }>`
   }
 `;
 
-const HeaderToggleButton = styled.button<{ open: boolean }>`
+export const HeaderToggleButton = styled.button<{ open: boolean }>`
   display: inline-block;
   background: none;
   border: 0;
@@ -47,12 +44,19 @@ const HeaderToggleButton = styled.button<{ open: boolean }>`
   }
 `;
 
-const HeaderWrapper = styled(Container)`
+export const HeaderWrapper = styled.div`
+  margin: 0 1rem;
+  padding: 0 1rem;
+  transition: all 1s ease;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: unset;
+
+  @media screen and (min-width: 700px) {
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 
   .profile {
     border-radius: 9999px;
@@ -63,7 +67,7 @@ const HeaderWrapper = styled(Container)`
   }
 `;
 
-const PrimaryNavLink = styled(Link)`
+export const PrimaryNavLink = styled(Link)`
   color: inherit;
   text-decoration: none;
 
@@ -78,7 +82,7 @@ const PrimaryNavLink = styled(Link)`
   }
 `;
 
-const PrimaryNav = styled.nav<{ open: boolean }>`
+export const PrimaryNav = styled.nav<{ open: boolean }>`
   opacity: 0;
   box-sizing: border-box;
   pointer-events: ${(props) => (props.open ? 'all' : 'none')};
@@ -130,7 +134,7 @@ const PrimaryNav = styled.nav<{ open: boolean }>`
 
 `;
 
-const CollapsableNavigation = styled.div`
+export const CollapsableNavigation = styled.div`
   display: flex;
   flex-direction: initial;
 
@@ -138,50 +142,3 @@ const CollapsableNavigation = styled.div`
     flex-direction: row-reverse;
   }
 `;
-
-const NavLink = ({ url, label }: { url: string, label: string|JSX.Element }) => (
-  <Link activeClassName="active" to={url}>{ label }</Link>
-);
-
-const Header = () => {
-  const [menuOpen, setMenuState] = useState(false);
-
-  return (
-    <HeaderContainer open={menuOpen}>
-      <HeaderWrapper>
-        <PrimaryNavLink to="/">
-          <div>
-            <div style={{ borderRadius: '100%' }}>
-              <StaticImage
-                src="../../images/profile.png"
-                alt="James R. Williams"
-                placeholder="blurred"
-                className="profile"
-                width={60}
-                quality={100}
-                height={60}
-              />
-            </div>
-            <span>James R. Williams</span>
-          </div>
-        </PrimaryNavLink>
-        <CollapsableNavigation>
-          <HeaderToggleButton aria-label={"Toggle theme"} open={menuOpen} onClick={() => setMenuState(!menuOpen)}>
-            Menu
-          </HeaderToggleButton>
-          <PrimaryNav open={menuOpen}>
-            <NavLink label="About" url="/about/" />
-            <NavLink label="Posts" url="/posts/" />
-            <NavLink label={"CV"} url={'/cv'} />
-            <GitHub />
-            <LinkedIn />
-          </PrimaryNav>
-        </CollapsableNavigation>
-      </HeaderWrapper>
-    </HeaderContainer>
-  );
-};
-
-export default Header;
-
-

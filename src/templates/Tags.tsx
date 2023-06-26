@@ -1,13 +1,10 @@
 import React from 'react';
 import {graphql, Link} from "gatsby";
-import {PostList} from "../components/PostPreview";
-import Container from "../components/Container";
-import PageHeader from "../components/PageHeader/PageHeader";
-import Layout from "../components/layout/Layout";
-import {getTagLink} from "../components/utilities";
+import { PageHeader, Container, Layout, PostList } from "../components";
 import {BiArrowBack} from "react-icons/bi";
 import {Meta} from "../components/utilities/Meta";
 import {BlogFields} from "./BlogPostTemplate";
+import {getTagLink} from "../lib/getTagLink";
 
 const generateTagHeader = (tagName: string, tagCount: number) => {
   return `${tagCount} post${tagCount === 1 ? "" : "s"} tagged with "${tagName}"`;

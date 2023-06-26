@@ -1,9 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { Layout } from '../../components';
-import PageHeader from '../../components/PageHeader/PageHeader';
-import Container from '../../components/Container';
-import Link from '../../components/Link/Link';
+import { Layout, PageHeader, Container, Link } from '../../components';
 import { ReadingListEntryInterface } from '../../types/ReadingListEntry.interface';
 import PostContent from "../../components/utilities/PostContent";
 import {Meta} from "../../components/utilities/Meta";
