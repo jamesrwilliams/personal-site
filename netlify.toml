@@ -1,9 +1,6 @@
 [build]
-  command = "npm run build"
+  command = "CI= npm run build"
   publish = "public"
-
-[build.environment]
-  NODE_VERSION = "16"
 
 [context.branch-deploy]
   NODE_ENV = "development"
@@ -13,10 +10,10 @@
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
-    referrer-policy = "strict-origin"
+    Referrer-Policy = "strict-origin"
     X-XSS-Protection = "1; mode=block"
     Permissions-Policy = ""
-    cache-control = '''
+    Cache-Control = '''
       max-age=0,
       no-cache,
       no-store,
