@@ -222,7 +222,7 @@ For now lets just use the basic scaffold to ensure everything is wired up:
 ```js:title=app_custom_bm_extensions/cartridge/static/default/experience/editors/com/acme/customEditorClient.js
 () => {
   subscribe('sfcc:ready', async () => {
-    console.log('sfcc:ready', dataLocale, displayLocale, value, config);
+    console.log('sfcc:ready');
     let tempElement = document.createElement('h1');
     tempElement.innerText='Hello from customEditorClient.js';
     document.body.append(tempElement);
@@ -496,7 +496,7 @@ we can pass this to the React app in the iFrame. One of the easiest ways and the
 this is to attach the configuration to a `window` global.
 
 We can do this in the `customEditorClient.js` file by expanding what we added
-in [1.4](#14---custom-editor-client-script):
+in [Step 1.4](#14---custom-editor-client-script):
 
 ```diff:title=app_custom_bm_extensions/cartridge/static/default/experience/editors/com/acme/customEditorClient.js
  (() => {
@@ -652,7 +652,7 @@ To do this I like to build out an "SFCC Editor Client" of sorts. A simple JS lib
 facilitates communication between our React app and Page Designer. Into your React app copy the
 following JavaScript into a library/script directory:
 
-```js
+```js:title=sfccEditorClient.js
 /**
  * Events Emitted by the Custom Attribute Editor
  *
@@ -890,12 +890,12 @@ will look at next.
 ### 4.2 - Client Updates for Breakout editor
 
 When adding breakout editor support we add support for three new event types we didn't add earlier.
-These are the `open`, `apply`, and `cancel` which do the following:
+These are:
 
-- Open requests Page Designer to open the specified editor in a modal
-- Apply which closes the breakout editor and apply the changes made in the breakout editor to
+- `Open` - Requests Page Designer to open the specified editor in a modal
+- `Apply` - This closes the breakout editor and apply the changes made in the breakout editor to
 the _inline editor_.
-- Cancel which closes the breakout editor and discard the changes made in the breakout editor.
+- `Cancel` - This closes the breakout editor and discard the changes made in the breakout editor.
 
 Taking what we added to the file we set up in [Step 3.2](#32---sfcc-event-client) we can expand our
 client to use these new breakout methods like so:
@@ -1051,9 +1051,9 @@ breakout editor. As this changes the viewport of an application from a narrow si
 modal I would recommend taking care when designing your components to maximise this additional
 screen space.
 
-For my set-up I wrap my editors in a generic component like so with the definition being our config
-object being passed from the component definition, predominantly being the `editorId`, and as a
-reminder the `defintiion` we're passing here is simply a reference to the `window.acme` object we
+For my set-up I wrap my editors in a generic component (see below) with the definition being our 
+config object being passed from the component definition, predominantly being the `editorId`, and as
+a reminder the `defintiion` we're passing here is simply a reference to the `window.acme` object we
 set up back in [Step 3.1](#31---passing-configuration-into-the-app).
 
 ```jsx
@@ -1091,11 +1091,11 @@ editors and save events as required.
 As we're using the same `customEditorClient.js` for both our inline and breakout editors there is an
 unfortunate issue we need to work-around when it comes to the `editorType` configuration. Typically,
 we extract that property from the `config` argument from the `sfcc:ready` callback. For our inline
-editor, this is defined and available, for breakout editors it is not.
+editor, this is defined and available, for breakout editors it is not provided!
 
-We can use localStorage as a workaround for this, below is a simplified example to explain
-how, we use localStorage to get around this missing `config`. When we trigger a breakout editor to
-open we set the ID of the editor requesting the breakout to a localStorage entry, which is then read
+We can use `localStorage` as a workaround for this, below is a simplified example to explain how we
+use `localStorage` to get around this missing `config`. When we trigger a breakout editor to open we
+set the ID of the editor requesting the breakout to a `localStorage` entry, which is then read
 during the initial set up:
 
 ```tsx
