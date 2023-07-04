@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {mediaQuery, textGradient} from "../../theme/variables";
-import {OutboundLink} from "gatsby-plugin-google-analytics";
 
 export const HeroWrapper = styled.div`
   position: relative;
@@ -50,7 +49,7 @@ export const HeroWrapper = styled.div`
   }
 `;
 
-export const StyledEmployerLink = styled(OutboundLink)`
+export const StyledEmployerLink = styled.a`
   color: inherit;
   text-decoration: none;
   position: relative;

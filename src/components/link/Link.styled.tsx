@@ -1,6 +1,5 @@
 import styled, {css} from "styled-components";
 import {Link} from "gatsby";
-import {OutboundLink} from "gatsby-plugin-google-analytics";
 import {Link as GatsbyLink} from "gatsby-link";
 
 const buttonStyles = css`
@@ -19,7 +18,7 @@ const buttonStyles = css`
   }
 `;
 
-export const ExternalLink = styled(OutboundLink)`
+export const ExternalLink = styled.a`
   color: var(--brand-accentLinkColor);
   text-decoration: none;
 `;
@@ -30,9 +29,9 @@ export const StyledInternalLink = styled(GatsbyLink)`
 `;
 
 export const InternalLinkButton = styled(Link)` ${buttonStyles} `;
-export const ExternalLinkButton = styled(OutboundLink)` ${buttonStyles} `;
+export const ExternalLinkButton = styled.a` ${buttonStyles} `;
 
-export const StyledOutboundLink = styled(OutboundLink)`
+export const StyledOutboundLink = styled.a`
   color: var(--brand-accentPrimary);
   text-decoration: none;
 `;

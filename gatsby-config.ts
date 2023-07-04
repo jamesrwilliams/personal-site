@@ -180,15 +180,6 @@ const config: GatsbyConfig = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-offline',
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-26549429-1',
-        head: true,
-        defer: true,
-        anonymize: true,
-      },
-    },
-    {
       resolve: 'gatsby-source-graphql',
       options: {
         typeName: 'GitHub',

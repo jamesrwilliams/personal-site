@@ -27,65 +27,79 @@ export const Meta: FC<PropsWithChildren<MetaAttributes>> = (
     post
   }) => {
 
-    const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername, buildTime, buildId } = useSiteMetadata();
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    image,
+    siteUrl,
+    twitterUsername,
+    buildTime,
+    buildId
+  } = useSiteMetadata();
 
-    const seo = {
-      title: title ? `${title} | ${defaultTitle}` : defaultTitle,
-      description: description || defaultDescription,
-      image: image ? `${siteUrl}${image}` : 'https://jamesrwilliams.ca/favicon.png',
-      url: `${siteUrl}${pathname || ``}`,
-      twitterUsername,
-    }
+  const seo = {
+    title: title ? `${title} | ${defaultTitle}` : defaultTitle,
+    description: description || defaultDescription,
+    image: image ? `${siteUrl}${image}` : 'https://jamesrwilliams.ca/favicon.png',
+    url: `${siteUrl}${pathname || ``}`,
+    twitterUsername,
+  }
 
-    const globalJSONLD = {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: defaultTitle,
-      url: seo.url,
-      logo: 'https://jamesrwilliams.ca/favicon.png',
-    };
+  const globalJSONLD = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: defaultTitle,
+    url: seo.url,
+    logo: 'https://jamesrwilliams.ca/favicon.png',
+  };
 
-    return (
-      <>
-        <title>{seo.title}</title>
-        <meta name="description" content={seo.description} />
+  return (
+    <>
+      <title>{seo.title}</title>
+      <meta name="description" content={seo.description}/>
 
-        <meta name="netlify-last-deployed" content={buildTime}/>
-        <meta name="netlify-build-id" content={buildId}/>
+      <meta name="netlify-last-deployed" content={buildTime}/>
+      <meta name="netlify-build-id" content={buildId}/>
 
-        <meta name="og:title" content={seo.title} />
-        <meta name="og:description" content={seo.description} />
-        <meta name="og:type" content={'website'} />
-        <meta name="og:url" content={seo.url} />
-        <meta name="og:image" content={'https://jamesrwilliams.ca/favicon.png'} />
+      <meta name="og:title" content={seo.title}/>
+      <meta name="og:description" content={seo.description}/>
+      <meta name="og:type" content={'website'}/>
+      <meta name="og:url" content={seo.url}/>
+      <meta name="og:image" content={'https://jamesrwilliams.ca/favicon.png'}/>
 
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seo.title} />
-        <meta name="twitter:url" content={seo.url} />
-        <meta name="twitter:description" content={seo.description} />
-        <meta name="twitter:image" content={seo.image} />
-        <meta name="twitter:creator" content={seo.twitterUsername} />
+      <meta name="twitter:card" content="summary_large_image"/>
+      <meta name="twitter:title" content={seo.title}/>
+      <meta name="twitter:url" content={seo.url}/>
+      <meta name="twitter:description" content={seo.description}/>
+      <meta name="twitter:image" content={seo.image}/>
+      <meta name="twitter:creator" content={seo.twitterUsername}/>
 
-        <script type="application/ld+json">
-          {JSON.stringify(globalJSONLD, null, 4)}
-        </script>
+      <script type="application/ld+json">
+        {JSON.stringify(globalJSONLD, null, 4)}
+      </script>
 
-        { post && <PostLinkedData post={post} /> }
+      <script
+        async
+        src="https://analytics.jamesrwilliams.ca/script.js"
+        data-website-id="fc6ca0cf-a52b-44ec-9faa-ae8ffea7433d"
+      ></script>
 
-        <a rel="me" href="https://mastodon.social/@jamesrwilliams">Mastodon</a>
+      {post && <PostLinkedData post={post}/>}
 
-        {children}
-      </>
-    )
+      <a rel="me" href="https://mastodon.social/@jamesrwilliams">Mastodon</a>
+
+      {children}
+    </>
+  )
 }
 
 interface PostLinkedData {
   post: BlogFields;
 }
 
-const PostLinkedData: FC<PostLinkedData> = ({post }) => {
+const PostLinkedData: FC<PostLinkedData> = ({post}) => {
 
-  const { excerpt, frontmatter, fields } = post;
+  const {excerpt, frontmatter, fields} = post;
 
   const postJsonLd = {
     '@context': 'https://schema.org',
@@ -111,7 +125,7 @@ const PostLinkedData: FC<PostLinkedData> = ({post }) => {
 
   return (
     <script type={'application/ld+json'}>
-      { JSON.stringify(postJsonLd, null, 4) }
+      {JSON.stringify(postJsonLd, null, 4)}
     </script>
   )
 }

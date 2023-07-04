@@ -11,7 +11,6 @@ import {
   SiSalesforce as SalesforceIcon, SiMastodon,
 } from '@icons-pack/react-simple-icons';
 
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import {
   codePenUrl,
   gitHubUrl,
@@ -115,7 +114,7 @@ interface socialIconInterface {
 const SocialIcon = ({
   target, href, title, children,
 }: socialIconInterface) => (
-  <OutboundLink
+  <a
     target={target}
     title={title}
     rel="noopener noreferrer me"
@@ -123,7 +122,7 @@ const SocialIcon = ({
     style={{ height: 18, width: 18 }}
   >
     { children }
-  </OutboundLink>
+  </a>
 );
 
 SocialIcon.defaultProps = {
