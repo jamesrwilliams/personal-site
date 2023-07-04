@@ -19,6 +19,8 @@
       no-store,
       must-revalidate'''
 
+[[plugins]]
+package = "@netlify/plugin-gatsby"
 
 
 
