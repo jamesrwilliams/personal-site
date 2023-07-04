@@ -498,7 +498,7 @@ this is to attach the configuration to a `window` global.
 We can do this in the `customEditorClient.js` file by expanding what we added
 in [Step 1.4](#14---custom-editor-client-script):
 
-```diff:title=app_custom_bm_extensions/cartridge/static/default/experience/editors/com/acme/customEditorClient.js
+```diff-js:title=app_custom_bm_extensions/cartridge/static/default/experience/editors/com/acme/customEditorClient.js
  (() => {
    /**
     * This file is what SFCC initially loads into the custom editor iFrame.
@@ -858,7 +858,7 @@ Note how we're using the same `customEditorClient.js` in both the `customEditorB
 our "inline" and "breakout" editors. We need to make the following additions to our
 original `customEditor.js` file also:
 
-```diff:title=/cartridge/experience/editors/com/acme/customEditor.js
+```diff-js:title=/cartridge/experience/editors/com/acme/customEditor.js
  'use strict';
 
  var URLUtils = require('dw/web/URLUtils');
@@ -900,7 +900,7 @@ the _inline editor_.
 Taking what we added to the file we set up in [Step 3.2](#32---sfcc-event-client) we can expand our
 client to use these new breakout methods like so:
 
-```diff
+```diff-js
  /**
   * Events Emitted by the Custom Attribute Editor
   *
