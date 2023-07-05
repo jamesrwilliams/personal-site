@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "develop:opm": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop",
+    "develop:opm": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop -H 0.0.0.0",
     "develop:lan": "gatsby develop -H 0.0.0.0",
     "lint": "npx eslint .",
     "format": "prettier --write \"**/*.{js,jsx, json,md}\"",

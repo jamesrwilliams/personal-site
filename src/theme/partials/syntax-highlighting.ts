@@ -59,6 +59,7 @@ const syntaxHighlighting = css`
     margin-bottom: -15px;
     position: relative;
     z-index: 500;
+    word-break: break-word;
   }
 
   // Inline code references
