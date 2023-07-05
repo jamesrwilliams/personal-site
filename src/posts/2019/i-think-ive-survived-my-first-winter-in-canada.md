@@ -21,7 +21,7 @@ After playing with Angular for a number of years, but never really knowing what 
 
 I opted for the Angular Ultimate Bundle, which includes the full Angular course, with an extra course on TypeScript and NgRX on the side. Also getting into things like RxJS for an understanding of its awesome features like observables and how useful they are in any number of situations.
 
-Since taking this course my understanding and confidence in using Angular has grown exponentially and I would recommend this courses to anyone with an interest in learning Angular. I opted for the Ultimate Package with everything bundled which is great value for the quality of content. Have a look here: [https://ultimatecourses.com/angular](https://ultimatecourses.com/angular)
+Since taking this course my understanding and confidence in using Angular has grown exponentially and I would recommend this courses to anyone with an interest in learning Angular. I opted for the Ultimate Package with everything bundled which is great value for the quality of content. Have a look here: https://ultimatecourses.com/angular
 
 ## Flagpole - WP feature flags plugin
 
@@ -37,4 +37,4 @@ I’ve been spending some time getting to know progressive web apps (PWAs) and `
 
 ## Experiments GitHub Repo
 
-One final note is that I have had a bit of a cleanup around my GitHub repositories, moving a lot of my random sandboxes and tests into one new repo. I've moved to a mono-repo for al my little experiments and sandboxes. An idea I've shamelessly stolen from [https://github.com/adriancarriger/experiments](https://github.com/adriancarriger/experiments)
+One final note is that I have had a bit of a cleanup around my GitHub repositories, moving a lot of my random sandboxes and tests into one new repo. I've moved to a mono-repo for al my little experiments and sandboxes. An idea I've shamelessly stolen from https://github.com/adriancarriger/experiments

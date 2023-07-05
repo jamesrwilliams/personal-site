@@ -1,5 +1,5 @@
 ---
-title: Salesforce Commerce Cloud - A headless CMS with React
+title: "Salesforce Commerce Cloud - A headless CMS with React"
 date: 2023-01-04
 tags: ['salesforce', 'salesforce-commerce-cloud', 'sfcc-with-react']
 ---
@@ -239,7 +239,7 @@ to investigate how to add the "content slots" feature, and others, to make sure 
 out of our SFCC project using React. 
 
 I'll be posting follow-ups and more, as part of 
-my [#sfcc-with-react](./posts/-/tags/sfcc-with-react) series.
+my [#sfcc-with-react](./-/tags/sfcc-with-react) series.
 
 [^1]: ISML is a custom templating syntax SFCC uses. 
 [Read more in the docs](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fisml%2Fb2c_isml.html)

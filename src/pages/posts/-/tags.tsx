@@ -1,12 +1,9 @@
 import {graphql, Link} from "gatsby";
 import React from "react";
-import {Layout} from "../../../components";
-import PageHeader from "../../../components/PageHeader/PageHeader";
-import Container from "../../../components/Container";
-import SEO from "../../../components/utilities/seo";
-import {PostTag} from "../../../models/Tag.interface";
-import {getTagLink} from "../../../components/utilities";
+import {Layout, PageHeader, Container} from "../../../components";
 import styled from "styled-components";
+import {Meta} from "../../../components/utilities/Meta";
+import {getTagLink} from "../../../lib/getTagLink";
 
 const TagColumns = styled.ol`
   columns: 1;
@@ -18,19 +15,31 @@ const TagColumns = styled.ol`
   }
 `;
 
-// @ts-ignore
-const TagsPage = ({ data }) => {
+interface TagGroup {
+  fieldValue: string;
+  totalCount: string;
+}
+
+interface PageQuery {
+  data: {
+    allMdx: {
+      group: TagGroup[]
+    }
+  }
+}
+
+const TagsPage = ({ data }: PageQuery) => {
 
   // Sort our tags by their totalCount
-  const tags = data.allMdx.group.sort((a: any, b: any) => parseFloat(b.totalCount) - parseFloat(a.totalCount));
+  const tags = data.allMdx.group.sort((a, b) => parseFloat(b.totalCount) - parseFloat(a.totalCount));
 
   return (<Layout>
-    <SEO title="Tags" />
     <main>
       <PageHeader title="Tags" />
       <Container>
+        <p>All tags</p>
         <TagColumns>
-        { tags.map((tag: PostTag) => (
+        { tags.map((tag) => (
           <li><Link to={getTagLink(tag.fieldValue)}>
             <code>{tag.fieldValue}</code> ({tag.totalCount})
           </Link></li>
@@ -41,15 +50,20 @@ const TagsPage = ({ data }) => {
   </Layout>)
 };
 
-export default TagsPage
+export default TagsPage;
+
+export const Head = () => <Meta title={"Tags"} />;
 
 export const pageQuery = graphql`
   query {
-    allMdx(limit: 2000, filter: { fileAbsolutePath: {regex: "/posts/"} }) {
-      group(field: frontmatter___tags) {
+    allMdx(
+      limit: 2000
+      filter: {internal: {contentFilePath: {regex: "/posts/"}}}
+    ) {
+      group(field: {frontmatter: {tags: SELECT}}) {
         fieldValue
         totalCount
       }
     }
   }
-`
+`;

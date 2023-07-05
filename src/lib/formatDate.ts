@@ -1,4 +1,4 @@
-const formatDate = (dateString: string, preset: string = 'full') => {
+const formatDate = (dateString: string, preset = 'full') => {
   const presets: { [index: string]: object; } = {
     full: {
       weekday: 'long',

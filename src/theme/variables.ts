@@ -1,23 +1,16 @@
 import { css } from 'styled-components';
 
-export const primaryBlue = '#021526';
-export const secondaryBlue = '#021220';
-export const accentPrimary = '#0ba7fd';
-export const accentSecondary = '#01d8d1';
-export const accentLinkColor = '#016eaa';
-
-export const animationTiming = 'cubic-bezier(.645,.045,.355,1)';
-
 export const textGradient = css`
   line-height: 1.2;
-  background: ${({theme}) => theme.textGradient};
+  background: var(--text-gradient);
   background-size: 100% 200%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: HeroTextAnimator 45s ${animationTiming} infinite;
-  -moz-animation: HeroTextAnimator 45s ${animationTiming} infinite;
-  animation: HeroTextAnimator 45s ${animationTiming} infinite;
+  -webkit-animation: HeroTextAnimator 45s var(--animation-timing) infinite;
+  -moz-animation: HeroTextAnimator 45s var(--animation-timing) infinite;
+  animation: HeroTextAnimator 45s var(--animation-timing) infinite;
+
   @-webkit-keyframes HeroTextAnimator {
     0% {
       background-position: 51% 0
@@ -40,6 +33,7 @@ export const textGradient = css`
       background-position: 51% 0
     }
   }
+
   @keyframes HeroTextAnimator {
     0% {
       background-position: 51% 0
@@ -52,8 +46,6 @@ export const textGradient = css`
     }
   }
 `;
-
-export const mobileBreakpoint = '700px';
 
 const sizes = {
   md: '700px',

@@ -7,7 +7,8 @@ During the second Points' hackathon of 2021 I was involved in a project that aim
 
 The modules' static content benefited from Gatsby's static builds, while being sourced from [Sanity.io](https://www.sanity.io/). The interactive elements being powered by Firebase; Firebase Auth to handle user authentication and Firestore to store the game and player data. We also made use of Firebase functions to act as our game back-end, verifying player submissions and issuing points and badges.
 
-<details><summary>Click here to reveal a diagram of the overly complicated setup</summary>
+<details>
+  <summary>Click here to reveal a diagram of the overly complicated setup</summary>
 <figure>
 
 ```mermaid

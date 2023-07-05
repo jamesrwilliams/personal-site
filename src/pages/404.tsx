@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { Link } from 'gatsby';
-import Layout from '../components/layout/Layout';
-import SEO from '../components/utilities/seo';
+import { Layout } from '../components';
 import styled from "styled-components";
 const FourOhFourCard = styled.div`
   max-width: 450px;
@@ -13,7 +11,7 @@ const FourOhFourCard = styled.div`
   &:after {
     content: '';
     display: block;
-    background: ${({theme}) => theme.textGradient};
+    background: var(--text-gradient);
     border-radius: 5px;
     position: absolute;
     top: -1px;
@@ -25,11 +23,11 @@ const FourOhFourCard = styled.div`
   .inner {
     position: relative;
     z-index: 50;
-    background: ${({theme}) => theme.pageBackground};
+    background: var(--brand-darker);
     padding: 1rem;
     border-radius: 5px;
     font-size: 14px;
-    color: ${({theme}) => theme.headingColor};
+    color: var(--typography-primary);
 
     @media screen and ${mediaQuery.minMd} {
       font-size: 16px;
@@ -49,10 +47,10 @@ const FourOhFourCard = styled.div`
 `;
 
 import {mediaQuery, textGradient} from "../theme/variables";
+import {Meta} from "../components/utilities/Meta";
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404 Not found" path="404" />
     <main style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <FourOhFourCard>
         <div className="inner">
@@ -66,5 +64,7 @@ const NotFoundPage = () => (
     </main>
   </Layout>
 );
+
+export const Head = () => <Meta title={'404 Not Found'} />
 
 export default NotFoundPage;

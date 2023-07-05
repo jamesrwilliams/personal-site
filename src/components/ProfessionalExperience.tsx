@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { ExperienceItem, experienceTimeline } from '../data/experience';
-import { accentPrimary } from '../theme/variables';
+import {StyledEmployerLink} from "./hero/Hero.styled";
 
 const ExperienceList = styled.ul`
   list-style: none;
@@ -9,14 +9,14 @@ const ExperienceList = styled.ul`
   padding: 0;
   margin-top: 4rem;
   margin-left: 5px;
-  border-left: 1px solid ${({theme}) => theme.textColor}20;
+  border-left: 1px solid #fff1;
 
   &:after,
   &:before {
     content: '';
     bottom: -1px;
     position: absolute;
-    background: ${({theme}) => theme.textColor}20;
+    background: #fff1;
     width: 10px;
     height: 1px;
   }
@@ -55,7 +55,7 @@ const ExperienceListItem = styled.li<{ pos: number }>`
     height: 9px;
     width: 9px;
     border-radius: 5px;
-    background: ${({theme}) => theme.textColor}50;
+    background: #fff1;
     left: -5px;
   }
 
@@ -64,22 +64,18 @@ const ExperienceListItem = styled.li<{ pos: number }>`
 
     &.current {
       font-weight: 600;
-      color: ${({theme}) => theme.headingColor};
+      color: var(--typography-primary);
     }
   }
 
   ${(props) => props.pos === 0 && css`
     &:before {
       border-color: transparent !important;
-      background: ${accentPrimary};
-      background: linear-gradient(to top right, ${accentPrimary}, #01d8d1);
+      background: var(--brand-accentPrimary);
+      background: linear-gradient(to top right, var(--brand-accentPrimary), #01d8d1);
     }
   `}
 `;
-
-const PositionEntryLine = () => {
-  return
-}
 
 export const PositionEntry = ({ position, index }: { position: ExperienceItem, index: number }) => (
   <ExperienceListItem pos={index} key={`pos-${index}`}>
@@ -89,3 +85,13 @@ export const PositionEntry = ({ position, index }: { position: ExperienceItem, i
 );
 
 export default ProfessionalExperienceTimeline;
+
+export const CurrentPositionNode = ({ position }: {position: ExperienceItem}) => {
+  const { role, summary, company: { name, url } } = position;
+
+  const companyLinkElm = <StyledEmployerLink href={url}>{name}</StyledEmployerLink>;
+
+  const companyFragment = url ? companyLinkElm : position.company.name;
+
+  return <>I am currently a {role}, working with the folks at {companyFragment}, {summary}.</>;
+};

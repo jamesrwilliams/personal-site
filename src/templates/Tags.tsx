@@ -1,21 +1,22 @@
 import React from 'react';
 import {graphql, Link} from "gatsby";
-import {PostList} from "../components/PostPreview";
-import Container from "../components/Container";
-import PageHeader from "../components/PageHeader/PageHeader";
-import SEO from "../components/utilities/seo";
-import Layout from "../components/layout/Layout";
-import {getTagLink} from "../components/utilities";
-import {BiArrowBack} from "react-icons/all";
+import { PageHeader, Container, Layout, PostList } from "../components";
+import {BiArrowBack} from "react-icons/bi";
+import {Meta} from "../components/utilities/Meta";
+import {BlogFields} from "./BlogPostTemplate";
+import {getTagLink} from "../lib/getTagLink";
 
-const TagsPage = ({pageContext, data}: any) => {
+const generateTagHeader = (tagName: string, tagCount: number) => {
+  return `${tagCount} post${tagCount === 1 ? "" : "s"} tagged with "${tagName}"`;
+}
+
+const TagsPage = ({pageContext, data}: PageQuery) => {
 
   const {tag} = pageContext;
   const {nodes, totalCount} = data.allMdx;
-  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`;
+  const tagHeader = generateTagHeader(tag, totalCount);
 
   return <Layout>
-    <SEO title={tagHeader}/>
     <main>
       <PageHeader title={tagHeader}>
         <br/>
@@ -30,11 +31,31 @@ const TagsPage = ({pageContext, data}: any) => {
   </Layout>
 }
 
+export const Head = ({pageContext, data}: PageQuery) => {
+  const {tag} = pageContext;
+  const {totalCount} = data.allMdx;
+  const tagHeader = generateTagHeader(tag, totalCount);
+  return <Meta title={tagHeader} />;
+}
+
+interface PageQuery {
+  pageContext: {
+    tag: string;
+  }
+  data: {
+    allMdx: {
+      totalCount: number;
+      nodes: BlogFields[];
+    }
+  }
+}
+
 export const pageQuery = graphql`
   query($tag: String) {
     allMdx(
       limit: 2000
-      filter: { frontmatter: { tags: { in: [$tag] } }, fileAbsolutePath: {regex: "/posts/"} }
+      filter: {frontmatter: {tags: {in: [$tag]}}, internal: {contentFilePath: {regex: "/posts/"}}}
+      sort: {frontmatter: {date: DESC}}
     ) {
       totalCount
       nodes {

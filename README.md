@@ -40,3 +40,9 @@ Code file name:
 ```markdown
 ```python:title=app.py {numberLines: 10}
 ```
+
+### Mermaid
+
+```
+%%{init: {'theme': 'dark', "flowchart" : { "curve" : "basis" } } }%%
+```

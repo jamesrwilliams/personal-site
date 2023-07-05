@@ -1,37 +1,23 @@
 import React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
-import Layout from '../../components/layout/Layout';
-import SEO from '../../components/utilities/seo';
-import PageHeader from '../../components/PageHeader/PageHeader';
-import Container from '../../components/Container';
-import { PostList } from "../../components/PostPreview";
-import {getTagLink} from "../../components/utilities";
-import { default as InternalLink } from '../../components/Link/Link';
+import {graphql} from 'gatsby';
+import { Layout, PageHeader, Container, PostList } from '../../components';
+import { Link } from '../../components/';
+import {Meta} from "../../components/utilities/Meta";
+import {BlogFields} from "../../templates/BlogPostTemplate";
+import {getTagLink} from "../../lib/getTagLink";
 
-const PostsPage = () => {
-  const { posts } = useStaticQuery(graphql`
-  {
-    posts: allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-      nodes {
-        ...blogFields
-      }
-    }
-  }
- `);
+const description = `My sporadic thoughts on web development and fun things I find on the internet.`;
 
-  const description = `My sporadic thoughts on web development and fun things I find on the internet.`;
+const PostsPage = ({ data }: PageQuery) => {
+
+  const { posts } = data;
 
   return (
     <Layout>
-      <SEO
-        title="Posts"
-        path={'posts'}
-        description={description}
-      />
       <main>
         <PageHeader title="Posts">
           <article>
-            <p>{ description } You can also sort or view all my posts with their <InternalLink to={getTagLink()}>tags</InternalLink>.</p>
+            <p>{ description } You can also sort or view all my posts with their <Link type={'link'} to={getTagLink()}>tags</Link>.</p>
           </article>
         </PageHeader>
         <Container>
@@ -43,3 +29,26 @@ const PostsPage = () => {
 };
 
 export default PostsPage;
+
+export const Head = () => <Meta title={'Posts'} description={description} />;
+
+interface PageQuery {
+  data: {
+    posts: {
+      totalCount: number;
+      nodes: BlogFields[];
+    }
+  }
+}
+
+
+export const pageQuery = graphql`
+  query {
+      posts: allMdx(limit: 500, sort: {frontmatter: {date: DESC}}) {
+          totalCount
+          nodes {
+              ...blogFields
+          }
+      }
+  }
+`;

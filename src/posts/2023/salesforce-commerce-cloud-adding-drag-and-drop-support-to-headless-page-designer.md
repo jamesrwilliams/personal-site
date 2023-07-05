@@ -221,5 +221,5 @@ production if you are really worried about bundle size or leaking low-level impl
 A few data attributes and some light ancestry, and we're back in business with drag-and-drop support 
 in Page designer for our a React app using Salesforce Commerce Cloud as a headless CMS. 
 
-Hope this helped! This post is part of my [#sfcc-with-react](./posts/-/tags/sfcc-with-react) series 
+Hope this helped! This post is part of my [#sfcc-with-react](../-/tags/sfcc-with-react) series 
 where I look at how to make use of SFCC in React.

@@ -1,10 +1,9 @@
-import path from "path";
-
 import { siteDescription } from './src/data/metadata';
-
+import remarkGfm from 'remark-gfm';
+import dotenv from 'dotenv';
 import type { GatsbyConfig } from "gatsby"
 
-require('dotenv').config({
+dotenv.config({
   path: '.env',
 });
 
@@ -19,17 +18,17 @@ require('dotenv').config({
  * than what I want: /posts/{SLUG}
  */
 function buildSourceCalls(name = 'posts') {
-  const startYear = 2015;
+  const startYear = 2017;
   const years = new Date().getFullYear() - startYear;
-  const output = [];
 
-  // eslint-disable-next-line no-plusplus
+  const output = [];
   for (let i = 0; i < years + 1; i++) {
     output.push({
       resolve: 'gatsby-source-filesystem',
       options: {
         name,
         path: `${__dirname}/src/posts/${startYear + i}`,
+        ignore: [`**/.*`],
       },
     });
   }
@@ -42,7 +41,7 @@ const config: GatsbyConfig = {
     title: 'James R. Williams',
     siteUrl: 'https://jamesrwilliams.ca',
     description: siteDescription,
-    twitter: '@james_rwilliams',
+    twitterUsername: '@james_rwilliams',
     author: 'James R. Williams',
     buildId: process.env.BUILD_ID,
   },
@@ -53,6 +52,7 @@ const config: GatsbyConfig = {
       options: {
         name: 'images',
         path: `${__dirname}/src/posts/images`,
+        ignore: [`**/.*`],
       },
     },
     {
@@ -60,32 +60,29 @@ const config: GatsbyConfig = {
       options: {
         name: 'pages',
         path: `${__dirname}/src/pages`,
+        ignore: [`**/.*`],
       },
     },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
-        defaultLayouts: {
-          posts: path.resolve('./src/templates/BlogPostTemplate.tsx'),
-          pages: path.resolve('./src/templates/MarkdownPage.tsx'),
+        mdxOptions: {
+          remarkPlugins: [
+            remarkGfm,
+          ]
         },
         gatsbyRemarkPlugins: [
-          'gatsby-remark-code-titles',
           {
-            resolve: 'gatsby-remark-mermaid',
+            resolve: `gatsby-remark-mermaid`,
             options: {
-              language: 'mermaid',
-              currentTheme: 'neutral',
-              viewport: {
-                width: 840,
-                height: 400,
-              },
-              mermaidOptions: {
-                fontSize: 12,
-              },
-            },
+              svgo: {},
+              mermaidConfig: {
+                theme: 'dark',
+              }
+            }
           },
+          'gatsby-remark-code-titles',
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
@@ -114,7 +111,7 @@ const config: GatsbyConfig = {
               // setting this to '{ sh: "bash" }' will let you use
               // the language "sh" which will highlight using the
               // bash highlighter.
-              aliases: { sh: 'bash', js: 'javascript' },
+              aliases: {sh: 'bash', js: 'javascript'},
               // This toggles the display of line numbers globally alongside the code.
               // To use it, add the following line in gatsby-browser.js
               // right after importing the prism color scheme:
@@ -144,14 +141,14 @@ const config: GatsbyConfig = {
                   },
                 },
               ],
-              // Customize the prompt used in shell output
+              // Customize the prompt used in a shell output
               // Values below are default
               prompt: {
                 user: 'usr',
                 host: 'localhost',
                 global: false,
               },
-              // By default the HTML entities <>&'" are escaped.
+              // By default, the HTML entities <>&'" are escaped.
               // Add additional HTML escapes by providing a mapping
               // of HTML entities and their escape value IE: { '}': '&#123;' }
               escapeEntities: {},
@@ -176,22 +173,13 @@ const config: GatsbyConfig = {
         ],
       },
     },
-    'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
+    'gatsby-plugin-netlify',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-26549429-1',
-        head: true,
-        defer: true,
-        anonymize: true,
-      },
-    },
     {
       resolve: 'gatsby-source-graphql',
       options: {

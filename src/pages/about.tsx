@@ -1,22 +1,16 @@
 import React from 'react';
-import Layout from '../components/layout/Layout';
-import SEO from '../components/utilities/seo';
-import PageHeader from '../components/PageHeader/PageHeader';
-import Link from '../components/Link/Link';
-import Container from '../components/Container';
+import { Layout, Container, PageHeader, Link, CarbonFootprint } from '../components';
 import { ProfessionalExperienceTimeline } from '../components/ProfessionalExperience';
 import { linkedInUrl, resumeUrl } from '../data/urls';
 import PostContent from '../components/utilities/PostContent';
 import {YearsActive} from "../components/utilities/YearsActive";
-import {CurrentlyReading} from "../components/CurrentlyReading";
-import { CarbonFootprint } from '../components/CarbonFootprint';
+import {Meta} from "../components/utilities/Meta";
 
 const AboutPage = () => {
   const siteRepoLink = 'https://github.com/jamesrwilliams/personal-site';
 
   return (
     <Layout>
-      <SEO title="About me" path={'posts'} />
       <main>
         <PageHeader title="A little about me" />
         <Container>
@@ -90,12 +84,13 @@ const AboutPage = () => {
             <p>
               To keep track of the books I am reading
               with <Link to="https://www.goodreads.com/review/list/108722272?shelf=read&sort=date_read">Goodreads</Link>
-              . I&apos;m currently reading <CurrentlyReading />.
+              .
             </p>
             <p>
               I also keep a list of all the blog posts I've found and have read which you can see on
               my <Link to={'/resources/reading'}>reading list</Link>.
             </p>
+
             <hr/>
             <blockquote>
               <em>
@@ -111,5 +106,7 @@ const AboutPage = () => {
     </Layout>
   );
 };
+
+export const Head = () => <Meta title={'About me'} />
 
 export default AboutPage;

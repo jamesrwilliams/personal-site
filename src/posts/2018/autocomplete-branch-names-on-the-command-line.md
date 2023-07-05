@@ -20,4 +20,4 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 ```
 
-Source: <http://apple.stackexchange.com/questions/55875/how-can-i-get-git-to-autocomplete-e-g-branches-at-the-command-line/55886#55886>
+Source: http://apple.stackexchange.com/questions/55875/how-can-i-get-git-to-autocomplete-e-g-branches-at-the-command-line/55886#55886

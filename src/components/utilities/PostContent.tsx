@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { animationTiming, mediaQuery} from '../../theme/variables';
+import {mediaQuery} from '../../theme/variables';
 
 const PostContent = styled.div`
   margin-bottom: 2rem;
@@ -15,7 +15,7 @@ const PostContent = styled.div`
       fill: #01d8d1;
     }
 
-    color: ${(props) => props.theme.headingColor};
+    color: var(--typography-primary);
   }
 
   h2 {
@@ -38,8 +38,8 @@ const PostContent = styled.div`
     transform: skew(-15deg, 0);
 
     svg {
-      transition: all .3 ${animationTiming};
-      fill: ${(props) => props.theme.headingColor};
+      transition: all .3 var(--animation-timing);
+      fill: var(--typography-primary);
     }
   }
 
@@ -67,7 +67,7 @@ const PostContent = styled.div`
   pre {
     border-radius: .375rem;
     font-size: .777779em;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: 2em;
     padding: 1em 1.5em;
 

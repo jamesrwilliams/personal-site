@@ -1,11 +1,14 @@
-import Footer from './Footer/Footer';
-import Header from './Header/Header';
-import Hero from './Hero/Hero';
-import Layout from './layout/Layout';
+export * from './footer/Footer';
+export * from './header/Header';
+export * from './hero/Hero';
+export * from './layout/Layout';
+export * from './link/Link';
+export * from './page-header';
+export * from './page-header/PageHeader';
+export * from './post-list/PostList';
+export * from './post-tags/PostTags';
+export * from './utilities/Container';
+export * from './resources/';
 
-export {
-  Footer,
-  Header,
-  Hero,
-  Layout,
-};
+export * from './CarbonFootprint';
+export * from './ProfessionalExperience';
