@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "develop:opm": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop",
+    "develop:opm": "NODE_OPTIONS=--max-old-space-size=8192 gatsby develop -H 0.0.0.0",
     "develop:lan": "gatsby develop -H 0.0.0.0",
     "lint": "npx eslint .",
     "format": "prettier --write \"**/*.{js,jsx, json,md}\"",
@@ -35,7 +35,6 @@
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-manifest": "^5.10.0",
     "gatsby-plugin-mdx": "^5.10.0",
-    "gatsby-plugin-netlify": "^5.1.0",
     "gatsby-plugin-offline": "^6.10.0",
     "gatsby-plugin-sharp": "^5.10.0",
     "gatsby-plugin-sitemap": "^6.10.0",

@@ -177,7 +177,6 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-image',
-    'gatsby-plugin-netlify',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-offline',
     {

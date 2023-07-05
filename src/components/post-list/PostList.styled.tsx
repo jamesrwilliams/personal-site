@@ -14,6 +14,7 @@ export const PostListItem = styled.li`
   h3 {
     margin-bottom: 0;
     font-size: 1.25rem;
+    word-break: break-word;
   }
 
   span {
